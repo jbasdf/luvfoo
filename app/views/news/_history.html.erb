@@ -1,0 +1,11 @@
+<% unless news_items.empty? -%>
+	<div class="right" id="column_r">
+	  <div class="activity_box">
+	    <h2><%= title -%></h2>
+	    <ul id="post_history">
+	      <%= blogs_li news_items %>
+	    </ul>
+	  	<%= will_paginate -%>
+	  </div>
+	</div>
+<% end %>

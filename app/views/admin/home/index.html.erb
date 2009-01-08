@@ -1,0 +1,7 @@
+<div class="activity_box">
+  <h2><%= _('Administration') %></h2>
+	<p><%= _("There are currently %{count} users in the system") %{:count => @user_count} %></p>
+	<p><%= _("Out of that number %{count} users have not been activated") %{:count => @user_inactive_count} %></p>
+	<span class="link-button"><%= link_to _("Add New Story"), new_admin_member_story_path %></span>	
+	<span class="link-button"><%= link_to _("Add New Page"), new_admin_page_path %></span>
+</div>

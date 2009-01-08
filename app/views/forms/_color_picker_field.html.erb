@@ -1,0 +1,27 @@
+<% color = value
+	 html_id = '_' + id.to_s + '_' + field_name %>
+<div <%= wrapper_id.nil? ? '' : "id=\"#{wrapper_id}\"" -%> class="form-row color-selector-container">
+	<%= render :partial => 'forms/base_field', :locals => local_assigns %>
+	<div id="colorSelector<%=html_id%>" class="color-selector">
+		<div id="colorSelectorDisplay<%=html_id%>" style="background-color:#<%=color%>;"></div>
+	</div>
+	<script type="text/javascript" language="JavaScript">
+	jQuery(document).ready(function() {
+		jQuery('#colorSelector<%=html_id%>').ColorPicker({
+			color: '#<%=color%>',
+			onShow: function (colpkr) {
+				jQuery(colpkr).fadeIn(100);
+				return false;
+			},
+			onHide: function (colpkr) {
+				jQuery(colpkr).fadeOut(100);
+				return false;
+			},
+			onChange: function (hsb, hex, rgb) {
+				jQuery('#colorSelectorDisplay<%=html_id%>').css('backgroundColor', '#' + hex);
+				jQuery('#<%=field_name%>').val(hex);
+			}
+		});		
+	});
+	</script>
+</div>

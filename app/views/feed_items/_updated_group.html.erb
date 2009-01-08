@@ -1,0 +1,14 @@
+<%-
+feed_item ||= @feed_item
+group = feed_item.item
+-%>
+<div class="feed_item friend_feed" id="<%= feed_item.dom_id %>">
+<div class="left">
+  <img src="/images/blurp_groups.png" class="png icon_small" title="<%= _('Group Icon') %>" alt="<%= _('Group Icon') %>" /> 
+  <%= _("%{group_name} was updated") %{ :group_name => link_to(h(group.name), group_path(group))} -%>. 
+</div>
+<div class="right">
+  <%= x_feed_link(feed_item) %>
+</div>
+<div class="clear"></div>
+</div>

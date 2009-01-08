@@ -1,0 +1,801 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+}
+
+
+tr {
+  
+  text-align: left;
+  
+}
+
+
+div, address, ol, ul, li, option, select { 
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+}
+
+
+img {
+  -moz-force-broken-image-icon: 1;
+}
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+  }
+
+  
+    
+  body { 
+    min-height: 1100px; 
+  }
+  * html body { 
+    height: 1100px; 
+  }
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px;
+    padding: 40px 50px; 
+  }
+  /* IE6 */
+  * html {
+    overflow-y: scroll;
+  }
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  /* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+     targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+     That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+  html*#wys_frame::before {
+    content: '\A0';
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  
+
+  
+
+}
+
+h6 { font-size: 8pt }
+h5 { font-size: 8pt }
+h4 { font-size: 10pt }
+h3 { font-size: 12pt }
+h2 { font-size: 14pt }
+h1 { font-size: 18pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+a img {border: 0}
+
+.pb {
+  border-width: 0;
+  page-break-after: always;
+  /* We don't want this to be resizeable, so enforce a width and height
+     using !important */
+  height: 1px !important;
+  width: 100% !important;
+}
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0;
+  border-bottom: 1px dashed #C0C0C0;
+}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 3em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+  list-style-position: inside;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  
+  @media print {
+    body { 
+      padding: 0; 
+      margin: 0; 
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+
+    callout.google_footnote {
+      
+      display: prince-footnote;
+      footnote-style-position: inside;
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    #WritelyTableOfContents a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+    @footnotes {
+      border-top: solid black thin;
+      padding-top: 8pt;
+    }
+  }
+  /* end default print css */
+ 
+
+/* custom css */
+
+
+/* end custom css */
+
+
+
+  /* ui edited css */
+  
+  body {
+    font-family: Verdana;
+    
+    font-size: 10.0pt;
+    line-height: normal;
+    background-color: #ffffff;
+  }
+  /* end ui edited css */
+
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+.editor .writely-comment {
+  font-size: 9pt; 
+  line-height: 1.4; 
+  padding: 1px; 
+  border: 1px dashed #C0C0C0
+}
+
+
+/* end editor CSS */
+</style>
+
+
+<!-- base --></head><body onload="DoPageLoad();" revision="ddj846kv_28cbq7h8dt:292">
+
+    
+    
+    
+<font id="wzwl" size="6"><b id="du4z">Luvfoo Priorities and Roadmap</b></font><br>
+<br>
+Note: We have moved priorities into the
+<a href="http://spreadsheets.google.com/ccc?key=p0dJ-zGxvpAZ1QSsvaCoBdA&amp;hl=en" id="urtj" title="TWB Timeline Spreadsheet">TWB
+Timeline Spreadsheet</a><br id="c:f42">
+<h2 id="ova50">
+  Roadmap by Feature
+</h2>
+<font id="q5q3" size="3"><b id="q5q30">Featured Content<br id="flf9">
+</b></font>
+<ul id="flf90">
+  <li id="flf91">
+    <font id="flf92" size="3"><font id="flf93" size="2">Develop a site wide news system
+    that let's admins push news from member blogs or groups to the home
+    page.&nbsp; In addition, group managers should be able to push news to the
+    group home page.&nbsp; It would be nice to be able to attach news items to
+    the various widgets so they can highlight specific member or group news
+    items in various locations on the site.</font></font>
+  </li>
+  <li id="x:-j">
+    <font id="x:-j0" size="3"><font id="x:-j1" size="2">Make it possible for site admins
+    to filter / push images to the home page.<br id="x:-j2">
+    </font></font>
+  </li>
+</ul>
+<font id="flf96" size="3"><b id="flf97"><br id="dwfl">
+File upload + share<br id="wzwl0">
+</b></font>
+<ul id="nqpw">
+  <li id="nqpw0">
+    Let users upload files to their profile.
+  </li>
+  <li id="o.nd">
+    Files can be shared with other users or groups
+  </li>
+  <li id="r:5q">
+    Enable google docs integration via an open in google docs link
+  </li>
+  <li id="e9d9">
+    Enable integration with Amazon S3<br id="e9d90">
+  </li>
+  <li id="a154">
+    enable online conversion of documents into html
+  </li>
+  <li id="a1540">
+    enable collaborative editing of document within the site via fck editor and
+    juggernaut
+  </li>
+  <li id="hnw8">
+    <span id="z_2n" style="background-color: rgb(255, 242, 204);">Let users to upload files to
+    there projects (just officers or all the members - depend on the permission
+    that the officer gives)</span><br id="hnw80">
+  </li>
+</ul>
+<font id="nqpw4" size="3"><b id="nqpw5"><br id="dwfl0">
+Search<br id="hrjd">
+</b></font>
+<ul id="flf98">
+  <li id="flf99">
+    <font id="flf910" size="3"><font id="flf911" size="2">Develop a site wide content
+    search system</font></font>
+  </li>
+  <li id="flf912">
+    <font id="flf913" size="3"><font id="flf914" size="2">Figure out a search members
+    system.&nbsp; Part of the improve members page process.</font></font>
+  </li>
+  <ul id="ummr">
+    <li id="ummr0">
+      <font id="ummr1" size="3"><font id="ummr2" size="2">Enable recommendation
+      system.&nbsp; Suggest users that are interesting</font></font>
+    </li>
+    <li id="ummr3">
+      <font id="ummr4" size="3"><font id="ummr5" size="2">Let users import their contact
+      lists from GMail etc.&nbsp; Use that to search for potential
+      friends</font></font>
+    </li>
+    <li id="cph7">
+      <font id="cph70" size="3"><font id="cph71" size="2">Let users search for each
+      other via skills or interests</font></font>
+    </li>
+  </ul>
+  <li id="flf915">
+    <font id="flf916" size="3"><font id="flf917" size="2">Improve the groups listing
+    page.&nbsp; Allow for featured groups.&nbsp; Make groups discoverable.<br id="flf918">
+    </font></font>
+  </li>
+</ul>
+<font id="flf919" size="3"><b id="flf920"><br id="flf921">
+Groups<br id="g5e1">
+</b></font>
+<ul id="g5e10">
+  <li id="g5e11">
+    Improve group home page
+  </li>
+  <li id="kfp_">
+    Enable file upload directly into groups.&nbsp; Files uploaded here should
+    remain attached to the user doing the upload but be automatically shared
+    with the group. (and give synchronization editing on these documents - like
+    google docs).<br id="zipi">
+  </li>
+  <li id="af-6">
+    Let group admins send email to all members
+  </li>
+  <li id="af-60">
+    Integrate forums
+  </li>
+  <li id="ppeg">
+    Add voting/survey mechanism to groups
+  </li>
+  <li id="m8o_">
+    Analyze bookmarks shared by group members.&nbsp; Pull in rss from those
+    pages.
+  </li>
+  <ul id="fiu6">
+    <li id="fiu60">
+      Use recommender to suggest other interesting content<br id="fiu61">
+    </li>
+  </ul>
+  <li id="xpcx">
+    Add events to groups
+  </li>
+  <ul id="c0un">
+    <li id="c0un0">
+      Calendering
+    </li>
+    <li id="thd5">
+      Ability to create an impromptu event via SMS.&nbsp; Let users respond via
+      SMS
+    </li>
+    <li id="qfml">
+      Send out reminders via email, IM or SMS
+    </li>
+  </ul>
+  <li id="an3c">
+    Add ability to pull in posts(from member's external blogs) or news stories
+    (from member's internal blog) into the group automatically based on tags
+  </li>
+  <li id="rn2h">
+    Permissions
+  </li>
+  <ul id="rn2h0">
+    <li id="rn2h1">
+      Define roles:
+    </li>
+    <ul id="rn2h2">
+      <li id="rn2h3">
+        Pledge - User who has requested to join but not yet received approval
+      </li>
+      <li id="rn2h4">
+        Observer - User who has joined but cannot participate<br id="rn2h5">
+      </li>
+      <li id="rn2h6">
+        Member - User who has joined and can participate
+      </li>
+      <li id="rn2h7">
+        Manager - User who can can change role of other members except the
+        creator and other managers<br id="rn2h8">
+      </li>
+      <li id="rn2h9">
+        Creator - User who can change the role of anybody<br id="rn2h10">
+      </li>
+      <li id="rn2h11">
+        Alumni - User who once belonged but who wants to be listed but no longer
+        notified<br id="rn2h12">
+      </li>
+      <li id="rn2h13">
+        Banned - User banned from the group who cannot rejoin without admin
+        approval<br id="rn2h14">
+      </li>
+    </ul>
+    <li id="rn2h15">
+      Creator and managers can specify:<br id="rn2h16">
+    </li>
+    <ul id="rn2h17">
+      <li id="rn2h18">
+        Default role for new members
+      </li>
+      <li id="rn2h19">
+        Whether or not joining requires approval
+      </li>
+      <li id="rn2h20">
+        Whether or not the group shows up in the group index<br id="rn2h21">
+      </li>
+    </ul>
+  </ul>
+</ul>
+<br id="dbf7">
+<font id="m9s44" size="3"><b id="m9s45">Profile Page<br id="g5e17">
+</b></font>
+<ul id="g5e18">
+  <li id="g5e19">
+    Activity Feeds - Redo activity feeds so that they don't have to render by
+    pulling object data from the database every time.&nbsp; Instead it should be
+    outputing html with perhaps some simple text substitution for the user name,
+    friends etc - like the facebook api
+  </li>
+  <li id="g5e110">
+    Add ability to invite someone to a group right from their profile
+  </li>
+  <li id="nx7b">
+    Fix portfolio integration with eduCommons<br id="ex_g">
+  </li>
+  <li id="ex_g0">
+    Add user stats and integrate with Twitter
+  </li>
+  <li id="d00a">
+    Pull in posts from a user's blog
+  </li>
+  <li id="kww4">
+    Pull in bookmarks from user's delicious
+  </li>
+  <li id="kww40">
+    Fix flickr integration
+  </li>
+  <li id="givh">
+    Consider other services that might be worth pulling in that express a user's
+    identity (make the site more fun)<br id="s4w8">
+  </li>
+  <li id="z755">
+    What does it mean when I click the x next to a feed item?
+  </li>
+  <li id="q27a">
+    <span id="e8d5" style="background-color: rgb(255, 242, 204);">add ability to rank people
+    automatically by there posts and efforts they put on the
+    site.</span><br id="q27a0">
+  </li>
+</ul>
+<br id="aa1.">
+<font id="dwfl7" size="3"><b id="dwfl8">Communication<br id="aa1.0">
+</b></font>
+<ul id="j76:">
+  <li id="j76:0">
+    Send out more notifications to users via email.<br id="e8d50">
+  </li>
+  <ul id="e8d51">
+    <li id="e8d52">
+      Let them know when a comment is made.
+    </li>
+    <li id="e8d53">
+      there are changes in groups
+    </li>
+    <li id="e8d54">
+      there is friend activity
+    </li>
+    <li id="e8d55">
+      new messages are received.
+    </li>
+  </ul>
+  <li id="e8d56">
+    <span id="u_7f" style="background-color: rgb(255, 242, 204);">Adding permission system - and
+    let the user to avoid this messages if he likes to.</span><br id="e8d57">
+  </li>
+</ul>
+<br id="dwfl6">
+<font id="aa1.2" size="3"><b id="aa1.3">CMS<br id="jfga">
+</b></font>
+<ul id="q183">
+  <li id="q1830">
+    Build out static page system
+  </li>
+  <li id="auc2">
+    Add zip file upload to add large numbers of files quickly<br id="auc20">
+  </li>
+  <li id="ijpi">
+    Enable FCK editor
+  </li>
+  <li id="vgwa">
+    Enable CMS for users
+  </li>
+  <ul id="w2wy">
+    <li id="w2wy0">
+      Integrate file and photos so that a user can insert their stuff into a new
+      page<br id="w2wy1">
+    </li>
+  </ul>
+  <li id="su_6">
+    Enable CMS for groups
+  </li>
+  <li id="ud:0">
+    Enable Send2Wiki like functionality for CMS pages<br id="ud:00">
+  </li>
+  <li id="ijpi0">
+    Add Juggernaut to allow for simultaneous editing of files
+  </li>
+  <li id="kfef">
+    Add ability to attach assignments and/or quizzes to content
+  </li>
+  <ul id="kfef0">
+    <li id="kfef1">
+      Will need a way to gather responses<br id="kfef2">
+    </li>
+  </ul>
+</ul>
+<br id="ydm.">
+<font id="j77c5" size="3"><b id="j77c6">Themes<br id="j81o">
+</b></font>
+<ul id="j81o0">
+  <li id="j81o1">
+    Enable theming engine so that the site is easier to deploy for 3rd parties<br id="d-4g">
+  </li>
+  <li id="d-4g0">
+    Create a default theme.&nbsp;<br id="d-4g1">
+  </li>
+</ul>
+<br id="svlr">
+<font id="dbf70" size="3"><b id="dbf71">API<br id="svlr0">
+</b></font>
+<ul id="n:8q">
+  <li id="n:8q0">
+    Add blogger or moveable type API so that users can add content from a
+    standard blogging utility
+  </li>
+  <li id="u5mf">
+    Enable integration with Google docs via this mechanism.&nbsp; Users can
+    publish from their Google docs directly to the site<br id="u5mf0">
+  </li>
+</ul>
+<font id="xs2-" size="3"><b id="xs2-0"><br id="ry1x">
+SMS<br id="ry1x0">
+</b></font>
+<ul id="m9s4">
+  <li id="m9s40">
+    Add SMS capability so that the system can send out alerts to members.
+  </li>
+  <li id="gpeo">
+    Let friends SMS friends
+  </li>
+  <li id="bbld">
+    Enable SMS for groups<br id="bbld0">
+  </li>
+</ul>
+<font id="q1831" size="3"><b id="q1832"><br id="j77c">
+Localization<br id="j77c0">
+</b></font>
+<ul id="j77c1">
+  <li id="j77c2">
+    Enable Google Translation integration
+  </li>
+  <li id="j77c3">
+    Get volunteers to translate the site into multiple languages<br id="j77c4">
+  </li>
+</ul>
+<font id="j81o5" size="3"><b id="j81o6"><br id="mkna">
+Administration<br id="mkna0">
+</b></font>
+<ul id="o.5v">
+  <li id="vkht0">
+    Build admin system to let users control site settings
+  </li>
+  <li id="hchq">
+    Let admins send out newsletters or SMS alerts to all members of the site
+  </li>
+  <li id="c4cv">
+    Let admins monitor and ban users or content
+  </li>
+  <li id="ckrj">
+    Let site admins choose a theme for the site<br id="ckrj0">
+  </li>
+</ul>
+<font id="mkna2" size="3"><b id="mkna3"><br id="u4f6">
+Users<br id="a_tr">
+</b></font>
+<ul id="a_tr0">
+  <li id="a_tr1">
+    Generalize profile system so that any fields can be added/remove
+  </li>
+  <li id="xp1i">
+    Integrate new profile system with Salesforce<br id="xp1i0">
+  </li>
+</ul>
+<font id="a_tr5" size="3"><b id="a_tr6"><br id="c.v8">
+Relations/Friends<br id="omg4">
+</b></font>
+<ul id="omg40">
+  <li id="omg41">
+    Modify friend relationship system to use follow, friend and mentor
+  </li>
+  <li id="uvhg">
+    Add a direct link for accepting a friend to the friend request email
+  </li>
+  <li id="uvhg0">
+    When click on request link, change immediately to sending request... to
+    indicate activity
+  </li>
+  <li id="uvhg1">
+    Provide a quick link for getting back to looking at people
+  </li>
+  <li id="uvhg2">
+    Add the ability to request friends from the profile index page (people you
+    know well
+  </li>
+</ul>
+<font id="omg44" size="3"><b id="omg45"><br id="rgr.">
+Photos<br id="rgr.0">
+</b></font>
+<ul id="rgr.1">
+  <li id="rgr.2">
+    Make home page photos display in a light box when click on<br id="mj7v">
+  </li>
+  <li id="mj7v0">
+    Improve experience.&nbsp; Let users and groups upload photos into
+    galleries.&nbsp;<br id="n1:y">
+  </li>
+  <li id="r72a0">
+    Integrate with Amazon S3<br id="eswe">
+  </li>
+</ul>
+<font id="rgr.3" size="3"><b id="rgr.4"><br id="b1d8">
+Sharing<br id="b1d80">
+</b></font>
+<ul id="vpfz">
+  <li id="vfcq0">
+    Hook link sharing into alexa images so we can show a screen shot of the
+    website a user has shared
+  </li>
+</ul>
+<font id="gvwt0" size="3"><b id="gvwt1"><br id="wfq.">
+Chat<br id="wfq.0">
+</b></font>
+<ul id="d2a6">
+  <li id="d2a60">
+    Use juggernaut to add chat functionality
+  </li>
+</ul>
+<font id="d2a64" size="3"><b id="d2a65"><br id="wfq.1">
+Redesign<br id="y3ol0">
+</b></font>
+<ul id="o8l5">
+  <li id="o8l50">
+    Examine each page for usability.<br id="y983">
+  </li>
+</ul>
+<font id="o8l51" size="3"><b id="o8l52"><br id="st3n">
+Sitemaps<br id="st3n0">
+</b></font>
+<ul id="st3n1">
+  <li id="st3n2">
+    Add ability to create an xml site map for crawlers<br id="xpl7">
+  </li>
+</ul>
+<font id="st3n6" size="3"><b id="st3n7"><br id="jddg">
+Maintenance<br id="jddg0">
+</b></font>
+<ul id="yhkc">
+  <li id="yhkc0">
+    Remove dependency on prototype.&nbsp; Use only jQuery to reduce script size.
+  </li>
+  <li id="yvpr">
+    Clean up stylesheet<br id="yvpr0">
+  </li>
+  <li id="k1m.0">
+    Fix broken tests.
+  </li>
+  <li id="yhkc1">
+    Add new tests as we review code
+  </li>
+</ul>
+<br id="ac93">
+<font id="f6qc" size="3"><b id="f6qc0">Deployment<br id="f6qc1">
+</b></font>
+<ul id="f6qc2">
+  <li id="f6qc3">
+    Ensure every field where a user can input data is sanitized to prevent xss<br id="f6qc4">
+  </li>
+</ul>
+<br id="f6qc5">
+<font id="f6qc6" size="3"><b id="f6qc7">Deployment<br id="ac930">
+</b></font>
+<ul id="apj7">
+  <li id="apj70">
+    Look at ways to easily deploy the site via cap to providers like Morph
+  </li>
+  <li id="dn6b">
+    Enable backup of database via rake task to Amazon S3 (perhaps automate via a
+    background task)<br id="dn6b0">
+  </li>
+</ul>
+<font id="apj73" size="3"><b id="apj74"><br id="ehip">
+Performance<br id="s7s1">
+</b></font>
+<ul id="v9lu">
+  <li id="nlp60">
+    Are gravatar's causing us to be sluggish?
+  </li>
+  <li id="mz1a">
+    Set up multiple mongrel processes
+  </li>
+  <li id="mz1a0">
+    Set up 3 subdomain asset hosts
+  </li>
+  <li id="mz1a1">
+    Analyze and optimize queries on each page
+  </li>
+  <li id="skxb">
+    Use Rails caching
+  </li>
+  <li id="b1d81">
+    Asynchronously load non-essential stuff
+  </li>
+</ul>
+<br id="ac932">
+<br id="t7ze2">
+<br></body></html>

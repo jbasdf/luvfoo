@@ -1,0 +1,17 @@
+<h1><%= _('Editing role') %></h1>
+
+<%= error_messages_for :role %>
+
+<% form_for(admin_roles_path(@role)) do |f| %>
+  <p>
+    <b><%= _('Rolename') %></b><br />
+    <%= f.text_field :rolename %>
+  </p>
+
+  <p>
+    <%= f.submit _('Update') %>
+  </p>
+<% end %>
+
+<%= link_to _('Show'), @role %> |
+<%= link_to _('Back'), admin_roles_path %>

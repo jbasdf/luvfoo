@@ -1,0 +1,12 @@
+<div class="left group-news-item-title">
+	<div class="left news-icon">
+		<%= link_to icon_tag(news_item_title, :small), group_news_path(@group, news_item_title) %>
+	</div>
+	<div class="right">
+		<h3><%= link_to "#{sanitize textilize(news_item_title.title)}", group_news_path(@group, news_item_title) %></h3>
+		<p>
+			<%= summarize(news_item_title.body, 160) %>
+		  <%= link_to _('Read More &gt;&gt;'), group_news_path(@group, news_item_title) %>
+		</p>
+	</div>
+</div>

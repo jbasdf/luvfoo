@@ -1,0 +1,20 @@
+<div class="left forum" id="column_l">
+	<h1><%= _('%{group_name} Forum') % {:group_name => @group.name}%></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="forum-container" class="activity_box">
+    <h2><%= _('New Post - Reply to %{name}') % {:name => @topic.title} %></h2>
+    <%= error_messages_for :topic %>
+    <%= error_messages_for :post %>
+    <%= render :partial => 'posts/new' %>
+    <span class="button_or"><%= _("or") %> <%= link_to(_('Cancel'), group_forum_topic_path(@group, @forum, @topic, :page => @page, :per_page => @per_page)) %></span>
+  </div>
+</div>
+<div class="right" id="column_r">
+  <%= render :partial => 'groups/group_info' %>
+	<%= render :partial => 'forums/info' %>
+</div>
+
+
+
+
+    

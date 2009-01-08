@@ -1,0 +1,30 @@
+<%
+message ||= @message
+message ||= Message.new params[:message]
+to_list ||= @to_list
+to_list ||= [@user] #used on someone's profile page
+%>
+<div class="thickbox_form">
+	<% remote_form_for :message, :url => messages_path do |f| %>
+		
+		<div class="row">
+			<label for=""><%= _('To:') %></label>
+			<%= f.collection_select(:receiver_id, to_list, :id, :full_name) %>	
+		</div>
+	
+		<div class="row">
+			<label for=""><%= _('Subject:') %></label>
+			<%= f.text_field :subject %>
+		</div>
+		
+		<div class="row">
+			<label for=""><%= _('Body:') %></label>
+			<%= f.text_area :body %>
+		</div>
+		
+		<div class="row button">
+		  <%= submit_tag _('Send Message'), :class=>'button' %>
+		</div>
+
+	<%end %>
+</div>

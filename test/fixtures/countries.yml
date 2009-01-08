@@ -1,0 +1,34 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: countries
+#
+#  id           :integer(4)    not null, primary key
+#  name         :string(128)   default(""), not null
+#  abbreviation :string(3)     default(""), not null
+#
+
+# == Schema Information
+# Schema version: 20080806000016
+#
+# Table name: countries
+#
+#  id           :integer(11)   not null, primary key
+#  name         :string(128)   default(""), not null
+#  abbreviation :string(3)     default(""), not null
+#
+cocos: 
+  name: cocos (Keeling) Islands
+  abbreviation: CC
+
+egypt: 
+  name: egypt
+  abbreviation: EG
+
+guam: 
+  name: guam
+  abbreviation: GU
+
+usa: 
+  name: United States of America
+  abbreviation: US

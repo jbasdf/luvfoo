@@ -1,0 +1,37 @@
+<div id="decline_request_to_join" class="hidden">
+	<%= render :partial => 'messages/decline', :locals => {:hide_header => true} %>
+</div>
+<% if !(@user.followers.empty? && @user.unread_messages.empty? && @user.pledge_requests.empty?) %>
+  <div id="notifications" class="activity_box">
+  	<h2><%= _('Notifications') %></h2>
+	  <ul>
+			<% if !GlobalConfig.allow_following -%>
+	    	<% @user.followers.each do |follower| %>
+		      <li>
+				<%= _("%{profile} requests to be your Friend %{accept} %{ignore}") % {:profile => link_to(h(follower.full_name), profile_path(follower)), 
+					:accept => accept_follower_link(current_user, follower),
+					:ignore => ignore_friend_request_link(current_user, follower) } -%></li>
+	      <% end %>
+			<% end %>
+	    <% @user.pledge_requests.each do |pledge| %>
+	      <li><%= _("%{profile} requests to join %{group_link} group %{admin_links}") % {
+				:profile => link_to(h(pledge.full_name), profile_path(pledge)), 
+				:group_link => link_to(h(pledge.group_name), group_path(pledge.url_key)),
+				:admin_links => pledge_admin_links(pledge) } -%>
+				</li>
+      <% end %>
+	<!--
+	      <li>Site: maintenance messages</li>
+	      <li>Groups: upcoming events, requests for participations in projects</li>
+	      <li>People: friend requests, new messages</li>
+	-->
+	  </ul>
+  </div>
+<% end %>
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function(){
+	jQuery(".notification-link").click(function(){
+		jQuery(this).parent().parent().fadeOut();
+  });
+});
+</script>

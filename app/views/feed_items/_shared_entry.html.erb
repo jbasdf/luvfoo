@@ -1,0 +1,13 @@
+<% 
+shared_entry = feed_item.item
+entry = shared_entry.entry
+entry_link = entry.google_doc ? user_shared_entry_path(@user, shared_entry) : entry.permalink  
+-%>
+<div class="feed_item friend_feed" id="<%= feed_item.dom_id %>">
+	<div class="left">
+	  <img src="/images/blurp_thumb_small.png" class="png icon_small" title="<%= _('Shared Page Icon') %>" alt="<%= _('Shared Page Icon') %>" /> 
+		<%= _('%{link_to_user} shared %{share_link} with you.') % {:link_to_user => link_to(h(shared_entry.shared_by.full_name), profile_path(shared_entry.shared_by)), :share_link => link_to(sanitize(entry.title), entry_link)} %>
+        <div><%= body_content entry %></div>  
+	</div>
+	<div class="clear"></div>
+</div>

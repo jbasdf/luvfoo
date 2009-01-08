@@ -1,0 +1,6 @@
+<% if !@user.groups.empty? %>
+  <div id="user_groups" class="activity_box">
+  	<h2><%= _('My Groups') %> <span><%= link_to _('Create a New Group'), new_user_group_path(current_user) %></span></h2>
+    <%= render :partial => 'groups/group_small', :collection => @user.groups %>
+  </div>
+<% end %>

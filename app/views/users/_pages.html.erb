@@ -1,0 +1,14 @@
+<% if is_admin? && !@content_pages.empty? %>
+  <div id="pages_actions" class="activity_box">
+<!--  	<h2>Pages <span><%= link_to _('Add a Page'), new_user_page_path(@user) %></span></h2> -->
+  	<h2><%= _('Pages') %> <span><%= link_to _('Add a Page'), new_site_page_path %></span></h2>
+  	<ul>
+  	    <% @user.content_pages.each do |page| %>
+        <li>
+            <%#= link_to h(page.name), user_page_path(:user_id => current_user.login, :locale => locale.to_s, :content_page => page.url_key) %>
+            <%= link_to h(page.name), site_page_path(:locale => locale.to_s, :content_page => page.url_key) %>
+        </li>
+        <% end %>
+  	</ul>
+  </div>
+<% end %>

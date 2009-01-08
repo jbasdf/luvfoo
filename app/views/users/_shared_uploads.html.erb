@@ -1,0 +1,14 @@
+<% if !@shared_uploads.empty? %>
+  <div id="shared-files" class="activity_box">
+  	<h2><%= _('Shared Files') %> <%= link_to _("View All"), for_me_shared_uploads_path(:user_id => @user) -%></h2>
+	  <ul>
+	    <% @shared_uploads.each do |shared_upload| %>
+        <li id="shared_upload_<%= shared_upload.id %>">
+					<%= icon_for shared_upload.upload -%>
+					<a href="<%=shared_upload.upload.public_filename%>"><%= truncate(sanitize(shared_upload.upload.filename), 100) %>
+					<%= link_to _("%{icon}") % {:icon => image_tag('delete.png', :class => 'png', :width=>'12', :height=>'12')}, user_shared_upload_path(@user, shared_upload), :method => :delete, :title => _("Stop Sharing") -%>
+				</li>
+      <% end %>
+	  </ul>
+  </div>
+<% end %>

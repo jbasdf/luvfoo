@@ -1,0 +1,12 @@
+body{background:#<%=global_site.background_color%>;font-size:<%=global_site.font_size%>;font-family:<%=global_site.font_style%>;}
+a{font-family:<%=global_site.a_font_style%>;color:#<%=global_site.a_font_color%>;}
+<% if global_site.logo -%>
+#top{background:url(<%=global_site.logo.public_filename%>);}
+<% else -%>
+#top{background:url(/images/home-logo.jpg);}
+<% end -%>
+#content{color:#<%=global_site.font_color%>;background:#<%=global_site.content_background_color%>;}
+#top-navigation{color:#<%=global_site.top_color%>;background:#<%=global_site.top_background_color%>;}
+.activity_box{border-top:4px solid #<%=global_site.highlight_color%>;}
+.activity_box h2{border-bottom:1px dotted #<%=global_site.highlight_color%>;}
+.link-button a,#group_nav a{background:#<%=global_site.link_button_background_color%>;color:#<%=global_site.link_button_font_color%>;}

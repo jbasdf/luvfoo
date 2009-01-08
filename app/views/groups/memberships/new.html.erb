@@ -1,0 +1,35 @@
+<div style="width:500px;margin:20px auto;">	
+	<h1><%= _("Join %{group_name}") % {:group_name => sanitize(@group.name) } -%></h1>
+	
+	<div class="activity_box">
+    <% if @group.icon -%>
+    	<div style="text-align:center;width:200px;">
+    	  <%= icon @group, :bigger -%>
+    	</div>
+      <div id="information" style="width:290px;" class="padded">
+    <% else -%>
+      <div id="information" class="padded">
+    <% end -%>  
+    	<h2><%= _('Information') %></h2>
+    	<%= sanitize textilize(@group.description) -%>
+    </div>
+  </div>  
+  
+	<div id="join_group" class="padded">
+  	<% form_for(:membership, :url => group_memberships_path(@group), :html => {:id => "#{dom_id(@group)}_membership_form"} ) do |f| %>
+    	<div>
+        <% if @group.requires_approval_to_join == true %>	
+      		<p><%= _('Membership in the group %{group_name} requires approval from a group administrator.') % {:group_name => h(@group.name)} %></p>
+      		<p><%= _('Would you like to request membership in the group %{group_name}?') % {:group_name => h(@group.name)} %></p>
+        <% else %>
+      		<p><%= _('<b>%{group_name}</b> is an open group that anyone can join.') % {:group_name => h(@group.name)} %></p>
+      		<p><%= _('Would you like to join <b>%{group_name}</b>?') % {:group_name => h(@group.name)} %></p>
+        <% end %>
+      	<div class="row button center">
+      	  <%= f.submit _('Join'), :class=>"button", :id => "join_button" %>
+      	</div>
+      	<div class="clear"></div>
+      </div>
+    <% end %>
+  </div>
+</div>

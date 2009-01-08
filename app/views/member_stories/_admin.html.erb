@@ -1,0 +1,4 @@
+<% if is_admin? -%>
+<p><%= link_to _('Edit'), edit_admin_member_story_path(member_story), :title => _('Edit this news story.') -%> |
+	 <%= link_to _('Delete'), admin_member_story_path(member_story), :method => :delete, :title => _('Delete this news story.') -%></p>
+<% end -%>

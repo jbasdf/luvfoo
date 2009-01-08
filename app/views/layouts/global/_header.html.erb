@@ -1,0 +1,69 @@
+<div id="top-navigation">
+  <form action="/search" style='margin:0px;padding:0px;'>
+		<ul class="top-nav">
+			<li class="first"><a href="http://<%= GlobalConfig.application_url %>/home"><%= _('Home') %></a></li>
+			<li><a href="<%= groups_path %>"><%= _('Groups') %></a></li>
+			<li><a href="<%= profiles_path %>"><%= _('People') %></a></li>
+			<li><a href="<%= news_index_path %>"><%= _('News') %></a></li>
+			<li><a href="http://courses.<%= GlobalConfig.application_base_url %>"><%= _('Courses') %></a></li>
+			<li><a href="/pages/support-us"><%= _('Donate') %></a></li>			
+		</ul>
+		<div id="log-out" class="right">
+			<span id='search'>
+		  	<script type='text/javascript'>function searchClicked(){sb=document.getElementById('search_box');sb.style.color='black';if (sb.value == 'Search') sb.value='';}</script>
+		  	<input id='search_box' type='text' name='q' value='<%= _('Search') %>' onclick='searchClicked();'/>
+	      <button style='height:22px;'><span style='line-height:13px;vertical-align:middle;'><%= _('Go') %></span></button>
+	    </span>
+			<% if logged_in? -%>
+				<%= link_to _('My Dashboard'), user_path(current_user) %>
+				<%= link_to current_user.login, profile_path(current_user) %>
+				<%= link_to _('Logout'), logout_path %>
+			<% else -%>
+				<%= _("%{login_link} %{signup_link}") % {:login_link => link_to(_('Login'), login_path), :signup_link => link_to(_('Sign-up'), signup_path)} %>
+			<% end -%>
+		</div>
+  </form>
+</div>
+
+<div class="clear"></div>
+
+<div id="top">
+	<h1><%= link_to(global_site.title , home_path) %></h1>
+	<h2><%= global_site.subtitle %></h2>
+  <div id="tagline" class="right">
+		<div id="top-links"><%= global_site.slogan %></div>		
+		<table id="translation" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><a id="flag_en" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>" hreflang="en" name="flag_en"><img id="flag_img_en" src="/images/flags/flag_en.png" alt="English flag" title="English" border="0" name="flag_img_en"></a></td>
+        <td><a id="flag_it" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=it&u=<%=request.url%>" hreflang="it" name="flag_it"><img id="flag_img_it" src="/images/flags/flag_it.png" alt="Italian flag" title="Italian" border="0" name="flag_img_it"></a></td>
+        <td><a id="flag_ko" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=ko&u=<%=request.url%>" hreflang="ko" name="flag_ko"><img id="flag_img_ko" src="/images/flags/flag_ko.png" alt="Korean flag" title="Korean" border="0" name="flag_img_ko"></a></td>
+        <td><a id="flag_zh-CN" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=zh-CN&u=<%=request.url%>" hreflang="zh-CN" name="flag_zh-CN"><img id="flag_img_zh-CN" src="/images/flags/flag_zh-CN.png" alt="Chinese (Simplified) flag" title="Chinese (Simplified)" border="0" name="flag_img_zh-CN"></a></td>
+        <td><a id="flag_pt" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=pt&u=<%=request.url%>" hreflang="pt" name="flag_pt"><img id="flag_img_pt" src="/images/flags/flag_pt.png" alt="Portuguese flag" title="Portuguese" border="0" name="flag_img_pt"></a></td>
+        <td><a id="flag_de" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=de&u=<%=request.url%>" hreflang="de" name="flag_de"><img id="flag_img_de" src="/images/flags/flag_de.png" alt="German flag" title="German" border="0" name="flag_img_de"></a></td>
+        <td><a id="flag_fr" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=fr&u=<%=request.url%>" hreflang="fr" name="flag_fr"><img id="flag_img_fr" src="/images/flags/flag_fr.png" alt="French flag" title="French" border="0" name="flag_img_fr"></a></td>
+        <td><a id="flag_es" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>" hreflang="es" name="flag_es"><img id="flag_img_es" src="/images/flags/flag_es.png" alt="Spanish flag" title="Spanish" border="0" name="flag_img_es"></a></td>
+        <td><a id="flag_ja" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=ja&u=<%=request.url%>" hreflang="ja" name="flag_ja"><img id="flag_img_ja" src="/images/flags/flag_ja.png" alt="Japanese flag" title="Japanese" border="0" name="flag_img_ja"></a></td>
+        <td><a id="flag_ar" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=ar&u=<%=request.url%>" hreflang="ar" name="flag_ar"><img id="flag_img_ar" src="/images/flags/flag_ar.png" alt="Arabic flag" title="Arabic" border="0" name="flag_img_ar"></a></td>
+        <td><a id="flag_ru" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=ru&u=<%=request.url%>" hreflang="ru" name="flag_ru"><img id="flag_img_ru" src="/images/flags/flag_ru.png" alt="Russian flag" title="Russian" border="0" name="flag_img_ru" style="margin-right:40px;"></a></td>
+      </tr>
+    </table>    
+	</div>
+</div>
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  jQuery("#flag_en").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>";
+  jQuery("#flag_it").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=it&u=<%=request.url%>";
+  jQuery("#flag_ko").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ko&u=<%=request.url%>";
+  jQuery("#flag_zh-CN").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=zh-CN&u=<%=request.url%>";
+  jQuery("#flag_pt").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=pt&u=<%=request.url%>";
+  jQuery("#flag_de").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=de&u=<%=request.url%>";
+  jQuery("#flag_fr").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=fr&u=<%=request.url%>";
+  jQuery("#flag_es").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>";
+  jQuery("#flag_ja").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ja&u=<%=request.url%>";
+  jQuery("#flag_ar").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ar&u=<%=request.url%>";
+  jQuery("#flag_ru").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ru&u=<%=request.url%>";	
+});
+</script>

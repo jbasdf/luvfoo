@@ -1,0 +1,16 @@
+<% form_for([@user, @upload, @shared_upload]) do |f| %>
+	<h1>
+	  <%= _('Share File') %>
+	</h1>
+
+	<%= render :partial => "shared/share_list" %>
+
+	<div class="row">
+		<input type="checkbox" id="public" name="public" /> <%= _('Make the file public so anyone can see it') %>
+	</div>
+	
+	<div class="row button">
+		<%= f.submit _("Share It!"), :class=>"button" %>
+	  <%= link_to _("Go Back"), user_uploads_path(@user) %>
+	</div>
+<% end %>

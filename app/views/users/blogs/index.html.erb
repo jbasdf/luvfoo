@@ -1,0 +1,26 @@
+<div class="activity_box">
+  <h1><%= _('My Blog') %> <span class="link-button"><%= link_to _("Write New Blog Post"), new_user_blog_path %></span></h1>
+		<% if @blogs.empty? -%>
+	    <p><%= _("You have no blog posts.") %></p>
+		<% else -%>
+		<table class="news">
+			<thead>
+			<tr>
+				<th><%= _('Title') %></th>
+				<th><%= _('Summary') %></th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+			<% @blogs.each do |blog| -%>
+			<tr>
+				<td><%= link_to "#{summarize(blog.title, 80)}", profile_blog_path(@user, blog) %></td>
+				<td><%= summarize(blog.body, 50) %></td>
+				<td><%= render :partial => 'admin_links', :locals => { :blog => blog } -%></td>
+			</tr>
+			<% end -%>
+			</tbody>
+		</table>
+		<%= will_paginate @blogs %>
+	<% end -%>
+</div>

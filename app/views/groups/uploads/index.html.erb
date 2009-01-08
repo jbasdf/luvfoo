@@ -1,0 +1,23 @@
+<div class="left" id="column_l">	
+	<h1><%= @group.name %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="uploads" class="activity_box">
+		<h2><%= _('Files') %></h2>
+		<%= render :partial => 'uploads/uploads', :locals => {:share => false, :parent => @parent} -%>
+    <div class="clear">
+  		<%= will_paginate @uploads %>
+		</div>
+  </div>
+	<div class="clear"></div>
+</div>
+<div class="right" id="column_r">
+	<% if @group.can_edit?(current_user) -%>
+	<div id="upload-files" class="activity_box">
+		<h2>Upload Files</h2>
+		<%= error_messages_for :upload %>
+		<%= render :partial => 'uploads/swf_upload', :locals => {:parent => @parent} -%>
+	</div>
+	<div class="clear"></div>
+	<% end -%>
+	<%= render :partial => 'groups/group_info' %>
+</div>

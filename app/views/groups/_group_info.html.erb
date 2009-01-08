@@ -1,0 +1,27 @@
+<div id="join">
+	<% if logged_in? -%>
+		<% if @group.is_member?(current_user) -%>
+			<%= render :partial => 'groups/member_controls' -%>
+		<%elsif @group.is_pending_member?(current_user)%>
+			<%= _('Your request to join is pending approval') %>
+		<%else%>
+			<%= render :partial => 'groups/join_controls' -%>
+		<%end%>
+	<% else -%>
+    <%= _('<span class="link-button">%{login_link}</span> or <span class="link-button">%{join_link}</span> before joining this group') % {:login_link => link_to(_('Login'), login_path), :join_link => link_to(_('Signup'), signup_path) } %>
+	<% end -%>
+</div>
+<% if @group.icon -%>
+	<div style="text-align:center"><%= icon @group, :bigger -%></div>
+<% else -%>
+	<% if manager? -%>
+		<div><%= link_to _('Add Group Image'), edit_group_path(@group) %></div>
+	<% end -%>
+<% end -%>
+
+<div id="information" class="activity_box">
+	<h2><%= _('Description') %></h2>
+	<%= sanitize textilize(@group.description) -%>
+</div>
+
+<div class="clear"></div>

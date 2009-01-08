@@ -1,0 +1,24 @@
+<div id="forum-container">
+  <div class="left forum" id="column_l">
+    <%= yield :monitor %>
+    <div class="crumbs">
+      <%= link_to _("Forums"), forums_path %> <span class="arrow">&rarr;</span>
+      <%= link_to h(@topic.forum.name), forum_path(@topic.forum) %> 
+      <% page=session[:forum_page] ? session[:forum_page][@topic.forum.id] : nil
+      if page and page!=1 %>
+        <small style="color:#ccc">
+          (<%= link_to _('page %{page}') % {:page => page}, forum_path(:id => @topic.forum, :page => page) %>)
+        </small>
+      <% end %>
+      <span class="arrow">&rarr;</span>
+    </div>
+    <%=render :partial => 'topics/show'%>
+    <div class="crumbs" style="margin-top:1.1em;">
+      <%= link_to _("Forums"), forums_path %> <span class="arrow">&rarr;</span>
+      <%= link_to h(@topic.forum.name), forum_path(@topic.forum) %> <span class="arrow">&rarr;</span>
+    </div>
+  </div>
+  <div class="right" id="column_r">
+  	<%= render :partial => 'forums/info' %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<h1><%= _('New role') %></h1>
+
+<%= error_messages_for :role %>
+
+<% form_for @role, :url => admin_role_path(@role) do |f| %>
+  <p>
+    <b><%= _('Rolename') %></b><br />
+    <%= f.text_field :rolename %>
+  </p>
+
+  <p>
+    <%= f.submit _('Create') %>
+  </p>
+<% end %>
+
+<%= link_to _('Back'), admin_roles_path %>

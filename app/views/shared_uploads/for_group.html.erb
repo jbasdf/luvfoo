@@ -1,0 +1,22 @@
+<% can_edit = manager? -%>
+<div id="uploads">
+	
+	<h1><%= sanitize textilize(@group.name) -%></h1>
+	<%= render :partial => 'groups/group_nav' %>
+
+	<table class="clear">
+		<thead>
+			<tr>
+				<th></th>
+				<th>File Name</th>
+				<% if can_edit -%>
+				<th></th>	
+				<% end -%>
+			</tr>
+		</thead>			
+		<tbody id="upload-list" >
+			<%= render :partial => 'shared_group_row', :collection => @shared_uploads, :locals => {:style => '', :can_edit => can_edit} -%>
+		</tbody>
+	</table>
+	<%= will_paginate @shared_uploads %>
+</div>

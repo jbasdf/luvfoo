@@ -1,0 +1,12 @@
+<h4><%= portfolio.title %></h4>
+
+<ol id="profile-ctm">
+<% portfolio.entries.each do |i| -%>
+	<li><strong><a href='<%= i.url %>/eca_anon_view'><%= i.title %></a></strong><br/>
+		<% if defined?(i.date) -%>
+  		<small>Added on <%= i.date.strftime("%m/%d/%Y") %> at <%= i.date.strftime("%I:%M%p") %></small><br/>
+    <% end -%>
+    <%= i.content %>
+   </li>
+<% end -%>
+</ol>

@@ -1,0 +1,81 @@
+<div class="left" id="column_l">	
+	<h1><%= sanitize textilize(@group.name) -%></h1>
+<% if @visible -%>
+	<%= render :partial => 'groups/group_nav' %>
+	<div id="news" class="activity_box">
+		<h2><%= _('News') -%> <span><a href="<%= group_news_index_path(@group) %>" class="view-all"><%= _('View All') %></a> 
+			<% if manager? || is_admin? -%>| <a href="<%= new_group_news_path(@group) %>" class="view-all"><%= _('Add News') %></a><% end -%></span>
+		</h2>
+	  <%= render :partial => 'groups/news/news_item_title', :collection => @news -%>
+    <div class="clear"></div>
+	</div>
+	
+	<div class="clear"></div>
+	
+	<div id="wall" class="activity_box">
+		<h2><%= _('Member Comments') %> 
+        <span><a href="<%=group_comments_path(@group)%>" class="view-all"><%= _('View All') %></a>
+		  <% if can_participate? -%>
+			  | <%= inline_tb_link _('Leave a Comment'), "#{dom_id(@group)}_new_comment", {:title => "Leaving A Comment"}, {:height => 330, :width => 430} -%>
+		  <% end -%>
+		<span></h2>
+		<div id="<%= dom_id(@group) %>_comments">    
+			<%= render :partial => 'comments/comment', :collection => @comments -%>
+		</div>
+		<% if can_participate? -%>
+		  <%= render :partial => 'comments/form', :locals => { :parent => @group } -%>	
+	    <% end -%>
+	</div>
+	
+	<div class="clear"></div>
+	
+	<div id="photo_wall" class="activity_box">
+		<h2><%= _('Photos') -%> 
+      <span><a href="<%= group_photos_path(@group) %>" class="view-all"><%= _('View All') -%></a>
+      <% if can_participate? -%>| <a href="<%= group_photos_path(@group) %>" class="view-all"><%= _('Upload Photos') -%></a><% end %>
+      </span>
+    </h2>
+    <%= render :partial => 'groups/photos/small_photo', :collection => @photos -%>
+    <div class="clear"></div>
+  	<%= will_paginate @photos -%>
+  </div>
+	
+	<div class="clear"></div>
+	
+	<div id="shared" class="activity_box">
+		<h2><%= _('Shared Web Pages') -%> 
+        <% if can_participate? -%><span><%= link_to _('Share a Web Page'), "/share?group_id=#{@group.id}" %></span><% end %>
+        </h2>
+		<%= render :partial => 'groups/shared_entry', :collection => @group.shared_entries -%>
+	</div>
+	
+	<div class="clear"></div>
+<% else %>
+    <div>
+        <%= _('This is a private group whose content is only visible to members.') %>
+    </div>
+<% end %>	
+</div>
+
+<div class="right" id="column_r">
+
+	<%= render :partial => 'groups/group_info' -%>
+		
+<% if @visible -%>
+    <%= render :partial => 'groups/google_docs' -%>
+	<%= render :partial => 'shared_uploads' %>
+
+	<div id="group-officers" class="activity_box">
+    <h2><%= _('Officers') -%></h2>
+		<%= render :partial => 'groups/group_member', :object => @group.creator, :locals => {:caption => 'creator'} -%>
+		<%= render :partial => 'groups/group_member', :collection => @group.members.in_role('managers'), :locals => {:caption => 'manager'} -%>
+  </div>
+	
+	<div class="clear"></div>
+	
+	<div id="group-members" class="activity_box">
+    <h2><%= _('Members') -%></h2>
+		<%= render :partial => 'groups/group_member', :collection => @members, :locals => {:caption => 'member'} -%>
+  </div>
+<% end %>
+</div>

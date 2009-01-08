@@ -1,0 +1,25 @@
+<div class="left forum" id="column_l">
+	<h1><%= _('%{group_name} Forum') % {:group_name => @group.name}%></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="forum-container" class="activity_box">
+    <h2><%= _('Edit Post') %></h2>
+    <%= error_messages_for :topic %>
+    <%= error_messages_for :post %>
+    <% custom_form_for :post, :html => { :method => :put }, 
+         :url  => post_path(:forum_id => params[:forum_id], :topic_id => params[:topic_id], :id => @post, :page => @page, :per_page => @per_page) do |f| -%>
+      <div class="crumbs">
+        <span class="arrow">&rarr;</span>
+        <%= link_to( _('Return to post: %{title}') %{ :title => h(@post.topic.title) }, forum_topic_path(@post.forum_id, @post.topic)) %>
+      </div>  
+      <%= f.text_area :body %>
+      <%= submit_tag _('Save Changes') %>
+      <span class="button_or"><%= _("or") %> <%= link_to(_('Cancel'), forum_topic_path(:forum_id => params[:forum_id], :topic_id => params[:topic_id], :page => @page, :per_page => @per_page)) %></span>
+      <span class="button_or"><%= _("or") %> <%= link_to(_('Delete post'), post_path(:forum_id => @post.forum_id, :topic_id => @post.topic, :id => @post, :page => @page, :per_page => @per_page), 
+            :method => :delete, :confirm => _('Delete this post forever?')) %></span>           
+    <% end -%>
+  </div>
+</div>
+<div class="right" id="column_r">
+  <%= render :partial => 'groups/group_info' %>
+	<%= render :partial => 'forums/info' %>
+</div>

@@ -1,0 +1,35 @@
+<%-
+mini ||= false
+user ||= @user
+photos ||= @photos
+
+if mini
+  size ||= 8
+  photos = user.photos.find :all, :limit => size
+  total = user.photos.count -%>
+
+  <%- unless photos.empty? -%>
+  <div class="activity_box" id="photo">
+    <h2><%= _('Photos') -%></h2>
+    <div id="photos" class="inside_box">
+      <% photos.each do |picture|%>
+      <div class="image left">
+        <div>
+          <%= link_to image(picture, :small), user_photos_path(picture.photoable) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%- end -%>	
+
+<%- else -%>
+
+		<div id="photo_wall">
+      <%= render :partial => 'photos/photo', :collection => @photos %>
+      <div class="clear"></div>
+    </div>
+    <%= will_paginate @photos %>
+    <div class="clear"></div>
+  
+<%- end -%>

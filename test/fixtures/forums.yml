@@ -1,0 +1,43 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: forums
+#
+#  id               :integer(4)    not null, primary key
+#  name             :string(255)   
+#  description      :text          
+#  position         :integer(4)    
+#  created_at       :datetime      
+#  updated_at       :datetime      
+#  forumable_type   :string(255)   
+#  forumable_id     :integer(4)    
+#  url_key          :string(255)   
+#  description_html :text          
+#  topics_count     :integer(4)    default(0)
+#  posts_count      :integer(4)    default(0)
+#
+
+rails:
+  name: rails
+  url_key: rails
+  topics_count: 4
+  posts_count: 6
+  position: 2
+  forumable: default
+  forumable_type: Site
+comics:
+  name: comics
+  url_key: comics
+  topics_count: 2
+  posts_count: 4
+  position: 1
+  forumable: default
+  forumable_type: Site
+africa:
+  name: africa forum
+  url_key: africa
+  topics_count: 2
+  posts_count: 4
+  position: 3
+  forumable: africa
+  forumable_type: Group

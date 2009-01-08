@@ -1,0 +1,31 @@
+<div id="uploads">
+	
+	<div class="left" id="column_l">
+		<div class="left"> 
+			<h1><%= _("My Files") %></h1>
+		</div>
+		
+		<div class="clear">
+			<%= render :partial => 'shared/uploads_menu', :locals => {:current_page => :uploads} -%>
+			<%= error_messages_for :upload %>
+		</div>
+		
+		<div class="activity_box">
+			<h2><%= _('Files') %></h2>
+			<%= render :partial => 'uploads/uploads', :locals => {:share => true, :parent => @parent} -%>
+			<div class="clear">
+	  		<%= will_paginate @uploads %>
+			</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+	
+	<div class="right" id="column_r">
+		<div id="upload-files" class="activity_box">
+			<h2>Upload Files</h2>
+			<%= render :partial => 'uploads/swf_upload', :locals => {:parent => @parent} -%>
+		</div>
+	</div>
+	
+</div>

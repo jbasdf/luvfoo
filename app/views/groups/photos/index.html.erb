@@ -1,0 +1,21 @@
+<% content_for :head do  -%>
+<%= auto_discovery_link_tag :rss, formatted_group_photos_url(@group, :rss), :title=>"#{@group.name}'s Photos" %>
+<% end -%>
+
+<div class="left" id="column_l">	
+	<h1><%= @group.name %> Photos</h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="photos" class="activity_box">
+  	<h2><%= _('Latest Photos') %></h2>
+  	<%= render :partial => 'photos/gallery' %>
+  </div>
+	<div class="clear"></div>	
+</div>
+
+<div class="right" id="column_r">
+	<% if can_participate? -%>
+	  <div class="right upload_form activity_box">
+	    <%= render :partial => 'form' %>
+	  </div>
+	<% end -%>
+</div>

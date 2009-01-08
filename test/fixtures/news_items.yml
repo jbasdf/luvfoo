@@ -1,0 +1,144 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: news_items
+#
+#  id            :integer(4)    not null, primary key
+#  title         :string(255)   
+#  body          :text          
+#  newsable_id   :integer(4)    
+#  newsable_type :string(255)   
+#  created_at    :datetime      
+#  updated_at    :datetime      
+#  url_key       :string(255)   
+#  icon          :string(255)   
+#  creator_id    :integer(4)    
+#
+
+one:
+  title: "random news item"
+  body: "a news item"
+  newsable: africa
+  newsable_type: Group
+  url_key: random_news_item
+  creator: quentin
+      
+africa_news:
+  title: "news item 1"
+  body: "this is the news"
+  newsable: africa
+  newsable_type: Group
+  url_key: news_item_1
+  creator: quentin
+  
+member_story:
+  title: "Founders_message"
+  body: "If you had the ability to thank one or more of your teachers for sparking in you a sense of curiosity, encouraging you to reach higher, planting and watering in you"
+  newsable: member_stories_widget
+  newsable_type: Widget
+  url_key: founders_message
+  creator: admin
+
+blog_post:
+  title: "blog post"
+  body: "blog post body"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-post
+  creator: quentin
+  
+first:
+  title: "blog 1"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-1
+  creator: quentin
+  
+second:
+  title: "blog 2"
+  body: "blah blah blah blah blah"
+  newsable: quentin2
+  newsable_type: User
+  url_key: blog-2
+  creator: quentin
+  
+third:
+  title: "blog 3"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-3
+  creator: quentin
+  
+four:
+  title: "blog 4"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-4
+  creator: quentin
+
+five:
+  title: "blog 5"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-5
+  creator: quentin
+
+six:
+  title: "blog 6"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-6
+  creator: quentin
+
+seven:
+  title: "blog 7"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-7
+  creator: quentin
+    
+eight:
+  title: "blog 8"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-8
+  creator: quentin
+
+nine:
+  title: "blog 9"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-9
+  creator: quentin
+    
+ten:
+  title: "blog 10"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-10
+  creator: quentin
+    
+eleven:
+  title: "blog 11"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-11
+  creator: quentin
+    
+twelve:
+  title: "blog 12"
+  body: "blah blah blah blah blah"
+  newsable: quentin
+  newsable_type: User
+  url_key: blog-12
+  creator: quentin

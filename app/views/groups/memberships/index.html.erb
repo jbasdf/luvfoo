@@ -1,0 +1,20 @@
+<!-- TODO (pull in rss from member-->
+
+<div class="left" id="column_l">	
+	<h1><%= @group.name %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	
+	<div id="photo_wall" class="activity_box">
+		<h2><%= _('Members') %></h2>
+    <%= render :partial => 'groups/group_member', :collection => @members %>
+    <div class="clear"></div>
+  	<%= will_paginate @members %>
+  </div>
+  
+	<div class="clear"></div>
+	
+</div>
+
+<div class="right" id="column_r">
+	<%= render :partial => 'groups/group_info' %>
+</div>

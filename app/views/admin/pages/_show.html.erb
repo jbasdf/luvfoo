@@ -1,0 +1,4 @@
+<% if !current_user.nil? and current_user.content_pages.find_by_url_key(url_key) %>  
+<div><span class="link-button"><%= link_to(_('Edit Page'), edit_user_page_path(:user_id => current_user.login, :locale => locale.to_s, :content_page => url_key)) if can_edit %></span></div> 
+<% end %>
+<%= render content_page %>

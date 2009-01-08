@@ -1,0 +1,4 @@
+<span class="link-button"><%= link_to _('Preview'), user_shared_entry_path(@user, @shared_entry) %></span>
+<span class="link-button"><%= link_to _('Edit in New Window'), @entry.permalink %></span>
+<iframe width="100%" height="800px" src="<%= @entry.permalink %>" border="2px solid black">
+</iframe>

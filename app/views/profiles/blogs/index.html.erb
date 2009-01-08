@@ -1,0 +1,17 @@
+<% content_for :head do  -%>
+  <%= auto_discovery_link_tag :rss, formatted_user_blogs_url(@user, :rss), :title => (_("%{user_name}'s Blogs") % {:user_name => @user.f}) %>
+<% end -%>
+<div class="left activity_box" id="column_l">
+	<% if is_me?(@user) -%>
+	  <h1><%= _("My Blog") %></h1>
+	<% else -%>
+	  <h1><%= icon @user %> <%= _("%{user_name}'s Blog") % {:user_name => @user.f} %></h1>
+	<% end -%>
+	
+  <% if @blogs.empty? %>
+    <%= _("%{user_name} has no blog posts.") % {:user_name => @user.f} %>
+  <% else %>
+    <%= render :partial => 'blog', :collection => @blogs %>
+  <% end %>
+</div>
+<%= render :partial => 'history' %>

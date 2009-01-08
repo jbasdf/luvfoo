@@ -1,0 +1,6 @@
+<h1 class='google_doc_title'>
+    <%= @entry.title %>
+    <%= ('<span class="link-button" style="vertical-align:middle;letter-spacing:0;font-weight:normal;">' + link_to( _('Edit Document'), edit_user_shared_entry_path(@user, @shared_entry)) + '</span>') if @can_edit == true %>
+</h1>
+<%= @html %>
+<style type="text/css">body{background:#e9efd5;margin:0px auto;padding:0px;}</style>

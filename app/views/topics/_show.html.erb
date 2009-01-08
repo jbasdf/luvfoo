@@ -1,0 +1,89 @@
+<% content_for :monitor do -%>
+  <% if logged_in? %>
+    <% form_tag forum_topic_monitorship_path(@forum, @topic), :style => 'margin-top:0em; float:right;' do -%>
+      <div>
+        <input id="monitor_checkbox" type="checkbox" <%= "checked='checked'" if @monitoring %> 
+          onclick="if (this.checked) {<%= remote_function :url => forum_topic_monitorship_path(@forum, @topic) %>} else {<%= remote_function :url => forum_topic_monitorship_path(@forum, @topic), :method => :delete %>}" />
+        <label id="monitor_label" for="monitor_checkbox"><%= @monitoring ? _('Monitoring topic') : _('Monitor topic') %></label>
+        <%= hidden_field_tag '_method', 'delete' if @monitoring %>
+        <%= submit_tag :Set, :id => 'monitor_submit' %>
+      </div>
+    <% end -%>
+  <% end -%>
+<% end # monitor content -%>
+
+<h2 id="topic-title" style="margin-top:0.5em;">
+  <%= h @topic.title %>
+  <% if @topic.locked? %>
+    <span>(<%= _('locked') %>)</span>
+  <% end %>
+  <% if logged_in? %>
+    <span id="topic_mod">
+      <% if @topic.editable_by?(current_user) -%>
+        <%= link_to(_('edit'), edit_forum_topic_path(@forum, @topic), :class => "utility") %> |
+        <%= link_to(_('delete'), forum_topic_path(@forum, @topic), :class => "utility", :method => :delete, :confirm => 'Delete this topic forever?'[:delete_topic_conf]) %>
+      <% end -%>
+    </span>
+  <% end %>
+</h2>
+
+<p class="subtitle">
+  <%= feed_icon_tag @topic.title, formatted_forum_topic_path(@forum, @topic, :rss) %>
+  <%= count_for('post', @topic.posts.size) %>
+  <%= count_for('voice', @topic.voices.size) %>
+</p>
+
+<%= will_paginate @posts %>
+
+<a name="<%= dom_id @posts.first %>" id="<%= dom_id @posts.first %>">&nbsp;</a>
+
+<table border="0" cellspacing="0" cellpadding="0" class="posts wide">
+  <% for post in @posts do %>
+    <tr class="post hentry" id="<%= dom_id post %>-row">
+      <td class="author vcard">
+        <div class="date">
+          <a href="#<%= post.dom_id %>" rel="bookmark">
+          <abbr class="updated" title="<%= post.created_at.xmlschema %>">
+            <%= _("Posted %{posted} ago") % {:posted => time_ago_in_words(post.created_at) } %>
+          </abbr>
+          </a>
+        </div>
+        <%= icon post.user if post.user %>
+        <span class="fn"><%= link_to truncate(h(post.user.display_name), 15), profile_path(post.user), :class => (post.user == @posts.first.user ? "threadauthor" : nil) %></span>
+        <% if post.user.admin? or post.forum.moderators.include?(post.user) %>
+          <span class="admin">
+            <% if post.user.admin? %>
+              <%= _('Administator') %>
+            <% elsif post.forum.moderators.include?(post.user) %>
+              <%= _('Moderator') %>
+            <% end %>
+          </span>
+        <% end %>
+        <span class="posts"><%= count_for('post', post.user.posts.size) %>
+        <% if logged_in? && post.editable_by?(current_user) -%>
+        <p>
+          <span class="edit">
+            <%= link_to(_('Edit post'), edit_post_path(:forum_id => @forum.id, :topic_id => @topic.id, :id => post.id, :page => @page, :per_page => @per_page), :class => "utility") %>
+          </span>
+        </p>
+        <% end -%>
+      </td>
+      <td class="body entry-content" id="post-body-<%= post.id %>">
+        <!--<%= link_to image_tag('clearbits/comment.gif', :class => 'icon reply'), "jQuery('reply').toggle()" if logged_in? %>-->
+        <%= post.body_html %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+     
+<%= will_paginate @posts %>
+
+<% if logged_in? -%>
+  <% if @topic.locked? -%>
+    <p><%= image_tag "clearbits/lock.gif", :class => "icon grey", :title => _("Topic locked") %> 
+      <label><%= _('This topic is locked') %>.</label>
+    </p>
+  <% else -%>
+    <p><%= link_to _('Reply to Topic'), new_post_path(:forum_id => @forum.id, :topic_id => @topic.id, :page => @page, :per_page => @per_page) -%></p>
+  <% end -%>
+<% end -%>

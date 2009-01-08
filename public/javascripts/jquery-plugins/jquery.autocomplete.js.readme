@@ -1,0 +1,6 @@
+NOTE: the jquery.autocomplete.pack.js file is modified from the original to work with luvfoo.  Specifically line
+ 314 was changed from
+   if ( data && data.length && hasFocus ) {
+ to
+   if ( data && data.length ) {
+ For some reason the hasFocus value was always 0 which prevented the autocomplete from ever showing up.

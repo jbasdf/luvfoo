@@ -1,0 +1,13 @@
+<div class="left forum" id="column_l">
+	<h1><%= _('%{group_name} Forum') % {:group_name => @group.name}%></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="forum-container" class="activity_box">
+    <h2 id="new_topic"><%= _('New Topic') %></h2>
+    <p class="subtitle"><%= _('by %{by_user}') % {:by_user => current_user.display_name} %></p>
+    <%= render :partial => 'topics/new'%>
+  </div>
+</div>
+<div class="right" id="column_r">
+  <%= render :partial => 'groups/group_info' %>
+	<%= render :partial => 'forums/info' %>
+</div>

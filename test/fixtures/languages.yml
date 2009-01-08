@@ -1,0 +1,25 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: languages
+#
+#  id           :integer(4)    not null, primary key
+#  name         :string(255)   
+#  english_name :string(255)   
+#  is_default   :integer(4)    default(0)
+#
+
+english: 
+  name: English
+  is_default: 0
+  english_name: English
+
+tonga: 
+  name: Tonga
+  is_default: 0
+  english_name: Tonga
+  
+japanese: 
+  name: Japanese
+  is_default: 0
+  english_name: Japanese

@@ -1,0 +1,9 @@
+<% if @query.nil? %> 
+  <% cache(:controller => '/profiles', :action => 'index', :browse => @browse, :index => @alpha_index, :page => @page, :per_page => @per_page) do %>
+    <%= render :partial => 'index_body' %>
+    <% end %>
+<% else %>
+  <%= render :partial => 'index_body' %>
+<% end %>
+
+

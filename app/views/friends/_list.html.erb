@@ -1,0 +1,32 @@
+<%
+return if @user.nil? 
+type ||= _('friends')
+size ||= 20
+list = @user.send(type).find(:all, :limit => size, :order => 'RAND()') rescue []
+total = @user.send(type).count
+with_friending ||= false
+title = (type == 'followings') ? _('Following') : type
+%>
+	
+<% if list.empty? -%>
+	<% if type == :followings -%>
+		<p><%= _('You aren\'t currently following anyone') %></p>
+	<% elsif type == :followers -%>
+		<p><%= _('You don\'t currently have any followers') %></p>
+	<% elsif type == :friends -%>
+		<p><%= _('You don\'t currently have any friends') %></p>
+	<% end -%>
+<% else -%>
+	<div id="<%= type %>" class="activity_box">
+		<h2><%= _(title.to_s.titleize) %> <%= link_to _('View All'), user_friends_path(@user) %></h2>
+			<% list.each do |user| %>
+				<div class="left my_network">
+					<%= icon user %>
+					<%= link_to h(user.f), profile_path(user) %>
+					<small><%= h(user.location) || '' %></small><br />
+					<%= get_friend_link @user, user if with_friending %>
+			  </div>
+			<% end %>
+			<div class="clear"></div>    
+	</div>
+<% end -%>

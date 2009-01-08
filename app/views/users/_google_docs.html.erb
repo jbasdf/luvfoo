@@ -1,0 +1,14 @@
+<% if !@google_docs.empty? %>
+  <div id="google_docs" class="activity_box">
+  	<h2><%= _('Documents') %></h2>
+	  <ul>
+	    <% @google_docs.each do |doc| %>
+        <li id="shared_entry_<%= doc.id %>">
+            <%= link_to(doc.title, doc.displayable == true ? user_shared_entry_path(@user, doc) : edit_user_shared_entry_path(@user, doc)) %>
+            <%= link_to(_('[edit]'), edit_user_shared_entry_path(@user, doc), :style => 'color:navy') if (doc.can_edit == '1' && doc.displayable == '1') -%>
+			<%= link_to_remote image_tag('delete.png', :class => 'png', :width=>'12', :height=>'12'), :url => user_shared_entry_path(@user, doc), :method => :delete %>
+		</li>
+        <% end %>
+	  </ul>
+  </div>
+<% end %>

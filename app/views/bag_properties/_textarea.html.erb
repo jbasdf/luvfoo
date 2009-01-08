@@ -1,0 +1,8 @@
+<div class="form-row">
+	<label for="property_<%= property.name %>"><%= _(property.label) %> <%= property.required? ? ('<em>' + _('(required)') + '</em>') : '' %></label>
+	<span <%= error.nil? ? '' : " class='fieldWithErrors'"%>><%= text_area 'property', property.bag_property_id, :rows =>20, :cols => 40, :value => property.value %></span>
+    <br/>
+    <% if !property.can_change_visibility || @hide_visibility_controls %><input type='hidden' name='v[<%= property.bag_property_id %>]' value='<%= property.visibility %>'/><% end %>
+    <%= (select_tag 'v[' + property.bag_property_id + ']', options_for_select([[_('private'), '1'], [_('visible to colleagues'), '2'], [_('visible to members'), '4'], [_('visible to public'), '5']], property.visibility), :disabled => !property.can_change_visibility) unless @hide_visibility_controls %>
+    <input type='hidden' name='dt[<%= property.bag_property_id.to_s %>]' value='<%= property.data_type %>'/>
+</div>

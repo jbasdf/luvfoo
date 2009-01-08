@@ -1,0 +1,30 @@
+<div class="news-item">
+	
+	<div class="activity_box">
+		<h2><%= sanitize news_item.title -%></h2>		
+		<div class="left">
+			<img class="alignleft" src="<%= icon_url(news_item, {:size => :bigger, :file_column_version => :bigger }) -%>" />
+			<div class="standard-format">
+			  <%= process_body_content(news_item) %>
+			</div>
+		</div>
+	</div>
+
+  <div class="clear"></div>
+	<div id="border_top">
+		<%= _('Comments %{number_of_comments}') % {:number_of_comments => news_item.comments.size} %> 
+        | <%= inline_tb_link(_('Add a Comment'), "#{dom_id(news_item)}_new_comment", :title => _('Leaving A Comment On %{news_item_title}') % {:news_item_title => h(news_item.title)}) if current_user %>
+  </div>
+
+	<div class="clear"></div>
+	<div id="<%= dom_id(news_item) %>_comment_div" class="comments">
+		<div id="<%= dom_id(news_item) %>_comments">
+			<% news_item.comments.each do |c| %>
+				<%= render :partial => 'comments/comment', :locals => { :comment => c } %>
+			<% end %>
+		</div>
+	</div>
+
+	<%= render :partial => 'comments/form', :locals => { :parent => news_item } -%>
+	
+</div>

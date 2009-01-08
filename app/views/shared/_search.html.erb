@@ -1,0 +1,4 @@
+<% form_tag search_profiles_path, :method => :get do -%>
+<%= text_field_tag 'search[q]', (params[:search] && params[:search][:q] ? params[:search][:q] : _('Search')), :id => 'search_q' %>
+<%= submit_tag _('Search'), :class=>'button' %>
+<%- end -%>

@@ -1,0 +1,129 @@
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function() {
+    jQuery("#share_to_edit").click(function() {
+	    jQuery("#share_to_edit_instructions").toggle();
+        return true; 
+    });
+    jQuery("#profile").click(function() { 
+	    if ($('profile').checked == true) 
+			$('dashboard').checked = true;
+        return true; 
+    });
+    jQuery("#dashboard").click(function() { 
+	    if ($('dashboard').checked == false) 
+			$('profile').checked = false;
+        return true; 
+    });
+<% if @entry.google_doc -%>
+    jQuery(".friend").click(function() {
+        id = /\[([0-9]+)\]/.exec(this.name)[1];
+        email = friend_emails[id]
+        email_list = $('email_list');
+        listed_emails = email_list.value;
+        if (this.checked == true && listed_emails.indexOf(email) == -1) {
+            if (listed_emails.length > 2 && listed_emails.substring(listed_emails.length-2,listed_emails.length) != ', ')
+                email = ', ' + email;
+            email_list.value += email + ', ';
+        } else {
+            start = email_list.value.indexOf(email);
+            if (start != -1) {
+                before_email = start > 0 ? listed_emails.substring(0,start) : "";
+                end = start + email.length;
+                after_email = (end < listed_emails.length) ? listed_emails.substring(end,listed_emails.length) : "";
+                new_email_list = before_email + after_email;
+                new_email_list = new_email_list.replace(', , ', ', ');
+                new_email_list = new_email_list.replace(',,', ',');
+                if (new_email_list.length > 0 && new_email_list.substring(0,2) == ', ')
+                    new_email_list = new_email_list.substring(2,new_email_list.length);
+                email_list.value =  new_email_list;
+            }
+        }
+    })
+<% end -%>
+});
+<% if @entry.google_doc %>
+var friend_emails = new Array();
+<% @friends.each do |friend| -%>
+friend_emails['<%= friend.id %>'] = '<%= friend.email %>';
+<% end -%>
+<% end -%>
+</script>
+<% form_for([current_user, @entry], :url => user_shared_entries_path(@user)) do |f| %>
+	<h1>
+	  <%= _('Share a Web Page') %>
+		<%= button_to_function("Share It!", "validate()", {:style=>"font-weight:bold;vertical-align:middle;"}) %>
+		<%= button_to_function("Go Back", "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;vertical-align:middle;"}) %>
+	</h1>
+
+    <% if !@entry.permalink %>
+	<div class="row" style="font-size:14px;font-weight:bold;color:blue;">
+	  <%= link_to _('Get a bookmark to make sharing easier'), protected_page_path('get_bookmarklet') %>
+    </div>
+	<div class="row" style="font-size:14px;">
+	  <%= _('<b>Hint:</b> After you have set up the bookmark for sharing, go to a Google Document, Spreadsheet, or Presentation and click the bookmark to share it with a person or group inside of TWB.') %>
+    </div>
+    <% end %>
+    
+	<div class="row">
+	  <label for="title"><%= _('Title') %></label><br /><%= f.text_field :title, :size => 100, :limit => 255 %>
+	</div>
+	<div class="row">
+	  <label for="title"><%= _('Url') %></label><br /><%= f.text_field :permalink, :size => 100, :style => 'width:620px' %>
+	</div>
+
+	<%= render :partial => "shared/share_list" %>
+
+	<div class="row">
+	  <label for="title"><%= _('Comments') %></label>
+	  <% if @entry.permalink %><span style="color:blue;font-weight:bold;"><%= _('(select text before sharing it to make it show up here)') %></span><% end %>
+	  <br /><%= f.text_area :body, {:class => "comment-box"} %>
+	</div>
+
+    <% if @entry.google_doc %>
+	<div style="font-size:120%">
+	<div class="row">
+	    <p><input type='hidden' name='share_to_view' value='0'/> 
+        <% if @entry.displayable %>
+        <input type="checkbox" name="share_to_view" />
+        <%= _('Allow the groups and people I selected to <strong>view</strong> the document. (We verified that you published the document.)') %></p>
+        <% else %>
+        <span  style="color:blue;font-weight:bold;"><%= _('Because you haven\'t published the document, only people you share it with in Google Docs will be able to access it.') %></span></p>
+        <p>
+        <%= button_to_function(_('Return to the Google doc to publish it'), "document.location='#{@entry.permalink}'") %> <%= _('(Choose <i>Publish as web page...</i> from the <i>Share</i> menu.)') %> 
+        </p>
+        <% end %>
+	</div>
+	<div class="row">
+        <input type="checkbox" name="share_to_edit" id="share_to_edit"/> 
+        <%= _('Allow the people I selected to <strong>edit</strong> the document.') %></p>
+        <div id="share_to_edit_instructions" style='display:none;'> 
+            <p style="color:blue;font-weight:bold;">
+            <%= _('Use this email list to share the document to them in Google docs.') %></p>
+            <textarea id="email_list" style="width:625px;height:55px;"></textarea>
+            <p class="clear"><%= button_to_function(_('Go to the Google doc to share it'), "window.open('#{@entry.permalink}','_blank')") %> <%= _('(Choose <i>Share with others</i> from the <i>Share</i> menu.)') %></p>
+        </div>
+    </div>
+	<div class="row">
+    	<input type="checkbox" id="dashboard" name="dashboard" checked="true"/> <%= _('List the document on my dashboard') %>
+	</div>
+	<div class="row">
+        <input type="checkbox" id="profile" name="profile"/> <%= _('List the document on my profile') %>
+	</div>
+	</div>
+    <% end %>
+
+	<input type="hidden" name="bookmarklet" value="<%= @entry.permalink? %>"/>
+
+	<div class="row">
+	  <%= button_to_function("Share It!", "validate()", {:style=>"font-weight:bold;"}) %>
+	  <%= button_to_function("Go Back", "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
+	</div>
+<% end %>
+
+<script type="text/javascript">
+function validate()
+{
+  jQuery('#new_entry').submit();
+  return false;
+}
+</script>

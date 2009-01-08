@@ -1,0 +1,14 @@
+<% c = comment_title.comment.dup.gsub(/\[youtube:+.+\]/, '') %>
+
+<div id="<%= comment_title.dom_id %>" class="comment_holder">
+  <%= icon comment_title.user, :small, :class => 'left avatar_on_comment' %> 
+	<div class="date_details">
+	  <%= _("%{comment_age} ago %{user_name_link} wrote :") % {:comment_age => time_ago_in_words(comment_title.created_at), 
+																														 :user_name_link => (link_to h(comment_title.user.full_name),
+																														 										profile_path(comment_title.user))} %> 
+	</div>
+	<div class="comment_message">
+      <%= sanitize(textilize(c)) %>
+  </div>
+  <div class="clear"></div>
+</div>

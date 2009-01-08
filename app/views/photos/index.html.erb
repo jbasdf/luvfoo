@@ -1,0 +1,4 @@
+<% content_for :head do  -%>
+<%#= auto_discovery_link_tag :rss, formatted_user_photos_url(@user, :rss), :title=> _("%{user_name}'s Photos") % {:user_name => @user.f} %>
+<% end -%>
+<%= render :partial => 'photos/gallery' %>

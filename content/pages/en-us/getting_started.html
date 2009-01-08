@@ -1,0 +1,56 @@
+<div>
+	<h2 class="getting_started"><%= _('How to Get Started') %></h2>
+
+	<div class="half left">
+
+		<div class="blurp">
+			<img src="/images/blurp_profile.png" class="left png" title="<%= _('Profile Icon') %>" alt="<%= _('Profile Icon') %>" />
+			<strong><%= link_to _('Setup Your Profile'), edit_user_path(current_user) %></strong>
+			<%= _('Your public profile is the way your friends will learn about you and keep up-to-date on your life. Upload a profile photo, add an "about me" connect with new and old friends.') %>  
+			<div class="clear"></div>
+		</div>
+	
+		<div class="blurp">
+			<img src="/images/blurp_photos.png" class="png left" title="<%= _('Share Icon') %>"  alt="<%= _('Share Icon') %>" />
+			<strong><%= link_to _('Share Photos'), user_photos_path(current_user) %></strong>
+			<%= _("%{application_name} allows users to upload images with captions to their profile.") % {:application_name => GlobalConfig.application_name} %>  
+			<%= _('We would love someone to build albums, tagging and commenting on photos for this open source project!') %>
+			<div class="clear"></div>
+		</div>
+
+		<div class="blurp">
+			<img src="/images/blurp_friends.png" class="png left" title="<%= _('Friend Icon') %>" alt="<%= _('Friend Icon') %>" />
+			<strong><%= link_to _('Groups'), groups_path -%></strong>
+			<%= _('Search for others with common interests.') %>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="half right">
+		<div class="blurp">
+			<img src="/images/blurp_friends.png" class="png left" title="<%= _('Friend Icon') %>" alt="<%= _('Friend Icon') %>" />
+			<strong><%= link_to _('Find Friends'), profiles_path %></strong>
+			<%= _('Search for others with common interests.') %>
+			<div class="clear"></div>
+		</div>
+
+		<div class="blurp">
+			<img src="/images/blurp_message.png" class="png left" title="<%= _('Message Icon') %>" alt="<%= _('Message Icon') %>" />
+			<strong><%= link_to _('Message Friends'), user_messages_path(current_user) %></strong>
+			<%= _("%{application_name} allows you to send messages to your friends.") % {:application_name => GlobalConfig.application_name} %>
+			<div class="clear"></div>
+		</div>
+
+		<div class="blurp">
+			<img src="/images/blurp_comment.png" class="left png" title="<%= _('Comment Icon') %>" alt="<%= _('Comment Icon') %>" />
+			<strong><%= link_to _('Start Blogging!'), user_blogs_path(current_user) %></strong>
+			<%= _('Add thoughts and stories to your blog.') %>  
+			<div class="clear"></div>
+		</div>
+	
+		<div class="clear"></div>
+	</div>
+	
+	<div class="clear"></div>
+</div>

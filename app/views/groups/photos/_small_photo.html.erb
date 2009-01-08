@@ -1,0 +1,6 @@
+<div class="left image">
+	<div>
+	  <a href="<%= image_path(small_photo, nil) %>" title="<%= small_photo.caption %>" alt="<%= small_photo.caption %>" class="thickbox" rel="user_gallery"><%= image small_photo, :square %></a>
+	</div>
+	<%= link_to '(delete)', group_photo_path(small_photo.photoable, small_photo), :method => :delete if manager? %>
+</div>

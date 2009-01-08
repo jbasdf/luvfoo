@@ -1,0 +1,33 @@
+<% form_tag session_path, :id => "login", :name => "frmLogin", :class => "alt" do -%>
+
+	<div id="login_form" class="activity_box">
+	  <h1><%= _('Log-in to your Account') %></h1>
+
+		<div class="row">
+			<label for="login" class="desc"><%= _('Username') %> <em>*</em></label>
+			<%= text_field_tag :login, params[:login], :class => 'focus_first', :onfocus => "" -%>
+		</div>
+		
+		<div class="row">
+	  	<label for="password" class="desc"><%= _('Password') %> <em>*</em></label>
+			<%= password_field_tag :password, params[:password], :onfocus => "" -%>	  	
+		</div>
+		
+		<div class="row">
+			<label for="remember_me"><%= _('Remember me') %></label> 
+			<%= check_box_tag :remember_me, "1", params[:remember_me] || nil %>	
+		</div>
+		
+	  <div class="button">
+	    <%= submit_tag _('Log-in Now'), :class=>'button' %>
+	  </div>
+
+	  <div class="instruction">
+	    <span class="instruction"><%= link_to _('Register for an account'), signup_url  %></span> | 
+			<span class="instruction"><%= link_to _('Forgot your password?'), forgot_password_path %></span>
+		</div>
+		
+	</div>
+	
+<% end %>
+<img src="https://cts.vresp.com/s.gif?h=5e87091708" height="1" width="1"/>

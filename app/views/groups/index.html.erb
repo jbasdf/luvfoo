@@ -1,0 +1,29 @@
+<% content_for :head do  -%>
+	<%#= auto_discovery_link_tag :rss, formatted_groups_url(:rss), :title=> _("Groups") -%>
+<% end -%>
+
+<% cache(:controller => '/groups', :action => 'index', :visibility => @visibility_threshold, :index => @alpha_index, :page => @page, :per_page => @per_page) do %>
+<form action='/groups/search' method='get'>
+<h1><%= _("Groups") -%>
+	<span id="search_object">
+		<input type='text' name='q' style='width:200px' value='<%= @query %>' />
+		<input type='submit' value='<%= _('Search') %>' />
+	</span>
+</h1>
+</form>
+<div class="activity_box">
+<h2>
+ <%= _("Browse By") -%>
+ <%= _("Name") -%>
+  <%= render :partial => 'shared/alpha_index' %>
+ <span class="link-button"><%= link_to _('Create a New Group'), new_user_group_path(current_user) if logged_in? %></span></h2>
+
+	<% if @groups.empty? %>
+			<p><%= _('No matching groups were found.') %></p>
+  <% else %>
+     <div id='profile-list'>
+    <% @groups.each do |result| %><%= render :partial => 'groups/group_cache', :locals => {:group => result} %><% end %>
+    </div>
+ <% end %>
+</div>
+<% end %>

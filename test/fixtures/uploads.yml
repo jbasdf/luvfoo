@@ -1,0 +1,43 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: uploads
+#
+#  id              :integer(4)    not null, primary key
+#  parent_id       :integer(4)    
+#  user_id         :integer(4)    
+#  content_type    :string(255)   
+#  name            :string(255)   
+#  caption         :string(1000)  
+#  description     :text          
+#  filename        :string(255)   
+#  thumbnail       :string(255)   
+#  size            :integer(4)    
+#  width           :integer(4)    
+#  height          :integer(4)    
+#  created_at      :datetime      
+#  updated_at      :datetime      
+#  is_public       :boolean(1)    default(TRUE)
+#  uploadable_id   :integer(4)    
+#  uploadable_type :string(255)   
+#
+
+first:
+  caption: this is just a test photo.
+  user: quentin
+  filename: photo_1.jpg
+  content_type: image/jpeg
+  uploadable: quentin
+quentin_upload:
+  caption: this is another test photo.
+  user: quentin
+  filename: photo_1.jpg
+  content_type: image/jpeg
+  uploadable: quentin
+aaron_upload:
+  caption: this is just a photo.
+  user: aaron
+  filename: photo_1.jpg
+  content_type: image/jpeg
+  uploadable: aaron
+

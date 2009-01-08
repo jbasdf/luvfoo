@@ -1,0 +1,10 @@
+<%= link_to _('&lt;&lt; Back to Member Stories'), admin_member_stories_path -%>
+<div class="activity_box">
+	<h2><%= _('Add Member Story') %></h2>
+	<% custom_form_for @news_item, :url => admin_member_stories_path, :html => { :method => :post, :multipart => true, :class => "box no_top" } do |f| -%>
+		<%= render :partial => 'news/form', :locals => {:f => f } %>
+	<% end %>
+</div>
+
+
+

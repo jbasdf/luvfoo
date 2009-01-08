@@ -1,0 +1,25 @@
+<% content_for :head do  -%>
+	<%# TODO get rss working = auto_discovery_link_tag :rss, formatted_profile_url(current_user, :rss), :title=>"#{current_user.login}'s recent activity" %>
+	<%#= auto_discovery_link_tag :rss, formatted_user_blogs_url(current_user, :rss), :title=>"#{current_user.login}'s Blogs" %>
+	<%#= auto_discovery_link_tag :rss, formatted_user_photos_url(current_user, :rss), :title=>"#{current_user.login}'s Photos" %>
+<% end -%>
+
+<div class="two_thirds left">
+  <!--<h1><%= _('My Dashboard') %></h1>-->
+  <%= render :partial => 'users/status_update' %>
+  <%= render :partial => 'users/recent_activity' %>
+</div>
+
+<div class="third right">
+	<span class="link-button" id="invite_group_link"><a href="<%= new_user_invite_path(@user) -%>"><%= _('Invite Friends') %></a></span>
+  <%= render :partial => 'notifications' %>
+  <%= render :partial => 'dashboard_actions' %>
+  <%= render :partial => 'google_docs' %>
+  <%= render :partial => 'shared_uploads' %>
+  <%#= render :partial => 'pages' %>
+  <%= render :partial => 'groups' %>
+	<div class="clear"></div> 
+
+  <%= render :partial => 'friends' %>
+</div>
+

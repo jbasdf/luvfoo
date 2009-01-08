@@ -1,0 +1,21 @@
+<div id="footer" class="text_c" style="padding-top: 20px;">
+	<p id="non-profit-info">Teachers Without Borders (TWB) is a 501c3, non-profit, non-denominational, tax-exempt organization</p>	
+	<% if GlobalConfig.use_external_contact_us -%>
+	  <a href="<%=GlobalConfig.contact_us_url%>"><%= _('Contact Us') %></a>	
+	<% else -%>
+ 		<%= link_to _('Contact Us'), contact_path %> 
+	<% end -%> | 
+	<%= link_to _('News'), news_index_path %> |
+	<%= link_to _('Privacy Policy'), page_path('privacy-policy') %> |
+	<%= link_to _('Terms of Use'), page_path('terms') %> |
+	<%= link_to _('Code of Conduct'), page_path('code_of_conduct') %>
+</div>
+<div id="message" class="fixed"></div>
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	var pageTracker = _gat._getTracker("<%= GlobalConfig.google_analytics_key %>");
+	pageTracker._trackPageview();
+</script>

@@ -1,0 +1,39 @@
+<div class="row">
+	<table width="628" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="50%">
+			<%= _('Groups') %>
+			<div class="checkbox_list">
+				<ul type="none" style="margin:0px;padding-left:2px;">
+				<% @groups.each do |group| %>
+				<li>
+					<input type="checkbox" name="group_ids[<%= group.id.to_s %>]" value="1" <%= is_group_share_checked?(group, @group_id) %> />
+					<input name="group_ids[<%= group.id.to_s %>]" type="hidden" value="0" />
+					<%= group.name %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</td>
+	<td>&nbsp</td>
+	<td width="50%">
+	<%= _('People') %>
+	<div class="checkbox_list">
+
+		<ul type="none" style="margin:0px;padding-left:2px;">
+		<% @friends.each do |person| %>
+		<li>
+			<input type="checkbox" class="friend" name="friend_ids[<%= person.id.to_s %>]" value="1" <%= 'disabled="true" checked="checked"' if (person["shared"] && person.shared == "t") %> />
+			<input name="friend_ids[<%= person.id.to_s %>]" type="hidden" value="0" />
+			<%= person.login %>
+		</li>
+		<% end %>
+	</ul>
+
+</div>
+</td>
+
+</tr>
+
+</table>
+</div>

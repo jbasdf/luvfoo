@@ -1,0 +1,62 @@
+<div id="page">
+	<h1>Site Settings</h1>
+	
+	<%= error_messages_for :site, :logo %>
+	
+	<% custom_form_for @site, :url => admin_site_path, :html => { :multipart => true } do |f| -%>
+		
+		<fieldset>
+			<legend>Site title and slogan</legend>
+			<%= f.text_field :title %>
+			<%= f.text_field :subtitle %>
+			<%= f.text_field :slogan %>
+		</fieldset>
+		
+		<fieldset>
+			<legend><%= _('Main Logo') %></legend>
+			<%= file_field_tag :logo_file %> 
+			<p>Please ensure that the image selected is 870px wide and 75px tall or your logo will be cropped.</p>
+		</fieldset>
+		
+		<% if @logo -%>
+			<h3><%= _('Current Logo') %></h3>
+			<p><%= _('(The logo should stretch from one side to the other on the white background)') %></p>
+			<div id="settings-logo-preview"><%= image_tag(@logo.public_filename) %></div>				
+		<% end -%>
+		
+		<fieldset>
+			<legend><%= _('Colors and Styles') %></legend>
+
+			<h3><%= _('Background Colors') %></h3>
+			<%= f.text_field :background_color, { :label => _('Background Color'), :type => :color_picker} -%>
+			<%= f.text_field :content_background_color, { :label => _('Content Background Color'), :type => :color_picker} %>
+			<%= f.text_field :top_background_color, { :label => _('Top Background Color'), :type => :color_picker} %>
+
+			<h3><%= _('Fonts') %></h3>
+			<%= f.text_field :font_color, { :label => _('Font Color'), :type => :color_picker} %>			
+			<%= f.text_field :font_style, { :label => _('Font Style')} %>
+			<%= f.text_field :font_size, { :label => _('Font Size')} %>
+
+			<h3><%= _('Links') %></h3>
+			<%= f.text_field :top_color, { :label => _('Font Color for Top Links')} %>
+			<%= f.text_field :a_font_style, { :label => _('Link Font Style')} %>
+			<%= f.text_field :a_font_color, { :label => _('Link Font Color'), :type => :color_picker} %>
+			
+			<%= f.text_field :link_button_background_color, { :label => _('Link Button Background Color'), :type => :color_picker} %>
+      <%= f.text_field :link_button_font_color, { :label => _('Link Button Font Color'), :type => :color_picker} %>
+      
+      <h3><%= _('Site Elements') %></h3>
+      <%= f.text_field :highlight_color, { :label => _('Bar Color'), :type => :color_picker} %>
+      
+		</fieldset>
+		
+		<div class="row button">
+			<%= f.submit _('Update'), :class => 'button' -%>
+	  </div>
+	
+	<% end %>
+</div>
+<% content_for :head do  -%>
+	<%= javascript_include_tag 'jquery-plugins/colorpicker.js' %>
+	<%= stylesheet_link_tag 'colorpicker' -%>
+<% end -%>

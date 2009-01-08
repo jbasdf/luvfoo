@@ -1,0 +1,42 @@
+Globalization and Localization
+==============================
+
+Globalization refers to the process of making your code ready to be translated.
+This typically consists of modifying your code so that it will use translated strings
+if they are provided and extracting strings so that they can be translated
+
+Localization refers to translating the extracted strings to a target language.
+
+The underscore character is the name of the localization function:
+
+	_('Hi friend') => 'Hola amigo'
+
+Note: Use single quotes for messages that do not contain replacement variables
+
+Of course, in HTML you need to replace string with ruby out brackets.
+
+	<p>Nifty page</p>
+	
+Globalized is:
+
+	<p><%= _('Nifty page') %></p>
+	
+I highly recommend creating a macro for doing this if your editor supports it.
+
+Things get a little tricky when you have strings that contain parameters. For example:
+
+	<p>Hi <%= current_user.login %>! You last logged in <%= current_user.last_logged_in_at %> ago.</p>
+	
+Different languages might even change the order that the variables appear in the translated message
+so the variables must be referred to by name. The previous example can be globalized as:  
+
+	<p><%= _("Hi %{logged_in_user}! You last logged in %{last_login_date} ago") % {:logged_in_user => current_user.login, :last_login_date => current_user.last_logged_in_at} %></p>
+
+Once you have globalized your rails app, the rake updatepo task will automatically extract the strings
+from your files and generate a po template for you in the root of your app's po directory.
+
+Notice the percents instead of the hash mark (#) are used to specify replacement variables.
+If you use #{} in your messages, gettext will not extract the strings.
+
+Notice that you must use double quotes instead of single quotes when specifying a message
+that contains variables to be replaced.

@@ -1,0 +1,17 @@
+<% cache(:controller => '/profiles', :action => 'snippet', :id => profile.id) do %>
+<div class='profile-public'>
+	<div class='profile-photo'><%= icon profile, :small -%></div>
+	<div class='profile-info'>
+	    <div class='profile-info-left'>
+            <div class='profile-name'><%= link_to(profile.full_name, profile_path(profile)) %></div> 
+            <div><%= profile.property_value('professional_role').nil? ? '' : profile.property_value('professional_role') %></div>
+            <div><%= profile.property_value('country').nil? ? '' : profile.property_value('country') %></div>
+            <div>Speaks <%= profile.property_value('language') %><% unless profile.property_value('languages') == nil -%>, <%= profile.property_value('other_languages') %><% end -%></div>
+        </div>
+        <div class='profile-info-right'>
+            <%= profile.property_value('why_joined') %>
+        </div>
+    </div>
+</div>
+<div class='profile-divider'></div>
+<% end %>

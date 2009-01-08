@@ -1,0 +1,19 @@
+<% content_for :head do  -%>
+<%#= auto_discovery_link_tag :rss, formatted_swfupload_user_uploads_path(@user, :rss), :title=> _("%{user_name}'s Photos") % {:user_name => @user.full_name} %>
+<% end -%>
+
+<div id="uploads">
+	 
+	<h1><%= _("My Photos") %></h1>
+	
+	<div class="clear">
+		<%= render :partial => 'shared/uploads_menu', :locals => {:current_page => :shared} -%>
+	</div>
+	
+	<div class="activity_box">
+	<% @images.each do |img| -%>
+		<%= link_to image_tag(img.public_filename(:thumb)), user_upload_path(@user, img) -%>
+	<% end -%>
+	</div>
+	<%= will_paginate @images %>
+</div>

@@ -1,0 +1,6 @@
+<%= render :partial => 'admin/users/user_navigation' -%>
+<div id="inactive-emails" class="activity_box">
+  <h2><%= _("Inactive User's Emails (%{count} total)") % {:count => @user_inactive_count} %></h2>
+	<textarea id="user-emails"><%= @users.collect{|user| user.email}.join(', ') -%></textarea>
+</div>
+

@@ -1,0 +1,7 @@
+<div class="form-row">
+	<label for="property_<%= property.name %>"><%= _(property.label) %></label>
+    <%= select_tag 'v[' + property.bag_property_id.to_s + ']', options_for_select([[_('private'), '1'], [_('visible to colleagues'), '2'], [_('visible to members'), '4'], [_('visible to public'), '5']], property.visibility.to_s), :disabled => !property.can_change_visibility %>
+    <input type='hidden' name='dt[<%= property.bag_property_id.to_s %>]' value='<%= property.data_type %>'/>
+	<input type="hidden" name="property[<%= property.bag_property_id %>]" value="0"/>
+    <input type='hidden' name='dt[<%= property.bag_property_id.to_s %>]' value='<%= property.data_type %>'/>
+</div>

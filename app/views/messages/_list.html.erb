@@ -1,0 +1,37 @@
+<%-
+list ||= @list
+sub ||= 'inbox'
+label ||= _('Inbox Messages')
+sent = params[:action]=='sent'
+-%>
+
+<h1><%= _('Message Center') %></h1>
+<div class="activity_box" id="comment">
+	<h2><%= sanitize label %></h2>
+</div>
+ 
+<%- if list.empty? -%>
+	<p><%= _('No Messages') %></p>
+<%- else -%>
+	<table id="messages" border="0" cellspacing="0" cellpadding="0">
+	 	<tr>
+	   		<th width="100"><%= sent ? _('To') : _('From') %></th>
+	    	<th><%= _('Subject') %></th>
+	    	<th width="200"><%= _('When') %></th>
+		</tr>
+		<% list.each do |message|
+			mail_user = (current_user == message.sender ? message.receiver : message.sender)%>
+		<tr>
+		    <% if message.read %>
+    			<td><%= link_to mail_user.f, profile_path(mail_user) %></td>
+    			<td><%= link_to h( message.subject), user_message_path(current_user, message) %></td>
+    			<td><%= _("%{time_since_created} ago") % {:time_since_created => time_ago_in_words(message.created_at)} %></td>
+            <% else %>
+    			<td><strong><%= link_to mail_user.f, profile_path(mail_user) %></strong></td>
+    			<td><strong><%= link_to h( message.subject), user_message_path(current_user, message) %></strong></td>
+    			<td><strong><%= _("%{time_since_created} ago") % {:time_since_created => time_ago_in_words(message.created_at)} %></strong></td>
+            <% end %>
+		</tr>
+		<% end %>
+	</table>
+<%- end -%>

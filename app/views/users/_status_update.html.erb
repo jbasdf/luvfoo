@@ -1,0 +1,39 @@
+<div id="status-update">
+  <% remote_form_for(:status_update, :url => user_status_updates_path(@user), :html => {:id => 'status_update_form'} ) do |f| -%>
+    <table>
+      <tr>
+        <td rowspan="2"><%= icon @user %></td>
+        <td id="current-status">
+          <%= render :partial => 'users/current_status', :locals => {:user => @user} %>          
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div id="progress-bar" style="display:none;">
+            <h3><%= _("Updating your status.  Please wait.") %></h3>
+    				<img src="/images/loadingAnimation.gif" alt="progress bar">
+    	  	</div>
+          <div id="status-update-field" class="status-update-dim"><%= f.text_field :text, :id => 'status_update', :value => _('What are you doing right now?')  %><div></td>
+        <td><%= f.submit _('Post'), :id => 'submit_status', :class=>"button" %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function() {
+	jQuery('#status_update').val('<%=_('What are you doing right now?')%>');
+	jQuery('#status_update').click(function(){
+	  jQuery('#status_update').val('<%= @user.short_name + _(' is ') %>');
+	  jQuery('#status-update-field').removeClass('status-update-dim');
+	  jQuery('#status-update-field').addClass('status-update-lit');
+	});
+	
+	jQuery("#status_update_form").submit(function() {
+	  jQuery("#status-update-field").hide();
+	  jQuery("#submit_status").hide();
+	  jQuery("#progress-bar").show();
+  });
+  
+});
+</script>

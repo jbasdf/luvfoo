@@ -1,0 +1,17 @@
+<%
+label ||= _('Message')
+@title = label
+%>
+<%= render :partial => "messages/message", :object => @message %>
+<div id="reply_link">
+    <a href="#" onclick="jQuery('#new_reply').show();jQuery('#reply_link').hide();"><%= _('Reply') %></a>
+    <%= link_to _('Delete'), message_path(@message), :method => :delete, :title => _("Delete this message.") -%>
+</div>
+
+<div id="new_reply" class="hidden">
+	<%
+	@message.subject = _("RE: %{message_subject}") % {:message_subject => @message.subject}
+	@message.body = "\n\n\n\n" + @message.body.gsub(/^/, '> ')
+	%>
+	<%= render :partial => "messages/form", :locals => {:to_list => @to_list} %>
+</div>

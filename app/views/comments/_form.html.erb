@@ -1,0 +1,12 @@
+<div id="<%= dom_id(parent) %>_new_comment" class="hidden">    
+	<% custom_remote_form_for(:comment, :url => comments_path(:type => parent.class.to_s, :id => parent.id), 
+																			:html => { :id => "#{dom_id(parent)}_comment_form"} ) do |f| -%>
+	<div id="thickbox_form">
+		<%= f.text_area :comment  %>
+		<%= _('To include a youtube video use: [youtube: address_of_video]') %><br/>
+		<%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
+		<div class="row button"><%= f.submit _('Add Comment'), :class=>"button" %></div>
+		<div class="clear"></div>
+  </div>
+	<% end %>
+</div>

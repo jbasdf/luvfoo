@@ -1,0 +1,20 @@
+.mceContentBody, .standard-format{color:#000000;font-size:12px;font-family:"Lucida Grande",Helvetica,Arial,sans-serif;}
+.mceContentBody a, .standard-format a{font-size:12px;}
+.mceContentBody h1, .standard-format h1,
+.mceContentBody h2, .standard-format h2,
+.mceContentBody h3, .standard-format h3,
+.mceContentBody h4, .standard-format h4,
+.mceContentBody h5, .standard-format h5,
+.mceContentBody h6, .standard-format h6{border:none !important;font-size:24px;font-weight:bolder;margin:5px 0px;padding:0px;}
+.mceContentBody h1, .standard-format h1{font-size:24px;}
+.mceContentBody h2, .standard-format h2{font-size:20px;}
+.mceContentBody h3, .standard-format h3{font-size:18px;}
+.mceContentBody h4, .standard-format h4{font-size:16px;}
+.mceContentBody h5, .standard-format h5{font-size:14px;}
+.mceContentBody h6, .standard-format h6{font-size:12px;}
+.mceContentBody p, .standard-format p{margin:5px 0px;line-height:normal;}
+.mceContentBody ol, .mceContentBody ul,
+.standard-format ol, .standard-format ul{margin:5px 30px;}
+.mceContentBody ol li, .standard-format ol li{list-style-type:decimal;}
+.mceContentBody ul li, .standard-format ul li{list-style-type:disc;}
+.mceContentBody li, .standard-format li{line-height:normal;}

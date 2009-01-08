@@ -1,0 +1,169 @@
+default: &DEFAULT
+  # Sent in emails to users
+  application_name: 'Luvfoo'
+
+  # User settings: controls whether send email and login after creation
+  automatically_activate: false
+  automatically_login_after_account_create: false
+
+  flickr_key: 'flickr-key'
+  flickr_secret: 'flickr-secret-key'
+  flickr_cache: "#{RAILS_ROOT}/config/flickr.cache"
+  google_analytics_key: 'UA-YOUR-KEY'
+
+  integrate_portfolio: false
+	
+	# Use to indicate whether to use a 'following' strategy like twitter (true) or 
+	# a 'friend' strategy like facebook (true)
+	allow_following: false
+
+  portfolio_url_template: "groups.luvfoo.com/Members/{user_login}/my-eportfolio/RSS"
+
+  # complete url for website home (does not have to be the social network home)
+  website_home_url: "http://luvfoo.com"
+
+  # the platform is setup to work with the Plone CMS.
+  integrate_plone: true
+  plone_site: 'http://courses.luvfoo.com'
+
+  # url of 'contact us' or 'feedback' for in the event that you don't want to use the default contact us form.
+  use_external_contact_us: false
+  contact_us_url: 'http://courses.luvfoo.com/feedback'
+
+  # send an email to the user indicating that their account was successfully added.
+  send_activated_email: false
+
+  # START of "do not edit" session
+  youtube_base_url: "http://gdata.youtube.com/feeds/api/videos/"
+  default_locale: luvfoo
+  # END of "do not edit" session
+
+  # attachment_fu_options for uploads
+  upload:
+    missing_thumb: '/images/icon_missing_thumb.gif'
+    missing_medium: "/images/icon_missing_medium.gif"
+    attachment_fu_options:
+      resize_to: "465>"
+      min_size: 1    
+      # size in megabytes
+      max_size: 5
+      thumbnails: {icon: "30x30!", thumb: "100x100!", small: "48x48>", medium: "290x320!", large: "664>"}
+      #options - 's3', 'file_system', 'db_system' - see attachment_fu for details
+      storage: 'file_system'
+      #content_type: ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png']
+      #processor: image_science
+	
+  # controls account activation and automatic login
+  automatically_activate: true
+  automatically_login_after_account_create: true	
+	use_recaptcha: true
+  # if you use recaptcha you will need to also provide a public and private
+  # key available from http://recaptcha.net.
+  recaptcha_pub_key: put public key here
+  recaptcha_priv_key: put private key here
+
+##########################
+# PRODUCTION settings
+##########################
+production:
+  <<: *DEFAULT
+
+  # for cookies that need to work across all subdomains (the plone site)
+  application_base_url: 'luvfoo.com'
+  assert_server_url: 'http://luvfoo.com'
+
+  # sync user information to Salesforce.  This requires a salesforce account and key
+  integrate_salesforce: false
+  salesforce_owner_id: 'your-salesforce-id'
+
+  # Text for emails - ie Sincerly, emailed_by
+  emailed_by: 'Luvfoo Team'
+
+  # email address for support requests
+  support_email: 'info@luvfoo.com'
+
+  # Source address for user emails
+  email_from: 'info@luvfoo.com'
+
+  # Destination email for system errors
+  admin_email: 'admin@luvfoo.com'
+
+  # Sent in emails to users
+  application_url: 'www.luvfoo.com'
+  mailer_to_address: 'info@luvfoo.com'
+
+  # configuration for plone xml rpc call that creates user folders
+  plone_xmlrpc_port: 8091    
+  plone_xmlrpc_path: '/eduCommons'    
+  plone_xmlrpc_server: "10.6.0.4"
+    
+##########################
+# DEVELOPMENT settings
+##########################
+development:
+  <<: *DEFAULT
+
+  # for cookies that need to work across all subdomains (the plone site)
+  application_base_url: 'localhost:3000'
+  assert_server_url: 'http://localhost:3000'
+
+  # sync user information to Salesforce.  This requires a salesforce account and key
+  integrate_salesforce: false
+  salesforce_owner_id: 'your-salesforce-id'
+
+  # Text for emails - ie Sincerly, emailed_by
+  emailed_by: 'Luvfoo Team'
+
+  # email address for support requests
+  support_email: 'info@luvfoo.com'
+
+  # Source address for user emails
+  email_from: 'info@luvfoo.com'
+
+  # Destination email for system errors
+  admin_email: 'admin@luvfoo.com'
+
+  # Sent in emails to users
+  application_url: 'www.luvfoo.com'
+  mailer_to_address: 'info@luvfoo.com'
+
+  # configuration for plone xml rpc call that creates user folders
+  plone_xmlrpc_port: 80
+  plone_xmlrpc_path: '/RPC2'
+  plone_xmlrpc_server: "courses.luvfoo.com"
+
+##########################
+# TEST settings
+##########################
+test:
+  <<: *DEFAULT
+
+  # for cookies that need to work across all subdomains (the plone site)
+  application_base_url: 'localhost:3000'
+  assert_server_url: 'http://localhost:3000'
+
+  # sync user information to Salesforce.  This requires a salesforce account and key
+  integrate_salesforce: false
+  salesforce_owner_id: 'your-salesforce-id'
+
+  # Text for emails - ie Sincerly, emailed_by
+  emailed_by: 'Luvfoo Team'
+
+  # email address for support requests
+  support_email: 'info@luvfoo.com'
+
+  # Source address for user emails
+  email_from: 'info@luvfoo.com'
+
+  # Destination email for system errors
+  admin_email: 'admin@luvfoo.com'
+
+  # Sent in emails to users
+  application_url: 'www.luvfoo.com'
+  mailer_to_address: 'info@luvfoo.com'
+
+  # configuration for plone xml rpc call that creates user folders
+  plone_xmlrpc_port: 80
+  plone_xmlrpc_path: '/RPC2'
+  plone_xmlrpc_server: "courses.luvfoo.com"
+

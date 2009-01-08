@@ -1,0 +1,16 @@
+<% content_for :head do -%>
+<%#= auto_discovery_link_tag(:rss, "http://#{GlobalConfig.application_url}/latest_comments.rss", :title=>_('Latest Comments')) %>
+<%#= auto_discovery_link_tag(:rss, "http://#{GlobalConfig.application_url}/newest_members.rss", :title=>_('Newest Members')) %>
+<% end -%>
+<% cache(:controller => '/home', :action => 'home') do %>
+<div id="home-page">
+  <div>
+    <%= @content_page.body %>
+  </div>
+  <div>
+		<%= render :partial => 'member_stories/member_stories' -%>
+		<%= render :partial => 'widgets/latest_news' -%>
+	</div>		
+</div>
+<img src="https://cts.vresp.com/s.gif?h=5e87091708" height="1" width="1"/>
+<% end %>

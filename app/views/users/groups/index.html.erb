@@ -1,0 +1,17 @@
+<% content_for :head do  -%>
+	<%#= auto_discovery_link_tag :rss, formatted_user_groups_url(@user, :rss), :title=> _("%{user_name}'s Groups") % {:user_name => @user.full_name} %>
+<% end -%>
+
+<% if is_me?(@user) -%>
+  <h1><%= _("My Groups") %></h1>
+<% else -%>
+  <h1><%= icon @user %> <%= _("%{user_name}'s Groups") % {:user_name => @user.full_name} %></h1>
+<% end -%>
+	
+<div class="left" id="column_l">
+	<% if @groups.empty? %>
+ 		<p><%= is_me?(@user) ? _("You aren't a member of any groups.") : (_("%{user_name} isn't a member of any groups.") % {:user_name => @user.f}) %></p>
+  <% else %>
+  	<%= render :partial => 'groups/group', :collection => @groups %>
+  <% end %>
+</div>

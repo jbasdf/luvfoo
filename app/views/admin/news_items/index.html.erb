@@ -1,0 +1,41 @@
+<div class="activity_box">
+  <h2><%= _('Site News Stories') %><span class="link-button"><%= link_to _("Add New Story"), new_admin_news_item_path %></span></h2>
+	<table class="manage">
+		<thead>
+			<tr>
+				<th><%= _("Title") %></th>
+				<th><%= _("Summary") %></th>
+				<th><%= _("Created") %></th>
+				<th><%= _("Displayed On") %></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+  	<% @news_items.each do |news_item| %>
+  		<tr class="<%= cycle('odd','even') %>">
+			  <td><%= link_to "#{summarize(news_item.title, 80)}", admin_news_item_path(news_item) %></td>
+			  <td><%= summarize(news_item.body, 40) %></td>
+				<td><%= time_ago_in_words news_item.created_at %> ago</td>
+				<td>
+					<span id="promote_story_link_container_#{news_item.id}"><%= inline_tb_link(_('Promote Story'), "story-promotion", 
+						{:title => (_("Promote Story: %{story_name}") % {:story_name => news_item.title}),
+						:id => "promoto_story_link_#{news_item.id}"},
+						{:height => 130, :width => 300}) %></span>
+				</td>
+				<td><%= link_to _('Edit'), edit_admin_news_item_path(news_item), :title => _('Edit this news story.') -%></td>
+				<td><%= link_to _('Delete'), admin_news_item_path(news_item), :method => :delete, :title => _('Delete this news story.') -%></td>
+				<td><%= link_to _('Ban'), edit_admin_news_item_path(news_item), :title => _('If this content is inappropriate or offensive, banning it will prevent it from showing up on the site') -%></td>
+			</tr>
+  	<% end %>
+		</tbody>
+  </table>
+	<div class="clear"></div>
+  <%= will_paginate @news_items %>
+
+	<div id="story-promotion" class="hidden">
+		<%= render :partial => 'news/promote' %>
+	</div>
+	
+</div>

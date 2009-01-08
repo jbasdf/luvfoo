@@ -1,0 +1,9 @@
+<% content_for :head do  -%>
+  <%#= auto_discovery_link_tag :rss, formatted_profile_blogs_url(@user, :rss), :title => _('%{user_name}\'s Blog') % {:user_name => @user.f} %>
+<% end -%>
+
+<div class="left" id="column_l">
+  <h1><%= _('%{user_name}\'s Blog') % {:user_name => @user.f} %></h1>
+  <%= render :partial => 'news/news_item', :object => @blog -%>
+</div>
+<%= render :partial => 'history' %>

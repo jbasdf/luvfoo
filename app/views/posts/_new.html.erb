@@ -1,0 +1,8 @@
+<div id="<%= dom_id @posts.first %>">
+  <%= content_tag 'p', h(flash[:bad_reply]), :class => 'notice' if flash[:bad_reply] %>        																			
+  <% custom_form_for(:post, :url => posts_path(:forum_id => @forum, :topic_id => @topic, :page => @topic.last_page),
+                                   :html => { :id => "#{dom_id(@posts.first)}_reply_form"} ) do |f| -%>
+    <%= f.text_area :body, :rows => 8 %>
+    <%= f.submit _('Save Reply'), :class=>"button" %>
+  <% end -%>
+</div>

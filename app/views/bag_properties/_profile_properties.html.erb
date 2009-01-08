@@ -1,0 +1,3 @@
+<% @properties.each do |p| %> 
+<%= render :partial => 'bag_properties/' + p.display_type, :locals => {:property => p} %>
+<% end %>

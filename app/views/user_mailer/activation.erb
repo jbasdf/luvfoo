@@ -1,0 +1,14 @@
+<%= _("Dear %{user_name},") % {:user_name => h(@user.login)} %>
+
+<%= _("Your %{application_name} account has been activated") % {:application_name => GlobalConfig.application_name} %>
+
+<%= _('For future reference, you are registered as:') %>
+<%= _("login name %{user_name}.") % {:user_name => h(@user.login)} %>
+
+<%= _('To visit the site, follow the link below:') %>
+<%= @url %>
+
+<%= _("Please do not hesitate to contact us at %{support_email} if you have any questions or comments about our website.") % {:support_email => GlobalConfig.support_email} %>
+
+<%= _('Best Regards,') %>
+<%= GlobalConfig.emailed_by %>

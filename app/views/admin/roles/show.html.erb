@@ -1,0 +1,7 @@
+<p>
+  <b><%= _('Rolename:') %></b>
+  <%=h @role.rolename %>
+</p>
+
+<%= link_to _('Edit'), edit_role_path(@role) %> |
+<%= link_to _('Back'), admin_roles_path %>

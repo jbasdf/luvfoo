@@ -1,0 +1,8 @@
+<div id="login_form" class="activity_box">
+<h1><%= _('Forgot Password') %></h1>
+<% form_tag url_for(:action => 'create') do %>
+    <%= _('What is the email address used to create your account?') %><br />
+    <%= text_field_tag :email, "", :size => 50 %><br />
+    <%= submit_tag _('Reset Password') %>
+<% end %>
+</div>

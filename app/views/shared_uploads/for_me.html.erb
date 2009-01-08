@@ -1,0 +1,19 @@
+<div id="uploads">
+	
+	<h1><%= _("Files Shared With Me") %></h1>
+	<%= render :partial => 'shared/uploads_menu', :locals => {:current_page => :for_me} -%>
+
+	<table class="clear">
+		<thead>
+			<tr>
+				<th></th>
+				<th>File Name</th>
+				<th></th>	
+			</tr>
+		</thead>			
+		<tbody id="upload-list" >
+			<%= render :partial => 'shared_me_row', :collection => @shared_uploads, :locals => {:style => ''} -%>
+		</tbody>
+	</table>
+	<%= will_paginate @shared_uploads %>
+</div>

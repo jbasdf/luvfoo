@@ -1,0 +1,7 @@
+<tr>
+<td><%= icon group_member %> <%= link_to h(group_member.full_name), profile_path(group_member) %></td>
+<td class='center'><%= radio_button_tag ('group_member_role[' + group_member.id.to_s + ']'), 'manager', group_member.role == 'manager' %></td>
+<td class='center'><%= radio_button_tag ('group_member_role[' + group_member.id.to_s + ']'), 'member', group_member.role == 'member' %></td>
+<td class='center'><%= radio_button_tag ('group_member_role[' + group_member.id.to_s + ']'), 'observer', group_member.role == 'observer' %></td>
+<td class='center'><%= radio_button_tag ('group_member_role[' + group_member.id.to_s + ']'), 'banned', group_member.role == 'banned' %></td>
+</tr>

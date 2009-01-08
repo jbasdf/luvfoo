@@ -1,0 +1,12 @@
+<% if !@google_docs.empty? %>
+  <div id="google_docs" class="activity_box">
+  	<h2><%= _('Shared Documents') %></h2>
+	  <ul>
+	    <% @google_docs.each do |doc| %>
+        <li id="shared_entry_<%= doc.id %>">
+            <%= link_to(doc.title, user_shared_entry_path(@user, doc)) %>
+		</li>
+        <% end %>
+	  </ul>
+  </div>
+<% end %>

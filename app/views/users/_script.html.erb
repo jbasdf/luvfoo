@@ -1,0 +1,43 @@
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function()
+{
+		jQuery("#user_country_id").change(function()
+    {
+				if(jQuery(this).val() == '<%=@united_states_id%>'){
+						jQuery("#state-container").show();
+				} else {
+						jQuery("#state-container").hide();
+				}
+    });
+
+		// intially hide the state select list
+		jQuery("#state-container").hide();
+
+    jQuery("#user_login").blur(function()
+    {
+        //check the username exists or not from ajax
+        jQuery.post('<%=is_login_available_users_url%>',{ user_login:jQuery(this).val() } ,function(data)
+        {
+        	jQuery("#login-availibility").html(data);    
+        }); 
+    });
+		
+		jQuery("#user_email").blur(function()
+    {
+        //check the email exists or not from ajax
+        jQuery.post('<%=is_email_available_users_url%>',{ user_email:jQuery(this).val() } ,function(data)
+        {
+        	jQuery("#email-availibility").html(data);    
+        }); 
+    });
+
+		jQuery("#user_login").keydown(function() { 
+			jQuery("#login-availibility").html(''); 
+		});
+		
+		jQuery("#user_email").keydown(function() { 
+			jQuery("#email-availibility").html(''); 
+		});
+		
+});
+</script>

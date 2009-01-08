@@ -1,0 +1,73 @@
+
+#############################################################################
+Plugin: Validate Attributes
+
+Author:		Sur - http://expressica.com, sur.max@gmail.com
+Homepage: http://expressica.com/plugins/validate_attributes
+License:	This plugin has been released under "Rails' MIT" license.
+#############################################################################
+
+Validate Attribute is a plugin which provides a way to extend the functionality of the the rails' activerecord function valid?.
+Using this plugin, we can validate any specific attribute(s) or we can skip validating any specific attribute(s).
+
+
+Following are the ActiveRecord instance methods that will be available after installing this plugin
+
+1.) validate_attributes
+2.) validate_attributes_and_save
+
+Examples:
+
+lets assume a User model with some validations as...
+
+class User < ActiveRecord::Base
+
+	validates_presence_of :name
+	validates_length_of :name, :minimum => 5
+	validates_presence_of :email
+	validates_presence_of :address
+
+end
+
+1.) validate_attributes
+	
+	Parameters:
+		We can specify attributes as parameters in the form of :only or :except.
+		If attributes' arry is given with :only, the method will validate only those attributes.
+		If given with :except, it will validate all attributes but skip the specified.
+		
+	@user = User.new
+	@user.validate_attributes(:only => ["name"]) # => false
+	@user.errors.full_messages # =>  ["Name is too short (minimum is 5 characters)", "Name can't be blank"]
+	@user.name = "sur"
+	@user.validate_attributes(:only => ["name"]) # => false
+	@user.errors.full_messages # =>  ["Name is too short (minimum is 5 characters)"]
+	@user.validate_attributes(:only => ["name", "email"]) # => false
+	@user.errors.full_messages # =>  ["Name is too short (minimum is 5 characters)", "Email can't be blank"]
+	@user.validate_attributes # => false
+	@user.errors.full_messages # =>  ["Name is too short (minimum is 5 characters)", "Email can't be blank", "Address can't be blank"]
+	
+	@user = User.new
+	@user.validate_attributes(:except => ["name", "email"]) # => false
+	@user.errors.full_messages # =>  ["Address can't be blank"]
+	
+	@user = User.new
+	@user.validate_attributes(:only => ["address"]) # => false
+	@user.errors.full_messages # =>  ["Address can't be blank"]
+	
+	
+2.) validate_attributes_and_save
+
+	Parameters:
+		Same as the method validate_attributes
+	
+	This method will save the object if the function validate_attributes returns true, and will return true if object gets saved
+	else return false.
+	
+	@user = User.new
+	@user.validate_attributes_and_save(:only => [:address]) # => false
+	@user.new_record? # => true
+	
+	@user.address = "http://expressica.com"
+	@user.validate_attributes_and_save(:only => [:address]) # => true
+	@user.new_record? # => false

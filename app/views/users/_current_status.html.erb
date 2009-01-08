@@ -1,0 +1,16 @@
+<% if user.status
+  status = user.status.text
+  time = user.status.created_at
+else
+  status = _('update your status!')
+  time = Time.now
+end -%>
+<span><%= user.short_name %></span> <span id="current-status-text"><%= status %></span>
+<small>
+  <span id="status-time" class="status-time"><%= time_ago_in_words(time) %> ago</span>
+  <span id="status-clear">
+    <% if user.status -%>
+      - <%= link_to_remote(_("clear"), :url => user_status_update_path(user, user.status), :method => :delete, :class => "status-clear-link") %>
+    <% end -%>    
+  </span>        
+</small>

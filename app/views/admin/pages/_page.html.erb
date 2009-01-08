@@ -1,0 +1,15 @@
+<% if page.parent_id == parent_id -%>
+	<li id="page_<%=page.id%>" class="pageContainer delete-container">
+		<span class="link"><%= link_to "#{summarize(page.title, 80)}", page_path(page.id) %></span>
+		<span class="pageControls">
+			<span class="admin child"><%= link_to _('Add Child'), new_admin_page_path(:parent_id => page.id) %> |</span>
+			<span class="admin edit"><%= link_to _('Edit'), edit_admin_page_path(page.id), :title => _('Edit this page.') -%> |</span>
+			<span class="admin view"><%= link_to _('View'), page_path(page.url_key), {:target => '_blank'} %> |</span>
+			<span class="admin delete"><%= button_to _('Delete'), { :action => 'destroy', :id => page.id }, :confirm => "Are you sure?", :method => :delete, :class => "submit-delete" %></span>
+		</span>
+		<ul style="display:none;">
+			<%= render :partial => 'admin/pages/page', :collection => @pages, :locals => {:parent_id => page.id} -%>
+		</ul>
+	  <input type="hidden" value="<%=page.id%>">
+	</li>
+<% end -%>

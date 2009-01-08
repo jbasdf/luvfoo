@@ -1,0 +1,319 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: states
+#
+#  id           :integer(4)    not null, primary key
+#  name         :string(128)   default(""), not null
+#  abbreviation :string(3)     default(""), not null
+#  country_id   :integer(8)    not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value
+
+state_00050: 
+  name: SOUTH DAKOTA
+  abbreviation: SD
+  country_id: 225
+  id: 50
+state_00038: 
+  name: NEW JERSEY
+  abbreviation: NJ
+  country_id: 225
+  id: 38
+state_00016: 
+  name: HAWAII
+  abbreviation: HI
+  country_id: 225
+  id: 16
+state_00005: 
+  name: ARIZONA
+  abbreviation: AZ
+  country_id: 225
+  id: 5
+state_00027: 
+  name: MARSHALL ISLANDS
+  abbreviation: MH
+  country_id: 225
+  id: 27
+state_00049: 
+  name: SOUTH CAROLINA
+  abbreviation: SC
+  country_id: 225
+  id: 49
+state_00040: 
+  name: NEVADA
+  abbreviation: NV
+  country_id: 225
+  id: 40
+state_00028: 
+  name: MICHIGAN
+  abbreviation: MI
+  country_id: 225
+  id: 28
+state_00006: 
+  name: CALIFORNIA
+  abbreviation: CA
+  country_id: 225
+  id: 6
+state_00017: 
+  name: IOWA
+  abbreviation: IA
+  country_id: 225
+  id: 17
+state_00039: 
+  name: NEW MEXICO
+  abbreviation: NM
+  country_id: 225
+  id: 39
+state_00051: 
+  name: TENNESSEE
+  abbreviation: TN
+  country_id: 225
+  id: 51
+state_00052: 
+  name: TEXAS
+  abbreviation: TX
+  country_id: 225
+  id: 52
+state_00030: 
+  name: MISSOURI
+  abbreviation: MO
+  country_id: 225
+  id: 30
+state_00018: 
+  name: IDAHO
+  abbreviation: ID
+  country_id: 225
+  id: 18
+state_00007: 
+  name: COLORADO
+  abbreviation: CO
+  country_id: 225
+  id: 7
+state_00029: 
+  name: MINNESOTA
+  abbreviation: MN
+  country_id: 225
+  id: 29
+state_00041: 
+  name: NEW YORK
+  abbreviation: NY
+  country_id: 225
+  id: 41
+state_00008: 
+  name: CONNECTICUT
+  abbreviation: CT
+  country_id: 225
+  id: 8
+state_00019: 
+  name: ILLINOIS
+  abbreviation: IL
+  country_id: 225
+  id: 19
+state_00042: 
+  name: OHIO
+  abbreviation: OH
+  country_id: 225
+  id: 42
+state_00020: 
+  name: INDIANA
+  abbreviation: IN
+  country_id: 225
+  id: 20
+state_00009: 
+  name: DISTRICT OF COLUMBIA
+  abbreviation: DC
+  country_id: 225
+  id: 9
+state_00031: 
+  name: NORTHERN MARIANA ISLANDS
+  abbreviation: MP
+  country_id: 225
+  id: 31
+state_00053: 
+  name: UTAH
+  abbreviation: UT
+  country_id: 225
+  id: 53
+state_00054: 
+  name: VIRGINIA
+  abbreviation: VA
+  country_id: 225
+  id: 54
+state_00032: 
+  name: MISSISSIPPI
+  abbreviation: MS
+  country_id: 225
+  id: 32
+state_00010: 
+  name: WASHINGTON, DC
+  abbreviation: DC
+  country_id: 225
+  id: 10
+state_00021: 
+  name: KANSAS
+  abbreviation: KS
+  country_id: 225
+  id: 21
+state_00043: 
+  name: OKLAHOMA
+  abbreviation: OK
+  country_id: 225
+  id: 43
+state_00044: 
+  name: OREGON
+  abbreviation: OR
+  country_id: 225
+  id: 44
+state_00022: 
+  name: KENTUCKY
+  abbreviation: KY
+  country_id: 225
+  id: 22
+state_00011: 
+  name: DELAWARE
+  abbreviation: DE
+  country_id: 225
+  id: 11
+state_00033: 
+  name: MONTANA
+  abbreviation: MT
+  country_id: 225
+  id: 33
+state_00055: 
+  name: VIRGIN ISLANDS
+  abbreviation: VI
+  country_id: 225
+  id: 55
+state_00056: 
+  name: VERMONT
+  abbreviation: VT
+  country_id: 225
+  id: 56
+state_00034: 
+  name: NORTH CAROLINA
+  abbreviation: NC
+  country_id: 225
+  id: 34
+state_00012: 
+  name: FLORIDA
+  abbreviation: FL
+  country_id: 225
+  id: 12
+state_00001: 
+  name: ALASKA
+  abbreviation: AK
+  country_id: 225
+  id: 1
+state_00023: 
+  name: LOUISIANA
+  abbreviation: LA
+  country_id: 225
+  id: 23
+state_00045: 
+  name: PENNSYLVANIA
+  abbreviation: PA
+  country_id: 225
+  id: 45
+state_00046: 
+  name: PUERTO RICO
+  abbreviation: PR
+  country_id: 225
+  id: 46
+state_00024: 
+  name: MASSACHUSETTS
+  abbreviation: MA
+  country_id: 225
+  id: 24
+state_00002: 
+  name: ALABAMA
+  abbreviation: AL
+  country_id: 225
+  id: 2
+state_00013: 
+  name: FEDERATED STATES OF MICRONESIA
+  abbreviation: FM
+  country_id: 225
+  id: 13
+state_00035: 
+  name: NORTH DAKOTA
+  abbreviation: ND
+  country_id: 225
+  id: 35
+state_00057: 
+  name: WASHINGTON
+  abbreviation: WA
+  country_id: 225
+  id: 57
+state_00058: 
+  name: WISCONSIN
+  abbreviation: WI
+  country_id: 225
+  id: 58
+state_00036: 
+  name: NEBRASKA
+  abbreviation: NE
+  country_id: 225
+  id: 36
+state_00014: 
+  name: GEORGIA
+  abbreviation: GA
+  country_id: 225
+  id: 14
+state_00003: 
+  name: ARKANSAS
+  abbreviation: AR
+  country_id: 225
+  id: 3
+state_00025: 
+  name: MARYLAND
+  abbreviation: MD
+  country_id: 225
+  id: 25
+state_00047: 
+  name: PALAU
+  abbreviation: PW
+  country_id: 225
+  id: 47
+state_00060: 
+  name: WYOMING
+  abbreviation: WY
+  country_id: 225
+  id: 60
+state_00048: 
+  name: RHODE ISLAND
+  abbreviation: RI
+  country_id: 225
+  id: 48
+state_00026: 
+  name: MAINE
+  abbreviation: ME
+  country_id: 225
+  id: 26
+state_00004: 
+  name: AMERICAN SAMOA
+  abbreviation: AS
+  country_id: 225
+  id: 4
+state_00015: 
+  name: GUAM
+  abbreviation: GU
+  country_id: 225
+  id: 15
+state_00037: 
+  name: NEW HAMPSHIRE
+  abbreviation: NH
+  country_id: 225
+  id: 37
+state_00059: 
+  name: WEST VIRGINIA
+  abbreviation: WV
+  country_id: 225
+  id: 59

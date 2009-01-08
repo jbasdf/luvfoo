@@ -1,0 +1,15 @@
+<div class='profile-public'>
+	<div class='profile-photo'><%= icon profile, :small -%></div>
+	<div class='profile-info'>
+        <div class='profile-name'><%= link_to(profile.full_name, profile_path(profile)) %></div> 
+	    <div class='profile-info-left'>
+            <div><%= profile.professional_role.nil? ? '' : profile.professional_role.name %></div>
+            <div><%= profile.country.nil? ? '' : profile.country.name %></div>
+            <div><% unless profile.language == nil -%>Speaks <%= profile.language.english_name %><% end %><% unless profile.languages.empty? -%>, <%=profile.languages.collect{|language| language.english_name}.join(', ') %>.<% end -%></div>
+        </div>
+        <div class='profile-info-right'>
+            <%= profile.why_joined %>
+        </div>
+    </div>
+</div>
+<div class='profile-divider'></div>

@@ -1,0 +1,28 @@
+<%-
+feed_item ||= @feed_item
+friendship = feed_item.item
+inviter = friendship.inviter
+invited = friendship.invited 
+return if inviter.nil? || invited.nil?
+if invited == @user
+	msg =_("%{person_invited} accepted your colleague request") % 
+					{ :person_invited => link_to(h(inviter.full_name), profile_path(inviter)) }
+else 
+	msg = _("%{person_invited} is now %{friendship_description} %{person_who_invited}") % 
+					{ :person_invited => link_to(h(inviter.full_name), profile_path(inviter)), 
+						:friendship_description => _(friendship.description(inviter)), 
+						:person_who_invited => link_to(h(invited.full_name), profile_path(invited))}
+end
+-%>
+<%- unless inviter == @user -%>
+	<div class="feed_item friend_feed" id="<%= feed_item.dom_id %>">
+	<div class="left">
+	  <img src="/images/blurp_friends.png" class="png icon_small" title="<%= _('Friends Icon') %>" alt="<%= _('Friends Icon') %>" /> 
+      <%= msg -%>. 
+	</div>
+	<div class="right">
+	  <%= x_feed_link(feed_item) %>
+	</div>
+	<div class="clear"></div>
+	</div>
+<%- end -%>

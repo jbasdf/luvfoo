@@ -1,0 +1,44 @@
+<form action='/search' method='get'>
+<h1>
+	<%= _('Search Results') %>
+	<span id="search_object">
+		<input type='text' name='q' style='width:200px' value='<%= @query %>' />
+		<input type='submit' value='<%= _('Search') %>' />
+        <input type='hidden' name='tab' value='<%= @selected_tab %>'/>
+	</span>
+</h1>
+</form>
+<div class="activity_box">
+	<h2>
+	    <%= tab('All') %>
+	    <%= tab('Groups') %>
+	    <%= tab('Members') %>
+	    <%= tab('News') %>
+	    <%= tab('Pages') %>
+	    <%= tab('Photos') %>
+	    <%= tab('Blogs') %>
+	    <%= tab('Stories') %>
+    </h2>
+    <ul class='search_results'>
+	<% @results.each do |result| %>
+       <% if result.is_a?(ContentPage) %>
+           <li><%= link_to result.title, page_path(result) %> <%= _('(page)') %></li>
+       <% elsif result.is_a?(User) %>
+           <li><%#= icon(result, :small) %><%= link_to result.full_name, profile_path(result) %> <%= _('(user)') %> <%= h result.why_joined %> </li>
+       <% elsif result.is_a?(Group) %>
+           <li><%#= icon(result, :small) %><%= link_to result.name, group_path(result) %> <%= _('(group)') %> <%= h result.description %> </li>
+       <% elsif result.is_a?(Photo) %>
+           <li><%= link_to image(result, :small), user_photos_path(result.photoable) %><br/><%= link_to result.caption, user_photos_path(result.photoable)%></li>
+       <% elsif result.is_a?(NewsItem) %>
+           <% if result.newsable.class == User %>
+               <li><%= link_to result.title, profile_blog_path(result.newsable_id, result) %> <%= _('(blog entry)') %></li>
+           <% elsif result.newsable.class == Group %>
+               <li><%= link_to result.title, group_news_path(result.newsable_id, result) %> <%= _('(news item)') %> </li>
+           <% elsif result.newsable.class == Widget %>
+               <li><%= link_to result.title, member_story_path(result) %> <%= _('(member story)') %> </li>
+           <% end %>    
+       <% end %>    
+    <% end %>
+    </ul>
+</div>
+

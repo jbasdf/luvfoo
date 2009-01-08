@@ -1,0 +1,63 @@
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function()
+{
+    jQuery("#invite-more").click(function()
+    {
+		html = '<tr><td></td><td class="name"><input id="name[]" name="name[]" type="text" /></td><td class="email"><input id="email[]" name="email[]" type="text" /></td></tr>';
+        jQuery("#invite-row").before(html);
+        return false; 
+    });
+});
+</script>
+<div id="invite" class="activity_box">
+	<h2><%= _("Send Invitations for Your Friends to Join %{name}") % {:name => name} %></h2>
+	<% form_tag url, {:autocomplete => 'off'} do -%>
+	<table>
+		<thead>
+		<tr>
+			<th><%= _('Send To') %></th>
+			<th><%= _('Name') %></th>
+			<th><%= _('Email') %></th>
+		</tr>
+		</thead>
+		<tbody>
+			
+		<tr id="data-row">
+			<td></td>
+			<td class="name"><%= text_field_tag "name[]" -%></td>
+			<td class="email"><%= text_field_tag "email[]" -%></td>
+		</tr>
+		
+		<tr id="invite-row">
+			<td></td>
+			<td><a id="invite-more" href="#"><%= _('Invite More') %></a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="important"><%= _('Subject') %></td>
+			<td colspan="2">
+				<div id="subject">
+					<%= text_field_tag :subject, @subject -%>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="important"><%= _('Message') %></td>
+			<td colspan="2">
+				<div id="message-body">
+					<%= text_area_tag :message_body, @message_body -%>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="2">
+				<div class="button">
+		    	<%= submit_tag _('Send'), :class=>'button' %>
+		  	</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<% end -%>
+</div>

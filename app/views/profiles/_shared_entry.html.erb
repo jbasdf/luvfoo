@@ -1,0 +1,4 @@
+<div class="profile-shared-entry">
+  <%= link_to sanitize(shared_entry.title), shared_entry.permalink %>
+	<p><%= summarize(shared_entry.body, 100) -%></p>
+</div> 

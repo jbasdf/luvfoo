@@ -1,0 +1,9 @@
+<%= notice_message(message) if defined?(message) -%>
+<span class="link-button" id="invite_group_link"><a href="<%= new_group_invite_path(@group) -%>"><%= _('Invite Friends') %></a></span>
+<span class="link-button" id="leave_group_link">
+<%# 'Fake the membership id as 1.  We dont need it since we use the current user to get that information' -%>
+<%= link_to_remote _('Leave Group'), :url => group_membership_path(@group, 1), 
+	:method => :delete,
+	:update => 'join',
+	:title => _('Stop membership in this group'), 
+	:confirm => _('Are you sure you want to leave this group?') -%></span>

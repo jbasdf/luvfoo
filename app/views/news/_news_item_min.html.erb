@@ -1,0 +1,7 @@
+<div class="news-item-min">
+	<h3><%= sanitize textilize(news_item_min.title) %></h3>
+	<div>
+	  <%= process_body_content(news_item_min) %>
+	</div>
+	<div><%= _('Posted %{time_since_posted} ago') % {:time_since_posted => time_ago_in_words news_item_min.created_at} %></div>
+</div>

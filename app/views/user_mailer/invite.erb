@@ -1,0 +1,22 @@
+<%= _("Hello %{name},
+
+%{message}
+
+Sign up
+%{register_url}
+
+View %{inviter_name}'s profile:
+%{inviter_profile_url} 
+
+Please feel free to explore our social network, courses, and website. If we can provide 
+you any assistance, please contact one of our staff by following this link: 
+%{staff_page_url} .
+
+Kind Regards,
+%{emailer_name}") % {:name => @name, 
+										 :message => h(@message), 
+										 :register_url => signup_url(:host=>GlobalConfig.application_url),
+										 :inviter_name =>h(@inviter.first_name), 
+										 :inviter_profile_url => profile_url(@inviter, :host=>GlobalConfig.application_url), 
+										 :staff_page_url => "http://teacherswithoutborders.org/who-we-are/twb-staff/", 
+										 :emailer_name => GlobalConfig.emailed_by} -%>

@@ -1,0 +1,6 @@
+<div class="activity_box">
+	<h2><%= _('New Post') %></h2>
+	<% custom_form_for @news_item, :url => user_blogs_path, :html => { :method => :post, :multipart => true, :class => "box no_top" } do |f| -%>
+		<%= render :partial => 'news/form', :locals => {:f => f } %>
+	<% end %>
+</div>

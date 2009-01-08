@@ -1,0 +1,36 @@
+<div id="async-messages">
+	<span id="delete-messages"></span>
+</div>
+<table class="clear">
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>File Name</th>
+			<th>Created</th>
+			<% if share -%><th>&nbsp;</th><% end -%>
+			<% if parent.can_edit?(current_user) -%><th>Delete</th><% end -%>
+		</tr>
+	</thead>			
+	<tbody id="upload-list" >
+		<%= render :partial => 'uploads/upload_row', :collection => @uploads, :locals => {:style => '', :share => share, :parent => parent} -%>
+	</tbody>
+</table>
+<%= will_paginate @uploads %>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	
+	jQuery(".submit-delete").click(function() {
+		jQuery("#delete-messages").fadeOut();
+		jQuery(this).parents('tr').fadeOut();
+		var form = jQuery(this).parents('form');
+		jQuery.post(form.attr('action') + '.js', form.serialize(),
+		  function(data){
+				jQuery("#delete-messages").html(data);
+				jQuery("#delete-messages").addClass('notice');
+				jQuery("#delete-messages").fadeIn();
+		  });			
+		return false;
+	});	
+});
+</script>

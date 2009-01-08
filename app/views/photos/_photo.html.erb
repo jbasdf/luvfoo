@@ -1,0 +1,6 @@
+<div class="left image">
+	<div>
+	<a href="<%= image_path(photo, nil) %>" title="<%= photo.caption %>" alt="<%= photo.caption %>" class="thickbox" rel="user_gallery"><%= image photo, :small %></a>
+	</div>
+	<%= link_to _('(delete)'), user_photo_path(photo.photoable, photo), :method => :delete if is_me?(photo.photoable) %>
+</div>

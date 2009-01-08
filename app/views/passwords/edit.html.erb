@@ -1,0 +1,8 @@
+<% form_tag url_for(:action => "update", :id => params[:id]) do %>
+    <%= _('Password:') %><br />
+    <%= password_field_tag :password %><br />
+    <%= _('Confirm Password:') %><br />
+    <%= password_field_tag :password_confirmation %><br />
+    <%= submit_tag _('Reset Your Password') %>
+<% end %>
+

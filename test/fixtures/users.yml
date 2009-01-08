@@ -1,0 +1,269 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: users
+#
+#  id                        :integer(4)    not null, primary key
+#  login                     :string(255)   
+#  email                     :string(255)   
+#  crypted_password          :string(40)    
+#  salt                      :string(40)    
+#  remember_token            :string(255)   
+#  remember_token_expires_at :datetime      
+#  activation_code           :string(40)    
+#  activated_at              :datetime      
+#  password_reset_code       :string(40)    
+#  enabled                   :boolean(1)    default(TRUE)
+#  terms_of_service          :boolean(1)    not null
+#  can_send_messages         :boolean(1)    default(TRUE)
+#  time_zone                 :string(255)   default("UTC")
+#  first_name                :string(255)   
+#  last_name                 :string(255)   
+#  website                   :string(255)   
+#  blog                      :string(255)   
+#  flickr                    :string(255)   
+#  about_me                  :text          
+#  aim_name                  :string(255)   
+#  gtalk_name                :string(255)   
+#  ichat_name                :string(255)   
+#  icon                      :string(255)   
+#  location                  :string(255)   
+#  created_at                :datetime      
+#  updated_at                :datetime      
+#  is_active                 :boolean(1)    
+#  youtube_username          :string(255)   
+#  flickr_username           :string(255)   
+#  identity_url              :string(255)   
+#  city                      :string(255)   
+#  state_id                  :integer(4)    
+#  zip                       :string(255)   
+#  country_id                :integer(4)    
+#  phone                     :string(255)   
+#  phone2                    :string(255)   
+#  msn                       :string(255)   
+#  skype                     :string(255)   
+#  yahoo                     :string(255)   
+#  organization              :string(255)   
+#  grade_experience          :integer(4)    
+#  language_id               :integer(4)    
+#  why_joined                :text          
+#  skills                    :text          
+#  occupation                :text          
+#  plone_password            :string(40)    
+#  tmp_password              :string(40)    
+#  professional_role_id      :integer(4)    
+#  blog_rss                  :string(255)   
+#  protected_profile         :text          
+#  public_profile            :text          
+#  posts_count               :integer(4)    default(0)
+#  last_seen_at              :datetime      
+#
+
+quentin:
+    login: quentin
+    email: quentin@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+    password_reset_code: 1dh4789ae988411ccf33ab0c30fe9106fab3387w
+    activated_at: <%= 5.days.ago.to_s :db %> 
+    website: http://www.example.com
+    country: usa
+    language: tonga
+    first_name: quentin
+    last_name: smith
+    terms_of_service: 1
+    
+aaron:
+    login: aaron
+    email: aaron@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: english
+    first_name: aaron
+    last_name: jones
+    terms_of_service: 1
+    posts_count: 5
+
+sam:
+    login: sam
+    email: sam@email.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    created_at: <%= 4.days.ago.to_s :db %>
+    posts_count: 5
+    last_seen_at: <%= 4.minutes.ago.to_s :db %>
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: english
+    first_name: sam
+    last_name: jones
+    posts_count: 5
+    remember_token: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    remember_token_expires_at: <%= (Time.now + 5.days).to_s :db %>
+      
+joe:
+    login: joe
+    email: joe@email.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    created_at: <%= 4.days.ago.to_s :db %>
+    posts_count: 2
+    last_seen_at: <%= 4.minutes.ago.to_s :db %>
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: english
+    first_name: joe
+    last_name: jones
+    posts_count: 2
+    
+kyle:
+    login: kyle
+    email: kyle@email.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    created_at: <%= 3.days.ago.to_s :db %>
+    posts_count: 0
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: english
+    first_name: kyle
+    last_name: jones
+    
+follower_guy:
+    login: follower_guy
+    email: follower_guy@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: tonga
+    first_name: follower
+    last_name: guy
+    terms_of_service: 1
+    
+friend_guy:
+    login: friend_guy
+    email: friend_guy@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: tonga
+    first_name: friend
+    last_name: guy
+    terms_of_service: 1
+
+africa_member:
+    login: africa_member
+    email: africa_member@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: cocos
+    language: tonga
+    first_name: member
+    last_name: of_africa_group
+    terms_of_service: 1
+ 
+africa_member_too:
+    login: africa_member_too
+    email: africa_member_too@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: cocos
+    language: tonga
+    first_name: member_too
+    last_name: of_africa_group
+    terms_of_service: 1
+     
+africa_manager:
+    login: africa_manager
+    email: africa_manager@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: tonga
+    first_name: manager
+    last_name: of_africa_group
+    terms_of_service: 1
+
+cant_message:
+    login: cant_message
+    email: africa_manager@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: tonga
+    first_name: manager
+    last_name: of_africa_group
+    terms_of_service: 1
+    can_send_messages: false
+            
+admin:
+    login: admin
+    email: admin@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+    activated_at: <%= 5.days.ago.to_s :db %>
+    country: egypt
+    language: tonga
+    first_name: admin
+    last_name: guy
+    terms_of_service: 1
+
+not_activated_user:
+    login: not_activated_user
+    email: not_activated_user@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 9f24789ae988411ccf33ab0c30fe9106fab32e9a
+    password_reset_code: 8f24789ae3484122cf33ab0c3ffe9106fab334de
+    country: egypt
+    language: english
+    first_name: not_activated
+    last_name: user
+    terms_of_service: 1   
+
+test_guy:
+    login: testguy1234
+    email: testguy@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+    password_reset_code: 1dh4789ae988411ccf33ab0c30fe9106fab3387w
+    activated_at: <%= 5.days.ago.to_s :db %> 
+    website: http://www.example.com
+    country: usa
+    language: tonga
+    first_name: test
+    last_name: guy
+    terms_of_service: 1
+    
+invisible_member:
+    login: invisible
+    email: invisible@example.com
+    salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+    crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+    activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9b 
+    password_reset_code: 1dh4789ae988411ccf33ab0c30fe9106fab3387w
+    activated_at: <%= 5.days.ago.to_s :db %> 
+    website: http://www.example.com
+    country: usa
+    language: spanish
+    first_name: invisible
+    last_name: guy
+    terms_of_service: 1    

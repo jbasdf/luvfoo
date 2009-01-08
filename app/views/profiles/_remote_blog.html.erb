@@ -1,0 +1,10 @@
+<h2><%= _("Latest from %{blog} ") % {:blog => h(remote_blog.title) } %></h2>
+<ul id="profile-remote-blog">
+<% remote_blog.entries.each do |i| -%>
+	<li><a href='<%= i.url %>'><%= i.title %></a>
+		<% if defined?(i.date) -%>
+  		<small><%= time_ago_in_words i.date %></small>
+    <% end -%>
+  </li>
+<% end -%>
+</ul>

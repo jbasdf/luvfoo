@@ -1,0 +1,26 @@
+<%-
+comment ||= @comment
+return if comment.user.nil?
+truncate = false
+youtube_videos = comment.comment.scan(/\[youtube:+.+\]/)
+c = comment.comment.dup.gsub(/\[youtube:+.+\]/, '')
+-%>
+
+<div id="<%= comment.dom_id %>" class="comment_holder">
+  <%= icon comment.user, :small, :class => 'left avatar_on_comment' %> 
+  <div class="date_details">
+    <%= _("%{comment_age} ago %{user_name_link} wrote :") % {:comment_age => time_ago_in_words(comment.created_at), :user_name_link => (link_to h(comment.user.full_name), profile_path(comment.user))} %> 
+  </div>
+  <div class="comment_message">
+    <%= sanitize(textilize(c)) %>
+		<%= x_comment_link(comment) -%>
+  </div>
+	
+  <% unless youtube_videos.empty? %>
+    <strong><%= pluralize youtube_videos.size, 'video' %>:</strong><br/>
+    <% youtube_videos.each do |o| %>
+    <%= tb_video_link(o.gsub!(/\[youtube\:|\]/, '')) %>
+  <% end
+  end %>
+  <div class="clear"></div>
+</div>

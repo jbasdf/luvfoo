@@ -1,0 +1,14 @@
+<div class="group">
+	<%= icon group, :medium -%>
+	<div class="group-info">
+	    <%= link_to(group.name, group_path(group)) %> <%= _('(private)') if group.visibility == Group::PRIVATE %><%= _('(invisible)') if group.visibility == Group::INVISIBLE %>
+        <div class="group-description"><%= summarize(strip_tags(group.description), 40) %></div>
+        <% if false #!@my_groups.include?(group) %>
+        <span class="link-button" id="join_group_link_<%= group.id %>">
+        	<%= inline_tb_link _('Join'), "join_group", 
+        		{:title => _('Join')}, 
+        		{:height => 200, :width => 300} -%>
+        </span>
+        <% end %>
+    </div>
+</div>

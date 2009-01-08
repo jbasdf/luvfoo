@@ -1,0 +1,4 @@
+<% if is_admin? -%>
+  <%= link_to _('Edit'), edit_admin_page_path(page.id), :title => _('Edit this page.') -%> |
+  <%= link_to _('Delete'), admin_page_path(page.id), :method => :delete, :title => _('Delete this page.') -%>
+<% end -%>

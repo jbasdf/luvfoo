@@ -1,0 +1,11 @@
+<% blog ||= feed_item.item %>
+<div class="feed_item photo_feed" id="<%= feed_item.dom_id %>">
+  <div class="left">
+	  <img src="/images/blurp_profile.png" class="png icon_small" title="<%= _('User Photo Icon') %>"  alt="<%= _('User Photo Icon') %>" /> 
+  	<%= _("%{user_name} blogged %{article_age} ago %{blog_title}") % {:user_name => (link_to h(blog.user.f), profile_path(blog.user)), :article_age => time_ago_in_words(blog.created_at), :blog_title => link_to(sanitize(textilize(blog.title)), user_blog_path(blog.user, blog))} %>
+	</div> 
+  <div class="right">
+  	<%= x_feed_link(feed_item) %>
+  </div>
+	<div class="clear"></div>
+</div>

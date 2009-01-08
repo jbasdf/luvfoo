@@ -1,0 +1,1858 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: luvfoo 1.0.0\n"
+"POT-Creation-Date: 2008-09-10 10:40-0600\n"
+"PO-Revision-Date: 2008-09-10 10:40-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: app/views/admin/member_stories/edit.html.erb:1 app/views/admin/member_stories/new.html.erb:1
+#: app/views/admin/member_stories/show.html.erb:1
+msgid "&lt;&lt; Back to Member Stories"
+msgstr ""
+
+#: app/views/admin/member_stories/edit.html.erb:3
+msgid "Edit Member Story"
+msgstr ""
+
+#: app/views/admin/member_stories/index.html.erb:2 app/views/member_stories/index.html.erb:2
+msgid "Member Stories"
+msgstr ""
+
+#: app/views/admin/member_stories/index.html.erb:2 app/views/admin/news_items/index.html.erb:2
+#: app/views/member_stories/index.html.erb:2
+msgid "Add New Story"
+msgstr ""
+
+#: app/views/admin/member_stories/index.html.erb:6 app/views/users/blogs/index.html.erb:9
+msgid "Icon"
+msgstr ""
+
+#: app/views/admin/member_stories/index.html.erb:7
+msgid "Story Title"
+msgstr ""
+
+#: app/views/admin/member_stories/index.html.erb:8 app/views/admin/news_items/index.html.erb:7
+#: app/views/users/blogs/index.html.erb:11
+msgid "Summary"
+msgstr ""
+
+#: app/views/admin/member_stories/new.html.erb:3 app/views/member_stories/_member_stories.html.erb:33
+msgid "Add Member Story"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:2
+msgid "Site News Stories"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:6 app/views/entries/new.html.erb:10 app/views/page/_form.html.erb:10
+#: app/views/users/blogs/index.html.erb:10
+msgid "Title"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:8
+msgid "Created"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:9
+msgid "Displayed On"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:22
+msgid "Promote Story"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:23
+msgid "Promote Story: %{story_name}"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:27 app/views/admin/roles/show.html.erb:6
+#: app/views/forums/_forum.html.erb:13 app/views/forum_posts/_post.html.erb:9
+#: app/views/forum_topics/_topic.html.erb:17 app/views/groups/news/show.html.erb:8
+#: app/views/member_stories/_admin.html.erb:2 app/views/users/blogs/_admin_links.html.erb:1
+msgid "Edit"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:27 app/views/member_stories/_admin.html.erb:2
+msgid "Edit this news story."
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:28 app/views/groups/news/show.html.erb:9
+#: app/views/member_stories/_admin.html.erb:3 app/views/users/blogs/_admin_links.html.erb:2
+msgid "Delete"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:28 app/views/member_stories/_admin.html.erb:3
+msgid "Delete this news story."
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:29
+msgid "Ban"
+msgstr ""
+
+#: app/views/admin/news_items/index.html.erb:29
+msgid "If this content is inappropriate or offensive, banning it will prevent it from showing up on the site"
+msgstr ""
+
+#: app/views/admin/news_items/new.html.erb:2 app/views/groups/news/new.html.erb:1
+msgid "Add News Item"
+msgstr ""
+
+#: app/views/admin/roles/edit.html.erb:1
+msgid "Editing role"
+msgstr ""
+
+#: app/views/admin/roles/edit.html.erb:7 app/views/admin/roles/new.html.erb:7
+msgid "Rolename"
+msgstr ""
+
+#: app/views/admin/roles/edit.html.erb:12 app/views/forums/edit.html.erb:16
+#: app/views/forum_posts/edit.html.erb:10 app/views/groups/edit.html.erb:9 app/views/groups/edit.html.erb:34
+msgid "Update"
+msgstr ""
+
+#: app/views/admin/roles/edit.html.erb:16
+msgid "Show"
+msgstr ""
+
+#: app/views/admin/roles/edit.html.erb:17 app/views/admin/roles/new.html.erb:16
+#: app/views/admin/roles/show.html.erb:7 app/views/forum_posts/edit.html.erb:13
+msgid "Back"
+msgstr ""
+
+#: app/views/admin/roles/index.html.erb:1
+msgid "Roles for %{user}"
+msgstr ""
+
+#: app/views/admin/roles/index.html.erb:3
+msgid "Roles assigned:"
+msgstr ""
+
+#: app/views/admin/roles/index.html.erb:6
+msgid "Roles available:"
+msgstr ""
+
+#: app/views/admin/roles/new.html.erb:1
+msgid "New role"
+msgstr ""
+
+#: app/views/admin/roles/new.html.erb:12 app/views/forum_topics/new.html.erb:22
+#: app/views/users/groups/new.html.erb:7
+msgid "Create"
+msgstr ""
+
+#: app/views/admin/roles/show.html.erb:2
+msgid "Rolename:"
+msgstr ""
+
+#: app/views/admin/roles/_role.html.erb:4
+msgid "remove role"
+msgstr ""
+
+#: app/views/admin/roles/_role.html.erb:6
+msgid "assign role"
+msgstr ""
+
+#: app/views/admin/users/index.html.erb:3
+msgid "Search Results"
+msgstr ""
+
+#: app/views/comments/_comment.html.erb:11 app/views/comments/_comment_title.html.erb:6
+msgid "%{comment_age} ago %{user_name_link} wrote :"
+msgstr ""
+
+#: app/views/comments/_form.html.erb:6 app/views/news/_form.html.erb:10 app/views/page/_form.html.erb:21
+msgid "To include a youtube video use: [youtube: address_of_video]"
+msgstr ""
+
+#: app/views/comments/_form.html.erb:7
+msgid "Add Comment"
+msgstr ""
+
+#: app/views/entries/new.html.erb:4 app/views/groups/show.html.erb:41
+#: app/views/users/_dashboard_actions.html.erb:13
+msgid "Share a Web Page"
+msgstr ""
+
+#: app/views/entries/new.html.erb:7
+msgid "Get a bookmark to make sharing easier"
+msgstr ""
+
+#: app/views/entries/new.html.erb:13
+msgid "Url"
+msgstr ""
+
+#: app/views/entries/new.html.erb:17 app/views/groups/_group_nav.html.erb:4
+#: app/views/profiles/comments/_list.html.erb:3
+msgid "Comments"
+msgstr ""
+
+#: app/views/entries/new.html.erb:18
+msgid "(select text before sharing it to make it show up here)"
+msgstr ""
+
+#: app/views/entries/_share_list.html.erb:6 app/views/groups/index.html.erb:6 app/views/home/index.html.erb:25
+#: app/views/layouts/application.html.erb:23 app/views/users/_groups.html.erb:3
+msgid "Groups"
+msgstr ""
+
+#: app/views/entries/_share_list.html.erb:24 app/views/layouts/application.html.erb:24
+msgid "People"
+msgstr "Members"
+
+#: app/views/feed_items/_blog.html.erb:4 app/views/feed_items/_photo.html.erb:5
+msgid "User Photo Icon"
+msgstr ""
+
+#: app/views/feed_items/_blog.html.erb:5
+msgid "%{user_name} blogged %{article_age} ago %{blog_title}"
+msgstr ""
+
+#: app/views/feed_items/_comment.html.erb:4
+msgid "Comment Icon"
+msgstr ""
+
+#: app/views/feed_items/_friend.html.erb:10
+msgid "Friends Icon"
+msgstr "Colleagues Icon"
+
+#: app/views/feed_items/_friend.html.erb:11
+msgid "%{person_invited} is now a %{friendship_description} of %{person_who_invited}"
+msgstr ""
+
+#: app/views/feed_items/_news_item.html.erb:4
+msgid "News Icon"
+msgstr ""
+
+#: app/views/feed_items/_photo.html.erb:6
+msgid "%{user_name_link} uploaded a %{photo_link_begin_tag}new photo%{photo_link_end_tag}"
+msgstr ""
+
+#: app/views/feed_items/_shared_entry.html.erb:7
+msgid "Shared Page Icon"
+msgstr ""
+
+#: app/views/feed_items/_shared_entry.html.erb:8
+msgid "%{link_to_user} shared %{share_link} with you."
+msgstr ""
+
+#: app/views/forms/_base_field.html.erb:8
+msgid "Please enter a value for %{label}"
+msgstr ""
+
+#: app/views/forums/edit.html.erb:1
+msgid "Editing forum"
+msgstr ""
+
+#: app/views/forums/edit.html.erb:4 app/views/forums/new.html.erb:3 app/views/forums/show.html.erb:17
+msgid "Back to Forums"
+msgstr ""
+
+#: app/views/forums/index.html.erb:1
+msgid "%{application_name} Forums"
+msgstr ""
+
+#: app/views/forums/index.html.erb:5
+msgid "Create a new forum"
+msgstr ""
+
+#: app/views/forums/index.html.erb:5
+msgid "Creating a new forum"
+msgstr ""
+
+#: app/views/forums/index.html.erb:13 app/views/forums/show.html.erb:36
+#: app/views/groups/forums/show.html.erb:22
+msgid "Last Post"
+msgstr ""
+
+#: app/views/forums/index.html.erb:14 app/views/groups/forums/show.html.erb:2
+msgid "Forum"
+msgstr ""
+
+#: app/views/forums/index.html.erb:21
+msgid "No forums exist at this time."
+msgstr ""
+
+#: app/views/forums/index.html.erb:27
+msgid "Drag forum rows to reorder."
+msgstr ""
+
+#: app/views/forums/new.html.erb:1
+msgid "New forum"
+msgstr ""
+
+#: app/views/forums/show.html.erb:4 app/views/forum_topics/show.html.erb:2
+msgid "Forums"
+msgstr ""
+
+#: app/views/forums/show.html.erb:12
+msgid "Start a new topic"
+msgstr ""
+
+#: app/views/forums/show.html.erb:12
+msgid "Starting a new topic in %{forum_name}"
+msgstr ""
+
+#: app/views/forums/show.html.erb:32 app/views/groups/forums/show.html.erb:20
+msgid "Topic"
+msgstr ""
+
+#: app/views/forums/show.html.erb:34 app/views/groups/forums/show.html.erb:21
+msgid "Posts"
+msgstr ""
+
+#: app/views/forums/show.html.erb:47 app/helpers/forums_helper.rb:18
+msgid "There are no topics in this forum yet."
+msgstr ""
+
+#: app/views/forums/_form.html.erb:11 app/views/forum_posts/_form.html.erb:14
+#: app/views/forum_topics/_form.html.erb:13 app/views/news/_form.html.erb:13 app/views/page/_form.html.erb:27
+#: app/views/users/edit.html.erb:77 app/views/users/edit.html.erb:103
+msgid "Save"
+msgstr ""
+
+#: app/views/forums/_forum.html.erb:13
+msgid "Editing forum %{forum_name}"
+msgstr ""
+
+#: app/views/forums/_forum.html.erb:15 app/views/forum_posts/_post.html.erb:11
+#: app/views/forum_topics/_topic.html.erb:19
+msgid "Destroy"
+msgstr ""
+
+#: app/views/forums/_forum.html.erb:15 app/views/forum_posts/_post.html.erb:11
+#: app/views/forum_topics/_topic.html.erb:19
+msgid "Are you sure?"
+msgstr ""
+
+#: app/views/forum_posts/edit.html.erb:1 app/views/forum_posts/_post.html.erb:9
+msgid "Editing post in %{topic_title}"
+msgstr ""
+
+#: app/views/forum_posts/_list.html.erb:13
+msgid "Most Recent Forum Posts"
+msgstr ""
+
+#: app/views/forum_posts/_list.html.erb:14
+msgid "(latest %{number_of_posts_displayed} of %{total_posts})"
+msgstr ""
+
+#: app/views/forum_posts/_post.html.erb:6
+msgid "Posted by %{user_name_link}"
+msgstr ""
+
+#: app/views/forum_posts/_post.html.erb:7
+msgid "Posted %{time_since_post} ago"
+msgstr ""
+
+#: app/views/forum_topics/edit.html.erb:4 app/views/forum_topics/new.html.erb:4
+#: app/views/forum_topics/show.html.erb:12
+msgid "Back to %{forum_name}"
+msgstr ""
+
+#: app/views/forum_topics/new.html.erb:15 app/views/messages/_form.html.erb:21
+msgid "Body:"
+msgstr ""
+
+#: app/views/forum_topics/show.html.erb:11
+msgid "Post a follow up"
+msgstr ""
+
+#: app/views/forum_topics/show.html.erb:23
+msgid "Post a followup"
+msgstr ""
+
+#: app/views/forum_topics/show.html.erb:28
+msgid "Please %{login_link} or %{sign_up_link} to participate!"
+msgstr ""
+
+#: app/views/forum_topics/show.html.erb:28
+msgid "login"
+msgstr ""
+
+#: app/views/forum_topics/show.html.erb:28
+msgid "sign-up"
+msgstr ""
+
+#: app/views/forum_topics/_new_topic.html.erb:12
+msgid "%{age_of_forum_post} ago, %{user_name_link} posted %{post_title_link} in %{forum_link}"
+msgstr ""
+
+#: app/views/forum_topics/_topic.html.erb:17
+msgid "Editing topic %{topic_title}"
+msgstr ""
+
+#: app/views/friends/index.html.erb:1
+msgid "My Network"
+msgstr ""
+
+#: app/views/friends/_list.html.erb:2
+msgid "friends"
+msgstr "colleagues"
+msgid "Friends"
+msgstr "Colleagues"
+
+#: app/helpers/friends_helper.rb:8
+msgid "Stop Being Friends"
+msgstr "Stop Being Colleagues"
+
+#: app/helpers/friends_helper.rb:12
+msgid "Accept Friend Request"
+msgstr "Accept Colleague Request"
+
+#: app/helpers/friends_helper.rb:16
+msgid "Friend Request"
+msgstr "Colleague Request"
+
+#: app/views/friends/_list.html.erb:7
+msgid "Following"
+msgstr ""
+
+#: app/views/friends/_list.html.erb:12
+msgid "You aren't currently following anyone"
+msgstr ""
+
+#: app/views/friends/_list.html.erb:14
+msgid "You don't currently have any followers"
+msgstr ""
+
+#: app/views/friends/_list.html.erb:16
+msgid "You don't currently have any friends"
+msgstr "You have not identified any users as colleagues"
+
+#: app/views/groups/comments/index.html.erb:2
+msgid "%{group_name} Comments"
+msgstr ""
+
+#: app/views/groups/comments/index.html.erb:8 app/views/news/_news_item.html.erb:16
+msgid "Add a Comment"
+msgstr ""
+
+#: app/views/groups/comments/index.html.erb:8
+msgid "Leaving A Comment On %{group_name}"
+msgstr ""
+
+#: app/views/groups/edit.html.erb:1
+msgid "Editing group %{group_name}"
+msgstr ""
+
+#: app/views/groups/edit.html.erb:10 app/views/users/groups/new.html.erb:8
+msgid "Cancel"
+msgstr ""
+
+#: app/views/groups/edit.html.erb:20 app/views/news/_form.html.erb:19 app/views/users/edit.html.erb:89
+msgid "Upload Photo:"
+msgstr ""
+
+#: app/views/groups/edit.html.erb:28
+msgid "Delete Group Photo"
+msgstr ""
+
+#: app/views/groups/edit.html.erb:28 app/views/news/_form.html.erb:27 app/views/users/edit.html.erb:97
+msgid "Are you sure you want to delete this photo?\nThis can not be undone."
+msgstr ""
+
+#: app/views/groups/forums/show.html.erb:5
+msgid "Latest Discussions"
+msgstr ""
+
+#: app/views/groups/forums/show.html.erb:7
+msgid "Start a new discussion"
+msgstr ""
+
+#: app/views/groups/forums/show.html.erb:8
+msgid "Starting a new discussion in %{forum_name}"
+msgstr ""
+
+#: app/views/groups/index.html.erb:6 app/views/users/groups/new.html.erb:4
+#: app/views/users/_groups.html.erb:3
+msgid "Create a New Group"
+msgstr ""
+
+#: app/views/groups/index.html.erb:9
+msgid "There are not currently any groups."
+msgstr ""
+
+#: app/views/groups/invites/new.html.erb:2 app/views/users/invites/new.html.erb:2
+msgid "Invite Your Friends"
+msgstr "Invite Your Colleagues"
+
+#: app/views/groups/memberships/index.html.erb:8 app/views/groups/show.html.erb:62
+#: app/views/groups/_group_nav.html.erb:5 app/views/profiles/search.html.erb:2
+msgid "Members"
+msgstr ""
+
+#: app/views/groups/news/edit.html.erb:1
+msgid "Edit News Item"
+msgstr ""
+
+#: app/views/groups/news/index.html.erb:5
+msgid "Latest News"
+msgstr ""
+
+#: app/views/groups/news/index.html.erb:5 app/views/groups/show.html.erb:7
+msgid "Add News"
+msgstr ""
+
+#: app/views/groups/news/show.html.erb:2
+msgid "%{group_name} - Latest News"
+msgstr ""
+
+#: app/views/groups/news/_news_item_title.html.erb:9 app/views/member_stories/_member_stories.html.erb:24
+msgid "Read More &gt;&gt;"
+msgstr ""
+
+#: app/views/groups/photos/show.html.erb:2
+msgid "%{group_name} - Photos"
+msgstr ""
+
+#: app/views/groups/photos/show.html.erb:5 app/views/groups/show.html.erb:32
+#: app/views/groups/_group_nav.html.erb:7 app/views/photos/_gallery.html.erb:13
+msgid "Photos"
+msgstr ""
+
+#: app/views/groups/photos/_form.html.erb:2 app/views/photos/_form.html.erb:2
+msgid "Upload A Photo"
+msgstr ""
+
+#: app/views/groups/photos/_form.html.erb:7 app/views/photos/_form.html.erb:9
+msgid "Upload Photo"
+msgstr ""
+
+#: app/views/groups/show.html.erb:6 app/views/groups/_group_nav.html.erb:3
+#: app/views/layouts/application.html.erb:26 app/views/shared/_footer.html.erb:6
+msgid "News"
+msgstr ""
+
+#: app/views/groups/show.html.erb:6 app/views/groups/show.html.erb:16 app/views/groups/show.html.erb:32
+#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:30
+#: app/views/profiles/blogs/_history.html.erb:4 app/views/profiles/blogs/_list.html.erb:6
+msgid "View All"
+msgstr ""
+
+#: app/views/groups/show.html.erb:16
+msgid "Member Comments"
+msgstr ""
+
+#: app/views/groups/show.html.erb:18 app/views/profiles/comments/_list.html.erb:6
+#: app/views/profiles/show.html.erb:57
+msgid "Leave a Comment"
+msgstr ""
+
+#: app/views/groups/show.html.erb:41
+msgid "Shared Web Pages"
+msgstr ""
+
+#: app/views/groups/show.html.erb:54
+msgid "Officers"
+msgstr ""
+
+#: app/views/groups/_form.html.erb:3
+msgid "Group Name"
+msgstr ""
+
+#: app/views/groups/_form.html.erb:6
+msgid "Group Tags"
+msgstr ""
+
+#: app/views/groups/_form.html.erb:9
+msgid "Tags help other users find your group. Use something descriptive."
+msgstr ""
+
+#: app/views/groups/_form.html.erb:10
+msgid "Example: Teachers, French - for a group of teachers interested in French."
+msgstr ""
+
+#: app/views/groups/_form.html.erb:12
+msgid "Group Description"
+msgstr ""
+
+#: app/views/groups/_group_info.html.erb:9
+msgid "<span class=\"link-button\">%{login_link}</span> or <span class=\"link-button\">%{join_link}</span> to Join"
+msgstr ""
+
+#: app/views/groups/_group_info.html.erb:9 app/views/layouts/application.html.erb:36
+msgid "Login"
+msgstr ""
+
+#: app/views/groups/_group_info.html.erb:9 app/views/groups/_join_form.html.erb:39
+msgid "Join"
+msgstr ""
+
+#: app/views/groups/_group_info.html.erb:17
+msgid "Add Group Image"
+msgstr ""
+
+#: app/views/groups/_group_info.html.erb:22
+msgid "Information"
+msgstr ""
+
+#: app/views/groups/_group_nav.html.erb:2
+msgid "Main"
+msgstr ""
+
+#: app/views/groups/_group_nav.html.erb:16
+msgid "Edit Group"
+msgstr ""
+
+#: app/views/groups/_join_controls.html.erb:9
+msgid "Rejoin %{group_name}"
+msgstr ""
+
+#: app/views/groups/_join_controls.html.erb:11 app/views/groups/_join_controls.html.erb:15
+msgid "Join %{group_name}"
+msgstr ""
+
+#: app/views/groups/_join_form.html.erb:35
+msgid "%{group_name} is an open group that anyone can join."
+msgstr ""
+
+#: app/views/groups/_join_form.html.erb:36
+msgid "Would you like to join %{group_name}?"
+msgstr ""
+
+#: app/views/groups/_member_controls.html.erb:2 app/views/users/show.html.erb:20
+msgid "Invite Friends"
+msgstr "Invite Colleagues"
+
+#: app/views/groups/_member_controls.html.erb:5
+msgid "Leave Group"
+msgstr ""
+
+#: app/views/groups/_member_controls.html.erb:8
+msgid "Stop membership in this group"
+msgstr ""
+
+#: app/views/groups/_member_controls.html.erb:9
+msgid "Are you sure you want to leave this group?"
+msgstr ""
+
+#: app/views/groups/_shared_entry.html.erb:2
+msgid "%{link_to_sharer} shared %{link_to_web_page} %{time_since_shared} ago."
+msgstr ""
+
+#: app/views/home/contact.html.erb:3 app/views/shared/_footer.html.erb:3
+#: app/views/shared/_footer.html.erb:5
+msgid "Contact Us"
+msgstr ""
+
+#: app/views/home/contact.html.erb:5
+msgid "Thank you for contacting Teachers Without Borders. Please complete the form below and a Teachers Without Borders staff member will contact you shortly."
+msgstr ""
+
+#: app/views/home/contact.html.erb:10
+msgid "Your name:"
+msgstr ""
+
+#: app/views/home/contact.html.erb:11
+msgid "Please provide us with your name."
+msgstr ""
+
+#: app/views/home/contact.html.erb:16
+msgid "Your phone number:"
+msgstr ""
+
+#: app/views/home/contact.html.erb:17
+msgid "Your phone number is optional but will help us contact you if necessary."
+msgstr ""
+
+#: app/views/home/contact.html.erb:22
+msgid "Your email:"
+msgstr ""
+
+#: app/views/home/contact.html.erb:23
+msgid "Please provide us with your email so that we can contact you if necessary."
+msgstr ""
+
+#: app/views/home/contact.html.erb:28 app/views/messages/_form.html.erb:16
+msgid "Subject:"
+msgstr ""
+
+#: app/views/home/contact.html.erb:29
+msgid "A simple statement indicating the nature of your feedback."
+msgstr ""
+
+#: app/views/home/contact.html.erb:34
+msgid "Your message/question:"
+msgstr ""
+
+#: app/views/home/contact.html.erb:35
+msgid "Please include any comments you would like us to hear."
+msgstr ""
+
+#: app/views/home/contact.html.erb:39 app/views/shared/_invite.html.erb:56
+msgid "Send"
+msgstr ""
+
+#: app/views/home/index.html.erb:2
+msgid "Latest Comments"
+msgstr ""
+
+#: app/views/home/index.html.erb:3
+msgid "Newest Members"
+msgstr ""
+
+#: app/views/home/index.html.erb:10
+msgid "About Us"
+msgstr ""
+
+#: app/views/home/index.html.erb:30
+msgid "Countries"
+msgstr ""
+
+#: app/views/home/index.html.erb:45
+msgid "Welcome to Our New Members"
+msgstr ""
+
+#: app/views/home/index.html.erb:53
+msgid "Newest Pictures"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:22
+msgid "Home"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:25
+msgid "Events"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:27
+msgid "Courses"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:28
+msgid "Donate"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:32 app/views/shared/_user_menu.html.erb:3
+#: app/views/users/show.html.erb:8
+msgid "My Dashboard"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:34
+msgid "Logout"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:36
+msgid "%{login_link} %{signup_link}"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:36
+msgid "Sign-up"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:44
+msgid "Teachers Without Borders"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:45
+msgid "Global Colleagues/Local Solutions"
+msgstr ""
+
+#: app/views/member_stories/_member_stories.html.erb:31
+msgid "More Stories"
+msgstr ""
+
+#: app/views/member_stories/_member_story_summary.html.erb:7
+msgid "Read More"
+msgstr ""
+
+#: app/views/messages/new.html.erb:1 app/views/shared/_user_menu.html.erb:7
+msgid "My Messages"
+msgstr ""
+
+#: app/views/messages/sent.html.erb:1 app/views/shared/_user_menu.html.erb:13
+msgid "Sent Messages"
+msgstr ""
+
+#: app/views/messages/show.html.erb:2 app/views/shared/_invite.html.erb:45
+msgid "Message"
+msgstr ""
+
+#: app/views/messages/show.html.erb:6 app/views/shared/_user_menu.html.erb:19
+msgid "Reply"
+msgstr ""
+
+#: app/views/messages/show.html.erb:9
+msgid "RE: %{message_subject}"
+msgstr ""
+
+#: app/views/messages/_form.html.erb:11
+msgid "To:"
+msgstr ""
+
+#: app/views/messages/_form.html.erb:26
+msgid "Send Message"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:4
+msgid "Inbox Messages"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:8
+msgid "Message Center"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:14
+msgid "No Messages"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:18
+msgid "To"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:18
+msgid "From"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:19 app/views/shared/_invite.html.erb:37
+msgid "Subject"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:20
+msgid "When"
+msgstr ""
+
+#: app/views/messages/_list.html.erb:27
+msgid "%{time_since_created} ago"
+msgstr ""
+
+#: app/views/messages/_message.html.erb:4
+msgid "From: %{sender_link} %{time_since_created} ago"
+msgstr ""
+
+#: app/views/news/_form.html.erb:9
+msgid "Add tags to help others discover your content."
+msgstr ""
+
+#: app/views/news/_form.html.erb:20
+msgid "Upload a photo for your story"
+msgstr ""
+
+#: app/views/news/_form.html.erb:27 app/views/users/edit.html.erb:97
+msgid "delete icon"
+msgstr ""
+
+#: app/views/news/_news_item.html.erb:5
+msgid "(Edit Post)"
+msgstr ""
+
+#: app/views/news/_news_item.html.erb:15
+msgid "Comments %{number_of_comments}"
+msgstr ""
+
+#: app/views/news/_news_item.html.erb:16
+msgid "Leaving A Comment On %{news_item_title}"
+msgstr ""
+
+#: app/views/news/_news_item_min.html.erb:6
+msgid "Posted %{time_since_posted} ago"
+msgstr ""
+
+#: app/views/news/_news_item_simple.html.erb:2
+msgid "From %{news_source}"
+msgstr ""
+
+#: app/views/page/edit.html.erb:1 app/views/page/_show.html.erb:2
+msgid "Edit Page"
+msgstr ""
+
+#: app/views/page/new.html.erb:1
+msgid "New Page"
+msgstr ""
+
+#: app/views/page/_form.html.erb:14
+msgid "Path"
+msgstr ""
+
+#: app/views/page/_form.html.erb:18
+msgid "Content"
+msgstr ""
+
+#: app/views/passwords/edit.html.erb:2 app/views/users/edit.html.erb:120
+#: app/views/users/welcome.html.erb:10
+msgid "Password:"
+msgstr ""
+
+#: app/views/passwords/edit.html.erb:4 app/views/users/edit.html.erb:125
+msgid "Confirm Password:"
+msgstr ""
+
+#: app/views/passwords/edit.html.erb:6
+msgid "Reset Your Password"
+msgstr ""
+
+#: app/views/passwords/new.html.erb:1
+msgid "Forgot Password"
+msgstr ""
+
+#: app/views/passwords/new.html.erb:3
+msgid "What is the email address used to create your account?"
+msgstr ""
+
+#: app/views/passwords/new.html.erb:5
+msgid "Reset Password"
+msgstr ""
+
+#: app/views/photos/_form.html.erb:5
+msgid "Photo: "
+msgstr ""
+
+#: app/views/photos/_photo.html.erb:5
+msgid "(delete)"
+msgstr ""
+
+#: app/views/profiles/blogs/index.html.erb:2
+msgid "%{user_name}'s Blogs"
+msgstr ""
+
+#: app/views/profiles/blogs/index.html.erb:6 app/views/shared/_user_menu.html.erb:6
+#: app/views/users/blogs/index.html.erb:2
+msgid "My Blog"
+msgstr ""
+
+#: app/views/profiles/blogs/index.html.erb:8 app/views/profiles/blogs/show.html.erb:6
+msgid "%{user_name}'s Blog"
+msgstr ""
+
+#: app/views/profiles/blogs/index.html.erb:12
+msgid "%{user_name} has no blog posts."
+msgstr ""
+
+#: app/views/profiles/blogs/_blog.html.erb:6
+msgid "Comments (%{number_of_comments})"
+msgstr ""
+
+#: app/views/profiles/blogs/_blog.html.erb:7
+msgid "Posted %{time_ago} ago"
+msgstr ""
+
+#: app/views/profiles/blogs/_history.html.erb:4
+msgid "Blog Post History"
+msgstr ""
+
+#: app/views/profiles/blogs/_history.html.erb:7 app/views/profiles/blogs/_list.html.erb:14
+msgid "%{link} - %{time} ago."
+msgstr ""
+
+#: app/views/profiles/blogs/_list.html.erb:3
+msgid "Most Recent Blog Posts"
+msgstr ""
+
+#: app/views/profiles/blogs/_list.html.erb:4
+msgid "latest %{number_of_posts_displayed} of %{total_blogs}"
+msgstr ""
+
+#: app/views/profiles/blogs/_list.html.erb:8
+msgid "Write a New Post"
+msgstr ""
+
+#: app/views/profiles/comments/index.html.erb:2
+msgid "Conversation with %{user_name}"
+msgstr ""
+
+#: app/views/profiles/comments/index.html.erb:6 app/views/profiles/comments/_list.html.erb:5
+msgid "Conversation with %{name}"
+msgstr ""
+
+#: app/views/profiles/comments/index.html.erb:9
+msgid "Back to Profile"
+msgstr ""
+
+#: app/views/profiles/comments/index.html.erb:10
+msgid "Add A Comment"
+msgstr ""
+
+#: app/views/profiles/comments/index.html.erb:10
+msgid "Adding A Comment"
+msgstr ""
+
+#: app/views/profiles/comments/_list.html.erb:7
+msgid "Leaving A Comment On %{user_name}'s Wall"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:20
+msgid "Latest YouTube Video"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:27
+msgid "Latest Flickr Pictures"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:32
+msgid "FlickrHolder"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:54
+msgid "Direct Message"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:55
+msgid "New Message For %{user_name}"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:58
+msgid "Leaving A Comment For %{user_name}"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:69
+msgid "CTM Portfolio"
+msgstr ""
+
+#: app/views/profiles/show.html.erb:78
+msgid "Shared Items"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:6
+msgid "(Edit Profile)"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:9
+msgid "About:"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:10
+msgid "Website:"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:11
+msgid "Blog:"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:12
+msgid "Flickr:"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:13
+msgid "AIM:"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:14
+msgid "GTalk:"
+msgstr ""
+
+#: app/views/profiles/_bio.html.erb:15
+msgid "iChat:"
+msgstr ""
+
+#: app/views/profiles/_featured.html.erb:6
+msgid "Featured Member"
+msgstr ""
+
+#: app/views/profiles/_featured.html.erb:9
+msgid "more"
+msgstr ""
+
+#: app/views/profiles/_newest_member.html.erb:4
+msgid "Nowhere"
+msgstr ""
+
+#: app/views/profiles/_recent_activity.html.erb:4
+msgid "Recent Activity"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:4
+msgid "Log-in to your Account"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:7
+msgid "Register for an account"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:11 app/views/users/index.html.erb:4
+msgid "Username"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:16 app/views/users/new.html.erb:14
+msgid "Password"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:18
+msgid "Forgot your password?"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:22
+msgid "Remember me"
+msgstr ""
+
+#: app/views/sessions/new.html.erb:27
+msgid "Log-in Now"
+msgstr ""
+
+#: app/views/shared/_admin_search.html.erb:2 app/views/shared/_search.html.erb:2
+#: app/views/shared/_search.html.erb:3
+msgid "Search"
+msgstr ""
+
+#: app/views/shared/_footer.html.erb:7
+msgid "Privacy Policy"
+msgstr ""
+
+#: app/views/shared/_footer.html.erb:8
+msgid "Terms of Use"
+msgstr ""
+
+#: app/views/shared/_footer.html.erb:9
+msgid "Code of Conduct"
+msgstr ""
+
+#: app/views/shared/_invite.html.erb:13
+msgid "Send Invitations for Your Friends to Join %{name}"
+msgstr "Send Invitations for Your Colleagues to Join %{name}"
+
+#: app/views/shared/_invite.html.erb:33
+msgid "Invite More"
+msgstr ""
+
+#: app/views/shared/_user_menu.html.erb:4 app/views/users/groups/index.html.erb:6
+msgid "My Groups"
+msgstr ""
+
+#: app/views/shared/_user_menu.html.erb:5
+msgid "My Friends"
+msgstr "My Colleagues"
+
+#: app/views/shared/_user_menu.html.erb:8 app/views/users/photos/index.html.erb:6
+msgid "My Photos"
+msgstr ""
+
+#: app/views/shared/_user_menu.html.erb:12
+msgid "Inbox"
+msgstr ""
+
+#: app/views/shared/_user_menu.html.erb:14
+msgid "New Message"
+msgstr ""
+
+#: app/views/shared/_user_menu.html.erb:19
+msgid "Reply To %{sender}"
+msgstr ""
+
+#: app/views/users/blogs/edit.html.erb:1 app/views/users/blogs/edit.html.erb:4
+msgid "Edit Post"
+msgstr ""
+
+#: app/views/users/blogs/index.html.erb:2
+msgid "Write New Blog Post"
+msgstr ""
+
+#: app/views/users/blogs/index.html.erb:4
+msgid "You have no blog posts."
+msgstr ""
+
+#: app/views/users/blogs/new.html.erb:2
+msgid "New Post"
+msgstr ""
+
+#: app/views/users/blogs/_admin_links.html.erb:1
+msgid "Edit this post."
+msgstr ""
+
+#: app/views/users/blogs/_admin_links.html.erb:2
+msgid "Delete this post."
+msgstr ""
+
+#: app/views/users/edit.html.erb:2
+msgid "Edit Profile"
+msgstr ""
+
+#: app/views/users/edit.html.erb:2
+msgid "or "
+msgstr ""
+
+#: app/views/users/edit.html.erb:2
+msgid "Skip This Step"
+msgstr ""
+
+#: app/views/users/edit.html.erb:2
+msgid "Thanks for signing up!"
+msgstr ""
+
+#: app/views/users/edit.html.erb:9
+msgid "General info"
+msgstr ""
+
+#: app/views/users/edit.html.erb:11 app/views/users/new.html.erb:11
+msgid "Email Address"
+msgstr ""
+
+#: app/views/users/edit.html.erb:12 app/views/users/new.html.erb:12
+msgid "First Name"
+msgstr ""
+
+#: app/views/users/edit.html.erb:13 app/views/users/new.html.erb:13
+msgid "Last Name"
+msgstr ""
+
+#: app/views/users/edit.html.erb:14
+msgid "Location"
+msgstr ""
+
+#: app/views/users/edit.html.erb:15
+msgid "Website"
+msgstr ""
+
+#: app/views/users/edit.html.erb:16
+msgid "Blog"
+msgstr ""
+
+#: app/views/users/edit.html.erb:17
+msgid "City"
+msgstr ""
+
+#: app/views/users/edit.html.erb:18
+msgid "Country"
+msgstr ""
+
+#: app/views/users/edit.html.erb:20 app/views/users/new.html.erb:19
+msgid "State"
+msgstr ""
+
+#: app/views/users/edit.html.erb:22
+msgid "Postal Code"
+msgstr ""
+
+#: app/views/users/edit.html.erb:23
+msgid "School District / University / Company:"
+msgstr ""
+
+#: app/views/users/edit.html.erb:25
+msgid "Grade Level Experience"
+msgstr ""
+
+#: app/views/users/edit.html.erb:34
+msgid "Primary Phone"
+msgstr ""
+
+#: app/views/users/edit.html.erb:35
+msgid "Secondary Phone"
+msgstr ""
+
+#: app/views/users/edit.html.erb:37 app/views/users/new.html.erb:22
+msgid "I Am Currently:"
+msgstr ""
+
+#: app/views/users/edit.html.erb:39 app/views/users/new.html.erb:24
+msgid "First Language"
+msgstr ""
+
+#: app/views/users/edit.html.erb:42 app/views/users/new.html.erb:27
+msgid "Other Language(s)"
+msgstr ""
+
+#: app/views/users/edit.html.erb:51
+msgid "About Me"
+msgstr ""
+
+#: app/views/users/edit.html.erb:52 app/views/users/new.html.erb:36
+msgid "A few words on why you joined TWB"
+msgstr ""
+
+#: app/views/users/edit.html.erb:53
+msgid "Skills"
+msgstr ""
+
+#: app/views/users/edit.html.erb:56
+msgid "Volunteer Interests"
+msgstr ""
+
+#: app/views/users/edit.html.erb:65
+msgid "Occupation"
+msgstr ""
+
+#: app/views/users/edit.html.erb:66
+msgid "Flickr"
+msgstr ""
+
+#: app/views/users/edit.html.erb:67
+msgid "Youtube Username:"
+msgstr ""
+
+#: app/views/users/edit.html.erb:68
+msgid "Flickr Username:"
+msgstr ""
+
+#: app/views/users/edit.html.erb:69
+msgid "AOL Instant messenger"
+msgstr ""
+
+#: app/views/users/edit.html.erb:70
+msgid "MSN messenger"
+msgstr ""
+
+#: app/views/users/edit.html.erb:71
+msgid "Skype"
+msgstr ""
+
+#: app/views/users/edit.html.erb:72
+msgid "Yahoo! Messenger"
+msgstr ""
+
+#: app/views/users/edit.html.erb:73
+msgid "GTalk"
+msgstr ""
+
+#: app/views/users/edit.html.erb:74
+msgid "iChat"
+msgstr ""
+
+#: app/views/users/edit.html.erb:90
+msgid "Upload a photo for your profile"
+msgstr ""
+
+#: app/views/users/edit.html.erb:112 app/views/users/edit.html.erb:130
+msgid "Change Password"
+msgstr ""
+
+#: app/views/users/edit.html.erb:115
+msgid "Current Password:"
+msgstr ""
+
+#: app/views/users/edit.html.erb:138
+msgid "Remove My Account"
+msgstr ""
+
+#: app/views/users/edit.html.erb:139
+msgid "Delete my user account and all my data."
+msgstr ""
+
+#: app/views/users/edit.html.erb:139
+msgid "Are you sure you want to delete your account?\nThis can not be undone."
+msgstr ""
+
+#: app/views/users/groups/index.html.erb:8
+msgid "%{user_name}'s Groups"
+msgstr ""
+
+#: app/views/users/groups/index.html.erb:13
+msgid "You aren't a member of any groups."
+msgstr ""
+
+#: app/views/users/groups/index.html.erb:13
+msgid "%{user_name} isn't a member of any groups."
+msgstr ""
+
+#: app/views/users/groups/new.html.erb:15
+msgid "Some of our current groups"
+msgstr ""
+
+#: app/views/users/index.html.erb:1
+msgid "All Users"
+msgstr ""
+
+#: app/views/users/index.html.erb:5
+msgid "Email"
+msgstr ""
+
+#: app/views/users/index.html.erb:6
+msgid "Enabled?"
+msgstr ""
+
+#: app/views/users/index.html.erb:7
+msgid "Roles"
+msgstr ""
+
+#: app/views/users/new.html.erb:5
+msgid "Join %{application_name}"
+msgstr ""
+
+#: app/views/users/new.html.erb:6
+msgid "Welcome to %{application_name}"
+msgstr "TWB Membership is free and your skills are needed as we come together to improve education around the world"
+
+#: app/views/users/new.html.erb:7
+msgid "Already a member? %{login_link_anchor}Sign in now%{login_link_end}"
+msgstr ""
+
+#: app/views/users/new.html.erb:10
+msgid "Choose a Member Name"
+msgstr ""
+
+#: app/views/users/new.html.erb:15
+msgid "Confirm Password"
+msgstr ""
+
+#: app/views/users/new.html.erb:17
+msgid "Country"
+msgstr ""
+
+#: app/views/users/new.html.erb:39
+msgid "I agree to the %{tos_link_anchor}Terms and Conditions%{link_end} and the %{coc_link_anchor}Code of Conduct%{link_end}"
+msgstr ""
+
+#: app/views/users/new.html.erb:47
+msgid "Sign-up Now"
+msgstr ""
+
+#: app/views/users/new.html.erb:58
+msgid "Why Joining Matters"
+msgstr ""
+
+#: app/views/users/new.html.erb:60
+msgid "Consult for Teachers Without Borders projects to close the education divide."
+msgstr ""
+
+#: app/views/users/new.html.erb:61
+msgid "Improve the chances for stability, democracy, hope, and participation in a global economy."
+msgstr ""
+
+#: app/views/users/new.html.erb:62
+msgid "Help teachers gain access to a global network and clearinghouse of good ideas."
+msgstr ""
+
+#: app/views/users/new.html.erb:63
+msgid "Ensure digital desegregation in a world increasingly dependent upon technology."
+msgstr ""
+
+#: app/views/users/new.html.erb:64
+msgid "Enlarge attention to one of the most crucial issues of our time - education in an information age."
+msgstr ""
+
+#: app/views/users/photos/index.html.erb:8
+msgid "%{user_name}'s Photos"
+msgstr ""
+
+#: app/views/users/welcome.html.erb:2
+msgid "Thank you for registering!"
+msgstr ""
+
+#: app/views/users/welcome.html.erb:3
+msgid "You will be receiving an email shortly at %{user_email}."
+msgstr ""
+
+#: app/views/users/welcome.html.erb:4
+msgid "Please check your email to confirm your account."
+msgstr ""
+
+#: app/views/users/welcome.html.erb:9
+msgid "Username:"
+msgstr ""
+
+#: app/views/users/welcome.html.erb:10
+msgid "(password sent via email)"
+msgstr ""
+
+#: app/views/users/welcome.html.erb:11
+msgid "Email Address:"
+msgstr ""
+
+#: app/views/users/welcome.html.erb:12
+msgid "Date Registered:"
+msgstr ""
+
+#: app/views/users/welcome.html.erb:17
+msgid "We're glad to have you as a member of Teachers Without Borders."
+msgstr ""
+
+#: app/views/users/welcome.html.erb:18
+msgid "Thank you for registering %{user_name}!"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:5
+msgid "Actions"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:8
+msgid "Write a Message to a Friend"
+msgstr "Write a Message to a Colleague"
+
+#: app/views/users/_dashboard_actions.html.erb:8
+msgid "Write a Message"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:9
+msgid "Write a Blog Post"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:10
+msgid "Upload Photos"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:11
+msgid "Edit Your Profile"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:12
+msgid "Read Your Messages"
+msgstr ""
+
+#: app/views/users/_dashboard_actions.html.erb:15 app/views/users/_dashboard_actions.html.erb:16
+msgid "Write a Page"
+msgstr ""
+
+#: app/views/users/_notifications.html.erb:3
+msgid "Notifications"
+msgstr ""
+
+#: app/views/users/_notifications.html.erb:6
+msgid "%{profile} requests to be your Friend %{accept} %{ignore}"
+msgstr "%{profile} requests to be your Colleague %{accept} %{ignore}"
+
+#: app/views/users/_notifications.html.erb:10
+msgid "You have unread messages (%{num_unread_messages})"
+msgstr ""
+
+#: app/views/users/_pages.html.erb:3 app/views/users/_pages.html.erb:4
+msgid "Add a Page"
+msgstr ""
+
+#: app/views/users/_pages.html.erb:4
+msgid "Pages"
+msgstr ""
+
+#: app/views/users/_user.html.erb:4
+msgid "yes"
+msgstr ""
+
+#: app/views/users/_user.html.erb:4
+msgid "no"
+msgstr ""
+
+#: app/views/users/_user.html.erb:7
+msgid "disable"
+msgstr ""
+
+#: app/views/users/_user.html.erb:9
+msgid "enable"
+msgstr ""
+
+#: app/views/users/_user.html.erb:13
+msgid "edit roles"
+msgstr ""
+
+#: app/views/widgets/_latest_news.html.erb:2
+msgid "Latest Activity"
+msgstr ""
+
+#: app/helpers/forums_helper.rb:4
+msgid "post"
+msgstr ""
+
+#: app/helpers/forums_helper.rb:4
+msgid "posts"
+msgstr ""
+
+#: app/helpers/forums_helper.rb:4
+msgid "discussion"
+msgstr ""
+
+#: app/helpers/forums_helper.rb:4
+msgid "discussions"
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:22
+msgid "Your account has been activated! You can now login."
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:25 app/controllers/accounts_controller.rb:28
+msgid "Activation code not found. Please try creating a new account."
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:31
+msgid "Your account has already been activated. You can log in below."
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:46
+msgid "Password successfully updated."
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:49
+msgid "An error occured, your password was not changed."
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:53
+msgid "New password does not match the password confirmation."
+msgstr ""
+
+#: app/controllers/accounts_controller.rb:58
+msgid "Your old password is incorrect."
+msgstr ""
+
+#: app/controllers/admin/roles_controller.rb:25
+msgid "Role was successfully created."
+msgstr ""
+
+#: app/controllers/entries_controller.rb:25
+msgid "Web page was shared"
+msgstr ""
+
+#: app/controllers/entries_controller.rb:34
+msgid "Failed to share the web page."
+msgstr ""
+
+#: app/controllers/feed_items_controller.rb:13
+msgid "Item successfully removed from the recent activities list."
+msgstr ""
+
+#: app/controllers/feed_items_controller.rb:27 app/controllers/feed_items_controller.rb:30
+msgid "Sorry, you can't do that."
+msgstr ""
+
+#: app/controllers/forum_posts_controller.rb:55
+msgid "ForumPost was successfully saved."
+msgstr ""
+
+#: app/controllers/forum_topics_controller.rb:74
+msgid "ForumTopic was successfully saved."
+msgstr ""
+
+#: app/controllers/friends_controller.rb:13
+msgid "Oops... That didn't work. Try again!"
+msgstr ""
+
+#: app/controllers/groups/forums_controller.rb:29
+msgid "Forum For %{forum}"
+msgstr ""
+
+#: app/controllers/groups/invites_controller.rb:24
+msgid "Thank you for inviting your friends to join '%{group_name}' on %{site}"
+msgstr "Thank you for inviting your colleagues to join '%{group_name}' on %{site}"
+
+#: app/controllers/groups/invites_controller.rb:29
+msgid "Please specify an email address of a friend you would like to invite to join '%{group_name}'"
+msgstr "Please specify an email address of a colleague you would like to invite to join '%{group_name}'"
+
+#: app/controllers/groups/invites_controller.rb:42
+msgid "Please come and join me on %{group_name}"
+msgstr ""
+
+#: app/controllers/groups/invites_controller.rb:43
+msgid "Please come and join our group '%{group_name}' on %{site}."
+msgstr ""
+
+#: app/controllers/groups/memberships_controller.rb:19
+msgid "You have joined the group %{group_name}"
+msgstr ""
+
+#: app/controllers/groups/memberships_controller.rb:21
+msgid "An error occured while joining the group.  Please try again."
+msgstr ""
+
+#: app/controllers/groups/memberships_controller.rb:26
+msgid "You have left the group"
+msgstr ""
+
+#: app/controllers/groups/memberships_controller.rb:34
+msgid "There was a problem with the group.  Please try again."
+msgstr ""
+
+#: app/controllers/groups/news_controller.rb:86
+msgid "You don't have permission manage the news for this group."
+msgstr ""
+
+#: app/controllers/groups/photos_controller.rb:45 app/controllers/users/photos_controller.rb:42
+msgid "Photo was deleted."
+msgstr ""
+
+#: app/controllers/groups/photos_controller.rb:62 app/controllers/users/photos_controller.rb:75
+msgid "You don't have permission to delete that photo."
+msgstr ""
+
+#: app/controllers/groups_controller.rb:39
+msgid "Group was successfully updated."
+msgstr ""
+
+#: app/controllers/home_controller.rb:15
+msgid "from %{application_url_name} contact page"
+msgstr ""
+
+#: app/controllers/home_controller.rb:16
+msgid "Thank you for your message.  A member of our team will respond to you shortly."
+msgstr ""
+
+#: app/controllers/messages_controller.rb:9
+msgid "You have no mail in your inbox.  Send a message to someone."
+msgstr ""
+
+#: app/controllers/messages_controller.rb:27
+msgid "Message sent."
+msgstr ""
+
+#: app/controllers/messages_controller.rb:61
+msgid "Sorry, you can't send messages."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:18
+msgid "A password reset link has been sent to your email address."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:21
+msgid "Could not find a user with that email address."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:38
+msgid "Invalid Reset Code entered."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:39 app/controllers/passwords_controller.rb:81
+msgid "Sorry - That is an invalid password reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)"
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:48
+msgid "Could not find a password reset code.  Please try resetting your password again"
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:53
+msgid "Password field cannot be blank."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:70
+msgid "Password reset."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:70
+msgid "Password not reset."
+msgstr ""
+
+#: app/controllers/passwords_controller.rb:80
+msgid "Invalid Reset Code entered"
+msgstr ""
+
+#: app/controllers/profiles/blogs_controller.rb:8
+msgid "%{name} hasn't written any blog posts yet."
+msgstr ""
+
+#: app/controllers/profiles/blogs_controller.rb:19
+msgid "Could not find the requested blog post"
+msgstr ""
+
+#: app/controllers/profiles_controller.rb:25
+msgid "Could not find the specified user."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:22
+msgid "Sorry could not log in with identity URL.  It is possible that your login or email is already in use.  If you already have an account, log into your account and then associate your Open ID with that account."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:34
+msgid "You have been logged out."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:51
+msgid "Your account must include at a minimum a nickname and valid email address to use OpenID on this site."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:56 app/controllers/sessions_controller.rb:84
+msgid "Your account is not active, please check your email for the activation code."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:58 app/controllers/sessions_controller.rb:86
+msgid "Your account has been disabled."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:72
+msgid "Thanks for signing up! Please check your email to activate your account before logging in."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:75
+msgid "Someone has signed up with that nickname or email address. Please select a diferent username and/or use a different email address."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:82
+msgid "We're sorry, but we couldn't recognize your login information.  Please try again."
+msgstr ""
+
+#: app/controllers/sessions_controller.rb:106
+msgid "Logged in successfully"
+msgstr ""
+
+#: app/controllers/users/blogs_controller.rb:36
+msgid "New blog post created."
+msgstr ""
+
+#: app/controllers/users/blogs_controller.rb:41
+msgid "Failed to create a new blog post."
+msgstr ""
+
+#: app/controllers/users/blogs_controller.rb:56
+msgid "Blog post updated."
+msgstr ""
+
+#: app/controllers/users/blogs_controller.rb:61
+msgid "Failed to update the blog post."
+msgstr ""
+
+#: app/controllers/users/blogs_controller.rb:72
+msgid "Blog post deleted."
+msgstr ""
+
+#: app/controllers/users/invites_controller.rb:21
+msgid "Thank you for inviting your friends to join %{site}"
+msgstr "Thank you for inviting your colleague to join %{site}"
+
+#: app/controllers/users/invites_controller.rb:26
+msgid "Please specify an email address of a friend you would like to invite"
+msgstr "Please specify an email address of a colleague you would like to invite"
+
+#: app/controllers/users/invites_controller.rb:38
+msgid "Please come and join me on %{site}"
+msgstr ""
+
+#: app/controllers/users/invites_controller.rb:39
+msgid "Please come and join %{site}."
+msgstr ""
+
+#: app/controllers/users/photos_controller.rb:24
+msgid "Photo successfully uploaded."
+msgstr ""
+
+#: app/controllers/users/photos_controller.rb:29
+msgid "Photo could not be uploaded."
+msgstr ""
+
+#: app/controllers/users_controller.rb:78
+msgid "Thanks for signing up! Please check your email to activate your account and then login."
+msgstr ""
+
+#: app/controllers/users_controller.rb:89 app/controllers/users_controller.rb:91
+msgid "Welcome to TWB!"
+msgstr ""
+
+#: app/controllers/users_controller.rb:92
+msgid "See the %{getting_started_link_anchor}getting started page%{getting_started_link_end} to learn more about what you can do here."
+msgstr ""
+
+#: app/controllers/users_controller.rb:176
+msgid "Settings have been saved."
+msgstr ""
+
+#: app/controllers/users_controller.rb:191
+msgid "User disabled"
+msgstr ""
+
+#: app/controllers/users_controller.rb:193
+msgid "There was a problem disabling this user."
+msgstr ""
+
+#: app/controllers/users_controller.rb:218
+msgid "User enabled"
+msgstr ""
+
+#: app/controllers/users_controller.rb:220
+msgid "There was a problem enabling this user."
+msgstr ""
+
+msgid "%{follower} requested to make you a Friend on %{application_name}."
+msgstr "%{follower} requested to make you a Colleague on %{application_name}."
+
+msgid "Visit that page to accept their request and add them to your Friend list."
+msgstr "Visit that page to accept their request and add them to your Colleague list."
+
+msgid "a follower of"
+msgstr "connected to"
+
+msgid "a friend of"
+msgstr "a colleague of"
+
+msgid "Friend request pending %{link}"
+msgstr "Colleague request pending %{link}"

@@ -1,0 +1,15 @@
+<div class="left" id="column_l">	
+	<h1><%= _('%{group_name} - Photos') % {:group_name => @group.name} %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="photo_wall" class="activity_box">
+		<h2><%= _('Photos') %></h2>
+    <%= render :partial => 'photos/photo', :collection => @photos %>
+    <div class="clear"></div>
+  	<%= will_paginate @photos %>
+  </div>
+	<div class="clear"></div>
+</div>
+
+<div class="right" id="column_r">
+  <%= render :partial => 'groups/group_info' %>
+</div>

@@ -1,0 +1,17 @@
+<% if defined?(rejoin) && rejoin -%>
+	<%= notice_message(message) -%>
+	<%# 'We have to reload the jquery script here so that the code is applied to the new link that is sent to the client.' -%>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){   
+		tb_init('a.thickbox'); //pass where to apply thickbox
+	});
+	</script>
+	<% link_name = _("Rejoin %{group_name}") % {:group_name => sanitize(@group.name) } -%>
+<% else -%>
+	<% link_name = _("Join %{group_name}") % {:group_name => sanitize(@group.name) } -%>
+<% end -%>
+<span class="link-button" id="join_group_link">
+	<%= inline_tb_link link_name, "join_group", 
+		{:title => link_name }, 
+		{:height => 200, :width => 300} -%></span>
+<%= render :partial => 'groups/join_form' -%>

@@ -1,0 +1,103 @@
+<% content_for :head do  -%>
+  <% 'TODO get rss working' %>
+	<%#= auto_discovery_link_tag :rss, formatted_profile_url(@user, :rss), :title=> _("%{user_name}'s recent activity") % {:user_name => @user.f} %>
+	<%#= auto_discovery_link_tag :rss, formatted_user_blogs_url(@user, :rss), :title=> _("%{user_name}'s Blogs") % {:user_name => @user.f} %>
+	<%#= auto_discovery_link_tag :rss, formatted_user_photos_url(@user, :rss), :title=> _("%{user_name}'s Photos") % {:user_name => @user.f} %>
+<% end -%>
+
+<% can_send = !@user.blank? %>
+
+<div class="left" id="column_l">
+
+  <%= render :partial => 'profiles/bio', :object => @user %>
+
+<% if logged_in? %>
+  <div class="clear"></div>	
+  <%= render :partial => 'users/recent_activity' unless !is_profile_item_visible('view_activities') %>
+  <%= render :partial => 'profiles/blogs/list', :locals => { :blogs => @blogs, :user => @user, :total_blogs => @total_blogs } unless !is_profile_item_visible('view_blog')-%>	
+  <%= render :partial => 'profiles/comments/list', :locals => {:comments => @comments} unless !is_profile_item_visible('view_comments') -%>	
+  
+  <% if @video && is_profile_item_visible('view_photos')-%>
+	  <div class="activity_box">
+	    <h2><%= _('Latest YouTube Video') %></h2>
+	    <%= @video.embed_html %>
+	  </div>
+  <% end -%>
+
+  <% if !@flickr.empty? && is_profile_item_visible('view_photos') %>  
+	  <div class="activity_box">
+	    <h2><%= _('Latest Flickr Pictures') %></h2>
+	    <% @flickr.each do |flickr|%>
+		    <div class="flickr left">
+		      <div>
+		        <a href="http://www.flickr.com/photos/<%= flickr.owner_id %>/<%= flickr.id %>" target="_blank">
+		          <%= image_tag flickr.url('t'), :alt => _('FlickrHolder'), :class => 'flickr_image' %>
+		        </a>
+		      </div>
+		    </div>
+	    <%end%>
+	  </div>
+  <% end %>
+
+  <% if can_send && is_profile_item_visible('direct_message')-%>
+	  <div id="new_direct_message" class="hidden">
+	    <%= render :partial => 'messages/form', :locals => {:hide_header => true} %>
+	  </div>
+  <% end -%>
+<% end %>
+
+  <div class="clear"></div>
+</div>
+
+<% if logged_in? %>
+
+<div class="right" id="column_r">
+  <ul id="friend-links">
+    <% if logged_in? && !is_me?(@user) -%>
+	    <li><%= get_friend_link current_user, @user %></li>
+	    <% if is_admin? || current_user.friend_of?(@user) -%>
+	    	<li><%= inline_tb_link _('Direct Message'), "new_direct_message", 
+							{:title => _("New Message For %{user_name}") % {:user_name => h(@user.full_name)} }, 
+							{:height => 380} -%></li>
+	    <% end -%>
+	    <% if current_user.has_wall_with(@user) -%>
+	    	<li><%= link_to _("Conversation with #{h @user.full_name}"), profile_comments_path(@user) -%></li>
+	    <% end -%>
+		<% end -%>
+  </ul>
+<% if logged_in? %>	
+	<% if GlobalConfig.integrate_portfolio && @portfolio_rss -%>
+	<div id="portfolio" class="activity_box">
+		<h2><%= _("CTM Portfolio") -%></h2>
+		<%= render :partial => 'portfolio', :object => @portfolio_rss %>
+	</div>
+	<% end -%>
+	
+	<% if @blog_rss -%>
+		<div id="remote-blog" class="activity_box">
+			<%= render :partial => 'remote_blog', :object => @blog_rss %>
+		</div>
+	<% end -%>
+	
+	<%= render :partial => 'photos/gallery', :locals => {:mini => true} unless !is_profile_item_visible('view_photos') -%>
+	
+	<% if !@shared_entries.empty? && is_profile_item_visible('view_shares') %>
+	  <div id="user_entries" class="activity_box">
+	  	<h2><%= _("Shared Web Pages") %></h2>
+	    <%= render :partial => 'shared_entry', :collection => @shared_entries %>
+	  </div>
+	<% end %>
+
+  <%= render :partial => 'google_docs' %>
+	
+  <%= render :partial => 'groups' unless !is_profile_item_visible('view_groups')%>
+	
+  <%= render :partial => 'friends/list', :locals => {:type => 'friends'} unless !is_profile_item_visible('view_friends')%>
+  <% if GlobalConfig.allow_following -%>
+  	<%= render :partial => 'friends/list', :locals => {:type => 'followers'} %>
+  	<%= render :partial => 'friends/list', :locals => {:type => 'followings'} %>
+	<% end -%>
+<% end -%>
+</div>
+
+<% end %>

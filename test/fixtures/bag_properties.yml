@@ -1,0 +1,32 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: bag_properties
+#
+#  id                    :integer(4)    not null, primary key
+#  bag_id                :integer(4)    default(1)
+#  name                  :string(255)   
+#  label                 :string(255)   
+#  data_type             :integer(4)    default(1)
+#  display_type          :string(255)   default("text")
+#  required              :boolean(1)    
+#  default_value         :string(255)   
+#  default_visibility    :integer(4)    default(4)
+#  can_change_visibility :boolean(1)    default(TRUE)
+#  sort                  :integer(4)    default(9999)
+#  width                 :integer(4)    default(-1)
+#  height                :integer(4)    default(-1)
+#  registration_page     :integer(4)    
+#  sf_field              :string(255)   
+#  is_link               :boolean(1)    
+#  prefix                :string(255)   
+#  maxlength             :integer(4)    default(5000)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value

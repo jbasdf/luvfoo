@@ -1,0 +1,3 @@
+<%= link_to _('&lt;&lt; Back to Member Stories'), admin_member_stories_path -%>
+<%= render :partial => 'news/news_item', :object => @news_item -%>
+<%= render :partial => 'member_stories/admin', :locals => { :member_story => @news_item } -%>

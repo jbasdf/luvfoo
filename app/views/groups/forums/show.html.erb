@@ -1,0 +1,9 @@
+<div class="left forum" id="column_l">
+	<h1><%= _('%{group_name} Forum') % {:group_name => @group.name}%></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+  <%= render :partial => 'forums/list', :locals => {:group => @group} %>
+</div>
+<div class="right" id="column_r">
+  <%= render :partial => 'groups/group_info' %>
+	<%= render :partial => 'forums/info' %>
+</div>

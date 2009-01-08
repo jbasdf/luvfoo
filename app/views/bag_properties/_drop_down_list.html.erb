@@ -1,0 +1,18 @@
+<%
+enums = property.enums(current_user.id, property.bag_property_id)
+other_value = (enums.last.sort == 9999 ? enums.last.value : -2)  
+selected_value = property.bag_property_enum_id
+@other_selected = (selected_value == other_value)
+%>
+<div class="form-row">
+    <label for="property_<%= property.bag_property_id %>"><%= property.label %> <%= property.required? ? ('<em>' + _('(required)') + '</em>') : '' %></label>
+    <span <%= error.nil? ? '' : " class='fieldWithErrors'"%>>
+    <%= select_tag 'property[' + property.bag_property_id + ']', 
+		'<option value="-1">' + _('&lt;select a value&gt;') + '</option>' + options_from_collection_for_select(enums, 'value', 'name', selected_value), 
+		:onchange => "e=document.getElementById('property_#{property.name}_other_container'); if(this.value == '#{other_value}') e.style.display='block'; else if (e != null) e.style.display='none';" %>
+	</span>
+    <br/>
+    <% if !property.can_change_visibility || @hide_visibility_controls %><input type='hidden' name='v[<%= property.bag_property_id %>]' value='<%= property.visibility %>'/><% end %>
+    <%= (select_tag 'v[' + property.bag_property_id + ']', options_for_select([[_('private'), '1'], [_('visible to colleagues'), '2'], [_('visible to members'), '4'], [_('visible to public'), '5']], property.visibility), :disabled => !property.can_change_visibility) unless @hide_visibility_controls %>
+    <input type='hidden' name='dt[<%= property.bag_property_id.to_s %>]' value='<%= property.data_type %>'/>
+</div>

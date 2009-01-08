@@ -1,0 +1,32 @@
+<!-- TODO (pull in rss from member-->
+
+<div class="left" id="column_l">	
+	<h1><%= @group.name %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	
+	<div class="activity_box">
+		<h2><%= _('Members') %></h2>
+
+<% form_for :memberships, :url => update_memberships_in_group_path(@group) do |f| -%>
+
+<table class='news'>
+    <tr>
+        <th>User</th>
+        <th class='center'>Manager</th>
+        <th class='center'>Member</th>
+        <th class='center'>Observer</th>
+        <th class='center'>Banned</th>
+   </tr>
+    <%= render :partial => 'groups/admin/group_member', :collection => @members %>
+</table>
+<%= f.submit _('Update'), :class => 'button' %>
+<% end %>
+
+    <div class="clear"></div>
+  	<%= will_paginate @members %>
+  </div>
+  
+	<div class="clear"></div>
+	
+</div>
+

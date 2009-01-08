@@ -1,0 +1,17 @@
+<div class="left" id="column_l">	
+	<h1><%= @group.name %> - Latest Activity</h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="news" class="activity_box">
+		<h2><%= _('Latest Activity') %></h2>
+    <% @feed_items.each do |feed_item| %>
+  	  <% next unless feed_item.item %>
+  		<%= render( :partial => "feed_items/#{feed_item.partial}", :locals => {:feed_item => feed_item}) %>
+  	<% end %>
+    <div class="clear"></div>
+  	<%= will_paginate @feed_items %>
+  </div>
+	<div class="clear"></div>
+</div>
+<div class="right" id="column_r">
+	<%= render :partial => 'groups/group_info' %>
+</div>

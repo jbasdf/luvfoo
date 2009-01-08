@@ -1,0 +1,6 @@
+<span class="pagination">
+  <% ("A".."Z").each do |l| -%>	    
+     <%= @alpha_index == l ? "<span class='current'>#{l}</span>" : link_to(l, :browse => 'alpha', :alpha_index => l) %>	
+  <% end %>
+</span>
+<br/><span class="pagination" style="padding-left:30px;"><%= will_paginate(@results, :container => false) %></span>

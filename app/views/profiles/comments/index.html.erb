@@ -1,0 +1,20 @@
+<% content_for :head do  -%>  
+  <%= auto_discovery_link_tag(:rss, formatted_profile_comments_url(@user, :rss), :title => _("Conversation with %{user_name}") % {:user_name => h(@user.full_name)}) -%>
+<% end -%>
+
+<div class="activity_box">
+	<h1><%= _("Conversation with %{name}" % {:name => @user.full_name}) -%></h1>
+
+	<div id="sub_nav">
+	  <%= link_to ('&larr; ' + _('Back to Profile')), profile_path(@user) %>
+	  <%= inline_tb_link _('Add A Comment'), "#{dom_id(@user)}_new_comment", :title => _("Adding A Comment") %>
+	</div>
+
+	<%= render :partial => 'comments/form', :locals => { :parent => @user } %>
+  
+	<div id="<%= "#{dom_id(@user)}_comments" %>">
+		<%= render :partial => 'comments/comment', :collection => @comments %>
+		<%= will_paginate %>
+	</div>
+	
+</div>

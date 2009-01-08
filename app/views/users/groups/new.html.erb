@@ -1,0 +1,18 @@
+<div class="left" id="column_l" style="padding-top:8px;">
+	<div class="activity_box standard_form">
+		<% custom_form_for :group, :url => user_groups_path(@user) do |f| -%>
+	    <h1><%= _('Create a New Group') %></h1>
+			<%= render :partial => 'groups/form', :locals => {:f => f} %>
+			<div class="button">
+	    	<%= f.submit _('Create'), :class => 'button' %>
+				<%= link_to _('Cancel'), user_groups_path(@user), {:class => 'button'} %>
+			</div>
+		<% end -%>
+	</div>
+</div>
+<div class="right" id="column_r">
+	<div class="activity_box">
+		<h2><%= _('Some of our current groups') %></h2>
+        <%= render :partial => 'groups/group_small', :collection => @groups %>
+	</div>
+</div>

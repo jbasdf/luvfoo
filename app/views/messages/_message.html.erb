@@ -1,0 +1,9 @@
+<h1><%= h message.subject %></h1>
+<div class="activity_box" id="comment">
+	<h2>
+		<%= _('From: %{sender_link} %{time_since_created} ago') % {:sender_link => link_to(message.sender.f, profile_path(message.sender)), :time_since_created => time_ago_in_words(message.created_at)} %>
+	</h2>
+</div>
+<div class="clear" style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
+  <%= textilize message.body %>
+</div>

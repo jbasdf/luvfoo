@@ -1,0 +1,11 @@
+<%= pre_html %>
+<% if is_checkbox -%>
+	<%= field_element %>
+	<%= label_element %>
+<% else -%>
+	<%= label_element %>
+	<%= field_element %>
+<% end -%>
+<% if required -%><div id="<%= field_name %>_required" class="required-tip" style="display:none;"><em><%= _('Please enter a value for %{label}') % {:label => label_name} %></em></div><% end -%>
+<% if defined? error -%><div class="form_error_message"><%= error %></div><% end -%>
+<%= extra_html %>

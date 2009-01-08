@@ -1,0 +1,5 @@
+<% content_for :head do  -%>
+	<meta name="keywords" content="<%=@content_page.tags.join(',')%>" />
+<% end -%>
+<%= @content_page.body %>
+<%= render :partial => 'pages/admin', :locals => { :page => @content_page } -%>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+ <ShortName>Forum Search</ShortName>
+ <Tags>luvfoo</Tags>
+ <Contact>admin@example.com</Contact>
+ <Url type="application/rss+xml" template="http://example.com/posts?q={searchTerms}&amp;page={startPage}&amp;format=rss" />
+ <Url type="text/html" template="http://example.com/posts?q={searchTerms}&amp;page={startPage}" />
+ <Query role="example" searchTerms="cat" />
+ <Developer>Luvfoo Development Team</Developer>
+ <SyndicationRight>open</SyndicationRight>
+ <AdultContent>false</AdultContent>
+ <Language>en-us</Language>
+ <OutputEncoding>UTF-8</OutputEncoding>
+ <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

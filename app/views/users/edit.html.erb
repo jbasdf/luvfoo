@@ -1,0 +1,83 @@
+<%= render :partial => 'script' %>
+<h1><%= params[:fv] ? _('Complete Your Profile') : _('Edit Profile') %></h1>
+<%= ( '<h2 style="margin-top:20px;">' + (_('Welcome %{first_name}!') % {:first_name => @user.first_name}) + '</h2><h2>' + _('Please fill out the information below and upload a photo for your profile. By default your information can be searched by TWB members and colleagues; however, we have provided the option to change visibility preference. Below each area select who can view your information. TWB respects the privacy of all members.') + '</h2>') if params[:fv] %>
+
+<div class="left half">
+  <div id="general_info">
+	<% custom_form_for @user, :html => { :method => :put, :class=>"box no_top" }  do |f| -%>
+
+    <h2><%= _("General info") %></h2>
+    <%= f.text_field :email, { :label => _('Email Address') } -%>
+	<%= f.text_field :first_name, { :label => _('First Name') } %>   
+	<%= f.text_field :last_name, { :label => _('Last Name') } %>
+    <% @user.properties.each do |property| %>
+        <% hide = (@other_selected == true && property.name =~ /_other$/) %>
+        <%= render :partial => "bag_properties/" + property.display_type, :locals => {:property => property, :error => @user.errors[property.label], :hide => hide} %>
+        <% @other_selected = false if hide %>
+    <% end %>
+    <div class="row button"><%= f.submit _('Save'), :class => 'button' %></div>
+    <% end %>
+  </div>
+
+  <div class="clear"></div>
+</div>
+
+<div class="right half">
+  <div id="upload_icon">
+    <% form_for @user, :html=>{:method=>:put, :multipart=>true, :class=>"box no_top"} do |f| %>
+      <h2><%= _("Upload Photo:") %></h2>
+      <label><%= _('Upload a photo for your profile') %></label>
+      <%= file_column_field( "user", "icon", :size => 15)%>
+      <div class="clear"></div>
+      <% unless @user.icon.blank? %>
+      <div id="avatar_edit">
+        <span id="user_icon_picture">
+          <%= icon @user %>
+          <%= link_to_remote(_('delete icon'), :url=>delete_icon_user_path(@user), :confirm => _("Are you sure you want to delete this photo?\nThis can not be undone."), :method => 'delete')  %>
+        </span>
+      </div>
+      <% end %>
+
+      <div class="row button">
+      <%= f.submit _('Upload Photo'), :class => 'button' %>
+      </div>
+
+      <input type="hidden" name="switch" value="image" />
+    <% end %>
+  </div>
+
+  <div id="change_passwords">
+  	<% form_tag url_for(:controller => "accounts", :action => "update") do %>
+			<h2><%= _('Change Password') %></h2>
+			
+			<div class="row">
+				<label for="old_password"><%= _('Current Password:') %></label>
+				<%= password_field_tag :old_password -%>
+			</div>
+																																						
+			<div class="row">
+				<label for="user_password"><%= _('Password:') %></label>
+				<%= password_field_tag :password -%>
+			</div>
+			
+			<div class="row">
+				<label for="user_password_confirmation"><%= _('Confirm Password:') %></label>
+				<%= password_field_tag :password_confirmation %>
+			</div>			
+			
+			<div class="row button">
+      	<%= submit_tag _("Change Password"), :class => 'button' %>
+      </div>
+
+		<% end %>
+  </div>
+<!-- TODO figure out how to handle account deletions
+  <div id="delete_account">
+		<form>    
+			<h2><%= _('Remove My Account') %></h2>
+      <%= link_to_remote _('Delete my user account and all my data.'), :url => user_path(@user), :method => :delete, :confirm => _("Are you sure you want to delete your account?\nThis can not be undone.")  %>
+    </form>
+  </div>
+-->
+  <div class="clear"></div>
+</div>

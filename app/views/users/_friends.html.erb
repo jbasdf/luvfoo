@@ -1,0 +1,5 @@
+  <%= render :partial => 'friends/list', :locals => {:type => 'friends'} %>
+	<% if GlobalConfig.allow_following -%>
+	  <%= render :partial => 'friends/list', :locals => {:type => 'followers'} %>
+	  <%= render :partial => 'friends/list', :locals => {:type => 'followings'} %>
+	<% end -%>

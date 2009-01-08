@@ -1,0 +1,28 @@
+
+
+<div id="content-pages" class="activity_box">
+  <h2><%= _('Pages') %></h2>
+	<div id="pageSearch">
+		<label>Search by Page Name:</label> <input id="autoPages" />
+		<span class="link-button"><%= link_to _("Add New Page"), new_admin_page_path %></span>
+	</div>
+	<div id="pageList">
+		<ul id="pageMasterUl">
+			<%= render :partial => 'admin/pages/page', :collection => @pages, :locals => {:parent_id => 0} -%>
+		</ul>
+	</div>
+</div>
+<input id="updatePath" type="hidden" value="<%=admin_pages_path%>">
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function() {
+	var data = <%= @pages.collect{|page| { :title => page.title, :id => page.id } }.to_json %>;
+	jQuery("#autoPages").autocomplete(data, {
+		minChars: 0,
+		autoFill: true,
+		mustMatch: false,
+	  formatItem: function(item) {
+	    return item.title;
+	  }
+	}).result(function(event, item) { location.href = '/admin/pages/' + item.id + '/edit'; });
+});
+</script>

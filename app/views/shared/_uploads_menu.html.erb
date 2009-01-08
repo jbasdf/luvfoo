@@ -1,0 +1,6 @@
+<span class="link-button"><%= link_to _("Main"), user_uploads_path(@user) -%></span>
+<!--<span class="link-button"><%= link_to _("Documents"), user_uploads_path(@user) -%></span>-->
+<span class="link-button"><%= link_to _("Photos"), photos_user_uploads_path(@user) -%></span>
+<span class="link-button"><%= link_to _("Shared Files"), user_shared_uploads_path(@user) -%></span>
+<span class="link-button"><%= link_to _("Shared With Me"), for_me_shared_uploads_path(:user_id => @user) -%></span>
+  

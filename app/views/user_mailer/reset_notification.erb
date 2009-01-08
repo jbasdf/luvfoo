@@ -1,0 +1,21 @@
+<%= _("Dear %{user_name},") % {:user_name => h(@user.login)} %>
+
+<%= _("You requested that your %{application_name} password be reset, but your account is not yet active.") % {:application_name => _(GlobalConfig.application_name) } %>
+  
+<%= _('Click the following link to activate your account and complete the signup process:') %>
+<%= @activate_url %>
+
+<%= _('For future reference, you are registered as:') %>
+<%= _("Username: %{user_name}") % {:user_name => h(@user.login)} %>
+<%= _("Password: %{password}") % {:password => h(@user.tmp_password)} %>
+
+<%= _('After activating your account you can reset your password by visiting:') %>
+<%= @reset_url %>
+
+<%= _("Please email %{support_email} if you have any questions or comments about the website.") % {:support_email => GlobalConfig.support_email} %>
+
+<%= _('Best Regards,') %>
+
+<%= _(GlobalConfig.emailed_by) %>
+
+

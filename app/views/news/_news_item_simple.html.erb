@@ -1,0 +1,4 @@
+<div class="news-item-simple">
+	<%= _('From %{news_source}') % {:news_source => news_item_simple.newsable.name} %>
+	<h3><%= sanitize textilize(news_item_simple.title) %></h3>
+</div>

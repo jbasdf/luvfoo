@@ -1,0 +1,14 @@
+<div class="right" id="column_r">
+	<%= render :partial => 'profiles/mini_bio', :locals => {:user => @user} -%>
+  <div class="activity_box">
+    <h2><%= _('Blog Post History') -%><span><%= link_to _("View All"), profile_blogs_path(@user) -%></span></h2>
+    <ul id="post_history">
+      <% @blogs.each do |blog| -%>
+				<li><%= _("%{link} - %{time} ago.") % {:link => link_to(blog.title, profile_blog_path(@user, blog)), 
+																							 :time => time_ago_in_words(blog.created_at)} -%>
+				</li>
+			<% end -%>
+    </ul>
+  	<%= will_paginate @blogs -%>
+  </div>
+</div>

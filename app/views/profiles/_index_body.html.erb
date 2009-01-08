@@ -1,0 +1,35 @@
+<form action='/profiles/search' method='get'>
+<h1>
+	<%= _('Members') %>
+	<span id="search_object">
+		<input type='text' name='q' style='width:200px' value='<%= @query %>' />
+		<input type='submit' value='<%= _('Search') %>' />
+	</span>
+</h1>
+</form>
+<div class="activity_box">
+	<h2>
+	  <%= @browse != 'date' ? link_to(_('Date Browse'), {:action => 'index', :browse => 'date'}, :class=>'browse-type-link') : _('Date Browse') %> |
+	  <%= @browse != 'alpha' ? link_to(_('Alpha Browse'), {:action => 'index', :browse => 'alpha'}, :class=>'browse-type-link') : _('Alpha Browse:') %>
+    <% if @browse == 'alpha' %>
+      <%= render(:partial => 'shared/alpha_index') %>
+    <% else -%>
+      <% if @browse == 'date' && @results %>
+        <span class="pagination" style="padding-left:30px;"><%= will_paginate(@results, :container => false) %></span>
+      <% end -%>
+    <% end -%>
+  </h2>
+  <div id='profile-list'>
+    <% @results.each do |result| -%>
+      <%= render :partial => 'profiles/profile_cache', :locals => {:profile => result} %>
+    <% end -%>
+  </div>
+	<div class="clear"></div>
+  <% if @browse == 'alpha' -%>
+    <div style="margin:0 auto;width:540px;"><%=render(:partial => 'shared/alpha_index') %></div>
+  <% else -%>
+    <% if @browse == 'date' && @results -%>
+      <%= will_paginate(@results) %>
+    <% end -%>
+  <% end -%>  
+</div>

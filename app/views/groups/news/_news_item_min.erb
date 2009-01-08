@@ -1,0 +1,18 @@
+<div class="group-news-item-min">
+	<div class="left">
+		<%= link_to icon_tag(news_item_min, :medium), group_news_path(@group, news_item_min) %>
+	</div>
+	<div class="right">
+		<h3><%= link_to "#{sanitize textilize(news_item_min.title)}", group_news_path(@group, news_item_min) %></h3>
+		<div>
+			<%= summarize(news_item_min.body, 320) %>
+			<%= link_to _('Read More &gt;&gt;'), group_news_path(@group, news_item_min) %>
+		</div>
+		<div>Posted <%= time_ago_in_words news_item_min.created_at %> ago
+			<% if manager? -%>
+				<%= link_to _('Edit'), edit_group_news_path(@group, news_item_min) -%> |
+				<%= link_to _('Delete'), group_news_path(@group, news_item_min), :method => :delete -%>
+			<%- end -%>
+		</div>
+	</div>
+</div>

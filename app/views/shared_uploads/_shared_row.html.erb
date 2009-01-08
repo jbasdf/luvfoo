@@ -1,0 +1,6 @@
+<tr id="<%= shared_row.dom_id %>" class="<%= cycle('odd', 'even') %>" <%=style-%> >
+	<td><div class="file-icon"><%= icon_for shared_row.upload -%></div></td>
+	<td><a href="<%=shared_row.upload.public_filename%>"><%= truncate(sanitize(shared_row.upload.filename), 100) %></a></td>
+	<td><%= link_for_shared_uploadable(shared_row.shared_uploadable) %></td>
+	<td><%= link_to _("%{icon} Stop Sharing") % {:icon => image_tag('delete.png', :class => 'png', :width=>'12', :height=>'12')}, user_shared_upload_path(@user, shared_row), :method => :delete, :title => _("Stop Sharing") -%></td>	
+</tr>

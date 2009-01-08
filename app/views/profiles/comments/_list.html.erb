@@ -1,0 +1,18 @@
+<div class="activity_box" id="comment">
+
+	<h2><%= _('Comments') %>
+		<% if logged_in? -%>
+		  <%= inline_tb_link(_('Leave a Comment'), "#{dom_id(@user)}_new_comment", 
+							{:title => _("Leaving A Comment On %{user_name}'s Wall") % {:user_name => h(@user.full_name)} },
+							{:height => 380}) -%>
+	  <% end -%>
+  </h2>
+
+	<div id="<%= "#{dom_id(@user)}_comments" %>" class="inside_box">
+		<%= render :partial => 'comments/comment', :collection => comments %>
+	</div>
+	
+	<%= will_paginate comments%>
+</div>
+
+<%= render :partial => 'comments/form', :locals => { :parent => @user } if logged_in? -%>

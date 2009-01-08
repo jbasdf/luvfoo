@@ -1,0 +1,8 @@
+<div id="blog_<%= blog.id %>" class="entry">
+	<h2><%= link_to(sanitize(textilize(blog.title)), profile_blog_path(@user, blog)) -%></h2>
+	<div class="standard-format">
+	  <%= process_body_content(blog) %>
+	</div>
+  <p class="post-meta"><%= _("Comments (%{number_of_comments})") % {:number_of_comments => blog.comments.size } -%> | 
+		 <%= _("Posted %{time_ago} ago") % {:time_ago => time_ago_in_words(blog.created_at) } -%></p>
+</div>

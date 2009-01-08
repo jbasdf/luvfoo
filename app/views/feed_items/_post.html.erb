@@ -1,0 +1,17 @@
+<% post ||= feed_item.item %>
+<div class="feed_item" id="<%= feed_item.dom_id %>">
+  <div class="left">
+	  <%= icon post.user, :small, :class => "icon_small" %>
+  	<%= _("%{user_name} posted to the forum %{forum}:") % {
+  	  :user_name => (link_to h(post.user.full_name), profile_path(post.user)), 
+  	  :forum => link_to(h(post.forum.name), forum_link(post.forum))} %>
+	  <span class="activity-post">
+	    <%= link_to(truncate_html(sanitize(textilize(post.body)), 256), post_link(post)) %>
+  	  <small><%=_("about %{age} ago") % {:age => time_ago_in_words(post.created_at)} %></small>
+  	</span>
+	</div> 
+  <div class="right">
+  	<%= x_feed_link(feed_item) %>
+  </div>
+	<div class="clear"></div>
+</div>

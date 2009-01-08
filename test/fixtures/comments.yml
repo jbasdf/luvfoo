@@ -1,0 +1,86 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: comments
+#
+#  id               :integer(4)    not null, primary key
+#  comment          :text          
+#  created_at       :datetime      not null
+#  updated_at       :datetime      not null
+#  user_id          :integer(4)    
+#  commentable_type :string(255)   default(""), not null
+#  commentable_id   :integer(4)    not null
+#  is_denied        :integer(4)    default(0), not null
+#  is_reviewed      :boolean(1)    
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+    user: aaron
+    commentable: first
+    commentable_type: NewsItem
+    comment: "<object width=\"425\" height=\"355\"><param name=\"movie\" value=\"http://www.youtube.com/v/vSb-nV8l2QY&rel=1\" /><param name=\"wmode\" value=\"transparent\" /><embed src=\"http://www.youtube.com/v/vSb-nV8l2QY&rel=1\" type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"425\" height=\"355\"></embed></object>"
+
+second:
+    commentable: first
+    commentable_type: NewsItem
+    comment: A comment
+    user: quentin
+
+third:
+    commentable: aaron
+    commentable_type: User
+    comment: A comment
+    user: quentin
+
+fourth:
+    commentable: first
+    commentable_type: NewsItem
+    comment: A comment
+    user: aaron
+
+fifth:
+    commentable: first
+    commentable_type: NewsItem
+    comment: A comment
+    user: aaron
+
+sixth:
+    commentable: first
+    commentable_type: NewsItem
+    comment: A comment
+    user: quentin
+
+seven:
+    commentable: quentin
+    commentable_type: User
+    comment: A comment
+    user: quentin
+eight:
+    commentable: follower_guy
+    commentable_type: User
+    comment: A comment
+    user: admin
+nine:
+    user: quentin
+    commentable: first
+    commentable_type: NewsItem
+    comment: "<object width=\"425\" height=\"355\"><param name=\"movie\" value=\"http://www.youtube.com/v/vSb-nV8l2QY&rel=1\" /><param name=\"wmode\" value=\"transparent\" /><embed src=\"http://www.youtube.com/v/vSb-nV8l2QY&rel=1\" type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"425\" height=\"355\"></embed></object>"
+
+quentin_profile_comment:
+    commentable: quentin
+    commentable_type: User
+    comment: A comment
+    user: test_guy
+    
+quentins_comment:
+    commentable: first
+    commentable_type: NewsItem
+    comment: A comment
+    user: quentin
+    
+africa_comment:
+    commentable: africa
+    commentable_type: Group
+    comment: A comment
+    user: aaron

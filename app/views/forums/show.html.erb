@@ -1,0 +1,10 @@
+<% @page_title = @forum.name %>
+<div class="left forum" id="column_l">
+  <div class="crumbs">
+    <%= link_to _('Forums'), forums_path %> <span class="arrow">&rarr;</span>
+  </div>
+  <%= render :partial => 'forums/list' %>
+</div>
+<div class="right" id="column_r">
+	<%= render :partial => 'forums/info' %>
+</div>

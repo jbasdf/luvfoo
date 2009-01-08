@@ -1,0 +1,4 @@
+<div class="shared-entry">
+    <%= _('%{link_to_sharer} shared %{link_to_web_page} %{time_since_shared} ago.') % {:link_to_sharer => link_to(h(shared_entry.shared_by.full_name), profile_path(shared_entry.shared_by)), :link_to_web_page => link_to(sanitize(shared_entry.entry.title), shared_entry.entry.permalink), :time_since_shared => time_ago_in_words(shared_entry.created_at)} %>
+	<p><%= body_content shared_entry.entry -%></p>
+</div> 

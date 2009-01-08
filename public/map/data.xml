@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<countrydata>
+
+<state id="state_info_icon">
+	<src>TWB-header-jpg.jpg</src>
+</state>
+
+
+<state id="range">
+		<data>0 - 33</data>
+		<color>fed976</color>
+</state>
+<state id="range">
+		<data>34 - 66</data>
+		<color>feb24c</color>
+
+</state>
+<state id="range">
+		<data>67 - 99</data>
+		<color>fd8d3c</color>
+</state>
+<state id="range">
+		<data>100 - 133</data>
+		<color>fc4e2a</color>
+</state>
+
+<state id="range">
+		<data>134 - 166</data>
+		<color>e31a1c</color>
+</state>
+<state id="range">
+		<data>167 - 200</data>
+		<color>bd0026</color>
+</state>
+<state id="range">
+		<data>201 - 218</data>
+		<color>5C854D</color>
+</state>
+
+<state id="hover">
+		<font_size>14</font_size>
+		<font_color>ffffff</font_color>
+		<background_color>990000</background_color>
+</state>
+
+
+<state id="default_color">
+		<color>bbbbaa</color>
+</state>
+<state id="background_color">
+		<color>1427D5</color>
+		<opacity>100</opacity>
+</state>
+<state id="outline_color">
+		<color>330000</color>
+
+</state>
+
+<state id="zoom_out_button">
+		<name>Zoom Out</name>
+		<data>SE</data>
+		<font_size>14</font_size>
+		<font_color>ffffff</font_color>
+		<background_color>990000</background_color>
+
+	</state>
+
+
+<state id="AF">
+	<name>Afghanistan</name>
+ <data>202</data> 
+ <hover>batata batata</hover> 
+ </state>
+<state id="AL">
+		<name>Albania</name>
+		<data>95</data>
+		<hover>Rank: 95</hover>
+</state>
+<state id="AG">
+
+		<name>Algeria</name>
+		<data>107</data>
+		<hover>Rank: 107</hover>
+</state>
+<state id="AN">
+		<name>Andorra</name>
+</state>
+<state id="AO">
+		<name>Angola</name>
+
+		<data>164</data>
+		<hover>Rank: 164</hover>
+</state>
+<state id="AC">
+		<name>Antigua and Barbuda</name>
+		<data>56</data>
+		<hover>Rank: 56</hover>
+
+</state>
+<state id="AR">
+		<name>Argentina</name>
+		<data>34</data>
+		<hover>Rank: 34</hover>
+</state>
+<state id="AM">
+		<name>Armenia</name>
+		<data>100</data>
+
+		<hover>Rank: 100</hover>
+</state>
+<state id="AA">
+		<name>Aruba</name>
+</state>
+<state id="AS">
+		<name>Australia</name>
+		<data>4</data>
+		<hover>Rank: 4</hover>
+
+</state>
+<state id="AU">
+		<name>Austria</name>
+		<data>16</data>
+		<hover>Rank: 16</hover>
+</state>
+<state id="AJ">
+		<name>Azerbaijan</name>
+		<data>89</data>
+
+		<hover>Rank: 89</hover>
+</state>
+<state id="AZ">
+	<name>Azores (Pt.)</name>
+</state>
+<state id="BF">
+		<name>Bahamas</name>
+		<data>49</data>
+		<hover>Rank: 49</hover>
+
+<x>y</x><z>a</z></state>
+<state id="BA">
+		<name>Bahrain</name>
+		<data>37</data>
+		<hover>Rank: 37</hover>
+</state>
+<state id="BG">
+		<name>Bangladesh</name>
+		<data>139</data>
+
+		<hover>Rank: 139</hover>
+</state>
+<state id="BB">
+		<name>Barbados</name>
+		<data>27</data>
+		<hover>Rank: 27</hover>
+</state>
+<state id="BO">
+		<name>Belarus</name>
+
+		<data>53</data>
+		<hover>Rank: 53</hover>
+</state>
+<state id="BE">
+		<name>Belgium</name>
+		<data>6</data>
+		<hover>Rank: 6</hover>
+
+</state>
+<state id="BH">
+		<name>Belize</name>
+		<data>67</data>
+		<hover>Rank: 67</hover>
+</state>
+<state id="BN">
+		<name>Benin</name>
+		<data>159</data>
+
+		<hover>Rank: 159</hover>
+</state>
+<state id="BD">
+		<name>Bermuda</name>
+</state>
+<state id="BT">
+		<name>Bhutan</name>
+		<data>136</data>
+		<hover>Rank: 136</hover>
+
+</state>
+<state id="BL">
+		<name>Bolivia</name>
+		<data>114</data>
+		<hover>Rank: 114</hover>
+</state>
+<state id="BK">
+		<name>Bosnia and Herzegovina</name>
+		<data>66</data>
+
+		<hover>Rank: 66</hover>
+</state>
+<state id="BC">
+		<name>Botswana</name>
+		<data>125</data>
+		<hover>Rank: 125</hover>
+</state>
+<state id="BR">
+		<name>Brazil</name>
+		<data>201</data>
+		<hover>Rank: 65</hover>
+</state>
+<state id="IO">
+	<name>British Indian Ocean Territory</name>
+</state>
+<state id="VI">
+	<name>British Virgin Islands</name>
+</state>
+
+<state id="BX">
+		<name>Brunei Darussalam</name>
+		<data>31</data>
+		<hover>Rank: 31</hover>
+</state>
+<state id="BU">
+		<name>Bulgaria</name>
+		<data>57</data>
+
+		<hover>Rank: 57</hover>
+</state>
+<state id="UV">
+		<name>Burkina Faso</name>
+		<data>173</data>
+		<hover>Rank: 173</hover>
+</state>
+<state id="BY">
+		<name>Burundi</name>
+		<data>203</data>
+		<hover>Rank: 203</hover>
+</state>
+<state id="CB">
+		<name>Cambodia</name>
+		<data>130</data>
+		<hover>Rank: 130</hover>
+
+</state>
+<state id="CM">
+		<name>Cameroon</name>
+		<data>142</data>
+		<hover>Rank: 142</hover>
+</state>
+<state id="CA">
+		<name>Canada</name>
+		<data>8</data>
+
+		<hover>Rank: 8</hover>
+</state>
+<state id="CV">
+		<name>Cape Verde</name>
+		<data>103</data>
+		<hover>Rank: 103</hover>
+</state>
+<state id="CJ">
+	<name>Cayman Islands</name>
+
+</state>
+<state id="CT">
+		<name>Central African Republic</name>
+		<data>168</data>
+		<hover>Rank: 168</hover>
+</state>
+<state id="CD">
+		<name>Chad</name>
+		<data>165</data>
+
+		<hover>Rank: 165</hover>
+</state>
+<state id="CI">
+		<name>Chile</name>
+		<data>43</data>
+		<hover>Rank: 43</hover>
+</state>
+<state id="CH">
+		<name>China</name>
+		<data>204</data>
+		<hover>Rank: 104</hover>
+</state>
+<state id="CO">
+		<name>Colombia</name>
+		<data>64</data>
+		<hover>Rank: 64</hover>
+
+</state>
+<state id="CN">
+		<name>Comoros</name>
+		<data>134</data>
+		<hover>Rank: 134</hover>
+</state>
+<state id="CF">
+		<name>Congo</name>
+		<data>140</data>
+
+		<hover>Rank: 140</hover>
+</state>
+<state id="CW">
+	<name>Cook Islands</name>
+</state>
+<state id="CP">
+	<name>Canary Islands (Sp.)</name>
+</state>
+<state id="CG">
+		<name>Democratic Republic of the Congo</name>
+
+		<data>167</data>
+		<hover>Rank: 167</hover>
+</state>
+<state id="CS">
+		<name>Costa Rica</name>
+		<data>42</data>
+		<hover>Rank: 42</hover>
+
+</state>
+<state id="IV">
+		<name>Cote d'Ivoire</name>
+		<data>161</data>
+		<hover>Rank: 161</hover>
+</state>
+<state id="HR">
+		<name>Croatia</name>
+		<data>47</data>
+
+		<hover>Rank: 47</hover>
+</state>
+<state id="CU">
+		<name>Cuba</name>
+		<data>52</data>
+		<hover>Rank: 52</hover>
+</state>
+<state id="CY">
+		<name>Cyprus</name>
+
+		<data>217</data>
+		<hover>Rank: 25</hover>
+</state>
+<state id="EZ">
+		<name>Czech Republic</name>
+		<data>32</data>
+		<hover>Rank: 32</hover>
+
+</state>
+<state id="DA">
+		<name>Denmark</name>
+		<data>11</data>
+		<hover>Rank: 11</hover>
+</state>
+<state id="DJ">
+		<name>Djibouti</name>
+		<data>153</data>
+
+		<hover>Rank: 153</hover>
+</state>
+<state id="DO">
+		<name>Dominica</name>
+		<data>68</data>
+		<hover>Rank: 68</hover>
+</state>
+<state id="DR">
+		<name>Dominican Republic</name>
+
+		<data>94</data>
+		<hover>Rank: 94</hover>
+</state>
+<state id="EC">
+		<name>Ecuador</name>
+		<data>97</data>
+		<hover>Rank: 97</hover>
+
+</state>
+<state id="EG">
+		<name>Egypt</name>
+		<data>214</data>
+		<hover>150</hover>
+</state>
+<state id="ES">
+		<name>El Salvador</name>
+		<data>105</data>
+
+		<hover>Rank: 105</hover>
+</state>
+<state id="EK">
+		<name>Equatorial Guinea</name>
+		<data>116</data>
+		<hover>Rank: 116</hover>
+</state>
+<state id="ER">
+		<name>Eritrea</name>
+
+		<data>155</data>
+		<hover>Rank: 155</hover>
+</state>
+<state id="EN">
+		<name>Estonia</name>
+		<data>41</data>
+		<hover>Rank: 41</hover>
+
+</state>
+<state id="ET">
+		<name>Ethiopia</name>
+		<data>169</data>
+		<hover>Rank: 169</hover>
+</state>
+<state id="FK">
+	<name>Falkland Islands (Islas Malvinas)</name>
+</state>
+
+<state id="FO">
+	<name>Faroe Islands</name>
+</state>
+<state id="FM">
+	<name>Federated States of Micronesia</name>
+</state>
+<state id="FJ">
+		<name>Fiji</name>
+		<data>81</data>
+
+		<hover>Rank: 81</hover>
+</state>
+<state id="FI">
+		<name>Finland</name>
+		<data>14</data>
+		<hover>Rank: 14</hover>
+</state>
+<state id="FR">
+		<name>France</name>
+
+		<data>17</data>
+		<hover>Rank: 17</hover>
+</state>
+<state id="FG">
+	<name>French Guiana</name>
+</state>
+<state id="GB">
+		<name>Gabon</name>
+		<data>118</data>
+
+		<hover>Rank: 118</hover>
+</state>
+<state id="GA">
+		<name>Gambia</name>
+		<data>151</data>
+		<hover>Rank: 151</hover>
+</state>
+<state id="GG">
+		<name>Georgia</name>
+
+		<data>88</data>
+		<hover>Rank: 88</hover>
+</state>
+<state id="GM">
+		<name>Germany</name>
+		<data>18</data>
+		<hover>Rank: 18</hover>
+
+</state>
+<state id="GH">
+		<name>Ghana</name>
+		<data>129</data>
+		<hover>Rank: 129</hover>
+</state>
+<state id="GI">
+	<name>Gibraltar (UK)</name>
+</state>
+
+<state id="GO">
+	<name>Glorioso Islands</name>
+</state>
+<state id="GR">
+		<name>Greece</name>
+		<data>24</data>
+		<hover>Rank: 24</hover>
+</state>
+<state id="GL">
+
+	<name>Greenland</name>
+ <data>199</data>
+</state>
+<state id="GJ">
+		<name>Grenada</name>
+		<data>93</data>
+		<hover>Rank: 93</hover>
+</state>
+<state id="GP">
+	<name>Guadeloupe</name>
+
+</state>
+<state id="GQ">
+	<name>Guam</name>
+</state>
+<state id="GT">
+		<name>Guatemala</name>
+		<data>119</data>
+		<hover>Rank: 119</hover>
+</state>
+
+<state id="GV">
+		<name>Guinea</name>
+		<data>157</data>
+		<hover>Rank: 157</hover>
+</state>
+<state id="GK">
+	<name>Guernsey</name>
+</state>
+<state id="PU">
+
+		<name>Guinea-Bissau</name>
+		<data>166</data>
+		<hover>Rank: 166</hover>
+</state>
+<state id="GY">
+		<name>Guyana</name>
+		<data>92</data>
+
+		<hover>Rank: 92</hover>
+</state>
+<state id="HA">
+		<name>Haiti</name>
+		<data>150</data>
+		<hover>Rank: 150</hover>
+</state>
+<state id="HO">
+		<name>Honduras</name>
+
+		<data>115</data>
+		<hover>Rank: 115</hover>
+</state>
+<state id="HK">
+	<name>Hong Kong</name>
+</state>
+<state id="HU">
+		<name>Hungary</name>
+		<data>38</data>
+
+		<hover>Rank: 38</hover>
+</state>
+<state id="IC">
+		<name>Iceland</name>
+		<data>2</data>
+		<hover>Rank: 2</hover>
+</state>
+<state id="IN">
+		<name>India</name>
+		<data>206</data>
+		<hover>Rank: 127</hover>
+</state>
+<state id="IO">
+	<name>British Indian Ocean Territory</name>
+</state>
+<state id="ID">
+		<name>Indonesia</name>
+		<data>112</data>
+
+		<hover>Rank: 112</hover>
+</state>
+<state id="IR">
+		<name>Iran</name>
+		<data>106</data>
+		<hover>Rank: 106</hover>
+</state>
+<state id="IZ">
+	<name>Iraq</name>
+
+</state>
+<state id="EI">
+		<name>Ireland</name>
+		<data>12</data>
+		<hover>Rank: 12</hover>
+</state>
+<state id="IM">
+	<name>Isle of Man</name>
+</state>
+
+<state id="IS">
+		<name>Israel</name>
+		<data>210</data>
+		<hover>there are 3000 teachers around israel</hover>
+</state>
+<state id="IT">
+		<name>Italy</name>
+		<data>21</data>
+
+		<hover>Rank: 21</hover>
+</state>
+<state id="JM">
+		<name>Jamaica</name>
+		<data>78</data>
+		<hover>Rank: 78</hover>
+</state>
+<state id="JN">
+	<name>Jan Mayen</name>
+
+</state>
+<state id="JA">
+		<name>Japan</name>
+		<data>9</data>
+		<hover>Rank: 9</hover>
+</state>
+<state id="DQ">
+	<name>Jarvis Island</name>
+</state>
+
+<state id="JE">
+	<name>Jersey</name>
+</state>
+<state id="JQ">
+	<name>Johnston Atoll</name>
+</state>
+<state id="JO">
+		<name>Jordan</name>
+		<data>212</data>
+
+		<hover>Rank: 90</hover>
+</state>
+<state id="JU">
+	<name>Juan De Nova Island</name>
+</state>
+<state id="KZ">
+		<name>Kazakhstan</name>
+		<data>76</data>
+		<hover>Rank: 76</hover>
+
+</state>
+<state id="KR">
+		<name>Kiribati</name>
+</state>
+<state id="KE">
+		<name>Kenya</name>
+		<data>146</data>
+		<hover>Rank: 146</hover>
+</state>
+
+<state id="KS">
+		<name>South Korea</name>
+		<data>30</data>
+		<hover>Rank: 30</hover>
+</state>
+<state id="KU">
+		<name>Kuwait</name>
+		<data>46</data>
+
+		<hover>Rank: 46</hover>
+</state>
+<state id="KG">
+		<name>Kyrgyzstan</name>
+		<data>102</data>
+		<hover>Rank: 102</hover>
+</state>
+<state id="LA">
+		<name>Laos</name>
+
+		<data>135</data>
+		<hover>Rank: 135</hover>
+</state>
+<state id="LG">
+		<name>Latvia</name>
+		<data>50</data>
+		<hover>Rank: 50</hover>
+
+</state>
+<state id="LE">
+		<name>Lebanon</name>
+		<data>83</data>
+		<hover>Rank: 83</hover>
+</state>
+<state id="LT">
+		<name>Lesotho</name>
+		<data>137</data>
+
+		<hover>Rank: 137</hover>
+</state>
+<state id="LI">
+	<name>Liberia</name>
+</state>
+<state id="LY">
+		<name>Libyan Arab Jamahiriya</name>
+		<data>61</data>
+		<hover>Rank: 61</hover>
+
+</state>
+<state id="LS">
+	<name>Liechtenstein</name>
+</state>
+<state id="LH">
+		<name>Lithuania</name>
+		<data>45</data>
+		<hover>Rank: 45</hover>
+</state>
+
+<state id="LU">
+		<name>Luxembourg</name>
+		<data>15</data>
+		<hover>Rank: 15</hover>
+</state>
+<state id="MK">
+		<name>Macedonia,TFYR</name>
+		<data>60</data>
+
+		<hover>Rank: 60</hover>
+</state>
+<state id="MA">
+		<name>Madagascar</name>
+		<data>149</data>
+		<hover>Rank: 149</hover>
+</state>
+<state id="ME">
+	<name>Madeira (Pt.)</name>
+
+</state>
+<state id="MI">
+		<name>Malawi</name>
+		<data>162</data>
+		<hover>Rank: 162</hover>
+</state>
+<state id="MY">
+		<name>Malaysia</name>
+		<data>58</data>
+
+		<hover>Rank: 58</hover>
+</state>
+<state id="MV">
+		<name>Maldives</name>
+		<data>86</data>
+		<hover>Rank: 86</hover>
+</state>
+<state id="ML">
+		<name>Mali</name>
+
+		<data>172</data>
+		<hover>Rank: 172</hover>
+</state>
+<state id="MT">
+		<name>Malta</name>
+		<data>33</data>
+		<hover>Rank: 33</hover>
+
+</state>
+<state id="RM">
+	<name>Marshall Islands</name>
+</state>
+<state id="MB">
+	<name>Martinique</name>
+</state>
+<state id="MR">
+		<name>Mauritania</name>
+		<data>154</data>
+
+		<hover>Rank: 154</hover>
+</state>
+<state id="MP">
+		<name>Mauritius</name>
+		<data>62</data>
+		<hover>Rank: 62</hover>
+</state>
+<state id="MF">
+		<name>Mayotte</name>
+
+</state>
+<state id="MX">
+		<name>Mexico</name>
+		<data>55</data>
+		<hover>Rank: 55</hover>
+</state>
+<state id="MQ">
+	<name>Midway Islands</name>
+</state>
+
+<state id="MD">
+	<name>Moldova</name>
+		<data>108</data>
+		<hover>Rank: 108</hover>
+</state>
+<state id="MN">
+		<name>Monaco</name>
+</state>
+<state id="MG">
+
+		<name>Mongolia</name>
+		<data>117</data>
+		<hover>Rank: 117</hover>
+</state>
+<state id="MH">
+		<name>Montserrat</name>
+</state>
+<state id="MW">
+	<name>Montenegro</name>
+
+</state>
+<state id="MO">
+		<name>Morocco</name>
+		<data>216</data>
+		<hover>Rank: 126</hover>
+</state>
+<state id="MZ">
+		<name>Mozambique</name>
+		<data>170</data>
+
+		<hover>Rank: 170</hover>
+</state>
+<state id="BM">
+		<name>Myanmar (Burma)</name>
+		<data>131</data>
+		<hover>Rank: 131</hover>
+</state>
+<state id="WA">
+		<name>Namibia</name>
+
+		<data>124</data>
+		<hover>Rank: 124</hover>
+</state>
+<state id="NR">
+	<name>Nauru</name>
+</state>
+<state id="NP">
+		<name>Nepal</name>
+		<data>143</data>
+
+		<hover>Rank: 143</hover>
+</state>
+<state id="NT">
+	<name>Netherlands Antilles</name>
+</state>
+<state id="NL">
+		<name>Netherlands</name>
+		<data>5</data>
+		<hover>Rank: 5</hover>
+
+</state>
+<state id="NC">
+	<name>New Caledonia</name>
+</state>
+<state id="NZ">
+		<name>New Zealand</name>
+		<data>20</data>
+		<hover>Rank: 20</hover>
+</state>
+
+<state id="NU">
+		<name>Nicaragua</name>
+		<data>121</data>
+		<hover>Rank: 121</hover>
+</state>
+<state id="NG">
+		<name>Niger</name>
+		<data>174</data>
+
+		<hover>Rank: 174</hover>
+</state>
+<state id="NI">
+		<name>Nigeria</name>
+		<data>208</data>
+		<hover>Number of Teachers: 500,000</hover>
+<url>http://www.teacherswithoutborders.org/pages/nigeria</url></state>
+<state id="NE">
+	<name>Niue</name>
+
+</state>
+<state id="NF">
+	<name>Norfolk Island</name>
+</state>
+<state id="KN">
+	<name>North Korea</name>
+</state>
+<state id="CQ">
+	<name>Northern Mariana Islands</name>
+</state>
+<state id="NO">
+
+		<name>Norway</name>
+		<data>1</data>
+		<hover>Rank: 1</hover>
+</state>
+<state id="GZ">
+		<name>Occupied Palestinian Territories</name>
+		<data>211</data>
+
+		<hover>Rank: 98</hover>
+</state>
+<state id="MU">
+		<name>Oman</name>
+		<data>79</data>
+		<hover>Rank: 79</hover>
+</state>
+<state id="PS">
+	<name>Pacific Islands (Palau)</name>
+
+</state>
+<state id="PK">
+		<name>Pakistan</name>
+		<data>207</data>
+		<hover>Rank: 144</hover>
+</state>
+<state id="PM">
+		<name>Panama</name>
+		<data>59</data>
+
+		<hover>Rank: 59</hover>
+</state>
+<state id="PP">
+		<name>Papua New Guinea</name>
+		<data>132</data>
+		<hover>Rank: 132</hover>
+</state>
+<state id="PA">
+		<name>Paraguay</name>
+
+		<data>84</data>
+		<hover>Rank: 84</hover>
+</state>
+<state id="PE">
+		<name>Peru</name>
+		<data>82</data>
+		<hover>Rank: 82</hover>
+
+</state>
+<state id="RP">
+		<name>Philippines</name>
+		<data>85</data>
+		<hover>Rank: 85</hover>
+</state>
+<state id="PL">
+		<name>Poland</name>
+		<data>35</data>
+
+		<hover>Rank: 35</hover>
+</state>
+<state id="PO">
+		<name>Portugal</name>
+		<data>213</data>
+		<hover>Rank: 23</hover>
+</state>
+<state id="RQ">
+	<name>Puerto Rico</name>
+
+</state>
+<state id="QA">
+		<name>Qatar</name>
+		<data>44</data>
+		<hover>Rank: 44</hover>
+</state>
+<state id="RE">
+	<name>Reunion</name>
+</state>
+
+<state id="RO">
+		<name>Romania</name>
+		<data>72</data>
+		<hover>Rank: 72</hover>
+</state>
+<state id="RS">
+		<name>Russian Federation</name>
+		<data>63</data>
+
+		<hover>Rank: 63</hover>
+</state>
+<state id="RW">
+		<name>Rwanda</name>
+		<data>158</data>
+		<hover>Rank: 158</hover>
+</state>
+<state id="SC">
+		<name>Saint Kitts and Nevis</name>
+
+		<data>51</data>
+		<hover>Rank: 51</hover>
+</state>
+<state id="ST">
+		<name>Saint Lucia</name>
+		<data>71</data>
+		<hover>Rank: 71</hover>
+
+</state>
+<state id="SM">
+	<name>San Marino</name>
+</state>
+<state id="WS">
+	<name>Western Samoa</name>
+		<data>70</data>
+		<hover>Rank: 70</hover>
+</state>
+
+<state id="TP">
+		<name>Sao Tome and Principe</name>
+		<data>122</data>
+		<hover>Rank: 122</hover>
+</state>
+<state id="SA">
+		<name>Saudi Arabia</name>
+		<data>73</data>
+
+		<hover>Rank: 73</hover>
+</state>
+<state id="SG">
+		<name>Senegal</name>
+		<data>156</data>
+		<hover>Rank: 156</hover>
+</state>
+<state id="SR">
+	<name>Serbia</name>
+
+</state>
+<state id="KV">
+	<name>Kosovo</name>
+</state>
+<state id="SE">
+		<name>Seychelles</name>
+		<data>36</data>
+		<hover>Rank: 36</hover>
+</state>
+
+<state id="SL">
+		<name>Sierra Leone</name>
+		<data>175</data>
+		<hover>Rank: 175</hover>
+</state>
+<state id="SN">
+		<name>Singapore</name>
+		<data>28</data>
+
+		<hover>Rank: 28</hover>
+</state>
+<state id="LO">
+		<name>Slovakia</name>
+		<data>39</data>
+		<hover>Rank: 39</hover>
+</state>
+<state id="SI">
+		<name>Slovenia</name>
+
+		<data>29</data>
+		<hover>Rank: 29</hover>
+</state>
+<state id="BP">
+		<name>Solomon Islands</name>
+		<data>123</data>
+		<hover>Rank: 123</hover>
+
+</state>
+<state id="SO">
+	<name>Somalia</name>
+</state>
+<state id="SF">
+		<name>South Africa</name>
+		<data>205</data>
+		<hover>Rank: 111</hover>
+</state>
+
+<state id="SX">
+	<name>South Georgia and the South Sandwich Islands</name>
+</state>
+<state id="SP">
+		<name>Spain</name>
+		<data>19</data>
+		<hover>Rank: 19</hover>
+</state>
+<state id="CE">
+
+		<name>Sri Lanka</name>
+		<data>99</data>
+		<hover>Rank: 99</hover>
+</state>
+<state id="VC">
+		<name>St. Vincent and the Grenadines</name>
+		<data>80</data>
+
+		<hover>Rank: 80</hover>
+</state>
+<state id="SU">
+		<name>Sudan</name>
+		<data>138</data>
+		<hover>Rank: 138</hover>
+</state>
+<state id="TE">
+	<name>East Timor</name>
+
+</state>
+<state id="NS">
+		<name>Suriname</name>
+		<data>77</data>
+		<hover>Rank: 77</hover>
+</state>
+<state id="SV">
+		<name>Svalbard</name>
+</state>
+
+<state id="WZ">
+		<name>Swaziland</name>
+		<data>133</data>
+		<hover>Rank: 133</hover>
+</state>
+<state id="SW">
+		<name>Sweden</name>
+		<data>3</data>
+
+		<hover>Rank: 3</hover>
+</state>
+<state id="SZ">
+		<name>Switzerland</name>
+		<data>10</data>
+		<hover>Rank: 10</hover>
+</state>
+<state id="SY">
+	<name>Syrian Arab Republic</name>
+
+		<data>110</data>
+		<hover>Rank: 110</hover>
+</state>
+<state id="FP">
+	<name>Tahiti (French Polynesia)</name>
+</state>
+<state id="TW">
+	<name>Taiwan</name>
+</state>
+
+<state id="TI">
+		<name>Tajikistan</name>
+		<data>113</data>
+		<hover>Rank: 113</hover>
+</state>
+<state id="TZ">
+	<name>United Republic of Tanzania</name>
+		<data>160</data>
+
+		<hover>Rank: 160</hover>
+</state>
+<state id="TH">
+		<name>Thailand</name>
+		<data>74</data>
+		<hover>Rank: 74</hover>
+</state>
+<state id="TO">
+		<name>Togo</name>
+
+		<data>141</data>
+		<hover>Rank: 141</hover>
+</state>
+<state id="TN">
+		<name>Tonga</name>
+</state>
+<state id="TD">
+		<name>Trinidad and Tobago</name>
+		<data>54</data>
+
+		<hover>Rank: 54</hover>
+</state>
+<state id="TS">
+		<name>Tunisia</name>
+		<data>91</data>
+		<hover>Rank: 91</hover>
+</state>
+<state id="TU">
+		<name>Turkey</name>
+
+		<data>205</data>
+		<hover>Rank: 96</hover>
+</state>
+<state id="TX">
+		<name>Turkmenistan</name>
+		<data>87</data>
+		<hover>Rank: 87</hover>
+
+</state>
+<state id="TK">
+	<name>Turks and Caicos Islands</name>
+</state>
+<state id="TV">
+	<name>Tuvalu</name>
+</state>
+<state id="UG">
+		<name>Uganda</name>
+		<data>147</data>
+
+		<hover>Rank: 147</hover>
+</state>
+<state id="UP">
+		<name>Ukraine</name>
+		<data>75</data>
+		<hover>Rank: 75</hover>
+</state>
+<state id="TC">
+		<name>United Arab Emirates</name>
+
+		<data>48</data>
+		<hover>Rank: 48</hover>
+</state>
+<state id="UK">
+		<name>United Kingdom</name>
+		<data>13</data>
+		<hover>Rank: 13</hover>
+
+</state>
+<state id="US">
+	<name>United States</name>
+		<data>7</data>
+		<hover>Rank: 7</hover>
+</state>
+<state id="UY">
+		<name>Uruguay</name>
+		<data>40</data>
+
+		<hover>Rank: 40</hover>
+</state>
+<state id="UZ">
+		<name>Uzbekistan</name>
+		<data>101</data>
+		<hover>Rank: 101</hover>
+</state>
+<state id="NH">
+		<name>Vanuatu</name>
+
+		<data>128</data>
+		<hover>Rank: 128</hover>
+</state>
+<state id="VE">
+		<name>Venezuela</name>
+		<data>69</data>
+		<hover>Rank: 69</hover>
+
+</state>
+<state id="VM">
+		<name>Viet Nam</name>
+		<data>109</data>
+		<hover>Rank: 109</hover>
+</state>
+<state id="WQ">
+	<name>Wake Island</name>
+</state>
+
+<state id="WQ">
+	<name>Wake Island</name>
+</state>
+<state id="WF">
+	<name>Wallis and Futuna</name>
+</state>
+<state id="WI">
+	<name>Western Sahara</name>
+ <data>209</data> 
+ <hover>Batata </hover>
+</state>
+<state id="WS">
+	<name>Western Samoa</name>
+
+</state>
+<state id="YM">
+		<name>Yemen</name>
+		<data>215</data>
+		<hover>Rank: 148</hover>
+</state>
+<state id="ZA">
+		<name>Zambia</name>
+		<data>163</data>
+
+		<hover>Rank: 163</hover>
+</state>
+<state id="ZI">
+		<name>Zimbabwe</name>
+		<data>145</data>
+		<hover>Rank: 145</hover>
+</state>
+</countrydata>

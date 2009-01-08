@@ -1,0 +1,34 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: feed_items
+#
+#  id               :integer(4)    not null, primary key
+#  include_comments :boolean(1)    not null
+#  is_public        :boolean(1)    not null
+#  item_id          :integer(4)    
+#  item_type        :string(255)   
+#  created_at       :datetime      
+#  updated_at       :datetime      
+#  html_cache       :text          
+#  creator_id       :integer(4)    
+#  template         :string(255)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+    item: first
+    item_type: NewsItem
+    
+two:
+    item: second
+    item_type: NewsItem
+    
+three:
+    item: second
+    item_type: Photo
+    
+four:
+    item: first
+    item_type: Comment

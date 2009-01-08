@@ -1,0 +1,30 @@
+<%= f.error_messages %>
+<%= f.text_field :name, { :label => _('Group Name'),
+:extra_html => '<div id="group-availibility"></div>' } -%>
+<%= f.text_area :description, { :label => _('Group Description')} -%>
+<%= f.text_field :tag_list, { :label => _('Group Tags')} -%>
+<div class="form-row">
+    <p>
+        <%= _('Tags help other users find your group. Use something descriptive.') %>
+        <%= _('Example: Teachers, French - for a group of teachers interested in French.') %>
+    </p>
+</div>
+<div class="no-float">
+
+    <div class="form-row">
+        <label for="group_visibility"><%= _('Visibility') %></label><br/>
+        <%= radio_button 'group', 'visibility', 0 %> <%= _('Invisible (existence and content visible only to members)') %><br/>
+        <%= radio_button 'group', 'visibility', 1 %> <%= _('Private (content visible only to members)') %><br/>
+        <%= radio_button 'group', 'visibility', 2 %> <%= _('Public (existence and content visible to everyone)') %><br/>
+    </div>
+
+    <%= f.check_box :requires_approval_to_join, { :label => _('Requires Permission to Join') } -%>
+
+    <div class="form-row">
+        <label for="group_default_role"><%= _('Default Role') %></label><br/>
+        <%= radio_button 'group', 'default_role', 'member' %> <%= _('Member') %><br/>
+        <%= radio_button 'group', 'default_role', 'observer' %> <%= _('Observer (can\'t participate)') %>
+    </div>
+
+</div>
+<div class="clear"></div>

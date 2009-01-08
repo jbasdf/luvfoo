@@ -1,0 +1,19 @@
+<div>
+	<h1><%= _('Thank you for registering!') %></h1>
+	<h2><%= _("You will be receiving an email shortly at %{user_email}.") % {:user_email => @user.email} %></h2>
+	<h2><%= _('Please check your email to confirm your account.') %></h2>
+</div>
+
+<div>
+	<p>
+		<strong><%= _('Username:') %></strong> <%=@user.login%><br />
+		<strong><%= _('Password:') %></strong> ***** <%= _('(password sent via email)') %><br />
+		<strong><%= _('Email Address:') %></strong> <%=@user.email%><br />
+		<strong><%= _('Date Registered:') %></strong> <%=@user.created_at.to_date.to_s(:long) %><br />
+	</p>
+</div>
+
+<div>
+	<p><%= _("We're glad to have you as a member of Teachers Without Borders.") %></p>
+	<h3><%= _("Thank you for registering %{user_name}!") % {:user_name => @user.login} %></h3>
+</div>

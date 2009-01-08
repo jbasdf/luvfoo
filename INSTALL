@@ -1,0 +1,42 @@
+# How to install Luvfoo #
+
+1. Start by making sure your RubyGems are version 1.2.0 or greater:
+
+        gem update --system
+
+2. Add the Github repository to your gems:
+
+        gem sources -a http://gems.github.com
+
+3. Luvfoo runs on Ruby on Rails, so first you need to get Rails running. In order to do that, download Rails from the [Ruby on Rails site] or install though gems:
+
+        gem install rails
+
+4. Copy config/database.yml.example to config/database.yml and edit it to reflect the database names you would like to use.
+
+5. Copy config/global_config.yml.example to config/global_config.yml and edit it to reflect your application customized configurations.
+
+6. Copy config/initializers/mail.rb.example to config/initializers/mail.rb and edit it to reflect your mail configurations.
+
+7. Copy config/environments/production.rb.example to config/environments/production.rb and edit `asset_host` in order to reflects the name of the production asset server.
+
+8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other Debian-based Linux distribuitions:
+
+        apt-get install gettext
+
+9. Run the following commands to create the database, the tables and then populate them with default data:
+
+        rake db:create
+        rake db:schema:load
+        rake luvfoo:db:populate
+
+10. Start the server with:
+
+        script/server
+
+11. Go to http://localhost:3000/ and login with username `admin` and password `admin`. Change it ASAP.
+
+12. Have fun with *Luvfoo*!
+
+  [Ruby on Rails site]: http://www.rubyonrails.com/  "Ruby on Rails official site"
+

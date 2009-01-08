@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#advfile_dlg.dialog_title}</title>
+  <script language="javascript" type="text/javascript" src="../../../jquery.js"></script>	
+  <script language="javascript" type="text/javascript" src="../../../jquery.queryString.js"></script>
+	<script language="javascript" type="text/javascript" src="../../../swfupload.js"></script>
+	<script language="javascript" type="text/javascript" src="../../../swfupload.swfobject.js"></script>
+	<script language="javascript" type="text/javascript" src="../../../swfupload.cookies.js"></script>
+	<script language="javascript" type="text/javascript" src="../../../swfupload.queue.js"></script>
+	<script language="javascript" type="text/javascript" src="../../../fileprogress.js"></script>
+	<script language="javascript" type="text/javascript" src="../../../handlers.js"></script>
+	<script language="javascript" type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script language="javascript" type="text/javascript" src="../../utils/mctabs.js"></script>
+	<script language="javascript" type="text/javascript" src="../../utils/form_utils.js"></script>
+	<script language="javascript" type="text/javascript" src="../../utils/validate.js"></script>
+	<script language="javascript" type="text/javascript" src="js/functions.js"></script>
+	<link href="css/advfile.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../stylesheets/jquery-plugins/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+	<base target="_self" />
+</head>
+<body id="advfile" style="display: none">
+	
+	<div id="file-upload">			
+	  <fieldset>
+	    <legend>Upload New File</legend>
+
+			<div id="degraded_container" style="display:none;">
+      <form id="file_upload_form" enctype="multipart/form-data" method="post" onsubmit="ts_onload(); return true;" target="html_editor_file_upload_frame">
+		      <input class="input-file" id="file_uploaded_data" name="upload[uploaded_data]" size="30" type="file"/>
+		      <input class="submit" name="commit" type="submit" value="Upload File"/> 
+				  <div id="upload-status"></div>
+		    </form>
+			</div>
+
+			<div id="swfupload_container">
+				<form>
+					<div id="divSWFUploadUI">
+						<span id="spanButtonPlaceholder"></span>
+						<div class="fieldset  flash" id="fsUploadProgress">
+							<input id="btnCancel" type="button" value="Cancel All Uploads" style="display:none;margin-left: 2px; height: 22px; font-size: 8pt; width:110px;" />
+							<p id="divStatus"></p>
+						</div>
+					</div>
+					<noscript style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px;">
+						We're sorry.  SWFUpload could not load.  You must have JavaScript enabled to enjoy SWFUpload.
+					</noscript>
+					<div id="divLoadingContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
+						SWFUpload is loading. Please wait a moment...
+					</div>
+					<div id="divLongLoading" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
+						SWFUpload is taking a long time to load or the load has failed.  Please make sure that the Flash Plugin is enabled and that a working version of the Adobe Flash Player is installed.
+					</div>
+					<div id="divAlternateContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
+						We're sorry.  SWFUpload could not load.  You may need to install or upgrade Flash Player.
+						Visit the <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe website</a> to get the Flash Player.
+					</div>
+				</form>
+			</div>
+	
+	  </fieldset>
+	</div>  
+  <br />
+  
+  <form name="insert_file" id="insert_file" onsubmit="insertAction();return false;" action="#">         			
+		<div class="tabs">
+			<ul>        
+			  <li id="dynamic_select_tab" class="current"><span><a href="javascript:mcTabs.displayTab('dynamic_select_tab','dynamic_select_panel');" onmousedown="return false;">Files</a></span></li>			  
+				<li id="general_tab"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#advfile_dlg.tab_general}</a></span></li>
+			</ul>
+		</div>
+
+		<div class="panel_wrapper">
+
+		  <div id="dynamic_select_panel" class="panel current" style='overflow:auto'>
+		    <fieldset>
+		      <legend>Available Files - Click to Add</legend>
+					<div id="upload-list-message">
+          	Loading Files...<br />
+          	<img src="/images/spinner.gif">
+					</div>
+          <ul id="upload-list" class="file-list">
+          </ul>
+		      </fieldset>
+		  </div>
+				  
+			<div id="general_panel" class="panel">
+				<fieldset>
+					<legend>{#advfile_dlg.general_props}</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr>
+						  <td nowrap="nowrap"><label id="hreflabel" for="href">{#advfile_dlg.url}</label></td>
+						  <td><table border="0" cellspacing="0" cellpadding="0">
+								<tr>
+								  <td><input id="href" name="href" type="text" class="mceFocus" value="" onchange="selectByValue(this.form,'linklisthref',this.value);" /></td>
+								  <td id="hrefbrowsercontainer">&nbsp;</td>
+								</tr>
+							  </table></td>
+						</tr>
+						<tr>
+							<td nowrap="nowrap"><label id="titlelabel" for="title">{#advfile_dlg.titlefield}</label></td>
+							<td><input id="title" name="title" type="text" value="" /></td>
+						</tr>
+						<tr>
+							<td><label id="classlabel" for="classlist">{#class_name}</label></td>
+							<td>
+								 <select id="classlist" name="classlist" onchange="changeClass();">
+									<option value="" selected>{#not_set}</option>
+								 </select>
+							</td>
+						</tr>
+						<tr>
+							<td><label id="stylelabel" for="style">{#advfile_dlg.style}</label></td>
+							<td><input type="text" id="style" name="style" value="" /></td>
+						</tr>
+						<tr>
+							<td class="column1"><label id="idlabel" for="id">{#advfile_dlg.id}</label></td> 
+							<td><input id="id" name="id" type="text" value="" /></td> 
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+				
+		</div>
+
+		<div class="mceActionPanel">
+			<div style="float: left">
+				<input type="button" id="insert" name="insert" value="{#insert}" onclick="insertAction();" />
+			</div>
+
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			</div>
+		</div>
+    </form>
+</body> 
+</html>

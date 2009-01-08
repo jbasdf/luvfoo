@@ -1,0 +1,15 @@
+<div class="activity_box learn">
+  <div class="right avatar"><%= icon bio, :big %></div>
+  <div class="right bio_stuff">
+    <h1><%= h bio.full_name -%><%= '<span class="edit_link">' + link_to(_('(Edit Profile)'), edit_user_path(@user)) + '</span>' if is_me?(@user) || is_admin? %></h1>
+      <% if is_admin? %> 
+      <div><strong><%= _('Username') %>:</strong> <%= bio.login %></div>
+      <div><strong><%= _('Email') %>:</strong> <%= link_to bio.email, 'mailto:' + bio.email %></div>
+      <% end %>
+      <% bio.visible_properties(current_user).each do |property| %>
+      <div><strong><%= _(property.label) %>:</strong> <% if property.is_link %><%= link_to(property.value, (property.prefix.nil? ? property.value : property.prefix + property.value)) %><% else %><%= h property.value %><% end %></div>
+      <% end %>		
+<% if !logged_in? %><div style="margin-top:12px;"><strong><%= link_to _('Login to view more profile information'), login_path %></strong></div><% end %>
+	</div>
+    <div class="clear"></div>
+</div>

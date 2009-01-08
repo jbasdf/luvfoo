@@ -1,0 +1,15 @@
+<% news_item = feed_item.item -%>
+<div class="feed_item friend_feed" id="<%= feed_item.dom_id %>">
+  <div class="left">
+    <img src="/images/blurp_comment.png" class="png icon_small" title="<%= _('News Icon') %>" alt="<%= _('News Icon') %>" /> 
+	  <strong><%= news_item_link(sanitize(news_item.title), news_item) %></strong>
+  	<div class="activity-news"> 
+  	  <%= html_summarize(news_item.body, 256) -%>
+  	  <%= news_item_link(_(' read more '), news_item) -%>
+  	</div>
+  </div>
+  <div class="right">
+  	<%= x_feed_link(feed_item) %>
+  </div>
+  <div class="clear"></div>
+</div>

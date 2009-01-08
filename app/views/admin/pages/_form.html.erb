@@ -1,0 +1,125 @@
+<div id="page" class="content-editor">
+	<% custom_form_for @content_page, :url => url, :html => html.merge(:id => 'editor-form', :class => "box no_top") do |f| -%>
+		<%= f.text_field :title, {:class => 'title'}.merge(options) %>
+		<% if edit -%>
+			<div id="edit-permalink-box" class="form-row">
+				<label>Permalink:</label>
+				<span id="permalink">
+					<%=GlobalConfig.website_home_url%>/pages/<span id="view-permalink"><%= @content_page.url_key %></span>
+					<span id="edit-permalink" style="display:none;">
+						<%= f.text_field :url_key, {:class => 'url-key', :id => 'url-key', :type => :default}.merge(options) %>
+					</span>				
+				</span>
+				<span id="edit-permalink-buttons">
+					<a id="permalink-edit" href="#url"><%= _('Edit') -%></a>
+				</span>
+				<span id="finish-permalink-buttons" style="display:none;">
+					<a id="permalink-save" href="#save"><%= _('Save') -%></a>
+					<a id="permalink-cancel" href="#cancel"><%= _('Cancel') -%></a>
+				</span>
+			</div>
+		<% end -%>
+		<%= f.text_area :body_raw, {:label => 'Content', :class => 'mceEditor', :id => 'page-body'}.merge(options) %>
+		<table>
+			<tr>
+				<td>
+					<%= f.text_field :tag_list, { :label => _('Tags')} -%>
+					<div class="form-row">
+						<p><%= _('Tags help other users find your page and will be used as the meta keywords for the document.') %></p>
+					</div>
+				</td>
+				<td>
+					<%= f.text_field :menu_list, { :label => _('Menus')} -%>
+					<div class="form-row">
+						<p><%= _("Menus show links to the current page on various locations on the site.  Enter 'HomeAboutUs' to have a link 
+							to this page show up in the 'about us' section on the home page.  Enter 'HomeCountries' to have a link to this page
+							show up under the 'countries' section on the home page.") %></p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="instruction clear">
+			<%= _('To include a youtube video use: [youtube: address_of_video]') %>
+			<%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
+		</div>
+		<%= f.hidden_field :locale %>
+		<%= f.hidden_field :parent_id %>
+	<% end %>
+</div>
+
+<%= mce_fields(admin_pages_path + '/images.js', admin_pages_path + '/files.js', formatted_admin_pages_path(:js), @site.class.to_s, @site.id) -%>
+<%= include_tiny_mce_js_if_needed -%>
+<%= tiny_mce_init_if_needed -%>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+		
+	jQuery('#permalink-edit').click(function() {
+		jQuery('#finish-permalink-buttons').show();
+		jQuery('#edit-permalink').show();
+		jQuery('#view-permalink').hide();
+		jQuery('#edit-permalink-buttons').hide();
+		return false;
+	});
+	
+	jQuery('#permalink-save').click(function() {
+		hide_edit();
+		save_permalink();
+		return false;
+	});
+	
+	jQuery('#permalink-cancel').click(function() {
+		hide_edit();
+		jQuery("#url-key").val(jQuery('#view-permalink').html());
+		return false;
+	});
+});
+
+function hide_edit(){
+	jQuery('#finish-permalink-buttons').hide();
+	jQuery('#view-permalink').show();
+	jQuery('#edit-permalink-buttons').show();
+	jQuery('#edit-permalink').hide();
+}
+
+function save_permalink() {
+	jQuery.post('<%= js_url %>', {url_key: jQuery('#url-key').val(), action: 'update', _method: 'put', only_permalink: 'true' },
+	  function(data){
+			var result = eval('(' + data + ')');
+			show_message(result['message']);
+			if('true' == result['success']){
+				update_permalink(result['url_key']);
+			}			
+	  });
+	return false;
+}
+
+function save_page() {
+	tinyMCE.triggerSave(true,true);
+	jQuery.post("<%= js_url %>", jQuery("#editor-form").serialize(),
+	  function(data){
+			var result = eval('(' + data + ')');
+			show_message(result['message']);
+			if('true' == result['success']){
+				update_permalink(result['url_key']);
+				undirty();
+			}			
+	  });
+	return false;
+}
+
+function show_message(message){
+	jQuery.jGrowl.info(message);
+}
+
+function update_permalink(url){
+	jQuery("#preview-page").attr('href', '/pages/' + url )
+	jQuery("#view-permalink").html(url);
+	jQuery("#url-key").val(url);
+}
+
+function undirty(){
+	var ed = tinyMCE.get('page-body');
+	ed.isNotDirty = 1;
+}
+</script>

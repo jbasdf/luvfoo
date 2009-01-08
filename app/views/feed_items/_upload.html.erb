@@ -1,0 +1,30 @@
+<%-
+feed_item ||= @feed_item
+upload = feed_item.item
+user = upload.user
+upload_to = ''
+case upload.uploadable
+when User
+  upload_to = _(' to their account')
+when Group
+  upload_to = _(' to ') + link_to(h(upload.uploadable.name), group_path(upload.uploadable))
+end
+return if user.nil?
+-%>
+<div class="feed_item friend_feed" id="<%= feed_item.dom_id %>">
+	<div class="left">
+	  <img src="/images/blurp_groups.png" class="png icon_small" title="<%= _('Groups Icon') %>" alt="<%= _('Groups Icon') %>" /> 
+      <%= _("%{user} uploaded a %{type}%{upload_to}: %{uploaded_file}") % 
+					{ :user => link_to(h(user.full_name), profile_path(user)), 
+					  :type => upload.upload_type,
+						:upload_to => upload_to,
+						:uploaded_file => '<div class="activity-upload">
+						                    <div class="file-icon">' + icon_for(upload) + '</div>
+						                    <a href="' + upload.public_filename + '">' + truncate(sanitize(upload.filename), 100) + '</a>
+						                   </div>' } -%>
+	</div>
+	<div class="right">
+	  <%= x_feed_link(feed_item) %>
+	</div>
+	<div class="clear"></div>
+</div>

@@ -1,0 +1,30 @@
+<% feed_items ||= @feed_items -%>
+<% unless feed_items.empty? -%>
+	<div class="activity_box">
+		<h2><%= _('Recent Activity') %></h2>
+		<div id="activity_feed" class="inside_box">    
+			<% feed_items.each do |feed_item| -%>
+			  <% next unless feed_item.item -%>
+			  <% key = feed_item.id -%>
+			  <% cache ("feed_items/#{key}") do -%>
+				  <%= render( :partial => "feed_items/#{feed_item.partial}", :locals => {:feed_item => feed_item}) %>
+			  <% end -%>
+			<% end -%>
+			<div class="clear"></div>      
+		</div>
+	</div>
+<% end -%>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  apply_delete();
+});
+function apply_delete(){	 
+	jQuery(".activity-delete").click(function() {
+	  var id = this.id.replace('feed_item_', '');
+	  //jQuery(this).parent().parent().fadeOut();
+	  jQuery.ajax({data:'_method=delete', dataType:'script', type:'post', url:'/users/<%=current_user.to_param%>/feed_items/' + id + '.js'}); 
+	  return false;
+	});
+}
+</script>

@@ -1,0 +1,52 @@
+<div id="contact" class="activity_box">
+
+	<h2><%= _('Contact Us') %></h2>
+  
+  <p><%= _('Thank you for contacting Teachers Without Borders. Please complete the form below and a Teachers Without Borders staff member will contact you shortly.') -%></p>
+
+	<form action="/contact/" method="post">
+	
+	  <div class="row clear">
+	    <label for="form_name"><%= _('Your name:') %></label>
+	    <div class="formHelp"><%= _('Please provide us with your name.') %></div>
+	    <input type="text" id="form_name" name="name" />
+	  </div>
+
+	  <div class="row clear">
+	    <label for="form_phone"><%= _('Your phone number:') %></label>
+			<div class="formHelp"><%= _('Your phone number is optional but will help us contact you if necessary.') %></div>
+	    <input type="text" id="form_phone" name="phone" />
+	  </div>
+
+	  <div class="row clear">
+	    <label for="form_email"><%= _('Your email:') %></label>
+			<div class="formHelp"><%= _('Please provide us with your email so that we can contact you if necessary.') %></div>
+	    <input type="text" id="form_email" name="email" />
+	  </div>
+
+	  <div class="row clear">
+	    <label for="form_message"><%= _('Subject:') %></label>
+			<div class="formHelp"><%= _('A simple statement indicating the nature of your feedback.') %></div>
+	    <input type="text" id="form_email" name="email" />
+	  </div>
+	
+	  <div class="row clear">
+	    <label for="form_message"><%= _('Your message/question:') %></label>
+	    <div class="formHelp"><%= _('Please include any comments you would like us to hear.') %></div>
+			<textarea id="form_message" name="message"></textarea>
+	  </div>
+
+	  <input type="submit" value="<%= _('Send') %>" class="button"/>
+  
+	  <div class="clear"></div>
+
+	</form>
+	
+	<div style="margin:20px;">
+		<a href="/pages/contact-us" style="font-size:16px;">Click here for our address, phone number and email.</a>
+	</div>
+	
+		
+</div>
+
+          

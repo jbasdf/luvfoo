@@ -1,0 +1,5 @@
+<h1><%= _('My Network') %></h1>
+
+<%= render :partial => 'friends/list', :locals => {:type => :friends, :with_friending => true, :size => nil} %>
+<%= render :partial => 'friends/list', :locals => {:type => :followers, :with_friending => true, :size => nil} %>
+<%= render :partial => 'friends/list', :locals => {:type => :followings, :with_friending => true, :size => nil} %>

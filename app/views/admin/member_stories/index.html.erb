@@ -1,0 +1,24 @@
+<div class="activity_box">
+  <h2><%= _('Member Stories') %><span class="link-button"><%= link_to _("Add New Story"), new_admin_member_story_path %></span></h2>
+	<table class="manage">
+		<thead>
+		<tr>
+			<th><%= _('Icon') %></th>
+			<th><%= _('Story Title') %></th>
+			<th><%= _('Summary') %></th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<% @news_items.each do |story| -%>
+		<tr>
+			<td><%= icon story, :small -%></td>
+			<td><%= link_to "#{summarize(story.title, 80)}", admin_member_story_path(story) %></td>
+			<td><%= summarize(story.body, 100) %></td>
+			<td><%= render :partial => 'member_stories/admin', :locals => { :member_story => story } -%></td>
+		</tr>
+		<% end -%>
+		</tbody>
+	</table>
+	<%= will_paginate @news_items %>
+</div>

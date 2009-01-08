@@ -1,0 +1,77 @@
+<% @hide_visibility_controls = true %>
+<%= render :partial => 'script' %>
+<div class="left activity_box" id="column_l">
+	<% custom_form_for :user, :url => users_path, :html => {:id => "register"} do |f| -%>
+	
+    <h1><%= _('Join %{application_name}') % {:application_name => GlobalConfig.application_name} %></h1>
+    <div class="instruction"><%= _("Welcome to %{application_name}") % {:application_name => GlobalConfig.application_name} %></div>
+    <div class="instruction"><p><%= _("Already a member? %{login_link_anchor}Sign in now%{login_link_end}") % {:login_link_anchor => '<a href="' + login_url + '">', :login_link_end => '</a>'} %></p></div>
+		<%= error_messages_for :user -%>		
+
+ 		<%= f.text_field :login, { :label => _('Choose a Member Name'), :extra_html => '<span id="login-availibility" class="availability"></span>', :required_label => 'Member Name' } -%>
+ 		<%= f.text_field :email, { :label => _('Email Address'), :extra_html => '<span id="email-availibility" class="availability"></span>' } -%>
+		<%= f.text_field :first_name, { :label => _('First Name') } -%>   
+		<%= f.text_field :last_name, { :label => _('Last Name') }-%>
+		<%= f.password_field :password, { :label => _('Password') } -%>
+		<%= f.password_field :password_confirmation, { :label => _('Confirm Password') } -%>		
+        <% @user.properties_for_page(1).each do |property| %>
+            <%= render :partial => "bag_properties/" + property.display_type, :locals => {:property => property, :error => @user.errors[property.label], :hide => !(@other_selected == true && property.name =~ /_other$/)} %>
+        <% end %>
+
+		<% if GlobalConfig.use_recaptcha -%>
+			<div class="recaptcha">
+				<%= recaptcha_tags %>
+			</div>
+		<% end -%>
+			  
+		<div>
+		    <%= _("By clicking <i>Sign-up Now</i> you indicate that you are at least 18 years of 
+            age and agree to comply with the %{tos_link_anchor}Terms and Conditions%{link_end}
+			and %{coc_link_anchor}Code of Conduct%{link_end}.") % 
+			{:tos_link_anchor => "<a href='" + page_path('terms') + "' target='_blank'>",
+			:coc_link_anchor => "<a href='" + page_path('code_of_conduct') + "' target='_blank'>",
+			:link_end => "</a>"} %>
+        </div>
+		<div class="clear"></div>
+		
+	  <div class="button">
+	  	<%= f.submit _('Sign-up Now'), :class => 'button', :id => 'signup' %>
+			<div id="progress-bar" style="display:none;">
+				<h3><%= _("Creating your account.  Please wait.") %></h3>
+				<img src="/images/loadingAnimation.gif" alt="progress bar">
+	  	</div>
+	</div>
+	
+	<% end %>
+</div>
+
+
+<div class="right" id="column_r">
+	<div style="margin:10px 0px 5px;">
+		<img width="250" height="250" border="0" alt="" src="/images/registration.jpg" id="Picture33"/>
+	</div>
+	<h2><%= _('Why Joining Matters') %></h2>
+	<ul id="why-join">
+		<li><h3><%= _('What is a TWB Member?') %></h3>
+				<p><%= _('A TWB member is a citizen of the world who recognizes the value of education and sees teachers as the catalysts for change.') %></p></li>
+		<li><h3><%= _('Why join?') %></h3>
+			<p><%= _('Our organization is committed to global reform and we believe it is through supporting our fellow teachers that this can be done. Your skills and experience may be just what we need right now.') %></p></li>
+    <li><h3><%= _('The TWB Culture?') %></h3>
+			<p><%= _('Our membership reflects our world. Our politics, religion, cultures will vary but our commitment to education excellence brings us together. As you become a part of this professional community, please be considerate that others may or may not share your views. We have created an amazing network to collaborate on a professional level and expect all members to maintain this professionalism by focusing on teacher support. ') %></p></li>
+    <li><h3><%= _('Welcome!') %></h3>
+			<p><%= _('Once you have created an account please take the time to explore the opportunities TWB has to offer you. We believe that each and every TWB member has the knowledge and passion to change education. Find your own path, make a difference, join the movement.') %></p></li>
+  </ul>
+</div>
+
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function()
+{
+    jQuery("#signup").click(function()
+    {
+        jQuery("#signup").hide();
+        jQuery("#progress-bar").show();
+    });
+});
+</script>
+
+<img src="https://cts.vresp.com/s.gif?h=5e87091708" height="1" width="1"/>

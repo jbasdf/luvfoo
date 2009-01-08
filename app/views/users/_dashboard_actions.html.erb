@@ -1,0 +1,29 @@
+<div id="new_direct_message" class="hidden">
+	<%= render :partial => 'messages/form', :locals => {:hide_header => true} %>
+</div>
+<div id="dashboard_actions" class="activity_box">
+	<h2><%= _('Actions') %></h2>
+	<ul>
+	<!-- <li><img src="/images/blurp_groups_small.png"/> Write a Group News Item</li> -->
+		<li><img src="/images/blurp_profile_small.png"/> <span style="font-weight:bold;font-size:110%;"><%= link_to(_('Edit Your Profile'), edit_user_path(@user)) %></span></li>
+    	<li><img src="/images/blurp_friends_small.png"/> <%= _("Messages") %> : <%= inline_tb_link _('Write'), 'new_direct_message', {:title => _('Write a Message')}, {:height => 380} %> | 
+		<% if !@user.unread_messages.empty? -%>
+			<b><%= link_to _('Inbox (%{num_unread_messages})') % {:num_unread_messages => @user.unread_messages.count}, user_messages_path(@user) %></b>
+		<% else -%>
+			<%= link_to _('Inbox'), user_messages_path(@user) %>				
+		<% end -%></li>
+		<li><img src="/images/blurp_pencil_small.png"/> <%= _("Blog Posts") %> : <%= link_to _('Write'), new_user_blog_path(@user) %> | <%= link_to _('Manage'), user_blogs_path(@user) %> </li>
+		<li><img src="/images/blurp_photos_small.png"/> <%= link_to _('Upload and Manage Photos'), user_photos_path(@user) %></li>
+		<li><img src="/images/blurp_file_small.png"/> <%= link_to _('Upload and Manage Files'), user_uploads_path(@user) %></li>
+ 		<li><img src="/images/blurp_thumb_small.png"/> <%= link_to _('Share a Web Page or Google Document'), '/share' %></li>
+		<% if false && is_admin? && @content_pages.empty? %>
+			<!-- <li><img src="/images/blurp_pencil_small.png"/> <%= link_to _('Write a Page'), new_user_page_path(@user) %></li> -->
+			<li><img src="/images/blurp_pencil_small.png"/> <%= link_to _('Write a Page'), new_site_page_path %></li>
+		<% end %>
+		<% if is_admin? -%>
+			<li><img src="/images/blurp_pencil_small.png"/> <%= _('Member Stories') %> : <%= link_to _('Write'), new_admin_member_story_path %> | <%= link_to _('Manage'), admin_member_stories_path %></li>
+		 	<li><%= link_to _('Site Administration'), admin_home_path %></li>
+		<% end -%>
+		
+	</ul>
+</div>

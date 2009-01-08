@@ -1,0 +1,24 @@
+<div class="left" id="column_l">	
+	<h1><%= _('%{group_name} Comments') % {:group_name => @group.name}%></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>	
+	<div id="comments" class="activity_box">
+		<h2><%= _('Comments (%{num_comments})') % { :num_comments => @group.comments.size} %>
+			<% if can_participate? -%>
+        <span>
+			  <%= render :partial => 'comments/form', :locals => { :parent => @group } -%>
+			  <%= inline_tb_link _('Add a Comment'), "#{dom_id(@group)}_new_comment", {:title => _('Leaving A Comment On %{group_name}') % {:group_name => h(@group.name)}}, {:height => 330, :width => 430} -%>
+        </span>
+			<% end -%>
+		</h2>
+		<div id="<%= dom_id(@group) %>_comments">
+			<%= render :partial => 'comments/comment', :collection => @comments %>
+		</div>
+    <div class="clear"></div>
+  	<%= will_paginate @comments %>
+  </div>  
+	<div class="clear"></div>
+</div>
+
+<div class="right" id="column_r">
+	<%= render :partial => 'groups/group_info' %>
+</div>

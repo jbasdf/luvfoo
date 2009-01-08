@@ -1,0 +1,43 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: friends
+#
+#  id         :integer(4)    not null, primary key
+#  inviter_id :integer(4)    
+#  invited_id :integer(4)    
+#  status     :integer(4)    default(0)
+#  created_at :datetime      
+#  updated_at :datetime      
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# note that friends are always created two directional in the app, so they need to be created that way here
+first:
+  inviter: quentin
+  invited: aaron
+  status: <%= Friend::ACCEPTED %>
+second:
+  inviter: aaron
+  invited: quentin
+  status: <%= Friend::ACCEPTED %>
+third: 
+  inviter: quentin
+  invited: friend_guy
+  status: <%= Friend::ACCEPTED %>
+fourth: 
+  inviter: friend_guy
+  invited: quentin
+  status: <%= Friend::ACCEPTED %>
+fifth:
+  inviter: follower_guy
+  invited: aaron
+  status: <%= Friend::PENDING %>
+sixth:
+  inviter: quentin
+  invited: follower_guy
+  status: <%= Friend::PENDING %>
+eighth: 
+  inviter: aaron
+  invited: friend_guy
+  status: <%= Friend::PENDING %>

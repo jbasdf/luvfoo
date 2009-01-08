@@ -1,0 +1,51 @@
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: groups
+#
+#  id                        :integer(4)    not null, primary key
+#  creator_id                :integer(4)    
+#  name                      :string(255)   
+#  description               :text          
+#  icon                      :string(255)   
+#  state                     :string(255)   
+#  url_key                   :string(255)   
+#  created_at                :datetime      
+#  updated_at                :datetime      
+#  default_role              :string(255)   default("member")
+#  visibility                :integer(4)    default(2)
+#  requires_approval_to_join :boolean(1)    
+#
+
+africa:
+    name: africa
+    description: a group about africa
+    state: approved
+    url_key: africa
+    creator: quentin
+    default_role: member
+    
+banned:
+    name: banned
+    description: a banned group
+    state: banned
+    url_key: banned
+    creator: quentin
+    default_role: member
+    
+invisible:
+    name: invisible
+    description: an invisible group
+    url_key: invisible
+    creator: quentin
+    default_role: member
+    visibility: 0
+
+private:
+    name: private
+    description: a private group
+    url_key: private
+    creator: quentin
+    default_role: member
+    visibility: 1    
+    

@@ -1,0 +1,35 @@
+body{font:normal 12px "Lucida Grande",Helvetica,Arial,sans-serif;background:#e9efd5;margin:0px auto;padding:0px;color:#eee;line-height:160%;}
+.google_doc_title{margin:0px 0 10px 0;}
+
+#top-navigation{font:normal 12px "Lucida Grande",Helvetica,Arial,sans-serif;float:left;display:inline;width:100%;background-color:#4B7041;margin:0 0 1px 0;}
+#top-navigation input.search-button{float:left;margin:4px 5px;background:#666666;color:#fff;font-weight:bold;width:auto;height:20px;padding:0;}
+#top-navigation ul{float:left;margin:4px 0;padding:2px;display:inline;}
+#top-navigation ul li{float:left;padding:0 4px 0 10px;list-style:none;color:#ffc;font-size:11px;line-height:13px;font-weight:bold;}
+#top-navigation ul li a{float:left;color:#E9EFD5;text-decoration:none;font-size:120%;}
+#top-navigation ul li a:hover{text-decoration:underline;color:#fff;}
+
+#log-out{margin:4px 10px 0 0;line-height:18px;}
+#log-out a{color:#E9EFD5;font-weight:bold;margin-left:10px;text-decoration:none;}
+#log-out a:hover{text-decoration:underline;}
+
+#main{padding:15px;}
+#wrapper{width:870px;margin:0px auto;padding:0px;border:dotted 1px #ccc;}
+#content{color:#000;background:#fff;padding:0 0 0 0;min-height:600px;height:auto !important;height:600px;}
+
+#top{margin:0px;padding:0px;background:url(/images/home-logo.png);width:870px;height:75px;}
+#top a{font-weight:bold;color:#fff;text-decoration:none;}
+#top a:hover{text-decoration:underline;}
+#top h1{font-size:28px;letter-spacing:-1.2pt;font:normal 12px "Lucida Grande",Helvetica,Arial,sans-serif;color:#fff;margin:0;padding:20px 0 0 75px;font-size:28px;font-weight:bolder;line-height:18px;}
+#top h2{font:normal 12px "Lucida Grande",Helvetica,Arial,sans-serif;color:#F9E475;margin:5px 0 0 0;padding:0 0 0 80px;font-size:14px;font-weight:bolder;line-height:22px;}
+
+.link-button a {font-family:"Arial",sans-serif;margin:0 3px 0 0;padding:3px;background:#4B7041;border:1px solid #333;color:#fff;font-size:12px;text-decoration:none;}
+.link-button a:hover{text-decoration:underline;}
+
+.right{float:right;}
+.clear{clear:both;}
+
+#search{margin:-50px 10px;}
+
+.text_c, div .text_c{text-align:center;}
+.text_c a{font:normal "Arial",sans-serif;text-decoration:none;color:#4b7041;}
+.text_c a:hover{text-decoration:underline;}

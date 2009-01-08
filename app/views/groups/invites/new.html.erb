@@ -1,0 +1,10 @@
+<div class="left" id="column_l">	
+	<h1><%= _("Invite Your Friends") %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} -%>
+	<%= render :partial => 'shared/invite', :locals => {:name => h(@group.name), :url => group_invites_path(@group) } -%>
+	<div class="clear"></div>
+</div>
+
+<div class="right" id="column_r">
+  <%= render :partial => 'groups/group_info' %>
+</div>

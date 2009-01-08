@@ -1,0 +1,15 @@
+<div class="left" id="column_l">	
+	<h1><%= _('%{group_name} - Latest News') % {:group_name => @group.name} %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div class="group-news-item">
+		<%= render :partial => 'news/news_item', :object => @news_item -%>
+	</div>
+	<% if manager? -%>
+		<%= link_to _('Edit'), edit_group_news_path(@group, @news_item) -%>
+		| <%= link_to _('Delete'), group_news_path(@group, @news_item), :method => :delete -%>
+	<%- end -%>
+</div>
+
+<div class="right" id="column_r">
+	<%= render :partial => 'groups/group_info' %>
+</div>

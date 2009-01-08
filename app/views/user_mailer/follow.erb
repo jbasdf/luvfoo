@@ -1,0 +1,14 @@
+<%= _("Dear %{user_name},") % {:user_name => h(@invited.login)} %>
+
+<%= _('%{follower} requested to make you a Friend on %{application_name}.') % {:follower => @inviter.full_name, :application_name => _(GlobalConfig.application_name)} %>
+
+<%= _('You may view their profile at %{inviter_profile_url}') % {:inviter_profile_url => profile_url(@inviter, :host=>GlobalConfig.application_url)} %>
+
+<%= _('Visit that page to accept their request and add them to your Friend list.') %>
+
+<%= _("Please email %{support_email} if you have any questions or comments about the website.") % {:support_email => GlobalConfig.support_email} %> 
+
+<%= _('Best Regards,') %>
+
+<%= _(GlobalConfig.emailed_by) -%>
+
