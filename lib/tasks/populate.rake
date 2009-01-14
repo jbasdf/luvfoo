@@ -2,7 +2,7 @@ namespace :luvfoo do
   namespace :db do
     desc "Add default values to the database"
     task :populate => :environment do
-      ['administrator', 'user'].each {|r| Role.create(:rolename => r) }
+      ['administrator', 'user', 'contributor'].each {|r| Role.create(:rolename => r) }
 
       [
         ['AD', 'Andorra'],
@@ -493,4 +493,3 @@ namespace :luvfoo do
     end
   end
 end
-
