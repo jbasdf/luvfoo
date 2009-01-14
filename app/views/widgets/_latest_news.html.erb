@@ -1,6 +1,6 @@
 <div id="latest" class="home-info left home-box">
 	<h2><%= _('Latest News') %> <%= link_to _('View All'), news_index_path, { :class => 'home-title' } %></h2>
-	<%= render :partial => 'news/blog_simple', :collection => NewsItem.latest_news_from('administrator', 4) -%>
+	<%= render :partial => 'news/blog_simple', :collection => NewsItem.latest_news_from('contributor', 4) -%>
 </div>
 
 
