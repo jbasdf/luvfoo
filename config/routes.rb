@@ -113,6 +113,7 @@ ActionController::Routing::Routes.draw do |map|
     a.home '/', :controller => 'home', :action => 'index'
     a.resources :users, :collection => { :inactive => :get, :inactive_emails => :get, :activate_all => :get, :search => :get, :do_search => :post }
     a.resources :roles
+    a.resources :permissions
     a.resources :sites
     a.resources :news_items
     a.resources :member_stories

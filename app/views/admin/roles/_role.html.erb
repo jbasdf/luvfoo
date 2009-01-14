@@ -1,9 +1,20 @@
-<li>
-  <%= role.rolename %>
-  <% if @user.has_role?(role.rolename) %>
-    <%= link_to _('remove role'), user_role_url(:id => role.id, :user_id => @user.id), :method => :delete %>
-  <% else %>
-    <%= link_to _('assign role'), user_role_url(:id => role.id, :user_id => @user.id), :method => :put %>
-  <% end %>
-</li>
-
+<div class="role-container">
+  <h2>
+    <%= role.rolename %>
+    <% if role.users.empty? -%>
+      <%= link_to _("%{icon}") % {:icon => image_tag('delete.png', :class => 'png', :width=>'12', :height=>'12')}, admin_role_path(:id => role.id), :method => :delete, :title => _("Delete") -%>
+    <% end -%>
+  </h2>
+  
+  <div class="add-permission">
+    <% @permission.role = role -%>
+    <% form_for @permission, :url => admin_permissions_path do |f| %>
+      <%= label :user,  _('User:') %> <%= text_field_tag :login, '', {:id => 'add_to_' + role.dom_id, :class => "input-user-permission"} %> <%= f.submit _('Add'), {:class => "submit-user-permission"} %>
+      <%= hidden_field_tag :role_id, role.id %>
+    <% end %>
+  </div>
+  
+  <table id="<%=role.dom_id%>" class="role-members">
+    <%= render :partial => 'admin/roles/permission', :collection => role.permissions %>
+  </table>
+</div>

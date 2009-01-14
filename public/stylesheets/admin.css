@@ -401,3 +401,10 @@ textarea#user-emails{width:830px;height:600px;}
 .color-selector-container label{clear:both;}
 .color-selector-container input{display:none;}
 #settings-logo-preview{margin:0 0 0 -15px;}
+#add-role{width:800px;padding:10px;margin:15px 0px 0px 10px;border:1px solid #ccc;background-color:#eee;}
+.role-container{width:245px;margin:10px 0px 10px 10px;border:1px solid #ccc;background-color:#eee;padding:10px;}
+.role-container h2{margin:0px;border-bottom:2px solid #999;}
+.role-container{float:left;clear:none;}
+.role-container table th{font-weight:bolder;}
+.role-container table td{padding:2px;}
+.role-container .add-permission .input-user-permission{width:100px;}

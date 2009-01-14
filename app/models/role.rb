@@ -14,6 +14,7 @@ class Role < ActiveRecord::Base
     has_many :users, :through => :permissions
     
     validates_presence_of :rolename
+    validates_uniqueness_of :rolename
     
     # roles can be defined as symbols.  We want to store them as strings in the database
     def rolename= val

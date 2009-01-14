@@ -1,8 +1,49 @@
-<h2><%= _('Roles for %{user}') % {:user => h(@user.login.capitalize)} %></h2>
- 
-<h3><%= _('Roles assigned:') %></h3>
-<ul><%= render :partial => 'role', :collection => @user.roles %></ul>
- 
-<h3><%= _('Roles available:') %></h3>
-<ul><%= render :partial => 'role', :collection => (@all_roles - @user.roles) %></ul>
+<%= error_messages_for :permission %>
+<%= error_messages_for :role %>
+<h1><%= _('Manage roles and permissions') %></h1>
 
+<div id="add-role">
+  <% form_for @role, :url => admin_role_path(@role) do |f| %>
+    <%= f.label :rolename,  _('New Role:') %> 
+    <%= f.text_field :rolename %><%= f.submit _('Create') %>
+  <% end %>
+</div>
+
+<%= render :partial => 'admin/roles/role', :collection => @roles %>
+
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function() {
+	jQuery(".input-user-permission").autocomplete('/admin/users.js', {
+		minChars: 1,
+		delay: 200,
+		autoFill: true,
+		mustMatch: false
+	})
+  apply_delete();
+
+  jQuery(".submit-user-permission").click(function() {
+		var form = jQuery(this).parents('form');
+		jQuery.post(form.attr('action') + '.js', form.serialize(),
+		  function(data){
+		    var result = eval('(' + data + ')');
+  			jQuery.jGrowl.info(result['message']);
+  			if(true == result['success']){
+          jQuery('#' + result['role_dom_id']).append(result['row']);
+          jQuery('#add_to_' + result['role_dom_id']).val('');
+          apply_delete();
+  			}
+		  });			
+		return false;
+	});
+	
+});
+
+function apply_delete(){	 
+	jQuery(".permission-delete").click(function() {
+	  var id = this.id.replace('permission_', '');
+	  jQuery(this).parent().parent().fadeOut();
+	  jQuery.ajax({data:'_method=delete', dataType:'script', type:'post', url:'/admin/permissions/' + id + '.js'}); 
+	  return false;
+	});
+}
+</script>

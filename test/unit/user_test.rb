@@ -40,6 +40,13 @@ class UserTest < Test::Unit::TestCase
     should_not_allow_values_for :login, 'test guy', 'test.guy', 'testguy!', 'test@guy.com', :message => 'may only contain letters, numbers or a hyphen.'
     should_allow_values_for :login, 'testguy', 'test-guy'
     
+    should_have_named_scope :by_login_alpha, :order => "login DESC"
+    should_have_named_scope :by_newest, :order => "created_at DESC"
+    should_have_named_scope :active, :conditions => "activated_at IS NOT NULL"
+    should_have_named_scope :inactive, :conditions => "activated_at IS NULL" 
+    should_have_named_scope 'recent(1.day.ago)'
+    should_have_named_scope "by_login('a')" 
+    
   end
   
   should "Create a new user and a feed item" do

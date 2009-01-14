@@ -3,7 +3,18 @@ class Admin::UsersController < Admin::BaseController
   before_filter :get_user, :only => [:update, :destroy]
   
   def index
-    @users = User.by_newest.paginate(:page => @page, :per_page => @per_page)
+    respond_to do |format|
+      format.html do
+        @users = User.by_newest.paginate(:page => @page, :per_page => @per_page)
+        render
+      end
+      format.js do
+        @users = User.by_login_alpha.by_login(params[:q], :limit => 20)
+        render :text => @users.collect{|user| user.login }.join("\n")
+        # I like json but the autocomplete wants a list of values
+        # render :json => @users.collect{|user| { :login => user.login } }.to_json
+      end
+    end
   end
 
   def inactive

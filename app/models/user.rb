@@ -201,11 +201,13 @@ class User < ActiveRecord::Base
 #  acts_as_solr :fields => [ :login, :first_name, :last_name ]  
   acts_as_solr :fields => [ :content_p,  :content_u, :content_f, :content_a ]  
 
+  named_scope :by_login_alpha, :order => "login DESC"
   named_scope :by_newest, :order => "created_at DESC"
   named_scope :active, :conditions => "activated_at IS NOT NULL"
   named_scope :inactive, :conditions => "activated_at IS NULL"    
   named_scope :recent, lambda { { :conditions => ['created_at > ?', 1.week.ago] } }
-  
+  named_scope :by_login, lambda { |*args| { :conditions => ["login LIKE ?", args.first + '%'] } }
+
   def self.inactive_count
     User.count :conditions => "activated_at is null"
   end
