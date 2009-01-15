@@ -99,6 +99,8 @@
 #  time_in_role__c            :text(255)     not null
 #  ctm_reason__c              :text(255)     not null
 #  ctm_goal__c                :text(255)     not null
+#  survey_do_you_agree__c     :text(255)     not null
+#  survey_comments__c         :text(32000)   not null
 #
 
 # class for communicating with salesforce

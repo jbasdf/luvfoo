@@ -16,6 +16,25 @@
 #  topics_count     :integer(4)    default(0)
 #  posts_count      :integer(4)    default(0)
 #
+
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: forums
+#
+#  id               :integer(4)    not null, primary key
+#  name             :string(255)   
+#  description      :text          
+#  position         :integer(4)    
+#  created_at       :datetime      
+#  updated_at       :datetime      
+#  forumable_type   :string(255)   
+#  forumable_id     :integer(4)    
+#  url_key          :string(255)   
+#  description_html :text          
+#  topics_count     :integer(4)    default(0)
+#  posts_count      :integer(4)    default(0)
+#
 class Forum < ActiveRecord::Base
   
   belongs_to :forumable, :polymorphic => true
