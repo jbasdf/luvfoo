@@ -83,8 +83,8 @@ class NewsItem < ActiveRecord::Base
     url_key || id
   end
 
-  def self.latest_news_from role = 'administrator', limit = 4
-    role = Role.find(:first, :include => 'users', :conditions => ["rolename = ?", role])
+  def self.latest_news_from(rolename = 'administrator', limit = 4)
+    role = Role.find(:first, :include => 'users', :conditions => ["rolename = ?", rolename])
     if role && role.users.length > 0
       user_ids = role.users.collect{|u| u.id}.join(',')
       NewsItem.find(:all, :conditions => "newsable_type = 'User' AND newsable_id IN (#{user_ids})", :limit => limit, :order => 'created_at desc')
