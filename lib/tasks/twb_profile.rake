@@ -293,10 +293,11 @@ namespace :luvfoo do
       )
       professional_role_id = BagProperty.find_by_name("professional_role").id
       [
-        [1, "Certified educator", 1],
-        [2, "Noncertified educator", 2],
-        [4, "Other educator", 3],
-        [3, "Student", 4],
+        [1, "Certified/Licensed Educator", 1],
+        [2, "Noncertified Educator", 2],
+        [6, "Retired Eucator", 20],
+        [4, "Other Educator", 20],
+        [3, "Post Secondary Student", 30],
         [5, "Other", 9999]
       ].each {|pr| BagPropertyEnum.create(:bag_property_id => professional_role_id, :value => pr[0], :name => pr[1], :sort => pr[2]) }
 
@@ -326,7 +327,7 @@ namespace :luvfoo do
       )
       volunteer_interests_id = BagProperty.find_by_name("volunteer_interests").id
       [
-        ['College Internships', 1],
+        ['Internships', 1],
         ['Content Creators', 2],
         ['Curriculum Development', 3],
         ['Database/Programming', 4],
@@ -334,16 +335,21 @@ namespace :luvfoo do
         ['Evaluation Measurements', 6],
         ['Fundraising', 7],
         ['Grant Research/Writing', 8],
-        ['In-Country Volunteering', 9],
         ['Marketing', 10],
-        ['Membership Recruitment', 11],
-        ['Mentor Teaching', 12],
-        ['Other', 13],
-        ['Outreach', 14],
-        ['Researchers', 15],
-        ['Subject Matter Expertise', 16],
-        ['Translation', 17]
-      ].each {|vi| BagPropertyEnum.create(:bag_property_id => volunteer_interests_id, :value => vi[0], :name => vi[0], :sort => vi[1]) }
+        ['Membership Outreach', 20],
+        ['Mentor Teaching', 30],
+        ['Workshop Facilitation', 40],
+        ['Researchers', 50],
+        ['Translation', 60],
+        ['TWB On Campus',70],
+        ['Technology Support',80],
+        ['Website Expertise',90],
+        ['Certificate of Teaching Mastery Mentor',100],
+        ['Peer Journal Review',110],
+        ['Other', 120],
+        ['Only interested in receiving information via email',130]
+     ].each {|vi| BagPropertyEnum.create(:bag_property_id => volunteer_interests_id, :value => vi[0], :name => vi[0], :sort => vi[1]) }
+      
       
 #      BagProperty.create(:name => 'location', :label => 'Location', :sort => 5)
       
@@ -1052,12 +1058,18 @@ namespace :luvfoo do
       )
       teaching_experience_id = BagProperty.find_by_name("teaching_experience").id
       [
-        ["college", "College", 1],
-        ["high school", "High School", 2],
-        ["middle school", "Middle School", 3],
-        ["grade school", "Grade School", 4],
-        ["prek", "Pre K", 5],
-        ["none", "None", 6],
+        ["prek", "Pre Grade 1", 10],
+        ["grade school", "Grades 1 to 3", 20],
+        ["grade_4-6", "Grades 4 to 6", 30],
+        ["grade_7", "Grade 7", 40],
+        ["grade_8", "Grade 8", 50],
+        ["high school", "Grade 9", 60],
+        ["grade_10", "Grade 10", 70],
+        ["grade_11", "Grade 11", 80],
+        ["grade_12", "Grade 12", 90],
+        ["college", "College/University", 100],
+        ["adult", "Adult Education", 110],
+        ["none", "None", 120]
       ].each {|te| BagPropertyEnum.create(:bag_property_id => teaching_experience_id, :value => te[0], :name => te[1], :sort => te[2]) }
       
       BagProperty.create(:name => 'skills', :label => 'Skills', :data_type => BagProperty::DATA_TYPE_TEXT, :display_type => BagProperty::DISPLAY_TYPE_TEXT_AREA, :sort => 140) 
@@ -1101,5 +1113,59 @@ namespace :luvfoo do
     end
   end
     
+  namespace :db do
+    desc "Add fields required by TWB canada"
+    task :add_canada_fields => :environment do
+      bp = BagProperty.create(
+        :name => 'teaching_license', 
+        :label => 'Do you have an official license to teach?', 
+        :data_type => BagProperty::DATA_TYPE_ENUM,
+        :display_type => BagProperty::DISPLAY_TYPE_RADIO, 
+        :required => false, 
+        :default_visibility => BagProperty::VISIBILITY_USERS,
+        :sort => 92 
+      )
+      [
+        ['Yes','yes',10],
+        ['No','no',20],
+        ['Pending','pending',30],
+        ['Other','other',40]
+      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[1], :name => c[0], :sort => c[2]) }
+      BagProperty.create(:name => 'subject_areas', :label => 'Subject area(s) for which you are licensed', :default_visibility => BagProperty::VISIBILITY_USERS, :data_type => BagProperty::DATA_TYPE_TEXT, :display_type => BagProperty::DISPLAY_TYPE_TEXT_AREA, :sort => 94, :registration_page => 1, :required => false, :can_change_visibility => false, :maxlength => 250) 
+      bp = BagProperty.create(
+        :name => 'yrs_teaching_experience', 
+        :label => 'Number of years teaching experience', 
+        :data_type => BagProperty::DATA_TYPE_ENUM,
+        :display_type => BagProperty::DISPLAY_TYPE_RADIO, 
+        :required => false, 
+        :default_visibility => BagProperty::VISIBILITY_USERS,
+        :sort => 96 
+      )
+      [
+        ['Less than one','months',10],
+        ['1-4','1-4',20],
+        ['5-10','5-10',30],
+        ['11-15','11-15',40],
+        ['16-20','16-20',50],
+        ['Greater than 20','more_than_20',60],
+        ['None','none',70]
+      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[1], :name => c[0], :sort => c[2]) }
+      bp = BagProperty.create(
+        :name => 'twb_canada', 
+        :label => 'I am also registered on the TWB Canada Network:', 
+        :data_type => BagProperty::DATA_TYPE_ENUM,
+        :display_type => BagProperty::DISPLAY_TYPE_RADIO, 
+        :required => false, 
+        :default_visibility => BagProperty::VISIBILITY_USERS,
+        :sort => 155 
+      )
+      [
+        ['Yes','yes',10],
+        ['No','no',20],
+        ['Would like more information','wants_more_info',30]
+      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[1], :name => c[0], :sort => c[2]) }
+      puts 'Done'
+    end
+  end
 end
 
