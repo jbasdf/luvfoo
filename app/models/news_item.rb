@@ -31,6 +31,23 @@
 #  icon          :string(255)   
 #  creator_id    :integer(4)    
 #
+
+# == Schema Information
+# Schema version: 20081219083410
+#
+# Table name: news_items
+#
+#  id            :integer(4)    not null, primary key
+#  title         :string(255)   
+#  body          :text          
+#  newsable_id   :integer(4)    
+#  newsable_type :string(255)   
+#  created_at    :datetime      
+#  updated_at    :datetime      
+#  url_key       :string(255)   
+#  icon          :string(255)   
+#  creator_id    :integer(4)    
+#
 class NewsItem < ActiveRecord::Base
 
   include SecureMethods

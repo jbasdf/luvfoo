@@ -21,13 +21,18 @@ module SalesforceMethods
     sf_user.mailing_country           = bag_value('country')
     sf_user.phone                     = bag_value('phone')
     sf_user.first_language__c         = bag_value('language')
-    sf_user.grade_level_experience__c = bag_value('grade_level_experiences', 'none')
+    sf_user.grade_level_experience__c = bag_value('teaching_experience', 'none')
     sf_user.why_joined__c             = bag_value('why_joined')
     sf_user.additional_skills__c      = bag_value('skills')
     sf_user.other_languages__c        = bag_value('other_languages', 'none')
     sf_user.occupation__c             = bag_value('occupation')
     sf_user.interest_areas__c         = bag_value('interests')
-
+    sf_user.license__c                   = bag_value('teaching_license')
+    sf_user.licensed_subject_areas__c    = bag_value('subject_areas')
+    sf_user.twb_canada__c                = bag_value('twb_canada')
+    sf_user.years_teaching_experience__c = bag_value('yrs_teaching_experience')
+    sf_user.employer__c                  = bag_value('organization')
+    
     # these are all preconfigured defaults
     sf_user.employer__c     = '0' # self.organization || 'not specified'
     sf_user.record_type_id  = '01270000000DgFe' # type 'Member'
