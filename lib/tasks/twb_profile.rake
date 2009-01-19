@@ -1058,19 +1058,19 @@ namespace :luvfoo do
       )
       teaching_experience_id = BagProperty.find_by_name("teaching_experience").id
       [
-        ["prek", "Pre Grade 1", 10],
-        ["grade school", "Grades 1 to 3", 20],
-        ["grade_4-6", "Grades 4 to 6", 30],
-        ["grade_7", "Grade 7", 40],
-        ["grade_8", "Grade 8", 50],
-        ["high school", "Grade 9", 60],
-        ["grade_10", "Grade 10", 70],
-        ["grade_11", "Grade 11", 80],
-        ["grade_12", "Grade 12", 90],
-        ["college", "College/University", 100],
-        ["adult", "Adult Education", 110],
-        ["none", "None", 120]
-      ].each {|te| BagPropertyEnum.create(:bag_property_id => teaching_experience_id, :value => te[0], :name => te[1], :sort => te[2]) }
+        ["Pre Grade 1", 10],
+        ["Grades 1 to 3", 20],
+        ["Grades 4 to 6", 30],
+        ["Grade 7", 40],
+        ["Grade 8", 50],
+        ["Grade 9", 60],
+        ["Grade 10", 70],
+        ["Grade 11", 80],
+        ["Grade 12", 90],
+        ["College/University", 100],
+        ["Adult Education", 110],
+        ["None", 120]
+      ].each {|te| BagPropertyEnum.create(:bag_property_id => teaching_experience_id, :value => te[0], :name => te[0], :sort => te[1]) }
       
       BagProperty.create(:name => 'skills', :label => 'Skills', :data_type => BagProperty::DATA_TYPE_TEXT, :display_type => BagProperty::DISPLAY_TYPE_TEXT_AREA, :sort => 140) 
       BagProperty.create(:name => 'occupation', :label => 'Occupation', :data_type => BagProperty::DATA_TYPE_TEXT, :display_type => BagProperty::DISPLAY_TYPE_TEXT_AREA, :sort => 150) 
@@ -1143,13 +1143,13 @@ namespace :luvfoo do
       )
       [
         ['Less than one','months',10],
-        ['1-4','1-4',20],
-        ['5-10','5-10',30],
-        ['11-15','11-15',40],
-        ['16-20','16-20',50],
-        ['Greater than 20','more_than_20',60],
+        ['1 to 4',20],
+        ['5 to 10',30],
+        ['11 to 15',40],
+        ['16 to 20',50],
+        ['Greater than 20',60],
         ['None','none',70]
-      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[1], :name => c[0], :sort => c[2]) }
+      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[0], :name => c[0], :sort => c[1]) }
       bp = BagProperty.create(
         :name => 'twb_canada', 
         :label => 'I am also registered on the TWB Canada Network:', 
@@ -1160,10 +1160,10 @@ namespace :luvfoo do
         :sort => 155 
       )
       [
-        ['Yes','yes',10],
-        ['No','no',20],
-        ['Would like more information','wants_more_info',30]
-      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[1], :name => c[0], :sort => c[2]) }
+        ['Yes',10],
+        ['No',20],
+        ['Would like more information',30]
+      ].each {|c| BagPropertyEnum.create(:bag_property_id => bp.id, :value => c[0], :name => c[0], :sort => c[1]) }
       puts 'Done'
     end
   end
