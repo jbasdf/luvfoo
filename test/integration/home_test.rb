@@ -6,12 +6,14 @@ class HomeTest < ActionController::IntegrationTest
   include IntegrationHelper
 
   def test_anonymous
+    ensure_home_page
     bob = new_session
     bob.goes_home
     bob.contacts
   end
 
   def test_logged_in
+    ensure_home_page
     quentin = new_session_as(:quentin)
     quentin.goes_home
     quentin.contacts
