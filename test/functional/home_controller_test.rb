@@ -2,33 +2,39 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class HomeControllerTest < ActionController::TestCase
 
-  should 'render contact form' do
-    assert_nothing_raised do
-      get :contact      
-      assert_response :success
-      assert_template 'contact'
+  context "home controller" do
+    
+    setup do
+      ensure_home_page
     end
-  end
-
-
-  should 'render home page' do
-    assert_nothing_raised do
-      get :home
-      assert_response :success
-      assert_template 'home'
-    end
-  end
-
-  context 'on POST to :contact' do
+    
     should 'render contact form' do
       assert_nothing_raised do
-        post :contact, {:name => 'Bob Smith', :phone => '123.123.1234', :email => 'bs@example.com', :message => 'wow'}
+        get :contact      
+        assert_response :success
+        assert_template 'contact'
+      end
+    end
 
-        assert_response :redirect
-        assert_redirected_to contact_url
-        assert_equal "Thank you for your message.  A member of our team will respond to you shortly.", flash[:notice]
+    should 'render home page' do
+      assert_nothing_raised do
+        get :home
+        assert_response :success
+        assert_template 'home'
+      end
+    end
+
+    context 'on POST to :contact' do
+      should 'render contact form' do
+        assert_nothing_raised do
+          post :contact, {:name => 'Bob Smith', :phone => '123.123.1234', :email => 'bs@example.com', :message => 'wow'}
+
+          assert_response :redirect
+          assert_redirected_to contact_url
+          assert_equal "Thank you for your message.  A member of our team will respond to you shortly.", flash[:notice]
+        end
       end
     end
   end
-
+  
 end

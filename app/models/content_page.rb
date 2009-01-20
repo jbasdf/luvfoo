@@ -28,6 +28,7 @@ class ContentPage < ActiveRecord::Base
   
   validates_presence_of :title 
   validates_presence_of :body_raw
+  validates_presence_of :creator
 
   belongs_to :contentable, :polymorphic => true
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'

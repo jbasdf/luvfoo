@@ -122,6 +122,14 @@ class Test::Unit::TestCase
   def ensure_flash(val)
     assert_contains flash.values, val, ", Flash: #{flash.inspect}"
   end
+  
+  def ensure_home_page
+    # make sure there is a default 'home' page in the system
+    @site = Site.first
+    @user = Factory(:user)
+    @content_page = @site.pages.create(:url_key => 'home', :title => 'the home page', 
+                                       :body_raw => 'the page body', :creator => @user)
+  end
 
   # Teardown and setup - for quick recycling of env. within a single test
   def recycle; teardown; setup; end
