@@ -17,26 +17,6 @@
 #  parent_id        :integer(4)    default(0), not null
 #  version          :integer(4)    
 #
-
-# == Schema Information
-# Schema version: 20081219083410
-#
-# Table name: content_pages
-#
-#  id               :integer(4)    not null, primary key
-#  creator_id       :integer(4)    
-#  title            :string(255)   
-#  url_key          :string(255)   
-#  body             :text          
-#  locale           :string(255)   
-#  created_at       :datetime      
-#  updated_at       :datetime      
-#  body_raw         :text          
-#  contentable_id   :integer(4)    
-#  contentable_type :string(255)   
-#  parent_id        :integer(4)    default(0), not null
-#  version          :integer(4)    
-#
 class ContentPage < ActiveRecord::Base
     
   include SecureMethods
@@ -96,12 +76,13 @@ class ContentPage < ActiveRecord::Base
   protected
   
   def whitelist_attributes
-    # let admins throw in whatever they want TODO decide if this is a good or bad idea
+    # let users throw in whatever they want TODO decide if this is a good or bad idea
+    self.body = self.body_raw
     if self.creator.is_admin?
-      self.body = self.body_raw
+      #self.body = self.body_raw
     else
       self.title = white_list(self.title)
-      self.body = white_list(self.body_raw)
+      #self.body = white_list(self.body_raw)
     end
   end
 
