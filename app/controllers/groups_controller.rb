@@ -56,8 +56,16 @@ class GroupsController < ApplicationController
         format.xml  { render :xml => @group }
       end
     else
-      flash[:notice] = _('Requested group does not exist.')
-      redirect_to groups_path
+      message = _('Requested group does not exist.')
+      respond_to do |format|        
+        format.html do
+          flash[:notice] = message
+          redirect_to groups_path
+        end
+        format.xml do
+          render :xml => '<message>' + message + '</message>'
+        end
+      end
     end         
   end
 
