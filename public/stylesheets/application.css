@@ -307,7 +307,7 @@ table.news tbody tr:hover{background:#F3F3F3;}
 img.alignleft{float:left;margin:5px 10px 0 0;}
 img.alignright{float:right;margin:5px 0 0 10px;}
 img.centered,img.aligncenter{display:block;margin-left:auto;margin-right:auto;}
-.checkbox_list{height: 100px; overflow: auto; border: 1px solid #999999; background:white; margin:0px;}
+.checkbox_list{height: 150px; overflow: auto; border: 1px solid #999999; background:white; margin:0px;padding-left:2px;}
 .row .comment-box{font-family:arial;width:625px;height:55px;}
 #invite table{width:100%;}
 #invite table th{font-weight:bolder;}
