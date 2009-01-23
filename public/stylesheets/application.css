@@ -266,7 +266,7 @@ form em{color:#b61e12;font-style:normal;}
 .group-info{text-align:center;float:right;width:152px;}
 .group-info a{font-weight:bold;}
 .group-description{height:60px;text-align:center;overflow:hidden;}
-.group-small{width:50px;height:66px;float:left;margin:2px;text-align:center;border: solid 1px #DDD;padding:4px;}
+.group-small{width:50px;height:66px;float:left;margin:2px;text-align:center;border: solid 1px #DDD;padding:4px;overflow:hidden;}
 .group-member{width:50px;height:110px;float:left;margin:2px;overflow:hidden;}
 .group-member .caption,.group-member .name{text-align:center;}
 .flasherror{padding:3px;margin-bottom:10px;clear:both;color:red;}
