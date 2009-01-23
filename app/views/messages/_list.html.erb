@@ -18,6 +18,7 @@ sent = params[:action]=='sent'
 	   		<th width="100"><%= sent ? _('To') : _('From') %></th>
 	    	<th><%= _('Subject') %></th>
 	    	<th width="200"><%= _('When') %></th>
+	    	<th>&nbsp;</th>
 		</tr>
 		<% list.each do |message|
 			mail_user = (current_user == message.sender ? message.receiver : message.sender)%>
@@ -31,6 +32,7 @@ sent = params[:action]=='sent'
     			<td><strong><%= link_to h( message.subject), user_message_path(current_user, message) %></strong></td>
     			<td><strong><%= _("%{time_since_created} ago") % {:time_since_created => time_ago_in_words(message.created_at)} %></strong></td>
             <% end %>
+	    	<td><%= link_to image_tag('delete.png'), message_path(message), :method => :delete, :title => _("Delete this message.") -%></th>
 		</tr>
 		<% end %>
 	</table>
