@@ -1,0 +1,26 @@
+<div id="event">
+	<%= f.text_field :title %>
+	<%= f.text_field :start_at, {:label => 'Start Date', :class => 'date_pick'} %>
+	<%= f.text_field :end_at, {:label => 'End Date', :class => 'date_pick'} %>
+	<%= f.text_field :location %>
+	<%= f.text_field :summary %>
+	<%= f.text_area :description %>
+  <%= f.text_field :uri, {:label => 'Url for event'} %>
+  <%= f.text_field :tag_list, { :label => 'Tags'} -%>
+	<div class="clear"></div>
+  <div class="instruction"><%= _('Add tags to help others discover your event.  Separate tags with a comma.') %></div>
+  
+	<div class="row button">
+   	<%= f.submit _('Save'), :class=>'button' -%>
+  </div>
+</div>
+
+<script>
+  jQuery(document).ready(function(){
+    jQuery('.date_pick').datepicker().regional['<%=get_locale%>']
+  });
+</script>
+
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'ui.all.css' -%>
+<% end -%>

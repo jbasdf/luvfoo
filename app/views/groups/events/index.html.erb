@@ -1,0 +1,16 @@
+<div class="left" id="column_l">	
+	<h1><%= @group.name %> - Events</h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+	<div id="events" class="activity_box">
+		<h2><%= _('Events') %> <% if manager? -%><span><a href="<%= new_group_event_path(@group) %>" class="view-all"><%= _('Add Event') %></a></span><% end -%></h2>
+    <table class="events-list">
+      <%= render :partial => 'event', :collection => @events %>
+    </table>
+    <div class="clear"></div>
+  	<%= will_paginate @events %>
+  </div>
+	<div class="clear"></div>
+</div>
+<div class="right" id="column_r">
+	<%= render :partial => 'groups/group_info' %>
+</div>

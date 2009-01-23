@@ -1,0 +1,43 @@
+<div class="left" id="column_l">	
+	<h1><%= _('%{group_name} - Event') % {:group_name => @group.name} %></h1>
+	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
+
+  <div id="hcalendar-event-title" class="vevent">
+    <a href="<%= group_event_path(@group, @event) %>">
+      <span class="summary"><%= @event.title %></span>
+    </a>
+    <abbr title="<%=@event.start_at%>" class="dtstart"><%= @event.start_at.to_s(:long) %></abbr>
+    <% if @event.end_at -%>
+    to <abbr title="<%=@event.end_at%>" class="dtend"><%= @event.end_at.to_s(:long) %></abbr> 
+    <% end -%>
+    <% if @event.uri.length > 0 -%>
+      <a href="<%= @event.uri %>" class="url">Event Website</a>
+    <% end -%>
+    <% if @event.summary.length > 0 -%>
+      <span class="summary"><%= @event.summary %></span>
+    <% end -%> 
+    <% if @event.location.length > 0 -%>  
+      at <span class="location"><%= @event.location %></span>
+    <% end -%>
+    <div class="description">
+      <%= @event.description %>
+    </div>
+    <% if @event.tags.length > 0 -%>
+      <div class="tags">
+        Tags: 
+        <% @event.tags.each do |tag| -%>
+          <a href="/groups/events/tags/<%=tag.name%>" rel="tag"><%=tag.name%></a> 
+        <% end -%>
+      </div>
+    <% end -%>
+  </div>
+    
+	<% if manager? -%>
+		<%= link_to _('Edit'), edit_group_event_path(@group, @event) -%>
+		| <%= link_to _('Delete'), group_event_path(@group, @event), :method => :delete -%>
+	<%- end -%>
+</div>
+
+<div class="right" id="column_r">
+	<%= render :partial => 'groups/group_info' %>
+</div>
