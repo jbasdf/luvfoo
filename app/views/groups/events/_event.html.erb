@@ -3,9 +3,9 @@
     <div class="date-month"><%= event.start_at.strftime("%b") %></div>
     <div class="date-day"><%= event.start_at.day %></div>
   </td>
-  <td class="title">
+  <td>
     <a href="<%= group_event_path(@group, event) %>" title="<%= event.title %>">
-      <span class="summary"><%= event.title %></span>
+      <span class="title"><%= event.title %></span>
     </a>
     <div class="summary"><%= event.summary %></div>
     <% if event.uri.length > 0 -%>
@@ -13,5 +13,13 @@
     <% end -%>
     <div class="location"><%= event.location %></div>
   </td>
-  <td class="attendees">0 attendees</td>
+  <td class="attendees">
+    <div><span id="attendees_for_<%=event.dom_id%>"><%= event.attendees_count || 0 %></span> attendees</div>
+    <div id="attend_<%=event.dom_id%>">
+      <% remote_form_for :event_user do |f| %>
+       	<%= hidden_field_tag :event_id, event.id %>
+       	<%= f.submit _("I'm Attending"), :class=>'button' -%>
+      <% end %>
+    </div>
+  </td>
 </tr>

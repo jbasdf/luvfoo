@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090122205751) do
+ActiveRecord::Schema.define(:version => 20090123074335) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -127,6 +127,16 @@ ActiveRecord::Schema.define(:version => 20090122205751) do
     t.boolean  "displayable",                  :default => false
   end
 
+  create_table "event_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_users", ["user_id"], :name => "index_event_users_on_user_id"
+  add_index "event_users", ["event_id"], :name => "index_event_users_on_event_id"
+
   create_table "events", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -140,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20090122205751) do
     t.string   "eventable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "attendees_count"
   end
 
   create_table "feed_items", :force => true do |t|

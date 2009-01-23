@@ -29,6 +29,10 @@ class UserTest < Test::Unit::TestCase
     should_have_many :permissions
     should_have_many :roles, :through => :permissions
 
+    should_have_many :events
+    should_have_many :event_users
+    should_have_many :attending_events
+    
     should_protect_attributes :crypted_password, :salt, :remember_token, :remember_token_expires_at, :activation_code, :activated_at,
                               :password_reset_code, :enabled, :can_send_messages, :is_active, :created_at, :updated_at, :plone_password,
                               :posts_count

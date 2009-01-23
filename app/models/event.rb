@@ -25,7 +25,10 @@ class Event < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :eventable, :polymorphic => true
-
+  
+  has_many :event_users
+  has_many :attendees, :source => :user, :through => :event_users, :dependent => :destroy
+   
   # named_scopes
   named_scope :recent, :order => 'created_at DESC'
 

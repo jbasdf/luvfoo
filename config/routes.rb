@@ -67,7 +67,8 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
-
+  map.resources :event_users
+  
   # groups
   map.resources :groups, :collection => { :search => :get },  :member => { :delete_icon => :post, :update_memberships_in => :post } do |group|
     group.resources :memberships, :controller => 'groups/memberships'

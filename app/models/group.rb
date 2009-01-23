@@ -128,8 +128,9 @@ class Group < ActiveRecord::Base
   end
 
   def is_content_visible? user
+    return true if self.visibility > Group::PRIVATE 
     return false if user == :false || user.nil?
-    user.is_admin? || self.visibility > Group::PRIVATE || (user != nil && self.is_member?(user))
+    user.is_admin? || self.is_member?(user)
   end
 
   #Named scopes

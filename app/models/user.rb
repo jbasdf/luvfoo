@@ -113,6 +113,11 @@ class User < ActiveRecord::Base
     FeedItem.find(:all, :joins => 'INNER JOIN feeds ON feeds.feed_item_id = feed_items.id', :conditions => ["feeds.ownable_type='User' AND feeds.ownable_id=? AND feed_items.creator_id=?",self.id,self.id], :order => 'created_at desc', :limit => limit)
   end
 
+  # Events
+  has_many :events
+  has_many :event_users
+  has_many :attending_events, :source => :event, :through => :event_users, :dependent => :destroy
+  
   # Messages
   has_many :sent_messages,     :class_name => 'Message', :order => 'created_at desc', :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'Message', :order => 'created_at desc', :foreign_key => 'receiver_id'
