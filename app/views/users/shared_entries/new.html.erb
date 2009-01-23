@@ -51,8 +51,8 @@ friend_emails['<%= friend.id %>'] = '<%= friend.email %>';
 <% form_for([current_user, @entry], :url => user_shared_entries_path(@user)) do |f| %>
 	<h1>
 	  <%= _('Share a Web Page') %>
-		<%= button_to_function("Share It!", "validate()", {:style=>"font-weight:bold;vertical-align:middle;"}) %>
-		<%= button_to_function("Go Back", "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;vertical-align:middle;"}) %>
+	  <%= button_to_function(_('Share It!'), "validate()", {:style=>"font-weight:bold;"}) %>
+	  <%= button_to_function(_('Go Back'), "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
 	</h1>
 
     <% if !@entry.permalink %>
@@ -115,8 +115,8 @@ friend_emails['<%= friend.id %>'] = '<%= friend.email %>';
 	<input type="hidden" name="bookmarklet" value="<%= @entry.permalink? %>"/>
 
 	<div class="row">
-	  <%= button_to_function("Share It!", "validate()", {:style=>"font-weight:bold;"}) %>
-	  <%= button_to_function("Go Back", "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
+	  <%= button_to_function(_('Share It!'), "validate()", {:style=>"font-weight:bold;"}) %>
+	  <%= button_to_function(_('Go Back'), "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
 	</div>
 <% end %>
 
