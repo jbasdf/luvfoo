@@ -13,9 +13,11 @@
 </form>
 <div class="activity_box">
 <h2>
+ <% if @query.nil? %> 
  <%= _("Browse By") -%>
  <%= _("Name") -%>
   <%= render :partial => 'shared/alpha_index' %>
+ <% end %>
  <span class="link-button"><%= link_to _('Create a New Group'), new_user_group_path(current_user) if logged_in? %></span></h2>
 
 	<% if @groups.empty? %>
