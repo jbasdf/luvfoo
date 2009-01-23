@@ -1,5 +1,5 @@
-/*
- * jQuery UI Effects 1.5.2
+﻿/*
+ * jQuery UI Effects 1.5.3
  *
  * Copyright (c) 2008 Aaron Eisenberger (aaronchi@gmail.com)
  * Dual licensed under the MIT (MIT-LICENSE.txt)

@@ -73,6 +73,7 @@ ActionController::Routing::Routes.draw do |map|
     group.resources :memberships, :controller => 'groups/memberships'
     group.resources :admin, :controller => 'groups/admin'
     group.resources :photos, :controller => 'groups/photos'
+    group.resources :events, :controller => 'groups/events'
     group.resources :news, :controller => 'groups/news' do |news|
       news.resources :comments
     end

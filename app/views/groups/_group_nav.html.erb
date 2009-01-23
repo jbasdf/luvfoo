@@ -1,6 +1,7 @@
 <div id="group_nav">
 	<a href="<%= group_path(@group) %>"><%= _('Main') %></a>
 	<a href="<%= group_news_index_path(@group) %>"><%= _('News') %></a>
+	<a href="<%= group_events_path(@group) %>"><%= _('Events') %></a>
 	<a href="<%= group_comments_path(@group) %>"><%= _('Comments') %></a>
 	<a href="<%= group_activities_path(@group) %>"><%= _('Activity') %></a>
 	<%= link_to _('Members'), group_memberships_path(@group) %>
@@ -16,8 +17,4 @@
 	<a>Events</a>
 	<a>Documents</a>
 	-->
-	<% if manager? -%>
-		<%= link_to _('Edit Group'), edit_group_path(@group) %>
-		<!-- TODO add ability to manager members <%= link_to 'Manage Members', edit_group_path(@group) %> -->
-	<% end -%>
 </div>

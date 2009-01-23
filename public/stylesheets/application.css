@@ -424,3 +424,11 @@ table.news td.center{vertical-align:middle;}
 #twb-wrapper #latest .blog-simple{margin-bottom:15px;}
 #footer{color:#000;}
 #footer a{color:#000;}
+/*events*/
+table.events-list {width:100%;}
+table.events-list td {border-bottom:1px solid #E5E5E5;padding:10px 7px;}
+table.events-list td.date {padding-left:0;width:42px;}
+table.events-list td .date-month {background-color:#FF6600;color:#FFFFFF;font-size:0.9em;text-align:center;}
+table.events-list td .date-day {border:1px solid #C9C9C9;color:#000000;font-size:1.75em;font-weight:bold;text-align:center;padding:6px 2px;}
+table.events-list td .location {font-size:1.15em;font-weight:bold;}
+table.events-list td.attendees {background:transparent url(/images/blurp_profile_small.png) no-repeat scroll 0 -5px;width:60px;}

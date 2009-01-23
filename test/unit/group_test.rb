@@ -11,6 +11,7 @@ class GroupTest < ActiveSupport::TestCase
 
     should_belong_to :creator
     should_have_many :comments
+    should_have_many :events
     should_have_many :pages
     should_have_many :membership_requests        
     # TODO the next version of shoulda should handle the :source param.  Uncomment these lines when it does

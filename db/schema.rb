@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081219083410) do
+ActiveRecord::Schema.define(:version => 20090122205751) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -125,6 +125,21 @@ ActiveRecord::Schema.define(:version => 20081219083410) do
     t.integer  "user_id"
     t.boolean  "google_doc",                   :default => false
     t.boolean  "displayable",                  :default => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.string   "summary"
+    t.string   "location"
+    t.text     "description"
+    t.text     "uri"
+    t.integer  "eventable_id"
+    t.string   "eventable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "feed_items", :force => true do |t|

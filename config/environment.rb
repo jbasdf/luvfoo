@@ -62,6 +62,7 @@ Rails::Initializer.run do |config|
   config.gem 'youtube-g', :lib => 'youtube_g', :version => '0.4.1'
   config.gem 'mini_magick', :version => '1.2.3'
   config.gem 'mime-types', :lib =>'mime/types', :version => '1.15'
+  config.gem 'icalendar'
   
   # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.

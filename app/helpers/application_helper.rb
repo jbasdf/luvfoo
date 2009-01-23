@@ -7,6 +7,10 @@ module ApplicationHelper
     @site ||= Site.first
   end
 
+  def get_locale
+    locale.to_s
+  end
+  
   def icon object, size = :small, img_opts = {}
     return "" if object.nil?
 

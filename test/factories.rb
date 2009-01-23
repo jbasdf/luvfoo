@@ -103,6 +103,17 @@ Factory.define :message do |f|
   f.read false
 end
 
+Factory.define :event do |f|
+  f.title { Factory.next(:name) }  
+  f.summary
+  f.location
+  f.description{ Factory.next(:description) }
+  f.eventable
+  f.start_at { DateTime.now + 2.days }
+  f.end_at { DateTime.now + 3.days }
+  f.user {|a| a.association(:user)}
+end
+
 Factory.define :status_update do |f|
   f.user {|a| a.association(:user)}
   f.text { Factory.next(:description) }

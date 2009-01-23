@@ -20,7 +20,14 @@
 <% end -%>
 
 <div id="information" class="activity_box">
-	<h2><%= _('Description') %></h2>
+	<h2><%= _('Description') %>
+	<% if manager? -%>
+	  <span class="link-button">
+		  <%= link_to _('Edit Group Settings'), edit_group_path(@group) %>
+		</span>
+		<!-- TODO add ability to manager members <%= link_to 'Manage Members', edit_group_path(@group) %> -->
+	<% end -%>
+	</h2>
 	<%= sanitize textilize(@group.description) -%>
 </div>
 
