@@ -1,6 +1,9 @@
-<div class="left image">
+<div class="left image-wrapper">
+<div class="image-border">
 	<div>
-	<a href="<%= image_path(photo, nil) %>" title="<%= photo.caption %>" alt="<%= photo.caption %>" class="thickbox" rel="user_gallery"><%= image photo, :small %></a>
+	<a href="<%= image_path(photo, nil) %>" class="thickbox" rel="user_gallery"><%= image photo, :small %></a>
 	</div>
-	<%= link_to _('(delete)'), user_photo_path(photo.photoable, photo), :method => :delete if is_me?(photo.photoable) %>
+</div>
+<%= photo.caption + '<br/>' if photo.caption.length > 0 %>
+<%= link_to _('(delete)'), user_photo_path(photo.photoable, photo), :method => :delete if is_me?(photo.photoable) || @admin == true %>
 </div>
