@@ -15,7 +15,7 @@
 		<%= f.password_field :password, { :label => _('Password') } -%>
 		<%= f.password_field :password_confirmation, { :label => _('Confirm Password') } -%>		
         <% @user.properties_for_page(1).each do |property| %>
-            <% hide = (@other_selected == false || property.name =~ /_other$/) %>
+            <% hide = (@other_selected == true && property.name =~ /_other$/) %>
             <%= render :partial => "bag_properties/" + property.display_type, :locals => {:property => property, :error => @user.errors[property.label], :hide => hide} %>
             <% @other_selected = false if hide == true %>
         <% end %>
