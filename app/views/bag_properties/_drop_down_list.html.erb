@@ -5,7 +5,7 @@ selected_value = property.bag_property_enum_id
 @other_selected = (selected_value == other_value)
 %>
 <div class="form-row">
-    <label for="property_<%= property.bag_property_id %>"><%= property.label %> <%= property.required? ? ('<em>' + _('(required)') + '</em>') : '' %></label>
+    <label for="property_<%= property.bag_property_id %>"><%= _(property.label) %> <%= property.required? ? ('<em>' + _('(required)') + '</em>') : '' %></label>
     <span <%= error.nil? ? '' : " class='fieldWithErrors'"%>>
     <%= select_tag 'property[' + property.bag_property_id + ']', 
 		'<option value="-1">' + _('&lt;select a value&gt;') + '</option>' + options_from_collection_for_select(enums, 'value', 'name', selected_value), 
