@@ -1,36 +1,38 @@
+<div id="new-news-item">
+	<%= f.text_field :title %>
+  <%= f.text_area :body, {:class => 'mceEditor'} %>
+  <%= f.text_field :tag_list, { :label => 'Tags'} -%>
+	<div class="clear"></div>
+  <div class="instruction"><%= _('Add tags to help others discover your content.') %></div>
+	<div class="instruction">
+		<%= _('To include a youtube video use: [youtube: address_of_video]') %>
+	  <%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
+	</div>
 
-	<div id="new-news-item">
-		<%= f.text_field :title %>
-	  <%= f.text_area :body, {:class => 'mceEditor'} %>
-	  <%= f.text_field :tag_list, { :label => 'Tags'} -%>
+  <div id="upload_icon">
+		<h2><%= _('Upload Photo:') %></h2>
+		<label><%= _('Upload a photo for your story') %></label>
+		<%= file_column_field( "news_item", "icon", :size => 15) %>
 		<div class="clear"></div>
-	  <div class="instruction"><%= _('Add tags to help others discover your content.') %></div>
-		<div class="instruction">
-			<%= _('To include a youtube video use: [youtube: address_of_video]') %>
-		  <%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
+		<% unless @news_item.icon.blank? %>
+		<div id="avatar_edit">
+		  <span id="user_icon_picture">
+		    <%= icon @news_item %>
+		    <%= link_to_remote _('delete icon'), :url => delete_icon_user_path(@news_item), :confirm => _("Are you sure you want to delete this photo?\nThis can not be undone.") %>
+		  </span>
 		</div>
+		<% end %>
+		<input type="hidden" name="switch" value="image" />
+  </div>
+  
+	<div class="row button">
+   	<%= f.submit _('Save'), :class=>'button' -%>
+  </div>
+</div>	
 
-    <div id="upload_icon">
-  		<h2><%= _('Upload Photo:') %></h2>
-  		<label><%= _('Upload a photo for your story') %></label>
-  		<%= file_column_field( "news_item", "icon", :size => 15) %>
-  		<div class="clear"></div>
-  		<% unless @news_item.icon.blank? %>
-  		<div id="avatar_edit">
-  		  <span id="user_icon_picture">
-  		    <%= icon @news_item %>
-  		    <%= link_to_remote _('delete icon'), :url => delete_icon_user_path(@news_item), :confirm => _("Are you sure you want to delete this photo?\nThis can not be undone.") %>
-  		  </span>
-  		</div>
-  		<% end %>
-  		<input type="hidden" name="switch" value="image" />
-    </div>
-    
-		<div class="row button">
-	   	<%= f.submit _('Save'), :class=>'button' -%>
-	  </div>
-	</div>	
+<%= mce_fields(admin_pages_path + '/images.js', admin_pages_path + '/files.js', formatted_admin_pages_path(:js), @news_item @site.class.to_s, @site.id) -%>  
 
-
+  def mce_fields(load_images_path, load_files_path, pages_path, parent_type, parent_id)
+  
 <%= include_tiny_mce_js_if_needed -%>
 <%= tiny_mce_init_if_needed -%>

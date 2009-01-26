@@ -2,6 +2,5 @@
 <p><%= link_to 'View All Pages', admin_pages_path -%> | <%= link_to 'Preview This Page', page_path(@content_page), {:id => 'preview-page', :target => "_blank"} -%></p>
 <%= render :partial => 'form', :locals => { :edit => true,
 																						:url => admin_page_path(@content_page.id),
-																						:js_url => formatted_admin_page_path(@content_page.id, :js),
 																						:html => { :method => :put },
 																						:options => { :hide_required => true } } %>
