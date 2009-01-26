@@ -11,9 +11,9 @@
 	<%= f.text_field :first_name, { :label => _('First Name') } %>   
 	<%= f.text_field :last_name, { :label => _('Last Name') } %>
     <% @user.properties.each do |property| %>
-        <% hide = (@other_selected == true && property.name =~ /_other$/) %>
+        <% hide = (@other_selected == false || property.name =~ /_other$/) %>
         <%= render :partial => "bag_properties/" + property.display_type, :locals => {:property => property, :error => @user.errors[property.label], :hide => hide} %>
-        <% @other_selected = false if hide %>
+        <% @other_selected = false if hide == true %>
     <% end %>
     <div class="row button"><%= f.submit _('Save'), :class => 'button' %></div>
     <% end %>
