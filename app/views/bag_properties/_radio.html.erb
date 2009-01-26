@@ -3,7 +3,7 @@
     <br style="clear:both;"/>
     <span <%= error.nil? ? '' : " class='fieldWithErrors'"%>><ul id="property_<%= property.name %>">
     <% property.enums(current_user.id.to_s, property.bag_property_id).each do |enum| %>
-        <li><%= radio_button_tag "property[#{property.bag_property_id}][]", enum.value, enum.checked == '1' -%> <%= enum.name -%></li>
+        <li><%= radio_button_tag "property[#{property.bag_property_id}][]", enum.value, enum.checked == '1' -%> <%= _(enum.name) -%></li>
     <% end %>
     </ul>
     </span>
