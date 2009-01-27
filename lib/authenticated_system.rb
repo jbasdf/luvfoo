@@ -86,6 +86,10 @@ module AuthenticatedSystem
     logged_in? && current_user.admin?
   end    
 
+  def has_role?(role)
+    logged_in? && current_user.has_role?(role)
+  end
+  
   # check to see if the current user is the owner of the specified object
   def is_owner?(obj)
     obj.user_id == current_user.id
@@ -220,7 +224,7 @@ module AuthenticatedSystem
   # Inclusion hook to make #current_user and #logged_in?
   # available as ActionView helper methods.
   def self.included(base)
-    base.send :helper_method, :current_user, :logged_in?, :is_admin?, :admin?, :is_me?
+    base.send :helper_method, :current_user, :logged_in?, :is_admin?, :admin?, :is_me?, :has_role?
   end
 
   # Called from #current_user.  First attempt to login by the user id stored in the session.

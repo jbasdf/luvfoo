@@ -1,6 +1,6 @@
 <div id="latest-news" class="activity_box">
 	<h2><%= _('Latest News') %></h2>
-	<% if current_user.has_role?('contributor') -%>
+	<% if has_role?('contributor') -%>
   	<p><%= link_to _('Add News Item'), new_user_blog_path(current_user) %></p>
   <% end %>
 	<%= render :partial => 'news/news_item', :collection => NewsItem.latest_news_from('contributor', 10) -%>

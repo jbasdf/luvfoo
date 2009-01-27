@@ -15,7 +15,12 @@ class Groups::EventsControllerTest < ActionController::TestCase
       should_respond_with :success 
       should_render_template :index
     end
-
+    
+    context "GET index (ics)" do
+      setup { get :index, :group_id => groups(:africa).to_param, :format => 'ics' }
+      should_respond_with :success 
+    end
+    
     context "GET show" do
       setup do
         @event = Factory(:event)

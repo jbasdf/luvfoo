@@ -40,7 +40,7 @@ class Groups::EventsController < ApplicationController
         end
         @calendar.publish
         headers['Content-Type'] = "text/calendar; charset=UTF-8"
-        render_without_layout :text => @calendar.to_ical
+        render :layout => false, :text => @calendar.to_ical
       end      
     end
   end
