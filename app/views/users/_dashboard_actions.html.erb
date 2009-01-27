@@ -24,6 +24,10 @@
 			<li><img src="/images/blurp_pencil_small.png"/> <%= _('Member Stories') %> : <%= link_to _('Write'), new_admin_member_story_path %> | <%= link_to _('Manage'), admin_member_stories_path %></li>
 		 	<li><%= link_to _('Site Administration'), admin_home_path %></li>
 		<% end -%>
-		
+		<li><a target="_blank" href="http://www.google.com/calendar/render?cid=<%=user_events_url(@user, :format => 'ics')%>">
+  	  <img height="20px" alt="Add events you are attending to your Google calendar" src="http://www.google.com/calendar/images/ext/gc_button1.gif" border="0"></a>
+  	  Add your events to Google calendar</li>
+  	<li><%= link_to image_tag('ical.gif'), formatted_user_events_url(@user, :ics) %>
+  	  Your events in ical format</li>	
 	</ul>
 </div>
