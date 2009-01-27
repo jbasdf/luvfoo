@@ -1,5 +1,5 @@
 <% content_for :head do  -%>
-  <%= auto_discovery_link_tag :rss, formatted_user_blogs_url(@user, :rss), :title => (_("%{user_name}'s Blogs") % {:user_name => @user.f}) %>
+  <%#= auto_discovery_link_tag :rss, formatted_user_blogs_url(@user, :rss), :title => (_("%{user_name}'s Blogs") % {:user_name => @user.f}) %>
 <% end -%>
 <div class="left activity_box" id="column_l">
 	<% if is_me?(@user) -%>

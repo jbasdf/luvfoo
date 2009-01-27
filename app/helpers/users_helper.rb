@@ -54,7 +54,7 @@ module UsersHelper
   end
 
   def pledge_admin_links pledge
-    dom_id = "group_#{pledge.url_key}_pledge_#{pledge.membership_request_id}"
+    dom_id = "group_pledge_#{pledge.membership_request_id}"
     links = accept_pledge_link(pledge, dom_id) + ' ' + decline_pledge_link(pledge, dom_id)
     wrap_pledge_link(links, dom_id)
   end

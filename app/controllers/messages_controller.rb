@@ -30,15 +30,16 @@ class MessagesController < ApplicationController
         end
       else
         
-        # special kind of message (decline a membership request)
-        if params[:membership_request_id]
-          decline_membership(page, params[:membership_request_id], current_user)
-        else
-          msg = _("Message sent.")
-        end
-        
         format.js do
           render :update do |page|
+            
+            # special kind of message (decline a membership request)
+            if params[:membership_request_id]
+              MessagesController.decline_membership(page, params[:membership_request_id], current_user)
+            else
+              msg = _("Message sent.")
+            end
+        
             page.alert msg if msg
             page << "jQuery('#message_subject, #message_body').val('');"
             page << "tb_remove();"
@@ -69,21 +70,21 @@ class MessagesController < ApplicationController
     end
   end
   
-  private
-  
-  def decline_membership page, membership_request_id, decliner
+  def self.decline_membership page, membership_request_id, decliner
     mr = MembershipRequest.find(membership_request_id)
     if mr == nil
       page.alert _('(unable to decline)')
     else
       if mr.decline(decliner)
         page.alert _("Their membership request was declined and your message was sent.")
-        page << "jQuery('#group_social-network-development_pledge_#{membership_request_id}').html('(declined!)');"
+        page << "jQuery('#group_pledge_#{membership_request_id}').html('(declined!)');"
       else
         page.alert _('(unable to decline)')
       end
     end
   end
+  
+  private
   
   def can_send
     render :update do |page|
