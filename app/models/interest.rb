@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20081219083410
+# Schema version: 20090123074335
 #
 # Table name: interests
 #

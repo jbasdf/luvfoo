@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 20090123074335
+#
+# Table name: groups
+#
+#  id                        :integer(4)    not null, primary key
+#  creator_id                :integer(4)    
+#  name                      :string(255)   
+#  description               :text          
+#  icon                      :string(255)   
+#  state                     :string(255)   
+#  url_key                   :string(255)   
+#  created_at                :datetime      
+#  updated_at                :datetime      
+#  default_role              :string(255)   default("member")
+#  visibility                :integer(4)    default(2)
+#  requires_approval_to_join :boolean(1)    
+#
+
 class Group < ActiveRecord::Base
 
   include SecureMethods

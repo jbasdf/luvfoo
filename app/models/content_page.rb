@@ -1,4 +1,24 @@
 # == Schema Information
+# Schema version: 20090123074335
+#
+# Table name: content_pages
+#
+#  id               :integer(4)    not null, primary key
+#  creator_id       :integer(4)    
+#  title            :string(255)   
+#  url_key          :string(255)   
+#  body             :text          
+#  locale           :string(255)   
+#  created_at       :datetime      
+#  updated_at       :datetime      
+#  body_raw         :text          
+#  contentable_id   :integer(4)    
+#  contentable_type :string(255)   
+#  parent_id        :integer(4)    default(0), not null
+#  version          :integer(4)    
+#
+
+# == Schema Information
 # Schema version: 20081219083410
 #
 # Table name: content_pages
