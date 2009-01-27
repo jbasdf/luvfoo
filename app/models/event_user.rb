@@ -11,6 +11,12 @@
 #
 
 class EventUser < ActiveRecord::Base
+  
   belongs_to :user
   belongs_to :event, :counter_cache => 'attendees_count'
+  
+  validates_uniqueness_of :user, :scope => "event_id"
+  
+  named_scope :current_events_for, lambda { |*args| { :include => [:event],
+                                                      :conditions => ["events.start_at > Now() AND event_users.user_id = ?", (args.first.id)]} }
 end

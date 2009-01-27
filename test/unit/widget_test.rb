@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class WidgetTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+
+  context "A widget instance" do
+    should_have_many :news_items        
+    should_have_many :feeds
+    should_have_many :feed_items
+    should_have_many :uploads
   end
+
 end

@@ -16,7 +16,7 @@ class LatestNewsSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache_for(news_item)
-    if news_item.newsable_type == 'User' && news_item.newsable.is_admin?
+    if news_item.newsable_type == 'User' && news_item.newsable.has_role?('contributor')
       expire_fragment(:controller => '/home', :action => 'home')
     end
   end

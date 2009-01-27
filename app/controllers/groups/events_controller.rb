@@ -12,12 +12,16 @@ class Groups::EventsController < ApplicationController
 
   cache_sweeper :group_events_sweeper, :only => [:update, :create, :destroy]
 
-  caches_page :index 
+  #caches_page :index 
                 
   def index
-    @events = @group.events.paginate(:page => @page, :per_page => @per_page, :include => [:tags])
+    @events = @group.events.paginate(:page => @page, :per_page => @per_page)
+    
     respond_to do |format|
-      format.html { render }
+      format.html do
+        @user_events = EventUser.current_events_for(current_user)
+        render
+      end
       format.ics do
         # require 'icalendar'
         @calendar = Icalendar::Calendar.new
@@ -78,7 +82,7 @@ class Groups::EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         flash[:notice] = 'Event was successfully created.'
-        format.html { redirect_to(group_event_path(@group, @event)) }
+        format.html { redirect_to(group_events_path(@group)) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
         format.html { render :action => "new" }
@@ -98,7 +102,7 @@ class Groups::EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
         flash[:notice] = 'Event was successfully updated.'
-        format.html { redirect_to(group_event_path(@group, @event)) }
+        format.html { redirect_to(group_events_path(@group)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

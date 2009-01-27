@@ -2,6 +2,5 @@
 <p><%= link_to 'Cancel', admin_pages_path -%></p>
 <%= render :partial => 'form', :locals => { :edit => false,
 																						:url => admin_pages_path,
-																						:js_url => formatted_admin_pages_path(:js),
 																						:html => { :method => :post },
 																						:options => {} } %>

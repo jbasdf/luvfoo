@@ -29,13 +29,6 @@ class Admin::PagesControllerTest < ActionController::TestCase
       should_respond_with :success
     end
     
-    context "GET images" do
-      setup do
-        get :images
-      end
-      should_respond_with :success
-    end
-    
     context "GET new" do
       setup do
         get :new

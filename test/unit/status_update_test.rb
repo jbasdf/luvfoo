@@ -3,6 +3,10 @@ require File.dirname(__FILE__) + '/../test_helper'
 class StatusUpdateTest < ActiveSupport::TestCase
 
   context 'A StatusUpdate instance' do
+    
+    should_have_many :comments
+    should_have_many :feed_items
+    
     should_belong_to :user
     should_have_named_scope :recent
     

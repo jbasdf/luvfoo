@@ -43,6 +43,11 @@ class ApplicationController < ActionController::Base
     @per_page = (params[:per_page] || (RAILS_ENV=='test' ? 1 : 40)).to_i
   end
   
+  def autocomplete_urls_json(items, root_part)
+    return '' if items.nil?
+    items.collect{|item| { :title => item.title, :url_key => root_part + (item.url_key || '') } }.to_json
+  end
+  
   helper_method :flickr, :flickr_images
   # API objects that get built once per request
   def flickr(user_name = nil, tags = nil )

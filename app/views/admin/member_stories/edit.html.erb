@@ -2,7 +2,7 @@
 <div class="activity_box">
 	<h2><%= _('Edit Member Story') %></h2>
 	<% custom_form_for @news_item, :url => admin_member_story_path(@news_item), :html => { :method => :put, :multipart => true, :class => "box no_top" } do |f| -%>
-		<%= render :partial => 'news/form', :locals => {:f => f } %>
+		<%= render :partial => 'news/form', :locals => {:f => f, :show_photo_upload => true } %>
 	<% end %>
 </div>
 

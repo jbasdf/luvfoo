@@ -3,7 +3,8 @@ jQuery(document).ready(function() {
 	var path = jQuery.getQueryString({id:"path"});
 	jQuery.getJSON(path, function(data){
 		if (data.length > 0){
-			jQuery("#href").autocomplete(data, {
+			var url_array = eval('(' + data + ')');
+			jQuery("#href").autocomplete(url_array, {
 				minChars: 0,
 				matchContains: true,
 				autoFill: true,

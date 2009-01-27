@@ -13,5 +13,22 @@ class EventTest < ActiveSupport::TestCase
     
   end
   
+  context 'creating a new event attendee' do
+    
+    setup do
+      @event = Factory(:event)
+      @user = Factory(:user)
+    end
+    
+    should 'increment the attendee counter' do
+      @event_user = EventUser.new
+      @event_user.event = @event
+      @event_user.user = @user
+      @event_user.save!
+      @event.reload
+      assert @event.attendees_count == 1
+    end
+    
+  end
   
 end

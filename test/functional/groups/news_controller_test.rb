@@ -18,6 +18,11 @@ class Groups::NewsControllerTest < ActionController::TestCase
       should_render_template :index
     end
 
+    context "GET index js" do
+      setup { get :index, :group_id => groups(:africa).to_param, :format => 'js' }
+      should_respond_with :success
+    end
+        
     context "GET show" do
       setup { get :show, :group_id => groups(:africa).to_param, :id => news_items(:africa_news) }
       should_respond_with :success

@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20090123074335) do
     t.string   "eventable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "attendees_count"
+    t.integer  "attendees_count", :default => 0, :null => false
   end
 
   create_table "feed_items", :force => true do |t|

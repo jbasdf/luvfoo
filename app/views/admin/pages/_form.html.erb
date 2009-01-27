@@ -19,7 +19,7 @@
 				</span>
 			</div>
 		<% end -%>
-		<%= f.text_area :body_raw, {:label => 'Content', :class => 'mceEditor', :id => 'page-body'}.merge(options) %>
+		<%= f.text_area :body_raw, {:label => 'Content', :class => 'mceEditor', :id => 'mce-content'}.merge(options) %>
 		<table>
 			<tr>
 				<td>
@@ -47,79 +47,9 @@
 	<% end %>
 </div>
 
-<%= mce_fields(admin_pages_path + '/images.js', admin_pages_path + '/files.js', formatted_admin_pages_path(:js), @site.class.to_s, @site.id) -%>
+<%= mce_fields(admin_uploads_path + '/images.js', admin_uploads_path + '/files.js', admin_uploads_path(:format => 'js'), @site.class.to_s, @site.id) -%>
 <%= include_tiny_mce_js_if_needed -%>
 <%= tiny_mce_init_if_needed -%>
-
-<script type="text/javascript">
-jQuery(document).ready(function() {
-		
-	jQuery('#permalink-edit').click(function() {
-		jQuery('#finish-permalink-buttons').show();
-		jQuery('#edit-permalink').show();
-		jQuery('#view-permalink').hide();
-		jQuery('#edit-permalink-buttons').hide();
-		return false;
-	});
-	
-	jQuery('#permalink-save').click(function() {
-		hide_edit();
-		save_permalink();
-		return false;
-	});
-	
-	jQuery('#permalink-cancel').click(function() {
-		hide_edit();
-		jQuery("#url-key").val(jQuery('#view-permalink').html());
-		return false;
-	});
-});
-
-function hide_edit(){
-	jQuery('#finish-permalink-buttons').hide();
-	jQuery('#view-permalink').show();
-	jQuery('#edit-permalink-buttons').show();
-	jQuery('#edit-permalink').hide();
-}
-
-function save_permalink() {
-	jQuery.post('<%= js_url %>', {url_key: jQuery('#url-key').val(), action: 'update', _method: 'put', only_permalink: 'true' },
-	  function(data){
-			var result = eval('(' + data + ')');
-			show_message(result['message']);
-			if('true' == result['success']){
-				update_permalink(result['url_key']);
-			}			
-	  });
-	return false;
-}
-
-function save_page() {
-	tinyMCE.triggerSave(true,true);
-	jQuery.post("<%= js_url %>", jQuery("#editor-form").serialize(),
-	  function(data){
-			var result = eval('(' + data + ')');
-			show_message(result['message']);
-			if('true' == result['success']){
-				update_permalink(result['url_key']);
-				undirty();
-			}			
-	  });
-	return false;
-}
-
-function show_message(message){
-	jQuery.jGrowl.info(message);
-}
-
-function update_permalink(url){
-	jQuery("#preview-page").attr('href', '/pages/' + url )
-	jQuery("#view-permalink").html(url);
-	jQuery("#url-key").val(url);
-}
-
-function undirty(){
-	var ed = tinyMCE.get('page-body');
-	ed.isNotDirty = 1;
-}
-</script>
+<% content_for :head do  -%>
+	<%= javascript_include_tag 'tiny_mce_helper' %>
+<% end -%>

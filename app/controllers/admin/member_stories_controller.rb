@@ -5,12 +5,20 @@ class Admin::MemberStoriesController < Admin::BaseController
   before_filter :get_news_item, :only => [:show, :update, :edit, :destroy]
   
   cache_sweeper :member_stories_sweeper, :only => [:create, :update, :destroy]
-
+                
+  uses_tiny_mce(:options => GlobalConfig.advanced_mce_options,
+                :raw_options => GlobalConfig.raw_mce_options, 
+                :only => [:new, :create, :edit, :update])
+                
   def index
     @news_items = @widget.news_items.paginate(:page => @page, :per_page => @per_page)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @news_items }
+      format.json do
+        root_part = admin_member_stories_path + '/' 
+        render :json => autocomplete_urls_json(@news_items, root_part)
+      end
     end
   end
 
@@ -19,7 +27,7 @@ class Admin::MemberStoriesController < Admin::BaseController
   end
 
   def new
-    @news_item = NewsItem.new
+    @news_item = @widget.news_items.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @news_item }

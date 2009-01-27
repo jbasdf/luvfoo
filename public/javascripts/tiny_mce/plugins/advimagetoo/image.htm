@@ -27,6 +27,7 @@
 			<div id="degraded_container" style="display:none;">
       <form id="image_upload_form" enctype="multipart/form-data" method="post" onsubmit="ts_onload(); return true;" target="html_editor_image_upload_frame">
 		      <input class="input-file" id="image_uploaded_data" name="upload[uploaded_data]" size="30" type="file"/>
+		      <input id="image_uploaded_is_public" name="is_public" type="hidden" value="true"/>
 		      <input class="submit" name="commit" type="submit" value="Upload File"/> 
 				  <div id="upload-status"></div>
 		    </form>

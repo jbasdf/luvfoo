@@ -35,7 +35,6 @@ class Users::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :index, { :user_id => users(:quentin).to_param }
       end
-
       should_respond_with :success
       should_render_template 'index'
     end
@@ -44,9 +43,22 @@ class Users::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :photos, { :user_id => users(:quentin).to_param }
       end
-
       should_respond_with :success
       should_render_template 'photos'
+    end
+
+    context "GET files (js)" do
+      setup do
+        get :files, { :user_id => users(:quentin).to_param, :format => 'js' }
+      end
+      should_respond_with :success
+    end
+
+    context "GET images (js)" do
+      setup do
+        get :images, { :user_id => users(:quentin).to_param, :format => 'js' }
+      end
+      should_respond_with :success
     end
 
   end

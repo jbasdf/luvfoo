@@ -10,13 +10,13 @@
     <% if @event.end_at -%>
     to <abbr title="<%=@event.end_at%>" class="dtend"><%= @event.end_at.to_s(:long) %></abbr> 
     <% end -%>
-    <% if @event.uri.length > 0 -%>
+    <% if @event.uri && @event.uri.length > 0 -%>
       <a href="<%= @event.uri %>" class="url">Event Website</a>
     <% end -%>
-    <% if @event.summary.length > 0 -%>
+    <% if @event.summary && @event.summary.length > 0 -%>
       <span class="summary"><%= @event.summary %></span>
     <% end -%> 
-    <% if @event.location.length > 0 -%>  
+    <% if @event.location && @event.location.length > 0 -%>  
       at <span class="location"><%= @event.location %></span>
     <% end -%>
     <div class="description">

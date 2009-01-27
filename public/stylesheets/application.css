@@ -37,6 +37,8 @@ input[type="checkbox"]{border:none;margin:0;background:none;background-color:tra
 .small_down_image{width:96px;height:96px;}
 .image:hover{background:#313131;}
 .image a{font-size:9px;}
+.image-wrapper{margin:0 12px 20px 0;text-align:center;}
+.image-border{border:solid 5px #222;}
 .pad2{margin:30px;}
 #login_form,#forgot_form,.standard_form{padding:5px 0 25px 0;}
 #login_form{width:500px;margin:50px auto;}
@@ -266,7 +268,7 @@ form em{color:#b61e12;font-style:normal;}
 .group-info{text-align:center;float:right;width:152px;}
 .group-info a{font-weight:bold;}
 .group-description{height:60px;text-align:center;overflow:hidden;}
-.group-small{width:50px;height:66px;float:left;margin:2px;text-align:center;border: solid 1px #DDD;padding:4px;}
+.group-small{width:50px;height:66px;float:left;margin:2px;text-align:center;border: solid 1px #DDD;padding:4px;overflow:hidden;}
 .group-member{width:50px;height:110px;float:left;margin:2px;overflow:hidden;}
 .group-member .caption,.group-member .name{text-align:center;}
 .flasherror{padding:3px;margin-bottom:10px;clear:both;color:red;}
@@ -307,7 +309,7 @@ table.news tbody tr:hover{background:#F3F3F3;}
 img.alignleft{float:left;margin:5px 10px 0 0;}
 img.alignright{float:right;margin:5px 0 0 10px;}
 img.centered,img.aligncenter{display:block;margin-left:auto;margin-right:auto;}
-.checkbox_list{height: 100px; overflow: auto; border: 1px solid #999999; background:white; margin:0px;}
+.checkbox_list{height: 150px; overflow: auto; border: 1px solid #999999; background:white; margin:0px;padding-left:2px;}
 .row .comment-box{font-family:arial;width:625px;height:55px;}
 #invite table{width:100%;}
 #invite table th{font-weight:bolder;}
@@ -432,5 +434,5 @@ table.events-list td .title {font-size:1.3em;font-weight:bold;}
 table.events-list td .date-month {background-color:#FF6600;color:#FFFFFF;font-size:1em;text-align:center;font-weight:bold;}
 table.events-list td .date-day {border:1px solid #C9C9C9;color:#000000;font-size:1.75em;font-weight:bold;text-align:center;padding:6px 2px;}
 table.events-list td .location {font-weight:bold;}
-table.events-list td.attendees {background:transparent url(/images/blurp_profile_small.png) no-repeat scroll 0 4px;width:80px;}
+table.events-list td.attendees {background:transparent url(/images/blurp_profile_small.png) no-repeat scroll 0px 6px;width:80px;}
 table.events-list td.attendees span{padding-left:23px;}

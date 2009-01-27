@@ -2,10 +2,9 @@ require File.dirname(__FILE__) + '/../../test_helper'
 
 class Groups::EventsControllerTest < ActionController::TestCase
 
+  should_require_login :new, :edit, :create, :update, :delete
+  
   def setup
-    @controller = Groups::EventsController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
     @group = groups(:africa)
   end
 
@@ -18,7 +17,11 @@ class Groups::EventsControllerTest < ActionController::TestCase
     end
 
     context "GET show" do
-      setup { get :show, :group_id => groups(:africa).to_param, :id => events(:africa_news) }
+      setup do
+        @event = Factory(:event)
+        get :show, :group_id => groups(:africa).to_param, :id => @event.to_param
+      end 
+      
       should_respond_with :success
       should_render_template :show  
     end
@@ -32,7 +35,7 @@ class Groups::EventsControllerTest < ActionController::TestCase
 
       setup do
         @group_to_test = self.instance_variable_get("@#{group.to_s}")
-        @event_to_test = self.instance_variable_get("@#{event.to_s}")
+        @event_to_test = Factory(:event)
       end
 
       should "not allow access to new" do
@@ -48,13 +51,13 @@ class Groups::EventsControllerTest < ActionController::TestCase
       end
 
       should "not allow create" do
-        post :create, :group_id => @group_to_test.to_param, :event => {:title => 'the title', :body => 'the body'}
+        post :create, :group_id => @group_to_test.to_param, :event => {:title => 'the title'}
         assert_redirected_to group_events_path(@group_to_test)
         ensure_flash(PERMISSION_DENIED_MSG)
       end
 
       should "not allow update" do
-        post :update, :group_id => @group_to_test.to_param, :event_id => @event_to_test.to_param, :event => {:title => 'the title', :body => 'the body'}
+        post :update, :group_id => @group_to_test.to_param, :event_id => @event_to_test.to_param, :event => {:title => 'the title'}
         assert_redirected_to group_events_path(@group_to_test)
         ensure_flash(PERMISSION_DENIED_MSG)
       end
@@ -94,20 +97,26 @@ class Groups::EventsControllerTest < ActionController::TestCase
       context "POST create" do
         setup do
           assert_difference "Event.count" do
-            post :create, :group_id => @group.to_param, :event => {:title => 'the title', :body => 'the body'} 
+            post :create, :group_id => @group.to_param, :event => {:title => 'the title', :summary => 'summary',
+                                                                   :location => 'Seattle', :description => 'described',
+                                                                   :start_at => DateTime.now + 2.days,
+                                                                   :end_at => DateTime.now + 3.days } 
           end
         end
 
-        should_redirect_to "group_news_path(@group, @event)"
+        should_redirect_to "group_events_path(@group)"
       end
 
       context "PUT update" do
         setup do
           assert_no_difference "Event.count" do
-            post :update, :group_id => @group.to_param, :id => @event.to_param, :event => {:title => 'the title', :body => 'the body'} 
+            post :update, :group_id => @group.to_param, :id => @event.to_param, :event => {:title => 'the title', :summary => 'summary',
+                                                                                           :location => 'Seattle', :description => 'described',
+                                                                                           :start_at => DateTime.now + 2.days,
+                                                                                           :end_at => DateTime.now + 3.days} 
           end
         end
-        should_redirect_to "group_news_path(@group, @event)"
+        should_redirect_to "group_events_path(@group)"
       end
 
       context "DELETE " do
@@ -121,28 +130,6 @@ class Groups::EventsControllerTest < ActionController::TestCase
 
     end
 
-  end
-
-  context "not logged in" do
-    context "GET new" do
-      setup { get :new, :group_id => groups(:africa).to_param }
-      should_redirect_to "login_path" 
-    end
-
-    context "GET edit" do
-      setup { get :edit, :group_id => groups(:africa).to_param, :id => events(:africa_news) }
-      should_redirect_to "login_path" 
-    end
-
-    context "POST create" do
-      setup { post :create, :group_id => groups(:africa).to_param, :event => {:title => 'the title', :body => 'the body'} }
-      should_redirect_to "login_path"
-    end
-
-    context "PUT update" do
-      setup { post :update, :group_id => groups(:africa).to_param, :event_id => events(:africa_news).to_param, :event => {:title => 'the title', :body => 'the body'} }
-      should_redirect_to "login_path"
-    end
   end
 
   context "logged in not a member" do
@@ -160,7 +147,7 @@ class Groups::EventsControllerTest < ActionController::TestCase
     should_allow_anyone
     should_deny_unauthorized_users
   end
-
+  
   context "logged in manager" do
     setup do
       login_as users(:africa_manager).login
@@ -168,7 +155,7 @@ class Groups::EventsControllerTest < ActionController::TestCase
     should_allow_anyone
     should_allow_authorized_users
   end
-
+  
   context "logged in group creator" do
     setup do
       login_as users(:quentin).login
@@ -176,7 +163,7 @@ class Groups::EventsControllerTest < ActionController::TestCase
     should_allow_anyone
     should_allow_authorized_users
   end
-
+  
   context "logged in admin" do
     setup do
       login_as users(:admin).login

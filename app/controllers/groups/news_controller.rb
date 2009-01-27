@@ -18,7 +18,11 @@ class Groups::NewsController < ApplicationController
     @news = @group.news_items.paginate(:page => @page, :per_page => @per_page)
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @news_items }
+      format.xml { render :xml => @news }
+      format.js do
+        root_part = group_news_index_path(@group) + '/'  
+        render :json => autocomplete_urls_json(@news, root_part).to_json 
+      end
     end
   end
 
@@ -30,7 +34,8 @@ class Groups::NewsController < ApplicationController
   end
 
   def new
-    @news_item = NewsItem.new
+    @news_item = @group.news_items.build
+    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @news_item }

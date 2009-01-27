@@ -1,15 +1,15 @@
+<div id="new-news-item">
+	<%= f.text_field :title %>
+  <%= f.text_area :body, {:class => 'mceEditor'} %>
+  <%= f.text_field :tag_list, { :label => 'Tags'} -%>
+	<div class="clear"></div>
+  <div class="instruction"><%= _('Add tags to help others discover your content.') %></div>
+	<div class="instruction">
+		<%= _('To include a youtube video use: [youtube: address_of_video]') %>
+	  <%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
+	</div>
 
-	<div id="new-news-item">
-		<%= f.text_field :title %>
-	  <%= f.text_area :body, {:class => 'mceEditor'} %>
-	  <%= f.text_field :tag_list, { :label => 'Tags'} -%>
-		<div class="clear"></div>
-	  <div class="instruction"><%= _('Add tags to help others discover your content.') %></div>
-		<div class="instruction">
-			<%= _('To include a youtube video use: [youtube: address_of_video]') %>
-		  <%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
-		</div>
-
+  <% if defined?(show_photo_upload) && show_photo_upload -%>
     <div id="upload_icon">
   		<h2><%= _('Upload Photo:') %></h2>
   		<label><%= _('Upload a photo for your story') %></label>
@@ -25,12 +25,42 @@
   		<% end %>
   		<input type="hidden" name="switch" value="image" />
     </div>
-    
-		<div class="row button">
-	   	<%= f.submit _('Save'), :class=>'button' -%>
-	  </div>
-	</div>	
+  <% end -%>
+  
+	<div class="row button">
+   	<%= f.submit _('Save'), :class=>'button' -%>
+  </div>
+</div>	
 
-
+<%
+case @news_item.newsable
+when Group
+  group = @news_item.newsable
+  load_images_path = group_uploads_url(group) + '/images.js'
+  load_files_path = group_uploads_url(group) + '/files.js'
+  pages_path = group_news_index_url(group, :format => 'js')
+when User
+  user = @news_item.newsable
+  load_images_path = user_uploads_url(user) + '/images.js'
+  load_files_path = user_uploads_url(user) + '/files.js'
+  pages_path = user_blogs_url(user, :format => 'js')
+when Widget 
+  load_images_path = admin_uploads_path + '/images.js'
+  load_files_path = admin_uploads_path + '/files.js'
+  pages_path = admin_member_stories_path(:format => 'json')
+when Site
+  load_images_path = admin_uploads_path + '/images.js'
+  load_files_path = admin_uploads_path + '/files.js'
+  pages_path = admin_uploads_path(:format => 'js')
+else
+  load_images_path = ''
+  load_files_path = ''
+  pages_path = ''
+end
+-%>
+<%= mce_fields(load_images_path, load_files_path, pages_path, @news_item.newsable.class.to_s, @news_item.newsable.id) -%>
 <%= include_tiny_mce_js_if_needed -%>
 <%= tiny_mce_init_if_needed -%>
+<% content_for :head do  -%>
+	<%= javascript_include_tag 'tiny_mce_helper' %>
+<% end -%>

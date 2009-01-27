@@ -17,7 +17,6 @@
 #  requires_approval_to_join :boolean(1)    
 #
 
-
 class Group < ActiveRecord::Base
 
   include SecureMethods
@@ -35,15 +34,15 @@ class Group < ActiveRecord::Base
   # give the group a permalink
   has_permalink :name, :url_key
 
+  # events
+  has_many :events, :as => :eventable, :order => 'created_at desc'
+  
   # Feeds
   has_many :feeds, :as => :ownable
   has_many :feed_items, :through => :feeds, :order => 'created_at desc'
 
   # news
   has_many :news_items, :as => :newsable, :order => 'created_at desc'
-
-  # events
-  has_many :events, :as => :eventable, :order => 'created_at desc'
 
   # forum
   has_many :forums, :as => :forumable, :order => 'created_at asc'

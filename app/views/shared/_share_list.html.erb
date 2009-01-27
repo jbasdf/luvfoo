@@ -3,8 +3,7 @@
 		<tr>
 			<td width="50%">
 			<%= _('Groups') %>
-			<div class="checkbox_list">
-				<ul type="none" style="margin:0px;padding-left:2px;">
+				<ul class="checkbox_list" type="none">
 				<% @groups.each do |group| %>
 				<li>
 					<input type="checkbox" name="group_ids[<%= group.id.to_s %>]" value="1" <%= is_group_share_checked?(group, @group_id) %> />
@@ -18,9 +17,8 @@
 	<td>&nbsp</td>
 	<td width="50%">
 	<%= _('People') %>
-	<div class="checkbox_list">
 
-		<ul type="none" style="margin:0px;padding-left:2px;">
+	<ul class="checkbox_list" type="none">
 		<% @friends.each do |person| %>
 		<li>
 			<input type="checkbox" class="friend" name="friend_ids[<%= person.id.to_s %>]" value="1" <%= 'disabled="true" checked="checked"' if (person["shared"] && person.shared == "t") %> />
@@ -29,8 +27,6 @@
 		</li>
 		<% end %>
 	</ul>
-
-</div>
 </td>
 
 </tr>

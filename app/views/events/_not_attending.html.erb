@@ -1,0 +1,6 @@
+<div id="not_attend_<%=event.dom_id%>">
+  <p><%= _('You are attending') %></p>
+  <% remote_form_for user_event, :url => event_user_path(user_event), :format => 'js', :html => {:method => :delete} do |f| %>
+   	<%= f.submit _("I'm Not Attending"), :class=>'button' -%>
+  <% end %>
+</div>

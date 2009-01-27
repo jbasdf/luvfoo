@@ -30,6 +30,13 @@ class Admin::MemberStoriesControllerTest < ActionController::TestCase
       should_respond_with :success
     end
     
+    context "get index (js)" do
+      setup do
+        get :index, :format => 'json'
+      end
+      should_respond_with :success
+    end
+    
     should_be_restful do |resource|
       resource.klass      = NewsItem
       resource.object     = :news_item

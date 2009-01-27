@@ -10,17 +10,7 @@ class Users::BlogsControllerTest < Test::Unit::TestCase
     @news_item  = news_items(:blog_post)
   end
 
-  context "not logged in" do
-    should_be_restful do |resource|
-      resource.parent     = @user
-      resource.klass      = NewsItem
-      resource.object     = :news_item
-      resource.formats    = [:html]
-      resource.denied.actions  = [:index, :show, :new, :create, :edit, :update, :destroy]
-      resource.denied.flash = /You must be logged in to access this feature/i
-      resource.denied.redirect = "login_path"
-    end
-  end
+  should_require_login :index, :show, :new, :create, :edit, :update, :destroy
 
   context "logged in as different user" do
     setup do
@@ -40,6 +30,11 @@ class Users::BlogsControllerTest < Test::Unit::TestCase
 
     end
 
+    context "GET index js" do
+      setup { get :index, :user_id => @user.to_param, :format => 'js' }
+      should_respond_with :success
+    end
+    
     context 'on POST to :create' do
       setup do
         @quentin_post_count = @user.blogs.count
