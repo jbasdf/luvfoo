@@ -15,6 +15,10 @@ class Admin::MemberStoriesController < Admin::BaseController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @news_items }
+      format.json do
+        root_part = admin_member_stories_path + '/' 
+        render :json => autocomplete_urls_json(@news_items, root_part)
+      end
     end
   end
 
@@ -23,7 +27,7 @@ class Admin::MemberStoriesController < Admin::BaseController
   end
 
   def new
-    @news_item = NewsItem.new
+    @news_item = @widget.news_items.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @news_item }

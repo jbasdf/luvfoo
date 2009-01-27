@@ -20,10 +20,12 @@ class Admin::PagesController < Admin::BaseController
   def index
     @pages = @site.pages.by_alpha
     respond_to do |format|
-      root_part = pages_path + '/'
       format.html # index.html.erb
       format.xml  { render :xml => @pages }
-      format.js { render :json => @pages.collect{|page| { :title => page.title, :url_key => root_part + (page.url_key || '') } }.to_json }
+      format.js do
+        root_part = pages_path + '/'
+        render :json => autocomplete_urls_json(@pages, root_part).to_json
+      end
     end
   end
   
@@ -125,23 +127,5 @@ class Admin::PagesController < Admin::BaseController
       format.xml  { head :ok }
     end
   end
-  
-  # for tinymce image manger
-  def images
-    @images = @site.uploads.images.paginate(:page => @page, :per_page => @per_page, :order => 'created_at desc')
-    #render :partial => 'uploads/editor_icon', :collection => @images
-    respond_to do |format|
-      format.html { render :partial => 'uploads/editor_icon', :collection => @images }
-      format.js { render :json => basic_uploads_json(@images) }
-    end
-  end
-  
-  def files
-    @files = @site.uploads.files.paginate(:page => @page, :per_page => @per_page, :order => 'created_at desc')
-    respond_to do |format|
-      format.html { render :partial => 'uploads/editor_icon', :collection => @files }
-      format.js { render :json => basic_uploads_json(@files) }
-    end
-  end
-  
+
 end

@@ -8,8 +8,7 @@ window.onload = function () {
 	var session_key = jQuery.getQueryString({id:"sessionkey"});
  	var settings = {		
 			flash_url : '/swf/swfupload.swf',
-			upload_url: '/uploads/swfupload.js?id=' + parent_id + '&type=' + parent_type + '&' + session_key + '=' + session_id,
-		
+			upload_url: '/uploads/swfupload.json?id=' + parent_id + '&type=' + parent_type + '&' + session_key + '=' + session_id  + '&is_public=true',		
 			file_size_limit : "100 MB",
 			file_types : "*.*",
 			file_types_description : "All Files",

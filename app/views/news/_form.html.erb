@@ -9,30 +9,58 @@
 	  <%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
 	</div>
 
-  <div id="upload_icon">
-		<h2><%= _('Upload Photo:') %></h2>
-		<label><%= _('Upload a photo for your story') %></label>
-		<%= file_column_field( "news_item", "icon", :size => 15) %>
-		<div class="clear"></div>
-		<% unless @news_item.icon.blank? %>
-		<div id="avatar_edit">
-		  <span id="user_icon_picture">
-		    <%= icon @news_item %>
-		    <%= link_to_remote _('delete icon'), :url => delete_icon_user_path(@news_item), :confirm => _("Are you sure you want to delete this photo?\nThis can not be undone.") %>
-		  </span>
-		</div>
-		<% end %>
-		<input type="hidden" name="switch" value="image" />
-  </div>
+  <% if defined?(show_photo_upload) && show_photo_upload -%>
+    <div id="upload_icon">
+  		<h2><%= _('Upload Photo:') %></h2>
+  		<label><%= _('Upload a photo for your story') %></label>
+  		<%= file_column_field( "news_item", "icon", :size => 15) %>
+  		<div class="clear"></div>
+  		<% unless @news_item.icon.blank? %>
+  		<div id="avatar_edit">
+  		  <span id="user_icon_picture">
+  		    <%= icon @news_item %>
+  		    <%= link_to_remote _('delete icon'), :url => delete_icon_user_path(@news_item), :confirm => _("Are you sure you want to delete this photo?\nThis can not be undone.") %>
+  		  </span>
+  		</div>
+  		<% end %>
+  		<input type="hidden" name="switch" value="image" />
+    </div>
+  <% end -%>
   
 	<div class="row button">
    	<%= f.submit _('Save'), :class=>'button' -%>
   </div>
 </div>	
 
-<%= mce_fields(admin_pages_path + '/images.js', admin_pages_path + '/files.js', formatted_admin_pages_path(:js), @news_item @site.class.to_s, @site.id) -%>  
-
-  def mce_fields(load_images_path, load_files_path, pages_path, parent_type, parent_id)
-  
+<%
+case @news_item.newsable
+when Group
+  group = @news_item.newsable
+  load_images_path = group_uploads_url(group) + '/images.js'
+  load_files_path = group_uploads_url(group) + '/files.js'
+  pages_path = group_news_index_url(group, :format => 'js')
+when User
+  user = @news_item.newsable
+  load_images_path = user_uploads_url(user) + '/images.js'
+  load_files_path = user_uploads_url(user) + '/files.js'
+  pages_path = user_blogs_url(user, :format => 'js')
+when Widget 
+  load_images_path = admin_uploads_path + '/images.js'
+  load_files_path = admin_uploads_path + '/files.js'
+  pages_path = admin_member_stories_path(:format => 'json')
+when Site
+  load_images_path = admin_uploads_path + '/images.js'
+  load_files_path = admin_uploads_path + '/files.js'
+  pages_path = admin_uploads_path(:format => 'js')
+else
+  load_images_path = ''
+  load_files_path = ''
+  pages_path = ''
+end
+-%>
+<%= mce_fields(load_images_path, load_files_path, pages_path, @news_item.newsable.class.to_s, @news_item.newsable.id) -%>
 <%= include_tiny_mce_js_if_needed -%>
 <%= tiny_mce_init_if_needed -%>
+<% content_for :head do  -%>
+	<%= javascript_include_tag 'tiny_mce_helper' %>
+<% end -%>

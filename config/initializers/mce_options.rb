@@ -67,12 +67,14 @@ GlobalConfig.simple_mce_options = {
 GlobalConfig.news_mce_options = GlobalConfig.simple_mce_options.merge({
   :height => 500,
   :width => 830,
+  :plugins => %w{ paste media preview inlinepopups safari save searchreplace table style template fullscreen print autosave advimagetoo advlinktoo advfiletoo},
   :theme_advanced_buttons1 => %w{
     formatselect fontselect fontsizeselect forecolor backcolor separator
     bold italic underline separator 
     justifyleft justifycenter justifyright indent outdent separator
     bullist numlist separator 
     link unlink separator
+    image file separator
     code},
 })
   

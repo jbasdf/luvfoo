@@ -23,7 +23,7 @@
 								'&sessionkey=' + jQuery('#session-key').val() + 
 								'&sessionid=' + jQuery('#session-id').val(),
 					width : 675 + parseInt(ed.getLang('advimagetoo.delta_width', 0)),
-					height : 540 + parseInt(ed.getLang('advimagetoo.delta_height', 0)),
+					height : 560 + parseInt(ed.getLang('advimagetoo.delta_height', 0)),
 					inline : 1
 				}, {
 					plugin_url : url

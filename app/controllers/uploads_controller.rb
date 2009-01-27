@@ -62,19 +62,25 @@ class UploadsController < ApplicationController
   def swfupload
     # swfupload action set in routes.rb
     @upload = @parent.uploads.build(:uploaded_data => params[:Filedata])
+    @upload.is_public = true if params[:is_public] == true
     @upload.user = current_user
     @upload.save!
 
-    # return a table row
-    case @parent
-    when User
-      render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent, :share => true}
-    when Site  
-      render :text => basic_uploads_json(@upload)
-    when Group  
-      render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent}
-    else
-      raise 'not implemented'
+    respond_to do |format|
+      format.json do
+        render :text => basic_uploads_json(@upload)
+      end
+      format.js do
+        # return a table row
+        case @parent
+        when User
+          render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent, :share => true}
+        when Group  
+          render :partial => 'uploads/upload_row', :object => @upload, :locals => {:style => 'style="display:none;"', :parent => @parent}
+        else
+          raise 'not implemented'
+        end
+      end
     end
   rescue => ex
     render :text => _("An error occured while uploading the file.")
@@ -121,6 +127,7 @@ class UploadsController < ApplicationController
   protected
 
   def get_parent
+    
     if !params[:type] || !params[:id]
       raise 'Please specify a parent object via type and id'
       return
@@ -133,6 +140,12 @@ class UploadsController < ApplicationController
       end
     when 'Site'
       @parent = Site.find(params[:id])
+      # if the user isn't an admin they can't upload pictures to the site
+      unless is_admin?
+        permission_denied
+      end
+    when 'Widget'
+      @parent = Widget.find(params[:id])
       # if the user isn't an admin they can't upload pictures to the site
       unless is_admin?
         permission_denied

@@ -23,11 +23,15 @@ class Users::BlogsController < ApplicationController
     respond_to do |format|
       format.html {render}
       format.rss {render :layout=>false}
+      format.js do
+        root_part = user_blogs_path(@user) + '/' 
+        render :json => autocomplete_urls_json(@blogs, root_part) 
+      end
     end
   end
 
   def new
-    @news_item = NewsItem.new
+    @news_item = @user.blogs.build
     render
   end
 

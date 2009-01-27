@@ -17,7 +17,6 @@ class Groups::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :index, { :group_id => groups(:africa).to_param }
       end
-
       should_respond_with :success
       should_render_template 'index'
     end
@@ -26,7 +25,6 @@ class Groups::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :photos, { :group_id => groups(:africa).to_param }
       end
-
       should_respond_with :success
       should_render_template 'photos'
     end
@@ -43,7 +41,6 @@ class Groups::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :index, { :group_id => groups(:africa).to_param }
       end
-
       should_respond_with :success
       should_render_template 'index'
     end
@@ -52,11 +49,24 @@ class Groups::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :photos, { :group_id => groups(:africa).to_param }
       end
-
       should_respond_with :success
       should_render_template 'photos'
     end
+    
+    context "GET files (js)" do
+      setup do
+        get :files, { :group_id => groups(:africa).to_param, :format => 'js' }
+      end
+      should_respond_with :success
+    end
 
+    context "GET images (js)" do
+      setup do
+        get :images, { :group_id => groups(:africa).to_param, :format => 'js' }
+      end
+      should_respond_with :success
+    end
+    
   end
 
   context 'logged in as group creator' do
@@ -70,11 +80,10 @@ class Groups::UploadsControllerTest < Test::Unit::TestCase
       setup do
         get :index, { :group_id => groups(:africa).to_param }
       end
-
       should_respond_with :success
       should_render_template 'index'
     end
-
+    
   end
 
 end

@@ -47,7 +47,7 @@
 	<% end %>
 </div>
 
-<%= mce_fields(admin_pages_path + '/images.js', admin_pages_path + '/files.js', formatted_admin_pages_path(:js), @site.class.to_s, @site.id) -%>
+<%= mce_fields(admin_uploads_path + '/images.js', admin_uploads_path + '/files.js', admin_uploads_path(:format => 'js'), @site.class.to_s, @site.id) -%>
 <%= include_tiny_mce_js_if_needed -%>
 <%= tiny_mce_init_if_needed -%>
 <% content_for :head do  -%>

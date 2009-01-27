@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
     users.resources :groups, :controller => 'users/groups'
     users.resources :photos, :controller => 'users/photos'
     users.resources :invites, :controller => 'users/invites'
-    users.resources :uploads, :controller => 'users/uploads', :collection => { :photos => :get }, 
+    users.resources :uploads, :controller => 'users/uploads', :collection => { :photos => :get, :images => :get, :files => :get }, 
                                                               :has_many => [:shared_uploads]
     users.resources :entries, :controller => 'users/entries'
     users.resources :shared_entries, :controller => 'users/shared_entries'
@@ -81,7 +81,7 @@ ActionController::Routing::Routes.draw do |map|
     group.resources :comments, :controller => 'groups/comments'
     group.resources :invites, :controller => 'groups/invites'
     group.resources :shared_entries, :controller => 'groups/shared_entries'
-    group.resources :uploads, :controller => 'groups/uploads', :collection => { :photos => :get }, 
+    group.resources :uploads, :controller => 'groups/uploads', :collection => { :photos => :get, :images => :get, :files => :get }, 
                                                                :has_many => [:shared_uploads]
   end
 
@@ -116,8 +116,9 @@ ActionController::Routing::Routes.draw do |map|
     a.resources :permissions
     a.resources :sites
     a.resources :news_items
+    a.resources :uploads, :collection => { :images => :get, :files => :get }
     a.resources :member_stories
-    a.resources :pages, :collection => { :images => :get, :files => :get }, :member => { :children => :get }
+    a.resources :pages, :member => { :children => :get }
   end
 
   # messages
