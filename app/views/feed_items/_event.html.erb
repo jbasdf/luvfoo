@@ -1,1 +1,20 @@
-<% # 'TODO figure out if we want to show something for events' %>
+<% 
+event = feed_item.item 
+user = event.user
+group = event.eventable
+-%>
+<div class="feed_item event_feed" id="<%= feed_item.dom_id %>">
+  <div class="left">
+    <%= icon user, :small, :class => "icon_small" %>
+    <%= link_to user.short_name, profile_path(user) %>
+    added a new event: 
+    <div class="activity-event">
+      <%= link_to event.title, group_event_path(group, event) %> in <%= link_to group.name, group_path(group)%>
+      <small><%= time_ago_in_words(event.created_at) %> ago</small>
+    </div>
+  </div>
+  <div class="right">
+    <%= x_feed_link(feed_item) %>
+  </div>
+  <div class="clear"></div>
+</div>

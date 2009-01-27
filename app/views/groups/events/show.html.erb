@@ -3,25 +3,39 @@
 	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
 
   <div id="hcalendar-event-title" class="vevent">
-    <a href="<%= group_event_path(@group, @event) %>">
-      <span class="summary"><%= @event.title %></span>
-    </a>
-    <abbr title="<%=@event.start_at%>" class="dtstart"><%= @event.start_at.to_s(:long) %></abbr>
-    <% if @event.end_at -%>
-    to <abbr title="<%=@event.end_at%>" class="dtend"><%= @event.end_at.to_s(:long) %></abbr> 
-    <% end -%>
-    <% if @event.uri && @event.uri.length > 0 -%>
-      <a href="<%= @event.uri %>" class="url">Event Website</a>
-    <% end -%>
-    <% if @event.summary && @event.summary.length > 0 -%>
-      <span class="summary"><%= @event.summary %></span>
-    <% end -%> 
+    <h2 class="summary"><%= @event.title %></h2>
+    
+    <div>
+      <span class="desc">Time:</span>
+      <abbr title="<%=@event.start_at%>" class="dtstart"><%= @event.start_at.to_s(:long) %></abbr>    
+      <% if @event.end_at -%>
+      to <abbr title="<%=@event.end_at%>" class="dtend"><%= @event.end_at.to_s(:long) %></abbr> 
+      <% end -%>
+    </div>
+
     <% if @event.location && @event.location.length > 0 -%>  
-      at <span class="location"><%= @event.location %></span>
+      <div>
+        <span class="desc">Location:</span>
+        <span class="location"><%= @event.location %></span>
+      </div>
     <% end -%>
+        
+    <% if @event.uri && @event.uri.length > 0 -%>
+      <div>
+        <a href="<%= @event.uri %>" class="url">Event Website</a>
+      </div>
+    <% end -%>
+    
+    <% if @event.summary && @event.summary.length > 0 -%>
+      <div class="summary">
+        <%= @event.summary %>
+      </div>
+    <% end -%> 
+    
     <div class="description">
       <%= @event.description %>
     </div>
+    
     <% if @event.tags.length > 0 -%>
       <div class="tags">
         Tags: 
@@ -30,6 +44,16 @@
         <% end -%>
       </div>
     <% end -%>
+    
+    <div>
+      <h3>Attending:</h3>
+      <% @event.attendees.each do |attendee| -%>
+        <div class="attendee">
+          <%= icon attendee %>
+				  <%= link_to h(attendee.full_name), profile_path(attendee) %>
+				</div>
+      <% end -%>
+    </div>
   </div>
     
 	<% if manager? -%>

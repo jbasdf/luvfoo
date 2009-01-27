@@ -4,9 +4,9 @@
     <div class="date-day"><%= event.start_at.day %></div>
   </td>
   <td>
-    <!--<a href="<%= group_event_path(@group, event) %>" title="<%= event.title %>">-->
+    <a href="<%= group_event_path(@group, event) %>" title="<%= event.title %>">
       <span class="title"><%= event.title %></span>
-    <!--</a>-->
+    </a>
     <div class="summary"><%= event.summary %></div>
     <% if event.uri.length > 0 -%>
       <a href="<%= event.uri %>" class="url" target="_blank">Event Website</a>
@@ -14,19 +14,14 @@
     <div class="location"><%= event.location %></div>
   </td>
   <td class="attendees">
-    <div><span id="attendees_for_<%=event.dom_id%>"><%= event.attendees_count || 0 %></span> attendees</div>
+    <div id="attend_<%=event.dom_id%>">
       <% if event.start_at > DateTime.now -%>
-        <% @user_event = @user_events.find {|user_event| user_event.event_id == event.id } if @user_events.length > 0 -%>        
-        <% if @user_event -%>
-          <%= render :partial => 'events/not_attending', :locals => {:event => event, :user_event => @user_event} %>
-          <% style = 'style="display:none;"' %>
-        <% end -%>        
-        <div id="attend_<%=event.dom_id%>" <%=style%>>
-          <% remote_form_for :event_user, :url => event_users_path, :format => 'js' do |f| %>
-           	<%= hidden_field_tag :event_id, event.id %>
-           	<%= f.submit _("I'm Attending"), :class=>'button' -%>
-          <% end %>
-        </div>
+        <% @event_user = @user_events.find {|event_user| event_user.event_id == event.id } if @user_events.length > 0 -%>        
+        <% if @event_user -%>
+          <%= render :partial => 'events/not_attending', :locals => {:event => event, :event_user => @event_user} %>
+        <% else -%>
+          <%= render :partial => 'events/attending', :locals => {:event => event} %>
+        <% end -%>
       <% else -%>
         <p><%= _('Event has passed') %></p>
       <% end -%>

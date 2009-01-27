@@ -10,16 +10,13 @@ class EventUsersController < ApplicationController
     @event_user.user = current_user
     @event_user.save!
     @event.reload
-    debugger
     respond_to do |format|
       format.html do
         redirect_back_or_default current_user
       end
       format.js do
-        render :update do |page|          
-          page << "jQuery('#not_attend_'" + @event.dom_id + ").show();"          
-          page << "jQuery('#attend_'" + @event.dom_id + ").hide();"
-          page << "jQuery('#attendees_for_'" + @event.dom_id + ").val('" + @event.attendees_count + "');"
+        render :update do |page|  
+          page.replace_html "attend_#{@event.dom_id}", :partial => 'events/not_attending', :locals => {:event => @event, :event_user => @event_user}
         end
       end
     end
@@ -33,6 +30,7 @@ class EventUsersController < ApplicationController
 
   def destroy
     @event_user = EventUser.find(params[:id])
+    @event = @event_user.event
     @event_user.destroy
     respond_to do |format|
       format.html do
@@ -41,8 +39,7 @@ class EventUsersController < ApplicationController
       end
       format.js do
         render :update do |page|
-          page << "jQuery('#attend_'" + @event_user.event.dom_id + ").show();"
-          page << "jQuery('#not_attend_'" + @event_user.event.dom_id + ").hide();"
+          page.replace_html "attend_#{@event.dom_id}", :partial => 'events/attending', :locals => {:event => @event}
         end
       end
     end

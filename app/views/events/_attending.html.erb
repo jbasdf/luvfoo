@@ -1,0 +1,5 @@
+<div><span id="attendees_for_<%=event.dom_id%>"><%= event.attendees_count || 0 %></span> attendees</div>
+<% remote_form_for :event_user, :url => event_users_path, :format => 'js' do |f| %>
+ 	<%= hidden_field_tag :event_id, event.id %>
+ 	<%= f.submit _("I'm Attending"), :class=>'button' -%>
+<% end %>

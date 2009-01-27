@@ -380,7 +380,7 @@ table.news td.center{vertical-align:middle;}
 #profile-list{height:500px;overflow:scroll;width:540px;margin:0px auto 12px; border: solid 1px #BBB;padding-top:10px;overflow-x:hidden;}
 .browse-type-link{font-weight:bold;font-size:100%;}
 #translation img{margin:0px 2px 2px 2px;}
-.activity-news, .activity-photo, .activity-upload, .activity-comment, .activity-post{margin:0px 0px 0px 25px;display:block;}
+.activity-news, .activity-photo, .activity-event, .activity-upload, .activity-comment, .activity-post{margin:0px 0px 0px 25px;display:block;}
 .activity-upload img{float:left;margin:2px 5px 0px 0px;}
 .activity-status-update small{color:#555;}
 .activity-post small{color:#555;}
@@ -434,5 +434,11 @@ table.events-list td .title {font-size:1.3em;font-weight:bold;}
 table.events-list td .date-month {background-color:#FF6600;color:#FFFFFF;font-size:1em;text-align:center;font-weight:bold;}
 table.events-list td .date-day {border:1px solid #C9C9C9;color:#000000;font-size:1.75em;font-weight:bold;text-align:center;padding:6px 2px;}
 table.events-list td .location {font-weight:bold;}
-table.events-list td.attendees {background:transparent url(/images/blurp_profile_small.png) no-repeat scroll 0px 6px;width:80px;}
 table.events-list td.attendees span{padding-left:23px;}
+#hcalendar-event-title {margin:20px 10px;font-size:120%;}
+#hcalendar-event-title h2{font-size:24px;}
+#hcalendar-event-title h3{font-size:18px;font-weight:bolder;}
+#hcalendar-event-title .desc{font-weight:bolder;}
+#hcalendar-event-title .description{margin:10px 0;font-size:100%;}
+#hcalendar-event-title .attendee {height:100px;margin:0 5px 10px 0;overflow:hidden;padding:2px;text-align:center;width:54px;}
+#hcalendar-event-title .attendee a {font-size:9px;}
