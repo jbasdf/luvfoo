@@ -20,24 +20,26 @@
 			</div>
 		<% end -%>
 		<%= f.text_area :body_raw, {:label => 'Content', :class => 'mceEditor', :id => 'mce-content'}.merge(options) %>
-		<table>
-			<tr>
-				<td>
-					<%= f.text_field :tag_list, { :label => _('Tags')} -%>
-					<div class="form-row">
-						<p><%= _('Tags help other users find your page and will be used as the meta keywords for the document.') %></p>
-					</div>
-				</td>
-				<td>
-					<%= f.text_field :menu_list, { :label => _('Menus')} -%>
-					<div class="form-row">
-						<p><%= _("Menus show links to the current page on various locations on the site.  Enter 'HomeAboutUs' to have a link 
-							to this page show up in the 'about us' section on the home page.  Enter 'HomeCountries' to have a link to this page
-							show up under the 'countries' section on the home page.") %></p>
-					</div>
-				</td>
-			</tr>
-		</table>
+		<div class="clear">
+  		<table>
+  			<tr>
+  				<td>
+  					<%= f.text_field :tag_list, { :label => _('Tags')} -%>
+  					<div class="form-row">
+  						<p><%= _('Tags help other users find your page and will be used as the meta keywords for the document.') %></p>
+  					</div>
+  				</td>
+  				<td>
+  					<%= f.text_field :menu_list, { :label => _('Menus')} -%>
+  					<div class="form-row">
+  						<p><%= _("Menus show links to the current page on various locations on the site.  Enter 'HomeAboutUs' to have a link 
+  							to this page show up in the 'about us' section on the home page.  Enter 'HomeCountries' to have a link to this page
+  							show up under the 'countries' section on the home page.") %></p>
+  					</div>
+  				</td>
+  			</tr>
+  		</table>
+    </div>
 		<div class="instruction clear">
 			<%= _('To include a youtube video use: [youtube: address_of_video]') %>
 			<%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
