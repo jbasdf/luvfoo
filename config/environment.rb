@@ -48,7 +48,7 @@ Rails::Initializer.run do |config|
   config.gem 'colored', :version => '1.1'
   config.gem 'feed-normalizer', :version => '1.5.1'
   config.gem 'gettext', :version => '1.93.0'
-  config.gem 'hoe', :version => '1.8.2'
+  config.gem 'hoe', :version => '1.8.3'
   config.gem 'hpricot', :version => '0.6.161'
   config.gem 'mocha', :version => '0.5.6'
   config.gem 'RedCloth', :lib => 'redcloth', :version => '3.0.4'
