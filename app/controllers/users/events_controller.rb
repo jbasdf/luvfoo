@@ -7,7 +7,7 @@ class Users::EventsController < ApplicationController
   before_filter :get_user
                 
   def index
-    @events = @user.events.paginate(:page => @page, :per_page => @per_page)    
+    @events = @user.attending_events.paginate(:page => @page, :per_page => @per_page)    
     respond_to do |format|
       format.ics do
         # require 'icalendar'
