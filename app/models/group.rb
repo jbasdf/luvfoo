@@ -84,7 +84,7 @@ class Group < ActiveRecord::Base
                       end
                     end
 
-  acts_as_solr :fields => [ :content_p, :content_us, :content_a, :visibility ]
+  acts_as_solr :fields => [ :content_p, :content_u, :content_a, :visibility ]
 
   after_create {|group| group.memberships.create(:role => :manager, :user_id => group.creator_id)}
   after_create :create_forum
