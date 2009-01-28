@@ -21,7 +21,7 @@ require 'yaml'
 
 ::GlobalConfig = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/global_config.yml")[RAILS_ENV])
 
-begin
+# begin
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -117,14 +117,14 @@ end
 # acts_as_solr hits the database to try to figure out the data types 
 # of the fields that it indexes. On a db without the user table, it fails.
 # If there is a more elegant way to handle this, I am all ears :-)
-rescue ActiveRecord::StatementInvalid => e
-  if e.to_s.include?(".users' doesn't exist: SHOW FIELDS FROM `users`")
-    puts e.to_s
-    puts "If you are running migrations from an empty db, don't worry, this error is caused by act_as_solr and should be ignored"
-  else
-    raise e
-  end
-end
+# rescue ActiveRecord::StatementInvalid => e
+#   if e.to_s.include?(".users' doesn't exist: SHOW FIELDS FROM `users`")
+#     puts e.to_s
+#     puts "If you are running migrations from an empty db, don't worry, this error is caused by act_as_solr and should be ignored"
+#   else
+#     raise e
+#   end
+# end
 
 
 class << GlobalConfig
