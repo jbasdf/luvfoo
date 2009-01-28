@@ -108,22 +108,22 @@ Rails::Initializer.run do |config|
     config.active_record.observers = :user_observer, :user_plone_observer
   end
 
-  # HACK: We rescue this block here because the line:
-  # config.active_record.observers = :user_observer, :user_plone_observer
-  # results in the User model to be loaded. This causes an error to be thrown
-  # when running rake db:migrate on an empty database. This is because
-  # acts_as_solr hits the database to try to figure out the data types 
-  # of the fields that it indexes. On a db without the user table, it fails.
-  # If there is a more elegant way to handle this, I am all ears :-)
-  rescue ActiveRecord::StatementInvalid => e
-    if e.to_s.include?(".users' doesn't exist: SHOW FIELDS FROM `users`")
-      puts e.to_s
-      puts "If you are running migrations from an empty db, don't worry, this error is caused by act_as_solr and should be ignored"
-    else
-      raise e
-    end
+end
+
+# HACK: We rescue this block here because the line:
+# config.active_record.observers = :user_observer, :user_plone_observer
+# results in the User model to be loaded. This causes an error to be thrown
+# when running rake db:migrate on an empty database. This is because
+# acts_as_solr hits the database to try to figure out the data types 
+# of the fields that it indexes. On a db without the user table, it fails.
+# If there is a more elegant way to handle this, I am all ears :-)
+rescue ActiveRecord::StatementInvalid => e
+  if e.to_s.include?(".users' doesn't exist: SHOW FIELDS FROM `users`")
+    puts e.to_s
+    puts "If you are running migrations from an empty db, don't worry, this error is caused by act_as_solr and should be ignored"
+  else
+    raise e
   end
-    
 end
 
 
