@@ -4,6 +4,8 @@
 	<a href="<%= image_path(photo, nil) %>" class="thickbox" rel="user_gallery"><%= image photo, :small %></a>
 	</div>
 </div>
-<%= photo.caption + '<br/>' if photo.caption.length > 0 %>
+<div style="width:175px;text-align:center;">
+<%= h(photo.caption) + '<br/>' if photo.caption.length > 0 %>
 <%= link_to _('(delete)'), user_photo_path(photo.photoable, photo), :method => :delete if is_me?(photo.photoable) || @admin == true %>
+</div>
 </div>
