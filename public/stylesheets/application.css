@@ -39,6 +39,8 @@ input[type="checkbox"]{border:none;margin:0;background:none;background-color:tra
 .image a{font-size:9px;}
 .image-wrapper{margin:0 12px 20px 0;text-align:center;}
 .image-border{border:solid 5px #222;}
+.image-border img{border:1px white solid;}
+.image-border img:hover{border:1px black solid;}
 .pad2{margin:30px;}
 #login_form,#forgot_form,.standard_form{padding:5px 0 25px 0;}
 #login_form{width:500px;margin:50px auto;}

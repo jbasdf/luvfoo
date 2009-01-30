@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
 
   include GroupsHelper
   include GroupMethods
+  include SearchHelper
   before_filter :login_required, :except => [:index, :show, :search]
   before_filter :setup, :except => [:index, :search]
   before_filter :authorization_required, :only => [:edit, :update, :destroy] 
@@ -30,7 +31,7 @@ class GroupsController < ApplicationController
       redirect_to '/groups'#
       return
     end 
-    @groups = Group.find_by_solr(@query, :limit => @per_page).results
+    @groups = Group.find_by_solr("#{search_field}:(#{@query})", :offset => (@page-1)*@per_page, :limit => @per_page).results
     flash[:notice] = @groups.empty? ? _('No groups were found that matched your search.') : nil
     respond_to do |format|
       format.html { render :template => 'groups/index'}
