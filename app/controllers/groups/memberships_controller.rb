@@ -40,7 +40,7 @@ class Groups::MembershipsController < ApplicationController
     accepting_pledge = false
     if params[:user_id] && user.login != params[:user_id]
       raise(Exception.new, 'Non admin user tried to accept a pledge') if !manager?
-      user = User.find(params[:user_id])
+      user = User.find_by_login(params[:user_id]) || User.find(params[:user_id])
       accepting_pledge = true
     end
 
@@ -55,6 +55,7 @@ class Groups::MembershipsController < ApplicationController
               flash[:notice] = message
             end
             format.js { render :text => _('(accepted!)') }
+            format.xml { render :xml => @membership, :status => :created, :location => @group }
           end
         else
           message = _("You have request to joined the group <b>%{group_name}</b>.  Your membership is pending and will be reviewed by a group administrator.") % { :group_name => @group.name}
@@ -65,6 +66,7 @@ class Groups::MembershipsController < ApplicationController
               render :action => 'new'
             end
             format.js { render :partial => 'groups/pending_request', :locals => { :message => message } }
+            format.xml { render :xml => @membership, :status => :created, :location => @group }
           end
         end
       else
@@ -76,6 +78,7 @@ class Groups::MembershipsController < ApplicationController
             redirect_to group_path(@group)
           end
           format.js { render :partial => 'groups/member_controls', :locals => {:message => message } }
+          format.xml { render :xml => @membership, :status => :created, :location => @group }
         end
       end
     else
@@ -89,7 +92,7 @@ class Groups::MembershipsController < ApplicationController
     end
 
   rescue Exception => e
-    puts e.message
+    #puts e.message
     message = _("An error occured while joining the group.  Please try again.")
     respond_to do |format|
       format.html do
@@ -99,6 +102,7 @@ class Groups::MembershipsController < ApplicationController
       format.js do
         render :partial => 'groups/join_controls', :locals => { :message => message }
       end
+      format.xml { render :xml => e, :status => :unprocessable_entity }
     end
   end
 

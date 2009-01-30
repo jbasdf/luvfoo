@@ -198,7 +198,7 @@ class Group < ActiveRecord::Base
 
   def remove_pledge(user)
     pledge = membership_requests.find_by_user_id(user.id)
-    pledge.destroy
+    pledge.destroy if !pledge.nil?
   end
 
   # actually deleting a group could cause some problems so 
@@ -207,4 +207,11 @@ class Group < ActiveRecord::Base
     update_attributes(:visibility => DELETED)
   end
 
+  def to_xml(options = {})
+    options[:only] ||= []
+    options[:only] << :name << :description << :icon << :state << :url_key << :created_at
+    options[:only] << :default_role << :visibility << :requires_approval_to_join
+    super
+  end
+  
 end

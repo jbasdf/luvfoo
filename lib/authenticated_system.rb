@@ -10,7 +10,7 @@ module AuthenticatedSystem
   # Accesses the current user from the session.  Set it to :false if login fails
   # so that future calls do not hit the database.
   def current_user
-    @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || :false)
+    @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_api_key || :false)
   end
 
   # Store the given user id in the session.
@@ -239,6 +239,11 @@ module AuthenticatedSystem
     end
   end
 
+  # Called from #current_user.  First attempt to authenticate via an api token
+  def login_from_api_key
+    self.current_user = User.find_by_api_key(params[:api_key]) if params[:api_key]
+  end
+  
   # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.
   def login_from_cookie
     user = cookies[:auth_token] && User.find_by_remember_token(cookies[:auth_token])
@@ -248,5 +253,6 @@ module AuthenticatedSystem
       self.current_user = user
     end
   end
+  
 end
 

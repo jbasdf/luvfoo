@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090123074335) do
+ActiveRecord::Schema.define(:version => 20090130215909) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -598,9 +598,11 @@ ActiveRecord::Schema.define(:version => 20090123074335) do
     t.text     "public_profile"
     t.integer  "posts_count",                             :default => 0
     t.datetime "last_seen_at"
+    t.string   "api_key"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login"
+  add_index "users", ["api_key"], :name => "index_users_on_api_key"
 
   create_table "users_languages", :force => true do |t|
     t.integer "user_id"
