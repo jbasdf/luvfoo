@@ -5,7 +5,7 @@ else
   status = _('update your status!')
   time = Time.now
 end -%>
-<span><%= user.short_name %></span> <span id="current-status-text"><%= status %></span>
+<%= _('<span>%{user_name}</span> <span id="current-status-text">%{status}</span>') % {:user_name => user.short_name, :status => status} %>
 <small>
   <span id="status-time" class="status-time"><%= time_ago_in_words(time) %> ago</span>
   <span id="status-clear">

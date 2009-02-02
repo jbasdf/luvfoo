@@ -1,20 +1,11 @@
 <div id="group_nav">
-	<a href="<%= group_path(@group) %>"><%= _('Main') %></a>
-	<a href="<%= group_news_index_path(@group) %>"><%= _('News') %></a>
-	<a href="<%= group_events_path(@group) %>"><%= _('Events') %></a>
-	<a href="<%= group_comments_path(@group) %>"><%= _('Comments') %></a>
-	<a href="<%= group_activities_path(@group) %>"><%= _('Activity') %></a>
+    <%= link_to _('Main'), group_path(@group) %>
+    <%= link_to _('News'), group_news_index_path(@group) %>
+    <%= link_to _('Events'), group_events_path(@group) %>
+    <%= link_to _('Comments'), group_comments_path(@group) %>
+    <%= link_to _('Activity'), group_activities_path(@group) %>
 	<%= link_to _('Members'), group_memberships_path(@group) %>
-	<a href="<%= group_forums_path(@group) %>">Forum</a>
-	<a href="<%= group_photos_path(@group) %>"><%= _('Photos') %></a>
-	<% if member? -%>
-		<a href="<%= group_uploads_path(@group) %>"><%= _('Files') %></a>
-	<% end -%>
-	<!-- 
-	<a href="">Shared</a>
-	<a>Group Interests (group rss)</a>
-	<a>Videos</a>
-	<a>Events</a>
-	<a>Documents</a>
-	-->
+    <%= link_to _('Forum'), group_forums_path(@group) %>
+    <%= link_to _('Photos'), group_photos_path(@group) %>
+    <%= link_to _('Files'), group_uploads_path(@group) if member? %>
 </div>

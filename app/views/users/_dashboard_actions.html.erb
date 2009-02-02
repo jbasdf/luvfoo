@@ -27,9 +27,9 @@
 		<% if @user.attending_events.count > 0 -%>
   		<li><a target="_blank" href="http://www.google.com/calendar/render?cid=<%=user_events_url(@user, :format => 'ics')%>">
     	  <img height="20px" alt="Add events you are attending to your Google calendar" src="http://www.google.com/calendar/images/ext/gc_button1.gif" border="0"></a>
-    	  Add your events to Google calendar</li>
+    	  <%= _('Add your events to Google calendar') %></li>
     	<li><%= link_to image_tag('ical.gif'), formatted_user_events_url(@user, :ics) %>
-    	  Your events in ical format</li>	
+    	  <%= _('Your events in ical format') %></li>	
   	<% end -%>
 	</ul>
 </div>
