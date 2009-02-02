@@ -23,7 +23,7 @@ class Groups::EventsController < ApplicationController
         render
       end
       format.ics do
-        # require 'icalendar'
+        require 'icalendar'
         @calendar = Icalendar::Calendar.new
         @events.each do |event|
           ics_event = Icalendar::Event.new
