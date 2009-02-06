@@ -273,7 +273,8 @@ module ApplicationHelper
   
   def truncate(text,len = 30)
     return text if text.size <= len
-    text[0, text.rindex(' ', len)] + '...'
+    r_index = text.rindex(' ', len)
+    text[0, r_index ? r_index : len] + '...'
   end
 
   def summarize(content, length = 100)
