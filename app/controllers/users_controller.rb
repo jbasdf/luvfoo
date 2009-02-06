@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @to_list = @user.friends
     @content_pages = @user.content_pages
     @shared_uploads = @user.shared_uploads.find(:all, :limit => 5, :order => 'created_at DESC')
-    @feed_items = current_user.feed_items.find(:all, :limit => 30)
+    @feed_items = current_user.feed_items.paginate(:page => @page, :per_page => @per_page)
     
     respond_to do |format|
       format.html

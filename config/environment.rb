@@ -58,7 +58,7 @@ Rails::Initializer.run do |config|
   config.gem 'SystemTimer', :lib => 'system_timer', :version => '>=1.0'
   config.gem 'tzinfo', :version => '>=0.3.9'
   config.gem 'uuidtools', :version => '>=1.0.3'
-  config.gem 'will_paginate', :version => '>=2.2.2'
+  config.gem 'mislav-will_paginate', :version => '>=2.3.6', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'youtube-g', :lib => 'youtube_g', :version => '>=0.4.1'
   config.gem 'mini_magick', :version => '>=1.2.3'
   config.gem 'mime-types', :lib =>'mime/types', :version => '>=1.15'
