@@ -1,5 +1,18 @@
 <%= render :partial => 'admin/users/user_navigation' -%>
+
 <div class="activity_box">
-  <h2><%= _('Users') %></h2>
+  <h2>
+      <%= @order == 'alpha' ? _('Alpha') : link_to(_('Alpha'), admin_users_path(:order => 'alpha'), :class => 'browse-type-link') %>
+      | <%= @order == 'chrono' ? _('Newest') : link_to(_('When Joined'), admin_users_path(:order => 'chrono'), :class => 'browse-type-link') %>
+      <span class="pagination"><%= will_paginate(@users, :container => false) if @query.nil? %></span>
+  </h2>
 	<%= render :partial => 'admin/users/table' -%>
+    <%= will_paginate(@users) if @query.nil?%>
+<script type="text/javascript" language="JavaScript">
+jQuery(document).ready(function() {	
+	jQuery(".delete-user").click(function() {
+		jQuery(this).parent().html('deleting user...');
+	});
+});
+</script>
 </div>

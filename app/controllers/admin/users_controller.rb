@@ -3,9 +3,18 @@ class Admin::UsersController < Admin::BaseController
   before_filter :get_user, :only => [:update, :destroy]
   
   def index
+    @order = (params[:order] == 'alpha') || 'chrono'
+    @query = params[:q]
+    @order = 'search' if !@query.nil?
     respond_to do |format|
       format.html do
-        @users = User.by_newest.paginate(:page => @page, :per_page => @per_page)
+        if !@query.nil?
+          @users = User.find_by_solr("content_a:(#{@query})", :offset => 0, :limit => 20).results
+        elsif @alpha == true
+          @users = User.by_last_name.paginate(:page => @page, :per_page => 20)
+        else
+          @users = User.by_newest.paginate(:page => @page, :per_page => 20)
+        end
         render
       end
       format.js do

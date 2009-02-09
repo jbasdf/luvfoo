@@ -157,12 +157,12 @@ class User < ActiveRecord::Base
 
   # Forums
   has_many :moderatorships, :dependent => :destroy
-	has_many :forums, :through => :moderatorships, :order => "#{Forum.table_name}.name"
+  has_many :forums, :through => :moderatorships, :order => "#{Forum.table_name}.name"
 
-	has_many :posts, :dependent => :destroy
-	has_many :topics, :dependent => :destroy
-	has_many :monitorships, :dependent => :destroy
-	has_many :monitored_topics, :through => :monitorships, :conditions => ["#{Monitorship.table_name}.active = ?", true], :order => "#{Topic.table_name}.replied_at desc", :source => :topic
+  has_many :posts, :dependent => :destroy
+  has_many :topics, :dependent => :destroy
+  has_many :monitorships, :dependent => :destroy
+  has_many :monitored_topics, :through => :monitorships, :conditions => ["#{Monitorship.table_name}.active = ?", true], :order => "#{Topic.table_name}.replied_at desc", :source => :topic
 
   # items shared with the user
   has_many :shared_entries, :as => :destination, :order => 'created_at desc', :dependent => :destroy
@@ -212,6 +212,7 @@ class User < ActiveRecord::Base
   acts_as_solr :fields => [ :content_p,  :content_u, :content_f, :content_a ]  
 
   named_scope :by_login_alpha, :order => "login DESC"
+  named_scope :by_last_name, :order => "last_name ASC"
   named_scope :by_newest, :order => "created_at DESC"
   named_scope :active, :conditions => "activated_at IS NOT NULL"
   named_scope :inactive, :conditions => "activated_at IS NULL"    
@@ -442,10 +443,10 @@ class User < ActiveRecord::Base
     end
   end
 
-	def display_name
-		self.login
-	end
-	
+  def display_name
+    self.login
+  end
+  
   def location
     return '' if attributes['location'].blank?
     attributes['location']
@@ -600,4 +601,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
