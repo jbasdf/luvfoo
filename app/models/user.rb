@@ -99,12 +99,12 @@ class User < ActiveRecord::Base
 
   composed_of :tz, :class_name => 'TZInfo::Timezone', :mapping => %w( time_zone time_zone )
 
-  has_many :permissions
+  has_many :permissions, :dependent => :destroy
   has_many :roles, :through => :permissions
 
   # Feeds
-  has_many :feeds, :as => :ownable
-  has_many :feed_items, :through => :feeds, :order => 'created_at desc'
+  has_many :feeds, :as => :ownable, :dependent => :destroy
+  has_many :feed_items, :through => :feeds, :order => 'created_at desc', :dependent => :destroy
   has_many :private_feed_items, :through => :feeds, :source => :feed_item, :conditions => {:is_public => false}, :order => 'created_at desc'
   has_many :public_feed_items, :through => :feeds, :source => :feed_item, :conditions => {:is_public => true}, :order => 'created_at desc'
   #has_many :my_feed_items, :through => :feeds, :source => :feed_item, :conditions => ["feed_item.creator_id=?", self.id], :order => 'created_at desc'
@@ -114,25 +114,25 @@ class User < ActiveRecord::Base
   end
 
   # Events
-  has_many :events
-  has_many :event_users
+  has_many :events, :dependent => :destroy
+  has_many :event_users, :dependent => :destroy
   has_many :attending_events, :source => :event, :through => :event_users, :dependent => :destroy
   
   # Messages
-  has_many :sent_messages,     :class_name => 'Message', :order => 'created_at desc', :foreign_key => 'sender_id'
-  has_many :received_messages, :class_name => 'Message', :order => 'created_at desc', :foreign_key => 'receiver_id'
+  has_many :sent_messages,     :class_name => 'Message', :order => 'created_at desc', :foreign_key => 'sender_id', :dependent => :destroy
+  has_many :received_messages, :class_name => 'Message', :order => 'created_at desc', :foreign_key => 'receiver_id', :dependent => :destroy
   has_many :unread_messages,   :class_name => 'Message', :foreign_key => 'receiver_id', :conditions => ["`read`=?",false] 
 
   # Groups
-  has_many :memberships
+  has_many :memberships, :dependent => :destroy
   has_many :groups, :through => :memberships, :conditions => 'role != \'banned\''
   has_many :public_groups, :through => :memberships, :source => :group, :foreign_key => 'group_id', :conditions => 'groups.visibility > 0'
   has_many :created_groups, :class_name => 'Group', :foreign_key => 'creator_id'
 
   # Friends
-  has_many :friendships, :class_name  => "Friend", :foreign_key => 'inviter_id', :conditions => "status = #{Friend::ACCEPTED}"
-  has_many :follower_friends, :class_name => "Friend", :foreign_key => "invited_id", :conditions => "status = #{Friend::PENDING}"
-  has_many :following_friends, :class_name => "Friend", :foreign_key => "inviter_id", :conditions => "status = #{Friend::PENDING}"
+  has_many :friendships, :class_name  => "Friend", :foreign_key => 'inviter_id', :conditions => "status = #{Friend::ACCEPTED}", :dependent => :destroy
+  has_many :follower_friends, :class_name => "Friend", :foreign_key => "invited_id", :conditions => "status = #{Friend::PENDING}", :dependent => :destroy
+  has_many :following_friends, :class_name => "Friend", :foreign_key => "inviter_id", :conditions => "status = #{Friend::PENDING}", :dependent => :destroy
 
   has_many :friends,   :through => :friendships, :source => :invited
   has_many :followers, :through => :follower_friends, :source => :inviter
@@ -140,17 +140,17 @@ class User < ActiveRecord::Base
 
   has_many :friendships_initiated_by_me, :class_name => "Friend", :foreign_key => "inviter_id", :conditions => ['inviter_id = ?', self.id]
   has_many :friendships_not_initiated_by_me, :class_name => "Friend", :foreign_key => "user_id", :conditions => ['invited_id = ?', self.id]
-  has_many :occurances_as_friend, :class_name => "Friend", :foreign_key => "invited_id", :dependent => :destroy
+  has_many :occurances_as_friend, :class_name => "Friend", :foreign_key => "invited_id"
 
   # Comments and Blogs
-  has_many :comments, :as => :commentable, :order => 'created_at desc'
-  has_many :blogs, :as => :newsable, :class_name => "NewsItem", :order => 'created_at desc'
-  has_many :content_pages, :foreign_key => 'creator_id', :order => 'updated_at desc'
-  has_many :news_items, :class_name => 'NewsItem', :foreign_key => 'creator_id'
+  has_many :comments, :as => :commentable, :order => 'created_at desc', :dependent => :destroy
+  has_many :blogs, :as => :newsable, :class_name => "NewsItem", :order => 'created_at desc', :dependent => :destroy
+  has_many :content_pages, :foreign_key => 'creator_id', :order => 'updated_at desc', :dependent => :destroy
+  has_many :news_items, :class_name => 'NewsItem', :foreign_key => 'creator_id', :dependent => :destroy
 
   # Entries
-  has_many :entries
-  has_many :entries_shared_by_me, :class_name => 'SharedEntry', :foreign_key => 'shared_by_id'
+  has_many :entries, :dependent => :destroy
+  has_many :entries_shared_by_me, :class_name => 'SharedEntry', :foreign_key => 'shared_by_id', :dependent => :destroy
   has_many :google_docs, :through => :shared_entries, :source => 'entry', :conditions => 'google_doc = true', :select => "*"
   has_many :public_google_docs, :through => :shared_entries, :source => 'entry', :conditions => 'google_doc = true AND public = true', :select => "*"
   has_many :public_shared_entries, :through => :shared_entries, :source => 'entry', :conditions => 'google_doc = false AND public = true', :select => "*"
@@ -159,23 +159,26 @@ class User < ActiveRecord::Base
   has_many :moderatorships, :dependent => :destroy
 	has_many :forums, :through => :moderatorships, :order => "#{Forum.table_name}.name"
 
-	has_many :posts
-	has_many :topics
-	has_many :monitorships
+	has_many :posts, :dependent => :destroy
+	has_many :topics, :dependent => :destroy
+	has_many :monitorships, :dependent => :destroy
 	has_many :monitored_topics, :through => :monitorships, :conditions => ["#{Monitorship.table_name}.active = ?", true], :order => "#{Topic.table_name}.replied_at desc", :source => :topic
 
   # items shared with the user
-  has_many :shared_entries, :as => :destination, :order => 'created_at desc'
+  has_many :shared_entries, :as => :destination, :order => 'created_at desc', :dependent => :destroy
   has_many :interesting_entries, :through => :shared_entries, :source => 'entry'
 
   # Photos
-  has_many :photos, :as => :photoable, :order => 'created_at desc'
+  has_many :photos, :as => :photoable, :order => 'created_at desc', :dependent => :destroy
 
   # pages
-  has_many :pages, :as => :contentable, :class_name => 'ContentPage', :order => 'created_at desc'
+  has_many :pages, :as => :contentable, :class_name => 'ContentPage', :order => 'created_at desc', :dependent => :destroy
 
   # status
-  has_many :status_updates
+  has_many :status_updates, :dependent => :destroy
+  
+  #taggins
+  has_many :taggings, :foreign_key => 'tagger_id', :dependent => :destroy
   
   # Skills
   has_and_belongs_to_many :grade_level_experiences
@@ -195,12 +198,13 @@ class User < ActiveRecord::Base
   belongs_to :country
 
   # Files - documents, photos, etc
-  has_many :uploads, :as => :uploadable, :order => 'created_at desc'
+  has_many :uploads, :as => :uploadable, :order => 'created_at desc', :dependent => :destroy
  
-  has_many :shared_uploads, :as => :shared_uploadable, :order => 'created_at desc', :include => :upload
+  has_many :shared_uploads, :as => :shared_uploadable, :order => 'created_at desc', :include => :upload, :dependent => :destroy
   has_many :uploads_shared_by_me, :class_name => 'SharedUpload', :foreign_key => 'shared_by_id'
   
   # Properties
+  has_many :bag_property_values, :dependent => :destroy 
   has_many :properties, :class_name => 'BagProperty', :finder_sql => 'SELECT *, bag_properties.required, bag_property_values.svalue, bag_property_values.ivalue, COALESCE(bag_property_values.visibility, bag_properties.default_visibility) AS visibility, bag_properties.data_type, bag_properties.id AS bag_property_id FROM bag_properties LEFT OUTER JOIN bag_property_values ON bag_properties.id = bag_property_values.bag_property_id AND user_id = #{id} GROUP BY bag_properties.id ORDER BY sort, bag_properties.id'
 
   # Search
