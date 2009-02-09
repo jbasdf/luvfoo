@@ -26,10 +26,10 @@ input[type="checkbox"]{border:none;margin:0;background:none;background-color:tra
 #top{width:870px;height:75px;background:url(/images/home-logo.jpg);}
 #top a{font-weight:bold;color:#fff;}
 #top img{margin:0 0 0 10px;}
-#top h1{color:#fff;margin:0;padding:20px 0 0 75px;font-size:28px;font-weight:bolder;}
-#top h2{color:#F9E475;margin:5px 0 0 0;padding:0 0 0 80px;font-size:14px;font-weight:bolder;}
+#top h1{color:#FFF;margin:0;padding:20px 0 0 475px;font-size:28px;font-weight:bolder;}
+#top h2{color:#FFF;margin:0px 0 0 0;padding:0px 0 0 620px;font-size:12px;font-weight:bolder;}
 #tagline{margin:-52px 10px;}
-#top-links{text-align:right;margin:5px 40px;font-weight:bolder;font-style:italic;font-size:14px;color:#F9E475;}
+#top-links{text-align:left;margin:20px 140px;font-weight:bolder;font-style:italic;font-size:14px;color:#F9E475;}
 #top-links a{font-size:14px;margin:10px;}
 .image{border:solid 5px #222;margin:0 12px 20px 0;}
 .image img{margin:1px;}
@@ -96,13 +96,13 @@ h3{font-size:13px;margin-bottom:10px;}
 /* home */
 #member-story{width:550px;height:320px;}
 #member-story img{float:left;margin:0 10px 1px 0;}
-#member-story h2{margin:0px;padding:5px 0;border-bottom:1px dotted #ccc;border-top:4px solid #4b7041;}
+#member-story h2{margin:0px;padding:5px 0;border-bottom:1px dotted #ccc;border-top:4px solid #343299;}
 #member-story h3{margin:2px 0px;}
 #member-story p{margin:5px 0;font-size:14px;padding:5px;}
 .member-story-excerpt{float:left;width:290px;height:250px;}
 .member-story-excerpt p{margin:0px;padding:0;}
 .home-info{width:270px;margin:0 10px 5px 10px;}
-.home-box{border-top:4px solid #4b7041;}
+.home-box{border-top:4px solid #343299;}
 .home-box h2{border-bottom:1px dotted #ccc;padding-bottom:2px;margin:0;}
 .left_column{width:385px;margin:25px 22px 15px 0;}
 .middle_column{width:160px;margin:25px 23px 15px 0;}
@@ -110,7 +110,7 @@ h3{font-size:13px;margin-bottom:10px;}
 .right_column img{margin:0 15px 0px 0;font-size:12px;}
 .blog-simple{border-top:dotted 1px #ccc;}
 .blog-simple a{font-weight:bold;font-size:12px;}
-.blog-simple a:hover{color:#4b7041;text-decoration:underline;}
+.blog-simple a:hover{color:#343299;text-decoration:underline;}
 #latest h2{border-bottom:none;}
 #latest-news h2 a{font-size:16px;}
 .group-news-item-title h3,.group-news-item-min h3,.group-news-item-simple h3{margin:0;}
@@ -129,7 +129,7 @@ a.big_link{display:block;font-size:12px;}
 .bio_stuff{width:370px;}
 .bio_stuff h1{margin-top:0px;}
 .inside_box{margin:0 10px 0 10px;}
-#sub_nav a{margin:0 3px 0 0;padding:8px;color:#4B7041;font-weight:bold;}
+#sub_nav a{margin:0 3px 0 0;padding:8px;color:#343299;font-weight:bold;}
 #sub_nav{margin:0 0 10px 0;padding-top:2px;}
 #local_nav a{margin:0 3px 0 0;padding:3px;border:1px solid #333;color:#DDDDDD;background:#666666;}
 #local_nav{margin:0 0 10px 0;padding-top:2px;}
@@ -148,13 +148,13 @@ a.big_link{display:block;font-size:12px;}
 .comment_holder{padding-top:10px;}
 .comments{padding:0px 10px 0px 10px;}
 .pagination a {padding:2px;background:#F3F3F3;margin:0 2px;border:1px solid #F3F3F3;}
-.pagination a:hover{border:1px solid #4b7041;}
-.pagination .current {padding:2px;font-weight:bold;color:#F3F3F3;background-color:#4b7041;}
+.pagination a:hover{border:1px solid #343299;}
+.pagination .current {padding:2px;font-weight:bold;color:#F3F3F3;background-color:#343299;}
 .pagination select{padding:0px;font-size:10px;margin:0 5px;}
 .pagination{padding:0px 0 6px;margin:0px auto; text-align:center; width:500px;}
 #messages td,#messages th{padding:3px;}
 #messages td{border-bottom:dotted 1px #ccc;}
-#messages th{color:white;background:#4b7041;font-size:10px;}
+#messages th{color:white;background:#343299;font-size:10px;}
 #messages{width:100%;}
 .blurp{padding:0 0 15px 0;}
 .blurp strong{display:block;color:#000;}
@@ -298,7 +298,7 @@ ul#profile-ctm{margin:0px;}
 #profile-ctm a{font-size:12px;}
 /* News Styles */
 table.news{width:100%;}
-table.news th{font-weight:bold;font-size:14px;border-bottom:3px solid #4B7041;padding:4px;}
+table.news th{font-weight:bold;font-size:14px;border-bottom:3px solid #343299;padding:4px;}
 table.news td{border-bottom:1px dotted #ccc;padding:4px;vertical-align:top;}
 table.news tbody tr:hover{background:#F3F3F3;}
 .edit_link{letter-spacing:0;font-size:12px;}
@@ -339,7 +339,7 @@ img.centered,img.aligncenter{display:block;margin-left:auto;margin-right:auto;}
 .people-profile p{margin:10px;}
 .gallery-item {float:left;margin-top:10px;text-align:center;width:33%;}
 .post-meta{font-size:11px;color:#999;}
-.entry h2{border-top:1px solid #4b7041;clear:both;padding:2px;margin:20px 0 5px 0;}
+.entry h2{border-top:1px solid #343299;clear:both;padding:2px;margin:20px 0 5px 0;}
 .entry h2 a{font-size:14px;}
 .mini-bio div{margin:0px 10px;}
 #contact textarea{width:500px;}
@@ -352,7 +352,7 @@ table.news td.center{vertical-align:middle;}
 #uploads .left{}
 #uploads .right{text-align:right;}
 #uploads table{width:100%;}
-#uploads th{font-weight:bold;border-bottom:3px solid #4B7041;}
+#uploads th{font-weight:bold;border-bottom:3px solid #343299;}
 #uploads tbody tr:hover{background:#E9EFD5;}
 #uploads tr.odd{background:#F3F3F3;}
 #uploads td{border-right:solid 1px #ccc;padding:0 5px;vertical-align:middle;}
@@ -360,11 +360,11 @@ table.news td.center{vertical-align:middle;}
 #swfupload_container{margin:15px 10px;}
 #swfupload_container .legend{-x-system-font:none;background-color:#FFFFFF;color:#000;font-size:12px;font-weight:700;line-height:normal;padding:3px;position:relative;top:-15px;}
 #swfupload_container .flash {-moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-color:#D9E4FF;margin:10px 5px;}
-#swfupload_container .fieldset {border:1px solid #4B7041;margin:10px 0;padding:5px 10px;}
+#swfupload_container .fieldset {border:1px solid #343299;margin:10px 0;padding:5px 10px;}
 #swfupload_container .progressName{font-weight:bolder;}
 #swfupload_container #divStatus{font-weight:bolder;}
 .tab{background:#F3F3F3;border:1px solid #BBB;margin:0px 8px 0px 0px;padding:2px 6px;font-size:12px;}
-.tab_selected{border:1px solid black;padding:2px 6px;background:#4B7041;font-weight:bold;color:white;margin:0px 8px 0px 0px;font-size:12px;}
+.tab_selected{border:1px solid black;padding:2px 6px;background:#343299;font-weight:bold;color:white;margin:0px 8px 0px 0px;font-size:12px;}
 .tab:hover{border:1px solid black;text-decoration:none;font-weight:bold;}
 #search {}
 #search input[type="text"]{vertical-align:top;width:120px;margin:1px 0px 0px;padding:0px;color:#999;text-align:center;}
