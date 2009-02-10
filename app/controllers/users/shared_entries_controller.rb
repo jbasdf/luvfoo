@@ -3,7 +3,7 @@ class Users::SharedEntriesController < ApplicationController
   include UserMethods
   before_filter :get_user 
   before_filter :authorization_required, :only => [:edit, :create, :new]
-  before_filter :setup, :only => [:show, :edit, :delete]
+  before_filter :setup, :only => [:show, :edit, :destroy]
   before_filter :login_required, :except => [:show]
 
   def show
@@ -79,8 +79,8 @@ class Users::SharedEntriesController < ApplicationController
   end
 
   def destroy
-    if @entry.destination_id == current_user.id
-      @entry.destroy 
+    if @shared_entry.destination_id == current_user.id
+      @shared_entry.destroy 
       respond_to do |format|
         format.html do
           flash[:notice] = _('Deleted shared entry')
