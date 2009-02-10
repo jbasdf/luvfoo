@@ -1,5 +1,11 @@
-<span class="link-button"><%= link_to _("All Users"), admin_users_path %></span>	
-<span class="link-button"><%= link_to _("Inactive Users"), inactive_admin_users_path %></span>
-<!--
-<span class="link-button"><%= link_to _("Search Users"), search_admin_users_path %></span>
--->
+<form method='get'>
+<h1>
+    <%= _('Users') %>
+	<span id="search_object">
+		<input type='text' name='q' style='width:200px' value='<%= @query %>' />
+		<input type='submit' value='<%= _('Search') %>' />
+	</span>
+    <span class="link-button"><%= link_to _("All Users"), admin_users_path %></span>	
+    <span class="link-button"><%= link_to _("Inactive Users"), inactive_admin_users_path %></span>
+</h1>
+</form>

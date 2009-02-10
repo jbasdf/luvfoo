@@ -4,6 +4,7 @@
 		<th></th>
 		<th><%= _('Name') %></th>
 		<th><%= _('Email') %></th>
+		<th><%= _('Joined') %></th>
 		<th></th>
 		<th></th>
 	</tr>
@@ -14,6 +15,7 @@
 		<td><%= icon user, :small %></td>
 		<td><%= link_to h(user.full_name), user %></td>
 		<td><%= mail_to h(user.email), user.email %></td>
+		<td><%= _('%{when} ago') % {:when => time_ago_in_words(user.created_at.to_s)} %></td>
 		<td id="<%=user.dom_id('link')%>"><%= render :partial => 'admin/users/activate', :locals => {:user => user} %></td>
 		<td><%#=link_to _('Delete'), admin_user_path(user.id), :method => :delete, :title => _('Delete this user.') -%>
 			<%= link_to_remote _("Delete"), {:url => admin_user_path(user.id), :method => :delete}, {:title => _('Delete this user.'), :class => 'delete-user'} -%></td>
@@ -21,11 +23,3 @@
 	<% end -%>
 	</tbody>
 </table>
-<%= will_paginate @users %>
-<script type="text/javascript" language="JavaScript">
-jQuery(document).ready(function() {	
-	jQuery(".delete-user").click(function() {
-		jQuery(this).parent().html('deleting user...');
-	});
-});
-</script>
