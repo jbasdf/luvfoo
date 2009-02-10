@@ -65,10 +65,10 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @feed_items = @user.my_feed_items
+        @feed_items = @user.my_feed_items.paginate(:page => @page, :per_page => @per_page)
       end
       format.rss do 
-        @feed_items = @user.my_feed_items
+        @feed_items = @user.my_feed_items.paginate(:page => @page, :per_page => @per_page)
         render :layout => false
       end
     end
