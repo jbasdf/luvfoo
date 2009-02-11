@@ -1,8 +1,7 @@
 <% if !blogs.empty? %>
 	<div class="activity_box">
 		<h2><%= _('Most Recent Blog Posts') %> 
-		  <span><%= _("latest %{number_of_posts_displayed} of %{total_blogs}") % {:number_of_posts_displayed => blogs.size, 
-																																								:total_blogs => total_blogs } -%></span>
+		  <span><%= _("latest %{number_of_posts_displayed} of %{total_blogs}") % {:number_of_posts_displayed => blogs.size, :total_blogs => total_blogs } -%></span>
 		  <span><%= link_to(_("View All"), profile_blogs_path(user)) -%></span>
 		<% if is_me?(@user) -%>
 				<span><%= link_to _("Write a New Post"), new_user_blog_path(current_user) %></span>
@@ -12,7 +11,7 @@
 		<ul>       
 			<% @blogs.each do |blog| -%>
 				<li><%= _("%{link} - %{time} ago.") % {:link => link_to(blog.title, profile_blog_path(@user, blog)), 
-																							 :time => time_ago_in_words(blog.created_at)} -%>
+													 :time => time_ago_in_words(blog.created_at)} -%>
 				</li>
 			<% end -%>
 		</ul>

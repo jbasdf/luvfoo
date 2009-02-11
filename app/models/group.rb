@@ -80,7 +80,7 @@ class Group < ActiveRecord::Base
                     :select => 'users.*, memberships.role',
                     :source => :user do
                       def in_role(role, options = {})
-                        find :all, { :conditions => ['role = ?' , role.to_s] }.merge(options)
+                        find :all, { :conditions => ['role = ?' , role.to_s], :order => "memberships.created_at" }.merge(options)
                       end
                     end
 
