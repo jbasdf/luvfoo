@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   skip_filter :store_location
+  before_filter :store_return_to
   before_filter :login_required, :only => :destroy
   before_filter :not_logged_in_required, :only => [:new, :create]
 
@@ -107,7 +108,7 @@ class SessionsController < ApplicationController
     end
     write_plone_cookie
     flash[:notice] = _("Logged in successfully")
-    return_to = session[:return_to]
+    return_to = get_return_to
     if return_to.nil?
       redirect_to user_path(self.current_user)
     else
