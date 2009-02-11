@@ -125,6 +125,7 @@ class User < ActiveRecord::Base
 
   # Groups
   has_many :memberships, :dependent => :destroy
+  has_many :membership_requests, :dependent => :destroy
   has_many :groups, :through => :memberships, :conditions => 'role != \'banned\''
   has_many :public_groups, :through => :memberships, :source => :group, :foreign_key => 'group_id', :conditions => 'groups.visibility > 0'
   has_many :created_groups, :class_name => 'Group', :foreign_key => 'creator_id'
@@ -261,6 +262,7 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password, :lower_login, :query_services
   before_create :make_activation_code
+  before_destroy :remove_orphans
 
   class ActivationCodeNotFound < StandardError; end
   class AlreadyActivated < StandardError
@@ -277,6 +279,20 @@ class User < ActiveRecord::Base
     'INNER JOIN groups ON groups.id = membership_requests.group_id ' + 
     'INNER JOIN users AS pledges ON pledges.id = membership_requests.user_id ' 
     User.find_by_sql([sql, self.id])
+  end
+  
+  def remove_orphans
+    # specify new owners for any groups they created
+    Group.find(:all, :conditions => {:creator_id => self.id}).each do |group|
+      managers = group.members.in_role('manager')
+      if !managers.empty?
+        new_creator = managers.first
+      else
+        admin_role_id = Role.find(:first, :conditions => {:rolename => 'administrator'}).id
+        new_creator = Permission.find(:first, :conditions => {:role_id => admin_role_id})
+      end
+      group.update_attribute(:creator_id, new_creator.id)
+    end
   end
 
 # TODO remove boolean is_active field
