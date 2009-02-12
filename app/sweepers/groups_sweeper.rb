@@ -16,10 +16,7 @@ class GroupsSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache_for(group)
-    expire_fragment(:controller => '/groups', :action => 'index', :visibility => -1, :page => 1, :per_page => 40)
-    expire_fragment(:controller => '/groups', :action => 'index', :visibility => 0, :page => 1, :per_page => 40)
-    expire_fragment(:controller => '/groups', :action => 'index', :visibility => 0, :page => 1, :per_page => 40, :index => group.name[0,1])
-    expire_fragment(:controller => '/groups', :action => 'index', :visibility => -1, :page => 1, :per_page => 40, :index => group.name[0,1])
+    expire_fragment(%r{/blog/index.*})
   end
   
 end
