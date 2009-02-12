@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
   has_many :feed_items, :through => :feeds, :order => 'created_at desc', :dependent => :destroy
   has_many :private_feed_items, :through => :feeds, :source => :feed_item, :conditions => {:is_public => false}, :order => 'created_at desc'
   has_many :public_feed_items, :through => :feeds, :source => :feed_item, :conditions => {:is_public => true}, :order => 'created_at desc'
-  #has_many :my_feed_items, :through => :feeds, :source => :feed_item, :conditions => ["feed_item.creator_id=?", self.id], :order => 'created_at desc'
+  has_many :my_feed_items, :through => :feeds, :source => :feed_item, :conditions => ["feed_item.creator_id=?", self.id], :dependent => :destroy
   
   def my_feed_items limit = 20
     FeedItem.find(:all, :joins => 'INNER JOIN feeds ON feeds.feed_item_id = feed_items.id', :conditions => ["feeds.ownable_type='User' AND feeds.ownable_id=? AND feed_items.creator_id=?",self.id,self.id], :order => 'created_at desc', :limit => limit)
