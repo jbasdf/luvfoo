@@ -80,6 +80,17 @@ class NewsItem < ActiveRecord::Base
   def can_edit?(user)
     check_creator(user)
   end
+  
+  def video
+    ""
+  end
+  
+  def video= url
+    if !url.empty?
+      body << (_('[youtube: %{video_address}]') % {:video_address => url}) if /^http:\/\/www.youtube/.match( url )
+      body << (_('[googlevideo: %{video_address}]') % {:video_address => url}) if /^http:\/\/video.google/.match( url )
+    end
+  end
 
   protected
   

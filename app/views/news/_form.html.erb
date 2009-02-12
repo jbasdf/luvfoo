@@ -1,13 +1,20 @@
 <div id="new-news-item">
-	<%= f.text_field :title %>
+  <%= f.text_field :title %>
   <%= f.text_area :body, {:class => 'mceEditor'} %>
-  <%= f.text_field :tag_list, { :label => 'Tags'} -%>
-	<div class="clear"></div>
+
+  <div class="clear"></div>
+  
+  <div class="instruction">
+	<%= _('To include a youtube video use: [youtube: address_of_video]') %><br/>
+	<%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %><br/>
+    <%= _("<a href='http://video.google.com/videouploadform'>Upload a video</a> here.") %>
+  </div>
+
+  <%= f.text_field :video, { :label => _('Video Address'), :size => 80} -%>
+  <div class="instruction"><%= _('Or enter the address of a video.') %></div>
+
+  <%= f.text_field :tag_list, { :label => _('Tags')} -%>
   <div class="instruction"><%= _('Add tags to help others discover your content.') %></div>
-	<div class="instruction">
-		<%= _('To include a youtube video use: [youtube: address_of_video]') %>
-	  <%= _('For example: [youtube: http://www.youtube.com/watch?v=J0K_s81Xe3E]') %>
-	</div>
 
   <% if defined?(show_photo_upload) && show_photo_upload -%>
     <div id="upload_icon">
