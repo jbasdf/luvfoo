@@ -1,8 +1,7 @@
 <div class="clear"></div>
 <div class="group-news-item-simple clear left">
 	<div class="left">
-		<%= icon news_item_simple.newsable, :small -%>
-		<%#= link_to news_item_simple.newsable.name, group_path(news_item_simple.newsable) %>
+        <%= link_to icon_tag(news_item_simple, :small), group_news_path(news_item_simple.newsable, news_item_simple) %>
 	</div>
 	<div class="right">
 		<h3><%= link_to "#{truncate(sanitize(news_item_simple.title), 100)}", group_news_path(news_item_simple.newsable, news_item_simple) %> <%= _('(from %{group_link})') % {:group_link => link_to(news_item_simple.newsable.name, group_path(news_item_simple.newsable)) } %></h3>
