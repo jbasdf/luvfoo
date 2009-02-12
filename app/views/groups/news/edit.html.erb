@@ -1,7 +1,7 @@
 <h1><%= _('Edit News Item') %></h1>
 <%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
 <% custom_form_for @news_item, :url => group_news_path(@group, @news_item), :html => { :method => :put, :multipart => true, :class => "box no_top" } do |f| -%>
-	<%= render :partial => 'news/form', :locals => {:f => f } %>
+	<%= render :partial => 'news/form', :locals => {:f => f, :show_photo_upload => true } %>
 <% end %>
 
 
