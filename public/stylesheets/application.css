@@ -27,7 +27,7 @@ input[type="checkbox"]{border:none;margin:0;background:none;background-color:tra
 #top a{font-weight:bold;color:#fff;}
 #top img{margin:0 0 0 10px;}
 #top h1{color:#fff;margin:0;padding:20px 0 0 75px;font-size:28px;font-weight:bolder;}
-#top h2{color:#F9E475;margin:5px 0 0 0;padding:0 0 0 80px;font-size:14px;font-weight:bolder;}
+#top h2{color:#FFF;margin:0px 0 0 0;padding:0px 0 0 620px;font-size:12px;font-weight:bolder;}
 #tagline{margin:-52px 10px;}
 #top-links{text-align:right;margin:5px 40px;font-weight:bolder;font-style:italic;font-size:14px;color:#F9E475;}
 #top-links a{font-size:14px;margin:10px;}
