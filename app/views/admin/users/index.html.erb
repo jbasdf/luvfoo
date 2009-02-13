@@ -4,7 +4,7 @@
   <h2>
       <%= @order == 'alpha' ? _('Alpha') : link_to(_('Alpha'), admin_users_path(:order => 'alpha'), :class => 'browse-type-link') %>
       | <%= @order == 'chrono' ? _('Newest') : link_to(_('When Joined'), admin_users_path(:order => 'chrono'), :class => 'browse-type-link') %>
-      <span class="pagination"><%= will_paginate(@users, :container => false) if @query.nil? %></span>
+      <span class="pagination"><%= will_paginate(@users, :container => false, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;')) if @query.nil? %></span>
   </h2>
 	<%= render :partial => 'admin/users/table' -%>
     <%= will_paginate(@users) if @query.nil?%>

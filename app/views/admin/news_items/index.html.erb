@@ -32,7 +32,7 @@
 		</tbody>
   </table>
 	<div class="clear"></div>
-  <%= will_paginate @news_items %>
+  <%= will_paginate @news_items, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 
 	<div id="story-promotion" class="hidden">
 		<%= render :partial => 'news/promote' %>

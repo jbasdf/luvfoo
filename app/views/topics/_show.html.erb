@@ -33,7 +33,7 @@
   <%= count_for('voice', @topic.voices.size) %>
 </p>
 
-<%= will_paginate @posts %>
+<%= will_paginate @posts, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 
 <a name="<%= dom_id @posts.first %>" id="<%= dom_id @posts.first %>">&nbsp;</a>
 
@@ -76,7 +76,7 @@
   <% end %>
 </table>
      
-<%= will_paginate @posts %>
+<%= will_paginate @posts, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 
 <% if logged_in? -%>
   <% if @topic.locked? -%>

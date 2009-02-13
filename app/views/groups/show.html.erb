@@ -37,7 +37,7 @@
     </h2>
     <%= render :partial => 'groups/photos/small_photo', :collection => @photos -%>
     <div class="clear"></div>
-  	<%= will_paginate @photos -%>
+  	<%= will_paginate @photos, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') -%>
   </div>
 	
 	<div class="clear"></div>

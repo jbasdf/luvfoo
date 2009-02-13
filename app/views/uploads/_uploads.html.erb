@@ -15,7 +15,7 @@
 		<%= render :partial => 'uploads/upload_row', :collection => @uploads, :locals => {:style => '', :share => share, :parent => parent} -%>
 	</tbody>
 </table>
-<%= will_paginate @uploads %>
+<%= will_paginate @uploads, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 
 <script type="text/javascript">
 jQuery(document).ready(function() {

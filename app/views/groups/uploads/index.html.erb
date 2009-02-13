@@ -5,7 +5,7 @@
 		<h2><%= _('Files') %></h2>
 		<%= render :partial => 'uploads/uploads', :locals => {:share => false, :parent => @parent} -%>
     <div class="clear">
-  		<%= will_paginate @uploads %>
+  		<%= will_paginate @uploads, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 		</div>
   </div>
 	<div class="clear"></div>

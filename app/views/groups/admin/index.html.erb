@@ -23,7 +23,7 @@
 <% end %>
 
     <div class="clear"></div>
-  	<%= will_paginate @members %>
+  	<%= will_paginate @members, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
   </div>
   
 	<div class="clear"></div>

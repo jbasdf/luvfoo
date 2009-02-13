@@ -14,7 +14,7 @@
   <%= feed_icon_tag @page_title, formatted_monitored_posts_path(:user_id => @user, :format => 'rss') %>
   <%= count_for('post', @posts.total_entries), 'found' %>
 </p>
-<%= will_paginate @posts %>
+<%= will_paginate @posts, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 <table border="0" cellspacing="0" cellpadding="0" class="posts wide">
   <% for post in @posts do %>
     <% unless post == @posts.first %>
@@ -44,4 +44,4 @@
     </tr>
   <% end %>
 </table>
-<%= will_paginate @posts %>
+<%= will_paginate @posts, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>

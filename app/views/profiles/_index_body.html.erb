@@ -15,7 +15,7 @@
       <%= render(:partial => 'shared/alpha_index') %>
     <% else -%>
       <% if @browse == 'date' && @results %>
-        <span class="pagination" style="padding-left:30px;"><%= will_paginate(@results, :container => false) %></span>
+        <span class="pagination" style="padding-left:30px;"><%= will_paginate(@results, :container => false, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;')) %></span>
       <% end -%>
     <% end -%>
   </h2>
@@ -29,7 +29,7 @@
     <div style="margin:0 auto;width:540px;"><%=render(:partial => 'shared/alpha_index') %></div>
   <% else -%>
     <% if @browse == 'date' && @results -%>
-      <%= will_paginate(@results) %>
+      <%= will_paginate(@results, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;')) %>
     <% end -%>
   <% end -%>  
 </div>

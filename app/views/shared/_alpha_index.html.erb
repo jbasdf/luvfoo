@@ -3,4 +3,4 @@
      <%= @alpha_index == l ? "<span class='current'>#{l}</span>" : link_to(l, :browse => 'alpha', :alpha_index => l) %>	
   <% end %>
 </span>
-<br/><span class="pagination" style="padding-left:30px;"><%= will_paginate(@results, :container => false) %></span>
+<br/><span class="pagination" style="padding-left:30px;"><%= will_paginate(@results, :container => false, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;')) %></span>

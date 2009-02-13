@@ -20,5 +20,5 @@
 		<% end -%>
 		</tbody>
 	</table>
-	<%= will_paginate @news_items %>
+	<%= will_paginate @news_items, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 </div>

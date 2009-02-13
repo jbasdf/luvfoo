@@ -18,5 +18,5 @@
 			<%= render :partial => 'shared_group_row', :collection => @shared_uploads, :locals => {:style => '', :can_edit => can_edit} -%>
 		</tbody>
 	</table>
-	<%= will_paginate @shared_uploads %>
+	<%= will_paginate @shared_uploads, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 </div>

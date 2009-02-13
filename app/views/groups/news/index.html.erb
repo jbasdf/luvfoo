@@ -5,7 +5,7 @@
 		<h2><%= _('Latest News') %> <% if manager? -%><span><a href="<%= new_group_news_path(@group) %>" class="view-all"><%= _('Add News') %></a></span><% end -%></h2>
     <%= render :partial => 'news_item_min', :collection => @news %>
     <div class="clear"></div>
-  	<%= will_paginate @news %>
+  	<%= will_paginate @news, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
   </div>
 	<div class="clear"></div>
 </div>

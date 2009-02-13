@@ -12,7 +12,7 @@
 		<%= render :partial => 'comments/comment', :collection => comments %>
 	</div>
 	
-	<%= will_paginate comments%>
+	<%= will_paginate comments, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 </div>
 
 <%= render :partial => 'comments/form', :locals => { :parent => @user } if logged_in? -%>

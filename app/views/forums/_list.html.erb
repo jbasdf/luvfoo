@@ -10,7 +10,7 @@
     <% end %>
   </p>
 
-  <%= will_paginate @topics %>
+  <%= will_paginate @topics, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 
   <table border="0" cellspacing="0" cellpadding="0" class="wide topics">
   <tr>

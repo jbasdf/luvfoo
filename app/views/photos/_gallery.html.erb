@@ -29,7 +29,7 @@ if mini
       <%= render :partial => 'photos/photo', :collection => @photos %>
       <div class="clear"></div>
     </div>
-    <%= will_paginate @photos %>
+    <%= will_paginate @photos, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
     <div class="clear"></div>
   
 <%- end -%>

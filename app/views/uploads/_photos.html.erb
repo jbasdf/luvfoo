@@ -15,5 +15,5 @@
 		<%= link_to image_tag(img.public_filename(:thumb)), user_upload_path(@user, img) -%>
 	<% end -%>
 	</div>
-	<%= will_paginate @images %>
+	<%= will_paginate @images, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 </div>

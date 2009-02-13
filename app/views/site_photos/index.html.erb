@@ -1,4 +1,4 @@
-<%= will_paginate @photos %>
+<%= will_paginate @photos, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 <%= render :partial => 'photos/photo', :collection => @photos %>
 <div class="clear"></div>
-<%= will_paginate @photos %>
+<%= will_paginate @photos, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>

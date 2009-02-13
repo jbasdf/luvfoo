@@ -14,7 +14,7 @@
 			<%= render :partial => 'comments/comment', :collection => @comments %>
 		</div>
     <div class="clear"></div>
-  	<%= will_paginate @comments %>
+  	<%= will_paginate @comments, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
   </div>  
 	<div class="clear"></div>
 </div>

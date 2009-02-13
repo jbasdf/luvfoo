@@ -15,7 +15,7 @@
       <%= render :partial => 'event', :collection => @events %>
     </table>
     <div class="clear"></div>
-  	<%= will_paginate @events %>
+  	<%= will_paginate @events, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
   </div>
 	<div class="clear"></div>
 </div>

@@ -9,6 +9,6 @@
 				</li>
 			<% end -%>
     </ul>
-  	<%= will_paginate @blogs -%>
+  	<%= will_paginate @blogs, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') -%>
   </div>
 </div>

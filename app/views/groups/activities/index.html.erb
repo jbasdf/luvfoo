@@ -8,7 +8,7 @@
   		<%= render( :partial => "feed_items/#{feed_item.partial}", :locals => {:feed_item => feed_item}) %>
   	<% end %>
     <div class="clear"></div>
-  	<%= will_paginate @feed_items %>
+  	<%= will_paginate @feed_items, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
   </div>
 	<div class="clear"></div>
 </div>

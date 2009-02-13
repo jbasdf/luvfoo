@@ -1,5 +1,5 @@
 <div class="activity_box">
   <h2><%= _('Member Stories') %><% if is_admin? -%><span class="link-button"><%= link_to _("Add New Story"), new_admin_news_item_path %><% end -%></span></h2>
 	<%= render :partial => 'member_story_summary', :collection => @news_items -%>
-	<%= will_paginate @news_items %>
+	<%= will_paginate @news_items, :previous_label => _('&laquo; Previous'), :next_label => _('Next &raquo;') %>
 </div>
