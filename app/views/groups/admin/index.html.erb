@@ -11,11 +11,11 @@
 
 <table class='news'>
     <tr>
-        <th>User</th>
-        <th class='center'>Manager</th>
-        <th class='center'>Member</th>
-        <th class='center'>Observer</th>
-        <th class='center'>Banned</th>
+        <th><%= _('User') %> - <%= _('%{member_count} members)') % {:member_count => group.member_count}%></th>
+        <th class='center'><%= _('Manager') %></th>
+        <th class='center'><%= _('Member') %></th>
+        <th class='center'><%= _('Observer') %></th>
+        <th class='center'><%= _('Banned') %></th>
    </tr>
     <%= render :partial => 'groups/admin/group_member', :collection => @members %>
 </table>

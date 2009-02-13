@@ -15,7 +15,7 @@
 
 class Membership < ActiveRecord::Base
   belongs_to :user
-  belongs_to :group
+  belongs_to :group, :counter_cache => 'member_count'
 
   def after_create
     feed_to = group.feed_to
