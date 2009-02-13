@@ -5,13 +5,13 @@
 	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
 	
 	<div class="activity_box">
-		<h2><%= _('Members') %></h2>
+		<h2><%= _('Members') %> (<%= @group.member_count%>)</h2>
 
 <% form_for :memberships, :url => update_memberships_in_group_path(@group) do |f| -%>
 
 <table class='news'>
     <tr>
-        <th><%= _('User') %> - <%= _('%{member_count} members)') % {:member_count => @group.member_count}%></th>
+        <th><%= _('User') %></th>
         <th class='center'><%= _('Manager') %></th>
         <th class='center'><%= _('Member') %></th>
         <th class='center'><%= _('Observer') %></th>
