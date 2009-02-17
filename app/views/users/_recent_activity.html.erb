@@ -5,8 +5,7 @@
 		<div id="activity_feed" class="inside_box">    
 			<% feed_items.each do |feed_item| -%>
 			  <% next unless feed_item.item -%>
-			  <% key = feed_item.id -%>
-			  <% cache ("feed_items/#{key}") do -%>
+			  <% cache :controller => 'feed_items', :feed_item_id => feed_item.id, :locale => locale do -%>
 				  <%= render( :partial => "feed_items/#{feed_item.partial}", :locals => {:feed_item => feed_item}) %>
 			  <% end -%>
 			<% end -%>
