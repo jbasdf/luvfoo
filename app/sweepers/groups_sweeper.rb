@@ -16,7 +16,7 @@ class GroupsSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_cache_for(group)
-    expire_fragment(%r{/blog/index.*})
+    expire_fragment(%r{groups.*})
   end
   
 end

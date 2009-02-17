@@ -5,6 +5,8 @@ class Users::GroupsController < ApplicationController
   before_filter :login_required
   before_filter :get_user
 
+  cache_sweeper :groups_sweeper, :only => [:update, :destroy]
+
   # if a user exists in the request show groups for that user.  If not then show all groups
   def index
 

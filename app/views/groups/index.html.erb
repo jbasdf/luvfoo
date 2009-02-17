@@ -2,7 +2,7 @@
 	<%#= auto_discovery_link_tag :rss, formatted_groups_url(:rss), :title=> _("Groups") -%>
 <% end -%>
 
-<% cache(:controller => '/groups', :action => 'index', :visibility => @visibility_threshold, :index => @alpha_index, :page => @page, :per_page => @per_page, :query => @query) do %>
+<% cache(:controller => 'groups', :action => 'index', :visibility => @visibility_threshold, :index => @alpha_index, :page => @page, :per_page => @per_page, :query => @query, :logged_in => logged_in?, :locale => locale) do %>
 <form action='/groups/search' method='get'>
 <h1><%= _("Groups") -%>
 	<span id="search_object">
