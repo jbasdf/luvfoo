@@ -208,7 +208,6 @@ class UsersController < ApplicationController
     had_avatar = !@user.icon.nil?
 
     if @user.update_from_params params
-      expire_home_page_cache if !had_avatar && !@user.icon.nil?
       expire_profile_directory_cache(@user)
       @user.salesforce_sync if GlobalConfig.integrate_salesforce
       flash[:notice] = _("Settings have been saved.")
@@ -263,7 +262,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       user = is_admin? ? User.find_by_login(params[:id]) : current_user
       user.update_attribute :icon, nil
-      expire_home_page_cache
       format.js { render(:update){|page| page.visual_effect :puff, 'avatar_edit'}}
     end      
   end
@@ -278,16 +276,9 @@ class UsersController < ApplicationController
     end
   end
   
-  def expire_home_page_cache
-    expire_fragment(:controller => '/home', :action => 'home')
-  end
-
   def expire_profile_directory_cache(user)
-    expire_fragment(:controller => '/profiles', :action => 'snippet', :id => user.id)
-    
-    (1..10).each do |page_num|
-      expire_fragment(:controller => '/profiles', :action => 'index', :browse => 'alpha', :index => user.last_name[0,1], :page => page_num, :per_page => 20)
-    end
+    expire_fragment(:controller => 'profiles', :action => 'snippet', :id => user.id)
+    expire_fragment(%r{profiles.*})
   end
 
 end

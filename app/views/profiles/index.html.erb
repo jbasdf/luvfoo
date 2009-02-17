@@ -1,5 +1,5 @@
 <% if @query.nil? %> 
-  <% cache(:controller => '/profiles', :action => 'index', :browse => @browse, :index => @alpha_index, :page => @page, :per_page => @per_page) do %>
+  <% cache(:controller => 'profiles', :action => 'index', :browse => @browse, :index => @alpha_index, :page => @page, :per_page => @per_page, :locale => locale) do %>
     <%= render :partial => 'index_body' %>
     <% end %>
 <% else %>

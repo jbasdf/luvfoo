@@ -74,10 +74,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def cache
-    render :partial => 'profiles/profile_cache', :layout => false, :locals => {:profile => User.find(params[:id])}
-  end
-
   private
 
   def search_results
