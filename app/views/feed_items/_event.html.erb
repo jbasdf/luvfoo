@@ -6,12 +6,11 @@ group = event.eventable
 <div class="feed_item event_feed" id="<%= feed_item.dom_id %>">
   <div class="left">
     <%= icon user, :small, :class => "icon_small" %>
-    <%= link_to user.short_name, profile_path(user) %>
-    added a new event: 
-    <div class="activity-event">
-      <%= link_to event.title, group_event_path(group, event) %> in <%= link_to group.name, group_path(group)%>
-      <small><%= time_ago_in_words(event.created_at) %> ago</small>
-    </div>
+    <%= _("%{user_link} added a new event: <div class='activity-event'>%{event_link} in %{group_link} <small>%{time_ago} ago</small></div>") % 
+		{:user_link => link_to(user.short_name, profile_path(user)), 
+    	:event_link => link_to(event.title, group_event_path(group, event)),
+		:group_link => link_to(group.name, group_path(group)),
+		:time_ago => time_ago_in_words(event.created_at)} %>
   </div>
   <div class="right">
     <%= x_feed_link(feed_item) %>
