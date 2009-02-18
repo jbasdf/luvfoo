@@ -5,7 +5,7 @@
 		<h2><%= _('Events') %> 
 		  <% if manager? -%><span><a href="<%= new_group_event_path(@group) %>" class="view-all"><%= _('Add Event') %></a></span><% end -%>
 		  <span><a target="_blank" href="http://www.google.com/calendar/render?cid=<%=group_events_url(@group, :format => 'ics')%>">
-    	  <img height="20px" alt="Add events from this group to Google calendar" src="http://www.google.com/calendar/images/ext/gc_button1.gif" border="0">
+    	  <img height="20px" alt="<%= _('Add events from this group to Google calendar') %>" src="http://www.google.com/calendar/images/ext/gc_button1.gif" border="0">
     	</a></span>
     	<span>
   	    <%= link_to image_tag('ical.gif'), formatted_group_events_url(@group, :ics) %>
