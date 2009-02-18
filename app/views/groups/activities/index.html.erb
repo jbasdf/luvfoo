@@ -1,5 +1,5 @@
 <div class="left" id="column_l">	
-	<h1><%= @group.name %> - Latest Activity</h1>
+	<h1><%= _('%{group_name} - Latest Activity') % {:group_name => @group.name}%></h1>
 	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
 	<div id="news" class="activity_box">
 		<h2><%= _('Latest Activity') %></h2>

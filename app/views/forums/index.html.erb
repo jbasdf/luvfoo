@@ -1,7 +1,7 @@
 <% content_for :right do %>
   <% if admin? %>
-    <h6><%= 'Admin' %></h6>
-    <p><%= link_to 'Create New Forum', new_forum_path, :class => "utility" %></p>
+    <h6><%= _('Admin') %></h6>
+    <p><%= link_to _('Create New Forum'), new_forum_path, :class => "utility" %></p>
   <% end %>
 <% end %>
 
@@ -9,7 +9,7 @@
   
   <h1 style="margin-top:0;"><%= 'Forums' %></h1>
   <p class="subtitle">
-    <%= feed_icon_tag "Recent Posts", formatted_posts_path(:format => 'rss') %>
+    <%= feed_icon_tag _("Recent Posts"), formatted_posts_path(:format => 'rss') %>
     <%= count_for('topic', Topic.count) %>, 
     <%= count_for('post', Post.count) %>, <%= count_for('user', User.count(:conditions => "posts_count > 0")) %>
   </p>
@@ -21,15 +21,15 @@
       <th width="5%">Topics</th>
       <th width="5%">Posts</th>
   -->
-      <th class="la" width="30%" colspan="1"><%= 'Last Post' %></th>
+      <th class="la" width="30%" colspan="1"><%= _('Last Post') %></th>
     </tr>
   <% for forum in @forums do %>  
     <tr>
       <td class="vat c1">
         <% if recent_forum_activity(forum) %>
-          <%= image_tag "clearbits/comment.gif", :class => "icon green", :title => 'Recent activity' %>
+          <%= image_tag "clearbits/comment.gif", :class => "icon green", :title => _('Recent activity') %>
         <% else %>
-          <%= image_tag "clearbits/comment.gif", :class => "icon grey", :title => 'No recent activity' %>
+          <%= image_tag "clearbits/comment.gif", :class => "icon grey", :title => _('No recent activity') %>
         <% end %>
       </td>
       <td class="c2 vat">
@@ -41,13 +41,13 @@
         <p class="desc"><%= forum.description_html %></p>
       </td>
       <td class="c3">
-        <%= link_to 'Edit', edit_forum_path(forum), :class => "tiny", :rel => "directory", :style => "float:right" if admin? %>
+        <%= link_to _('Edit'), edit_forum_path(forum), :class => "tiny", :rel => "directory", :style => "float:right" if admin? %>
       </td>
       <td class="inv lp">
         <% if forum.recent_post %>
           <%= time_ago_in_words(forum.recent_post.created_at) %><br />
           <%= _('by %{user}') % {:by_user => "<strong>#{h(forum.recent_post.user.display_name)}</strong>"} %>
-          <span>(<%= link_to 'view', forum_topic_path(:forum_id => forum, :id => forum.recent_post.topic_id, :page => forum.recent_post.topic.last_page, :anchor => forum.recent_post.dom_id) %>)</span>
+          <span>(<%= link_to _('view'), forum_topic_path(:forum_id => forum, :id => forum.recent_post.topic_id, :page => forum.recent_post.topic.last_page, :anchor => forum.recent_post.dom_id) %>)</span>
         <% end %>
       </td>
     </tr>
@@ -55,7 +55,7 @@
   </table>
 
   <p>
-    <%= link_to 'Recent posts', all_posts_path %>
+    <%= link_to _('Recent Posts'), all_posts_path %>
   </p>
 
   <% online_users = User.currently_online -%>
@@ -63,7 +63,7 @@
     <div class="stats">
       <div class="users">
         <% unless !online_users || online_users.empty? %>
-          <%= 'Users online:' %> <%= online_users.map { |u| link_to "<strong>#{h u.display_name}</strong>", user_path(u) } * ", " %><br />
+          <%= _('Users online:') %> <%= online_users.map { |u| link_to "<strong>#{h u.display_name}</strong>", user_path(u) } * ", " %><br />
         <% end %>
       </div>
     </div>

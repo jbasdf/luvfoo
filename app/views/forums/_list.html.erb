@@ -14,7 +14,7 @@
 
   <table border="0" cellspacing="0" cellpadding="0" class="wide topics">
   <tr>
-    <th class="la" colspan="2"><%= 'Topic' %></th>
+    <th class="la" colspan="2"><%= _('Topic') %></th>
     <th width="1%"><%= _('Posts') %></th>
     <th width="1%"><%= _('Views') %></th>
     <th class="la"><%= _('Last post') %></th>
@@ -32,18 +32,18 @@
       end
       %>
       <% if recent_topic_activity(topic) %>
-      <%= image_tag "clearbits/#{icon}.gif", :class => "icon green", :title => "Recent activity #{post}" %>
+      <%= image_tag "clearbits/#{icon}.gif", :class => "icon green", :title => _("Recent activity #{post}") %>
       <% else %>
-        <%= image_tag "clearbits/#{icon}.gif", :class => "icon grey #{color}", :title => "No recent activity #{post}" %>
+        <%= image_tag "clearbits/#{icon}.gif", :class => "icon grey #{color}", :title => _("No recent activity #{post}") %>
       <% end %>
     </td>
     <td class="c2">
-      <%= "Sticky: <strong>" if topic.sticky? %>
+      <%= _("Sticky: <strong>") if topic.sticky? %>
       <%= topic_title_link (topic), :class => "entry-title", :rel => "bookmark" %>
       <%#= link_to h(topic.title), topic_path(@forum, topic), :class => "entry-title", :rel => "bookmark" %>
       <%= "</strong>" if topic.sticky? %>
       <% if topic.paged? -%>
-      <small><%= link_to 'last', forum_topic_path(:forum_id => @forum, :id => topic, :page => topic.last_page) %></small>
+      <small><%= link_to _('last'), forum_topic_path(:forum_id => @forum, :id => topic, :page => topic.last_page) %></small>
       <% end -%>
     </td>
     <td class="ca inv stat"><%= topic.posts.size %></td>
