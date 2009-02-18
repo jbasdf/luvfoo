@@ -5,10 +5,10 @@
 	<thead>
 		<tr>
 			<th>&nbsp;</th>
-			<th>File Name</th>
-			<th>Created</th>
+			<th><%= _('File Name') %></th>
+			<th><%= _('Created') %></th>
 			<% if share -%><th>&nbsp;</th><% end -%>
-			<% if parent.can_edit?(current_user) -%><th>Delete</th><% end -%>
+			<% if parent.can_edit?(current_user) -%><th><%= _('Delete') %></th><% end -%>
 		</tr>
 	</thead>			
 	<tbody id="upload-list" >
