@@ -19,12 +19,12 @@
 	<div id="upload_icon">
 	  <% form_for @group, :html => { :method => :put, :multipart => true, :class => "box no_top" } do |f| %>
 	    <h2><%= _("Upload Photo:") %></h2>
-	    <label>Upload a photo for <%= @group.name -%></label>
+	    <label><%= _('Upload a photo for %{group_name}') % {:group_name => @group.name} %></label>
 	    <%= file_column_field( "group", "icon", :size => 15) %>
-			<h3>Photo Tips:</h3>
+			<h3><%= _('Photo Tips:') %></h3>
 			<ul>
-				<li>Select an image that is square otherwise it might be cropped.</li>
-				<li>For best quality select an image that is 200x200px.</li>
+				<li><%= _('Select an image that is square otherwise it might be cropped.') %></li>
+				<li><%= _('For best quality select an image that is 200x200px.') %></li>
 			</ul>
 	    <div class="clear"></div>
 	    <% unless @group.icon.blank? %>
