@@ -14,7 +14,7 @@ class ContentController < ApplicationController
   protected
 
   def render_page page_path
-    page_locale = params[:locale] || params[:language] || "en-us"
+    page_locale = locale || params[:locale] || params[:language] || "en_US"
     url_key = params[:content_page].join('/')
     content_page = "#{RAILS_ROOT}/content/#{page_path}/#{page_locale}/#{url_key}.html"
     render :file => content_page, :layout => true
