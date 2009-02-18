@@ -3,7 +3,7 @@
 <% end -%>
 
 <div class="left" id="column_l">	
-	<h1><%= @group.name %> Photos</h1>
+	<h1><%= _('%{group_name} - Photos') % {:group_name => @group.name} %></h1>
 	<%= render :partial => 'groups/group_nav', :locals => {:group => @group} %>
 	<div id="photos" class="activity_box">
   	<h2><%= _('Latest Photos') %></h2>
