@@ -8,7 +8,7 @@
 			<%= summarize(news_item_min.body, 320) %>
 			<%= link_to _('Read More &gt;&gt;'), group_news_path(@group, news_item_min) %>
 		</div>
-		<div>Posted <%= time_ago_in_words news_item_min.created_at %> ago
+		<div><%= _("Posted %{time_ago} ago") % {:time_ago => time_ago_in_words news_item_min.created_at} %>
 			<% if manager? -%>
 				<%= link_to _('Edit'), edit_group_news_path(@group, news_item_min) -%> |
 				<%= link_to _('Delete'), group_news_path(@group, news_item_min), :method => :delete -%>
