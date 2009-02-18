@@ -10,7 +10,7 @@ user = status_update.user || feed_item.creator
 <div class="feed_item comment_feed" id="<%= dom_id %>">
   <div class="left activity-status-update">
     <%= icon user, :small, :class => "icon_small" %> <%= link_to user.short_name, profile_path(user) %>  <%= status_update.text %>
-    <small><%= time_ago_in_words(status_update.created_at) %> ago</small>
+    <small><%= "%{time_ago} ago" % {:time_ago => time_ago_in_words(status_update.created_at)} %></small>
   </div>
   <div class="right">
     <%= x_feed_link(feed_item) %>
