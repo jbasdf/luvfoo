@@ -14,7 +14,7 @@
 	</div>
 <% end -%>
 
-<%= will_paginate @feed_items, :previous_label => '« Newer', :next_label => 'Older »' -%>
+<%= will_paginate @feed_items, :previous_label => _('&laquo; Newer'), :next_label => _('Older &raquo;') -%>
 
 <script type="text/javascript">
 jQuery(document).ready(function() {
