@@ -1,6 +1,6 @@
 <div id="new-news-item">
-  <%= f.text_field :title %>
-  <%= f.text_area :body, {:class => 'mceEditor'} %>
+  <%= f.text_field :title, :label => _('Title') %>
+  <%= f.text_area :body, {:class => 'mceEditor', :label => _('Body')} %>
 
   <div class="clear"></div>
   
