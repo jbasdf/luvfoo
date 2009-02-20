@@ -127,7 +127,8 @@ class GroupsControllerTest < Test::Unit::TestCase
   context "logged in manager" do
 
     setup do
-      login_as users(:admin)
+      @admin_user = users(:admin)
+      login_as @admin_user
     end        
 
     should_be_restful do |resource|
@@ -170,16 +171,16 @@ class GroupsControllerTest < Test::Unit::TestCase
 
     end        
 
-    should "not delete group only mark 'deleted'" do
+    should "not delete group only mark it 'deleted'" do
       assert_no_difference "Group.count" do
-        africa = groups(:africa)
-        delete :destroy, { :id => africa.to_param }
+        group = Factory(:group, :creator => @admin_user)
+        delete :destroy, { :id => group.to_param }
         assert_redirected_to groups_url
-        africa.reload
-        assert africa.visibility == Group::DELETED
+        group.reload
+        assert group.visibility == Group::DELETED
       end
     end
-
+    
   end
 
 end

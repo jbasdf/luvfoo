@@ -10,6 +10,8 @@ class Users::SharedEntriesControllerTest < Test::Unit::TestCase
     @entry = entries(:quentin_entry)
   end
 
+  should_require_login :index, :create, :destroy
+  
   context 'not logged in' do
 
     context "GET index" do
