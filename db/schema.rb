@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090130215909) do
+ActiveRecord::Schema.define(:version => 20090213002439) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(:version => 20090130215909) do
     t.string   "default_role",              :default => "member"
     t.integer  "visibility",                :default => 2
     t.boolean  "requires_approval_to_join", :default => false
+    t.integer  "member_count"
   end
 
   add_index "groups", ["url_key"], :name => "index_groups_on_url_key"
