@@ -17,6 +17,18 @@ class ProfilesControllerTest < Test::Unit::TestCase
     should_render_template :index
   end
 
+  context "get to show" do
+    setup do
+      @user = Factory(:user)
+      Factory(:feed_item, :creator => @user)
+      Factory(:feed_item, :creator => @user)
+      get :show, :id => @user.to_param
+    end
+
+    should_respond_with :success
+    should_render_template :show
+  end
+  
 #  context 'on POST to :search' do
 #    setup do
 #      post :search, {:q => 'user'}

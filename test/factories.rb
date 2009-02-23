@@ -114,6 +114,12 @@ Factory.define :event do |f|
   f.user {|a| a.association(:user)}
 end
 
+Factory.define :feed_item do |f|
+  f.is_public true
+  f.item {|a| a.association(:user)}
+  f.creator {|a| a.association(:user)}
+end
+
 Factory.define :status_update do |f|
   f.user {|a| a.association(:user)}
   f.text { Factory.next(:description) }

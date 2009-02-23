@@ -48,8 +48,10 @@ class Test::Unit::TestCase
 
 
   def _test_associations
-    return true if ['SpiderTest', 'Controller', 'ActiveSupport', 'ActionMailer'].any?{|x| self.class.to_s.include?(x)} ||
-    @@association_test_exclusions.include?(self.class.to_s)
+    if ['SpiderTest', 'Controller', 'ActiveSupport', 'ActionMailer'].any?{|x| self.class.to_s.include?(x)} ||
+      @@association_test_exclusions.include?(self.class.to_s)
+      return true
+    end
     check_associations(self.class.to_s.gsub('Test', '').constantize)
   end
 

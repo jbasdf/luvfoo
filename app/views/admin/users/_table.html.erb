@@ -13,7 +13,7 @@
 	<% @users.each do |user| -%>
 	<tr id="<%=user.dom_id('row')%>" class="<%= cycle('odd','even') %>">
 		<td><%= icon user, :small %></td>
-		<td><%= link_to h(user.full_name), user %></td>
+		<td><%= link_to h(user.full_name), profile_path(user) %></td>
 		<td><%= mail_to h(user.email), user.email %></td>
 		<td><%= _('%{when} ago') % {:when => time_ago_in_words(user.created_at.to_s)} %></td>
 		<td id="<%=user.dom_id('link')%>"><%= render :partial => 'admin/users/activate', :locals => {:user => user} %></td>

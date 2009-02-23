@@ -86,8 +86,9 @@ class UsersController < ApplicationController
     end
     
     if GlobalConfig.automatically_login_after_account_create
-      # Have the user logged in after creating an account - Not Recommended
+      # Have the user logged in after creating an account - Not Recommended but very easy :-)
       self.current_user = @user
+      write_logged_in_cookies(@user.login, params[:user][:password])
     end
         
     send_welcome_msg

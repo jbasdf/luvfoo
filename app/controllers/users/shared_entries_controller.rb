@@ -3,8 +3,8 @@ class Users::SharedEntriesController < ApplicationController
   include UserMethods
   before_filter :get_user 
   before_filter :authorization_required, :only => [:edit, :create, :new]
-  before_filter :setup, :only => [:show, :edit, :destroy]
   before_filter :login_required, :except => [:show]
+  before_filter :setup, :only => [:show, :edit, :destroy]
 
   def show
     @can_edit = (@user.id == current_user.id)

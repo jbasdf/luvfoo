@@ -102,11 +102,7 @@ class SessionsController < ApplicationController
   end
 
   def successful_login
-    if params[:remember_me] == "1"
-      self.current_user.remember_me
-      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-    end
-    write_plone_cookie
+    write_logged_in_cookies(params[:login], params[:password])
     flash[:notice] = _("Logged in successfully")
     return_to = get_return_to
     if return_to.nil?
@@ -115,23 +111,8 @@ class SessionsController < ApplicationController
       redirect_to return_to
     end
   end
-
+  
   protected 
-
-  def write_plone_cookie
-    return unless GlobalConfig.integrate_plone
-    require 'digest'
-    require 'base64'
-    cookie_str = Digest.hexencode(params[:login]) + ':' + Digest.hexencode(params[:password])
-    cookie_val = Base64.b64encode(cookie_str).rstrip  
-    cookies[:__ac] = { :value => cookie_val, :expires => self.current_user.remember_token_expires_at, :path => '/', :domain => '.' + GlobalConfig.application_base_url }
-  end
-
-  def delete_plone_cookie
-    return unless GlobalConfig.integrate_plone
-    cookies[:__ac] = { :value => nil, :domain => '.' + GlobalConfig.application_base_url, :expires => Time.at(0) }
-    # cookies.delete :__ac Delete doesn't work for some reason
-  end
 
   def permission_denied      
     respond_to do |format|

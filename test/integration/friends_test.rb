@@ -51,12 +51,12 @@ class FriendsTest < ActionController::IntegrationTest
     def accepts_friend_request(friend)
       post user_friends_path(get_user, :id => friend)
       is_redirected_to("profiles/show")
-      assert_select "a", :text => 'Stop Being Colleagues' 
+      assert_select "a", :text => 'Stop Being Friends' 
     end
     
     def sees_friend_request_was_successful(friend)
       goes_to("/profiles/#{friend.to_param}", "profiles/show")
-      assert_select "a", :text => 'Stop Being Colleagues'
+      assert_select "a", :text => 'Stop Being Friends'
     end
     
     def get_user

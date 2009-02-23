@@ -262,5 +262,28 @@ module AuthenticatedSystem
     end
   end
   
+  def write_logged_in_cookies(login, password)
+    if params[:remember_me] == "1"
+      self.current_user.remember_me
+      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+    end
+    write_plone_cookie(login, password)
+  end
+  
+  def write_plone_cookie(login, password)
+    return unless GlobalConfig.integrate_plone
+    require 'digest'
+    require 'base64'
+    cookie_str = Digest.hexencode(login) + ':' + Digest.hexencode(password)
+    cookie_val = Base64.b64encode(cookie_str).rstrip  
+    cookies[:__ac] = { :value => cookie_val, :expires => self.current_user.remember_token_expires_at, :path => '/', :domain => '.' + GlobalConfig.application_base_url }
+  end
+
+  def delete_plone_cookie
+    return unless GlobalConfig.integrate_plone
+    cookies[:__ac] = { :value => nil, :domain => '.' + GlobalConfig.application_base_url, :expires => Time.at(0) }
+    # cookies.delete :__ac Delete doesn't work for some reason
+  end
+  
 end
 
