@@ -20,7 +20,7 @@ class Groups::SharedEntriesController < ApplicationController
     end
 
     if @entry.is_presentation
-      render :template => 'groups/entries/presentation'
+      render :template => 'groups/shared_entries/presentation'
       return
     end
 
