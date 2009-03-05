@@ -23,20 +23,34 @@
 8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other Debian-based Linux distribuitions:
 
         apt-get install gettext
+        
+              or in OSX 10.5
+              
+        sudo gem install gettext
 
-9. Run the following commands to create the database, the tables and then populate them with default data:
+9. luvfoo currently has a few dependencies that prevent a basic rake from running. We need to install the following:
+
+        sudo gem install mini_magick
+        sudo gem install hpricot
+        sudo gem install gcnovus-avatar
+        
+    Now you should be able to run rails built in rake tasks to include the rest.
+        
+        sudo rake gems:install
+
+10. Run the following commands to create the database, the tables and then populate them with default data:
 
         rake db:create
         rake db:schema:load
         rake luvfoo:db:populate
 
-10. Start the server with:
+11. Start the server with:
 
         script/server
 
-11. Go to http://localhost:3000/ and login with username `admin` and password `admin`. Change it ASAP.
+12. Go to http://localhost:3000/ and login with username `admin` and password `admin`. Change it ASAP.
 
-12. Have fun with *Luvfoo*!
+13. Have fun with *Luvfoo*!
 
   [Ruby on Rails site]: http://www.rubyonrails.com/  "Ruby on Rails official site"
 
