@@ -100,7 +100,7 @@ module ApplicationHelper
     elsif upload.is_word?
       link_to image_tag('file_icons/word.png', :height => '25'), upload.public_filename  
     elsif upload.is_image?
-      link_to image_tag(upload.public_filename(size)), upload.public_filename
+      link_to image_tag(upload.public_filename(size)), upload.url
     elsif upload.is_mp3?
       link_to image_tag('file_icons/mp3.png', :height => '30'), upload.public_filename
     elsif upload.is_excel?
