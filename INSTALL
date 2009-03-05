@@ -2,15 +2,15 @@
 
 1. Start by making sure your RubyGems are version 1.2.0 or greater:
 
-        gem update --system
+        sudo gem update --system
 
 2. Add the Github repository to your gems:
 
-        gem sources -a http://gems.github.com
+        sudo gem sources -a http://gems.github.com
 
 3. Luvfoo runs on Ruby on Rails, so first you need to get Rails running. In order to do that, download Rails from the [Ruby on Rails site] or install though gems:
 
-        gem install rails
+        sudo gem install rails -v=2.1.1
 
 4. Copy config/database.yml.example to config/database.yml and edit it to reflect the database names you would like to use.
 
@@ -22,7 +22,7 @@
 
 8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other Debian-based Linux distribuitions:
 
-        apt-get install gettext
+        sudo apt-get install gettext
         
               or in OSX 10.5
               
@@ -42,15 +42,24 @@
 
         rake db:create
         rake db:schema:load
+        
+11. We need to get solr running before you can populate the database:
+
+        mkdir tmp/pids
+        mkdir tmp/pids/solr
+        rake solr:start
+
+12. Now we can populate the database:
+
         rake luvfoo:db:populate
 
-11. Start the server with:
+13. Start the server with:
 
         script/server
 
-12. Go to http://localhost:3000/ and login with username `admin` and password `admin`. Change it ASAP.
+14. Go to http://localhost:3000/ and login with username `admin` and password `admin`. Change it ASAP.
 
-13. Have fun with *Luvfoo*!
+15. Have fun with *Luvfoo*!
 
   [Ruby on Rails site]: http://www.rubyonrails.com/  "Ruby on Rails official site"
 
