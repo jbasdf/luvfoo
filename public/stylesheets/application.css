@@ -101,6 +101,7 @@ h3{font-size:13px;margin-bottom:10px;}
 #member-story p{margin:5px 0;font-size:14px;padding:5px;}
 .member-story-excerpt{float:left;width:290px;height:250px;}
 .member-story-excerpt p{margin:0px;padding:0;}
+#home-member-story img{float:left;}
 .home-info{width:270px;margin:0 10px 5px 10px;}
 .home-box{border-top:4px solid #343299;}
 .home-box h2{border-bottom:1px dotted #ccc;padding-bottom:2px;margin:0;}

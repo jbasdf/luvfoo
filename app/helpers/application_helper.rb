@@ -44,14 +44,6 @@ module ApplicationHelper
     url_for_image_column(object, 'icon', options)
   end
 
-  def icon_tag(object, size, css_class = '')
-    css = 'class="' + css_class + '"' if css_class
-    '<img src="' + icon_url(object, {:size => size, :file_column_version => size }) + '" ' + css + ' />'
-  rescue
-    # icon_url can return nil.  If it does return an empty string
-    ''
-  end
-
   def icon object, size = :small, img_opts = {}
     return "" if object.nil?
 
