@@ -4,7 +4,7 @@
 	  <%= render :partial => 'layouts/global/head' %>
   </head>
   <body id="p_home">
-    <div style="width: 100%;" id="twb">
+    <div id="twb" style="width: 100%;">
       <div id="wrapper">
         <div id="site" class="container">
           <div id="header">
@@ -13,16 +13,13 @@
         </div>        
         <div id="main">
         	<div class="container">
-        		<div id="content">
-            	<div id="main">
-                <%= display_standard_flashes %>
-      					<%= yield %>                    
-                <div class="clear"></div>
-              </div>
-            </div>
+            <%= display_standard_flashes %>
+  					<%= yield %>                    
             <div class="clear"></div>
           </div>
           <%= render :partial => 'layouts/global/footer2' %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
