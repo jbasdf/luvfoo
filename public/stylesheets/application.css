@@ -19,7 +19,7 @@ input[type="checkbox"]{border:none;margin:0;background:none;background-color:tra
 .availability{color:red;clear:none;float:left;}
 #wrapper{width:870px;margin:0px auto;padding:0px;border:dotted 1px #ccc;}
 #content{padding:0 0 0 0;min-height:600px;height:auto !important;height:600px;text-align:left;}
-#main{padding:15px;}
+#main{padding:15px;float:left;}
 #content_top{padding:0 5px;}
 #welcome{padding:8px;}
 #welcome img{width:17px;margin:0 5px -5px 0;border:1px solid #666;}
