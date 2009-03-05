@@ -75,6 +75,17 @@ function toggleComments(comment_id)
 	); 
 }
 
+// Function to resize window so body width (ignoring scroll bar) is an even number
+function resizeIfOdd(){
+  var innerWidth = (document.documentElement.clientWidth > 0) ? document.documentElement.clientWidth : document.body.clientWidth;
+  if(innerWidth % 2 == 1) {
+    try { window.resizeBy(-1,0); }
+    catch (e) {
+      window.setTimeout('resizeIfOdd()',500); // Going fast causes errors in IE
+    }
+  }
+}
+
 jQuery(document).ready(function() {
 	
 	jQuery('#search_q').bind('focus.search_query_field', function(){
@@ -117,5 +128,10 @@ jQuery(document).ready(function() {
 		  });			
 		return false;
 	});	
-  
+
+	window.onresize = function () {
+	  window.setTimeout('resizeIfOdd()',50);
+	};
+	window.onload = resizeIfOdd; // Integrate into existing window.onload as needed
+	
 });

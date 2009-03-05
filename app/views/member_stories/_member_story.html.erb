@@ -1,0 +1,13 @@
+<% 
+widget = Widget.find_by_name(:member_stories)
+stories = widget.news_items.find(:all, :limit => 9) if widget
+num_stories = stories ? stories.length : 0
+if num_stories > 0
+  story = stories[rand(stories.length)] -%>
+  <div id="titlesH9"><a href="<%= member_story_path(story) %>">Featured Members</a></div>	
+  <p><%= icon_tag(story, :small) -%>
+     <%= story.title %>
+     <%= summarize(story.body, 200) %> <a href="<%= member_story_path(story) %>"><%= _('Read More') %></a>
+  </p>
+  <p><a style="margin: 0pt auto; float: none;" href="<%= member_story_path(story) %>" class="button">More Stories</a></p>
+<% end -%>

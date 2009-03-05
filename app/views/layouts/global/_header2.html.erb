@@ -1,29 +1,89 @@
-<div id="twb-navigation">
-  <div id="twb-navheader" class="clear">
-	  <ul class="top-nav">
-  		<li class="first"><a href="http://<%= GlobalConfig.application_url %>/home"><%= _('Home') %></a></li>
-  		<li class="li-separator">|</li>
-  		<li class="li-tools">TOOLS:</li>
-  		<li><a href="<%= profiles_path %>"><%= _('People') %></a></li>
-  		<li><a href="<%= groups_path %>"><%= _('Groups') %></a></li>  		
-  		<li><a href="http://courses.<%= GlobalConfig.application_base_url %>"><%= _('Courses') %></a></li>
-  		<li class="li-separator">|</li>
-  		<li><a href="<%= news_index_path %>"><%= _('News') %></a></li>
-  		<li class="twb-donate-link"><a href="/pages/support-us"><%= _('Donate') %></a></li>			
-  	</ul>
-  	<div id="log-out" class="right">
-  		<% if logged_in? -%>
-  			<%= link_to _('My Dashboard'), user_path(current_user) %>
-  			<%= link_to current_user.login, profile_path(current_user) %>
-  			<%= link_to _('Logout'), logout_path %>
-  		<% else -%>
-  			<%= _("%{login_link} %{signup_link}") % {:login_link => link_to(_('Login'), login_path), :signup_link => link_to(_('Sign-up'), signup_path)} %>
-  		<% end -%>
-  		
-  	</div>
-  </div>
-  <div id="translation" class="clear right">	
-  	<table border="0" cellspacing="0" cellpadding="0">
+<ul id="nav">
+  <li> <a href="/pages/who-we-are">About Us</a>
+    <div class="dropdown">
+      <ul>
+        <li><a href="/pages/countries">Where We Work</a></li>
+        <li><a href="/pages/what-we-do">What We Do</a></li>
+        <li><a href="/pages/who-we-are">Who We Are</a></li>
+        <li><a href="/pages/large-scale-projects">Current Projects</a></li>
+        <li><a href="/news">TWB News</a></li>
+        <li class="last"><a href="/pages/contact-us">Contact Us</a></li>
+      </ul>
+      <div class="bottom"></div>
+    </div>
+  </li>
+  <li> <a href="/profiles">Global Network</a>
+    <div class="dropdown">
+      <ul>
+        <li><a href="/login">Teachers Network</a></li>
+        <li><a href="/groups">Groups</a></li>
+        <li><a href="/news">News</a></li>
+        <li class="last"><a href="/signup">Join</a></li>
+      </ul>
+      <div class="bottom"></div>
+    </div>
+  </li>
+  <li> <a href="/pages/make-a-difference">How You Can Help</a>
+    <div class="dropdown">
+      <ul>
+        <li><a href="/pages/support-us">Donate</a></li>
+        <li><a href="/pages/volunteer-opportunities">Volunteer</a></li>
+        <li class="last"><a href="/pages/make-a-difference">Participate</a></li>
+      </ul>
+      <div class="bottom"></div>
+    </div>
+  </li>
+  <li> <a href="http://courses.teacherswithoutborders.org/">Courses</a>
+    <div class="dropdown">
+      <ul>
+        <li><a href="http://courses.teacherswithoutborders.org/">Take Courses</a></li>
+        <li><a href="http://courses.teacherswithoutborders.org/how-to-use-twb-opencourseware">Make Courses</a></li>
+        <li class="last"><a href="http://courses.teacherswithoutborders.org/certificate-teaching-mastery-5-courses">Certificate of Teaching Mastery</a></li>
+      </ul>
+      <div class="bottom"></div>
+    </div>
+  </li>
+  <li> <a href="/pages/resources">Resources</a>
+    <div class="dropdown">
+      <ul>
+        <li><a href="/pages/twbfaqs">FAQs</a></li>
+        <li><a href="/pages/partnerships">Partners</a></li>
+        <li><a href="http://twb-mdg.ushahidi.com">Visual Learning Maps</a></li>
+        <li class="last"><a href="/pages/resources">Links and Information</a></li>
+      </ul>
+      <div class="bottom"></div>
+    </div>
+  </li>
+  <li style="visibility: hidden;"><a href="/contact">Cont</a></li>
+  <!--for additional entry to right (blog or something if needed-->
+</ul>
+
+<h1><a href="/">Teachers Without Borders</a></h1>
+<% if logged_in? -%>
+  <div id="log-out" class="container">
+	  <%= link_to _('My Dashboard'), user_path(current_user) %>
+  	<%= link_to current_user.login, profile_path(current_user) %>
+	  <%= link_to _('Logout'), logout_path %>
+	</div>
+<% end -%>
+
+<div id="search" class="container">
+  <form id="search_form" action="/Search" name="q">
+    <fieldset>
+      <legend>Search</legend>
+      <p class="buttons">
+        <button id="search_button" type="submit" class="search_button">Go</button>
+      </p>
+      <div>
+        <label for="search">Search:</label>
+        <input id="in_search" onclick="searchClicked();" name="q" type="text" />
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div id="translation" class="container">
+  <table border="0" cellpadding="0" cellspacing="0">
+    <tbody>
       <tr>
         <td><a id="flag_en" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>" hreflang="en" name="flag_en"><img id="flag_img_en" src="/images/flags/flag_en.png" alt="English flag" title="English" border="0" name="flag_img_en"></a></td>
         <td><a id="flag_it" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=it&u=<%=request.url%>" hreflang="it" name="flag_it"><img id="flag_img_it" src="/images/flags/flag_it.png" alt="Italian flag" title="Italian" border="0" name="flag_img_it"></a></td>
@@ -37,13 +97,33 @@
         <td><a id="flag_ar" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=ar&u=<%=request.url%>" hreflang="ar" name="flag_ar"><img id="flag_img_ar" src="/images/flags/flag_ar.png" alt="Arabic flag" title="Arabic" border="0" name="flag_img_ar"></a></td>
         <td><a id="flag_ru" href="http://translate.google.com/translate_c?hl=en&sl=en&tl=ru&u=<%=request.url%>" hreflang="ru" name="flag_ru"><img id="flag_img_ru" src="/images/flags/flag_ru.png" alt="Russian flag" title="Russian" border="0" name="flag_img_ru"></a></td>
       </tr>
-    </table>    
-  </div>
+    </tbody>
+  </table>
 </div>
-
-<div class="clear"></div>
+<% if !logged_in? -%>
+  <div id="signin">
+    <% form_tag session_path, :id => "login", :name => "frmLogin", :class => "alt" do -%>
+      <fieldset>
+        <legend><%= _('Sign in') %></legend>
+        <p class="buttons"> 
+          <%= link_to _('Register'), signup_url, :id => 'register_button', :class => 'signin_button' %>
+          <%= submit_tag _('Sign in'), :id => 'signin_button', :class => 'signin_button' %>
+        </p>
+        <div>
+          <label for="username"><%= _('Username') %></label>
+        	<%= text_field_tag :login, params[:login], :id => 'username', :onfocus => "" -%>
+        </div>
+        <div>
+          <label for="password"><%= _('Password') %></label>
+        	<%= password_field_tag :password, params[:password], :onfocus => "" -%>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+<% end -%>
 
 <script type="text/javascript">
+function searchClicked(){sb=document.getElementById('in_search');sb.style.color='black';if (sb.value == 'Search') sb.value='';}
 jQuery(document).ready(function() {
   jQuery("#flag_en").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>";
   jQuery("#flag_it").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=it&u=<%=request.url%>";
