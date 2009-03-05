@@ -5,7 +5,7 @@
 <% cache(:controller => '/home', :action => 'home') do %>
 <div id="home-page">
   <div>
-    <%= @content_page.body %>
+    <%= @content_page ? @content_page.body : "<h2>There is no content yet</h2><p>Please login in to the #{link_to 'administration page', admin_home_path} and add some content.</p>" %>
   </div>
   <div>
 		<%= render :partial => 'member_stories/member_stories' -%>
