@@ -1,6 +1,8 @@
 require 'gettext/rails'
 class ApplicationController < ActionController::Base
-  
+
+  before_filter :setup_theme
+
   layout 'application'
 
   helper :all
@@ -79,6 +81,19 @@ class ApplicationController < ActionController::Base
     else
       super
     end
+  end
+
+  helper_method :current_theme
+  def current_theme
+    GlobalConfig.theme
+  end
+
+  protected
+
+  def setup_theme
+    self.prepend_view_path(File.join(RAILS_ROOT, 'themes', current_theme, 'views'))
+    #i18n_path = File.join(RAILS_ROOT, 'themes', current_theme, 'locale', "#{I18n.locale}.yml")
+    #I18n.load_path.unshift(i18n_path) unless I18n.load_path.include?(i18n_path)
   end
 
 #  uncomment this and set config.action_controller.consider_all_requests_local = false
