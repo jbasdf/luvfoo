@@ -24,11 +24,11 @@ class Logo < ActiveRecord::Base
   belongs_to :user
   belongs_to :site
   
-  has_attached_file :logo, :styles => { :original => '870x75' }
+  has_attached_file :image, :styles => { :original => '870x75' }
   
-  validates_attachment_presence :logo
-  validates_attachment_size :logo, :less_than => 5.megabytes
-  validates_attachment_content_type :logo, :content_type => :image #attachment_options[:content_type]
+  validates_attachment_presence :image
+  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_content_type :image, :content_type => :image #attachment_options[:content_type]
   
   attr_protected :user_id
   

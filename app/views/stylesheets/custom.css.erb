@@ -1,7 +1,7 @@
 body{background:#<%=global_site.background_color%>;font-size:<%=global_site.font_size%>;font-family:<%=global_site.font_style%>;}
 a{font-family:<%=global_site.a_font_style%>;color:#<%=global_site.a_font_color%>;}
 <% if global_site.logo -%>
-#top{background:url(<%=global_site.logo.public_filename%>);}
+#top{background:url(<%=global_site.logo.image.url%>);}
 <% else -%>
 #top{background:url(/images/home-logo.jpg);}
 <% end -%>
