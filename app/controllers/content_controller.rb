@@ -10,15 +10,15 @@ class ContentController < ApplicationController
     render_page('protected-pages')
   end
 
-
   protected
 
   def render_page page_path
-    page_locale = locale || params[:locale] || params[:language] || "en_US"
     url_key = params[:content_page].join('/')
-    content_page = "#{RAILS_ROOT}/content/#{page_path}/#{page_locale}/#{url_key}.html"
+    path = File.join(RAILS_ROOT, 'themes', current_theme, 'content', page_path, url_key)
+    content_page = Dir.glob("#{path}.*").first
+    raise Exceptions::MissingTemplateError, "Could not find template for: '#{path}'" if content_page.nil?
     render :file => content_page, :layout => true
-  rescue
+  rescue Exceptions::MissingTemplateError => ex
     render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
   end  
 
