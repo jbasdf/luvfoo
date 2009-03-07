@@ -85,9 +85,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_theme
   def current_theme
-    GlobalConfig.theme
+    @@theme ||= Site.first.theme
   end
   
+  def refresh_current_theme
+    @@theme = Site.first.theme
+  end
+      
   protected
 
   def setup_theme
