@@ -409,3 +409,6 @@ textarea#user-emails{width:830px;height:600px;}
 .role-container table td{padding:2px;}
 .role-container .add-permission .input-user-permission{width:100px;}
 .browse-type-link{font-weight:bold;font-size:100%;}
+
+#current-theme{clear:both;float:left;width:100%;}
+.theme-block{width:250px;height:300px;float:left;clear:none;margin:10px;}

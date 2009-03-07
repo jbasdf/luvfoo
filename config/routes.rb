@@ -124,6 +124,7 @@ ActionController::Routing::Routes.draw do |map|
     a.resources :uploads, :collection => { :images => :get, :files => :get }
     a.resources :member_stories
     a.resources :pages, :member => { :children => :get }
+    a.resource :theme
   end
 
   # messages

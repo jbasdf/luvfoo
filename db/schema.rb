@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090213002439) do
+ActiveRecord::Schema.define(:version => 20090307163458) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20090213002439) do
     t.integer  "contentable_id"
     t.string   "contentable_type"
     t.integer  "parent_id",        :default => 0
+    t.integer  "lft"
+    t.integer  "rgt"
   end
 
   create_table "content_pages", :force => true do |t|
@@ -104,8 +106,10 @@ ActiveRecord::Schema.define(:version => 20090213002439) do
     t.text     "body_raw"
     t.integer  "contentable_id"
     t.string   "contentable_type"
-    t.integer  "parent_id",        :default => 0, :null => false
+    t.integer  "parent_id"
     t.integer  "version"
+    t.integer  "lft"
+    t.integer  "rgt"
   end
 
   add_index "content_pages", ["parent_id"], :name => "index_content_pages_on_parent_id"
@@ -454,21 +458,22 @@ ActiveRecord::Schema.define(:version => 20090213002439) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",                        :default => "", :null => false
-    t.string   "subtitle",                     :default => "", :null => false
-    t.string   "slogan",                       :default => "", :null => false
-    t.string   "background_color",             :default => "", :null => false
-    t.string   "font_color",                   :default => "", :null => false
-    t.string   "font_style",                   :default => "", :null => false
-    t.string   "font_size",                    :default => "", :null => false
-    t.string   "content_background_color",     :default => "", :null => false
-    t.string   "a_font_style",                 :default => "", :null => false
-    t.string   "a_font_color",                 :default => "", :null => false
-    t.string   "top_background_color",         :default => "", :null => false
-    t.string   "top_color",                    :default => "", :null => false
+    t.string   "title",                        :default => "",        :null => false
+    t.string   "subtitle",                     :default => "",        :null => false
+    t.string   "slogan",                       :default => "",        :null => false
+    t.string   "background_color",             :default => "",        :null => false
+    t.string   "font_color",                   :default => "",        :null => false
+    t.string   "font_style",                   :default => "",        :null => false
+    t.string   "font_size",                    :default => "",        :null => false
+    t.string   "content_background_color",     :default => "",        :null => false
+    t.string   "a_font_style",                 :default => "",        :null => false
+    t.string   "a_font_color",                 :default => "",        :null => false
+    t.string   "top_background_color",         :default => "",        :null => false
+    t.string   "top_color",                    :default => "",        :null => false
     t.string   "link_button_background_color"
     t.string   "link_button_font_color"
     t.string   "highlight_color"
+    t.string   "theme",                        :default => "default", :null => false
   end
 
   create_table "states", :force => true do |t|

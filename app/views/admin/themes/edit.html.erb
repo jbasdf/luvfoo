@@ -1,0 +1,13 @@
+<div id="page">
+	<h1>Set Theme</h1>
+
+	<h2>Current Theme</h2>
+	<div id="current-theme">
+	  <%= render :partial => 'admin/themes/theme', :object => @current_theme %>
+	</div>
+
+	<h2>Click on a theme to activate it</h2>
+	<%= error_messages_for :site %>
+	<%= render :partial => 'admin/themes/theme', :collection => @themes %>
+
+</div>
