@@ -1,0 +1,9 @@
+#splash{margin:10px auto; width:1250px; height:781px; background-image:url(../images/splash1280.jpg)}
+#btn1 {height:81px;left:365px;position:relative;top:230px;width:440px;position:relative;}
+#btn1:hover{border:solid 2px #FFF; background-color:#BBB; opacity:0.1; filter: alpha (opacity=10);}
+#btn2 {float:left;height:160px;left:45px;position:relative;top:237px;width:330px;}
+#btn2:hover{border:solid 2px #FFF; background-color:#BBB; opacity:0.1; filter: alpha (opacity=10);}
+#btn3 {float:left;height:155px;position:relative;top:240px;width:330px;left:90px;}
+#btn3:hover{border:solid 2px #FFF; background-color:#BBB; opacity:0.1; filter: alpha (opacity=10);}
+#btn4 {float:left;height:160px;position:relative;top:237px;width:330px;left:133px;}
+#btn4:hover{border:solid 2px #FFF; background-color:#BBB; opacity:0.1; filter: alpha (opacity=10);}

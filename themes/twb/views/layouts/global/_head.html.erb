@@ -1,8 +1,9 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="Teachers Without Borders supports teacher-leaders, worldwide, because they play a vital role in their communities." />
 <title><%= @title || _(GlobalConfig.application_name) -%></title>
-<%= stylesheet_link_tag 'reset', 'ie', 'application', 'beast', 'standard', :cache=>true -%>	  
-<%= javascript_include_tag 'jquery', 'jquery-ui', 'jrails', 'thickbox', 'jquery-plugins/jquery.jgrowl_minimized.js', 'application' -%>
+<%= stylesheet_link_tag 'reset', 'ie', 'application', 'beast', 'standard', :cache=>true -%>
+<%= stylesheet_link_tag "print", :media => "print" %>
+<%= javascript_include_tag 'jquery', 'jquery-ui', 'jrails', 'thickbox', 'jquery.blockUI.js', 'jquery-plugins/jquery.jgrowl_minimized.js', 'application' -%>
 <%= theme_stylesheet_link_tag %>
 <%= javascript_tag %[const AUTH_TOKEN = #{form_authenticity_token.inspect};] if protect_against_forgery? -%>
 <%= yield :head -%>
