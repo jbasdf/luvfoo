@@ -16,7 +16,8 @@ class ThemeGenerator < Rails::Generator::NamedBase
 
       #stylesheets
       m.directory "public/stylesheets/themes"
-      m.file "stylesheets/styles.css", "public/stylesheets/themes/#{file_name}.css"
+      m.directory "public/stylesheets/themes/#{file_name}"
+      m.file "stylesheets/styles.css", "public/stylesheets/themes/#{file_name}/#{file_name}.css"
 
       # localization
       m.file "locale/en.yml", "themes/#{file_name}/locale/en.yml"
