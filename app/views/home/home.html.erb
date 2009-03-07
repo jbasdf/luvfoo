@@ -2,48 +2,4 @@
 <%#= auto_discovery_link_tag(:rss, "http://#{GlobalConfig.application_url}/latest_comments.rss", :title=>_('Latest Comments')) %>
 <%#= auto_discovery_link_tag(:rss, "http://#{GlobalConfig.application_url}/newest_members.rss", :title=>_('Newest Members')) %>
 <% end -%>
-<div id="landscape"></div>
-<div id="midsect">
-  <div class="container">
-    <div class="col450 padright"><a href="/pages/countries"><img src="/images/icon_where.gif" alt="" class="icon"></a>
-      <div id="titlesH10"><a href="/pages/countries">NEW - Where We Work Mapping </a></div>
-      <p><a href="/pages/countries">TWB reaches every corner of the world, offering programs in 26 countries.</a></p>
-    </div>
-		<div class="col450">
-			<a href="/pages/support-us"><img src="/images/icon_donate.gif" alt="" class="icon"></a>
-			<div id="titlesH8"><a href="/pages/support-us">Donate</a></div>
-			<p><a href="/pages/support-us">Your contribution will help bridge the global education divide by empowering teachers to be leaders in their communities.</a></p>
-    </div>
-		<div class="col450 padright"> <a href="/login"><img src="/images/icon_network.gif" alt="" class="icon"></a>
-		  <div id="titlesH8"><a href="/login">Free Membership</a></div>
-			<p><a href="/login">As a TWB member, you become part of a global community that supports teachers through professional development and mentorship as well as have access to the latest educational innovations across the world.</a></p>
-	  </div> 
-    <div class="col450"> <a href="/pages/make-a-difference">
-      <img src="/images/icon_help.gif" alt="" class="icon"></a>
-      <div id="titlesH8"><a href="/pages/make-a-difference">Make a Difference</a></div>
-		  <p><a href="/pages/make-a-difference">We want you to take the initiative and use your passion, skills and experience to improve your community and the world. Find out how!</a></p>
-    </div>
-  </div>
-</div>
-<div id="land_white_top" class="landscape_white"></div>
-<div id="main2">
-  <div class="container">
-	  <div class="col300">
-      <%= render :partial => 'widgets/latest_news' -%>
-    </div>
-    <div class="col300 middle">
-      <div id="titlesH9"><a href="/pages/1">Featured Partner</a></div>
-      <p>WebEx helps Teachers Without Borders do everything from strategic planning to inter-teacher conferencing<a href="http://www.webex.com/"><img src="/images/twb/webex.png" alt="" width="164" height="43" /></a></p>
-      <div id="titlesH9">Network With Us<br>
-      <a href="http://www.linkedin.com/groups?home=&amp;gid=1713607&amp;trk=anet_ug_hm"><img src="/images/linkedin_icon.gif" alt="Watch us on YouTube" width="42" height="15"></a>
-      &nbsp;<a href="http://www.youtube.com/TeachersWB"><img src="/images/youtube_icon.gif" alt="Watch us on YouTube" width="42" height="15"></a>
-      &nbsp;<a href="http://www.facebook.com/group.php?gid=2247823676"><img src="/images/facebook_icon.gif" alt="Join Us on Facebook" width="42" height="15"></a>
-      &nbsp; <a href="http://twitter.com/teachersnetwork"><img src="/images/twitter_icon.gif" alt="Follow us on Twitter" width="42" height="15"></a> </div>
-      <p>&nbsp;</p>
-    </div>
-    <div id="featured_member" class="col300">
-      <%= render :partial => 'member_stories/member_story' -%>
-    </div>
-  </div>
-</div>
-<div id="land_white_bottom" class="landscape_white"></div>
+Default home page

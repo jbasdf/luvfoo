@@ -65,7 +65,7 @@
 <% if logged_in? -%>
   <div id="log-out" class="container">
 	  <%= link_to _('My Dashboard'), user_path(current_user) %>
-  	<%= link_to current_user.login, profile_path(current_user) %>
+	<%= link_to current_user.login, profile_path(current_user) %>
 	  <%= link_to _('Logout'), logout_path %>
 	</div>
 <% end -%>
@@ -108,17 +108,17 @@
     <% form_tag session_path, :id => "login", :name => "frmLogin", :class => "alt" do -%>
       <fieldset>
         <legend><%= _('Sign in') %></legend>
-        <p class="buttons"> 
+        <p class="buttons">
           <%= link_to _('Register'), signup_url, :id => 'register_button', :class => 'signin_button' %>
           <%= submit_tag '', :id => 'signin_button', :class => 'signin_button' %>
         </p>
         <div>
           <label for="username"><%= _('Username') %></label>
-        	<%= text_field_tag :login, params[:login], :id => 'username', :onfocus => "" -%>
+		<%= text_field_tag :login, params[:login], :id => 'username', :onfocus => "" -%>
         </div>
         <div>
           <label for="password"><%= _('Password') %></label>
-        	<%= password_field_tag :password, params[:password], :onfocus => "" -%>
+		<%= password_field_tag :password, params[:password], :onfocus => "" -%>
         </div>
       </fieldset>
     <% end %>
@@ -138,6 +138,6 @@ jQuery(document).ready(function() {
   jQuery("#flag_es").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=es&u=<%=request.url%>";
   jQuery("#flag_ja").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ja&u=<%=request.url%>";
   jQuery("#flag_ar").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ar&u=<%=request.url%>";
-  jQuery("#flag_ru").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ru&u=<%=request.url%>";	
+  jQuery("#flag_ru").href = "http://translate.google.com/translate_c?hl=en&sl=en&tl=ru&u=<%=request.url%>";
 });
 </script>
