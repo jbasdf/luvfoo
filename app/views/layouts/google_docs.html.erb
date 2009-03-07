@@ -5,10 +5,7 @@
 	  <meta name="description" content="" />
 	  <meta name="keywords" content="" />
 	  <title><%= @title || _(GlobalConfig.application_name) -%></title>
-	  <%#= stylesheet_link_tag 'reset', 'ie', 'application', :cache=>true -%>
 	  <%= stylesheet_link_tag 'google_docs', 'custom' -%>
-		<%#= javascript_include_tag :defaults, 'jquery', 'thickbox', 'truncator', :cache=>true -%>
-		<%#= javascript_tag %[const AUTH_TOKEN = #{form_authenticity_token.inspect};] if protect_against_forgery? -%>
 	  <%= yield :head -%>
 	  <link rel="shortcut icon" href="/favicon.ico" >
 	  <!--[if lt IE 7.]>
