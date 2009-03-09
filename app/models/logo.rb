@@ -24,19 +24,12 @@ class Logo < ActiveRecord::Base
   belongs_to :user
   belongs_to :site
   
-  has_attachment :content_type => :image, 
-    :storage => :file_system, 
-    :max_size => 5.megabytes, 
-    :resize_to => '870x75'
+  has_attached_file :image, :styles => { :original => '870x75' }
   
-  validates_as_attachment
-
-  validates_presence_of :size
-  validates_presence_of :content_type
-  validates_presence_of :filename
-  validates_presence_of :user
-  validates_inclusion_of :content_type, :in => attachment_options[:content_type], :message => "is not allowed", :allow_nil => true if attachment_options[:content_type]
-
+  validates_attachment_presence :image
+  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_content_type :image, :content_type => :image #attachment_options[:content_type]
+  
   attr_protected :user_id
   
 end
