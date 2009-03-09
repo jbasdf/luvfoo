@@ -1,0 +1,75 @@
+<VirtualHost *>
+  ServerAdmin admin@yourdomain.com
+  ServerName yourdomain.com
+  ServerAlias www.yourdomain.com
+  
+  DocumentRoot /var/www/apps/luvfoo/current/public/
+  
+  <Directory /var/www/apps/luvfoo/current/public/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    allow from all
+  </Directory>
+  
+  ErrorLog /var/www/apps/luvfoo/current/logs/error.log
+  
+  # Possible values include: debug, info, notice, warn, error, crit,
+  # alert, emerg.
+  LogLevel debug				
+  
+  CustomLog /var/www/apps/luvfoo/current/logs/access.log combined
+  ServerSignature On
+  
+  ## -- Passenger Setup -- ##
+  <IfModule mod_rails.c>
+    RailsEnv development
+  	PassengerLogLevel 2
+  </IfModule>
+  ## -- ##
+  
+  ## -- Mongrel Setup -- ##
+  <IfModule mod_proxy.c>
+  	ProxyRequests Off
+  	
+  	# Setup as many balance members as you have setup in your
+  	# mongrel_cluster.yml
+  	<Proxy balancer://mongrel_cluster>
+  		BalancerMember http://127.0.0.1:3000
+  		BalancerMember http://127.0.0.1:3001
+  		BalancerMember http://127.0.0.1:3002
+  		BalancerMember http://127.0.0.1:3003
+  		BalancerMember http://127.0.0.1:3004
+  		BalancerMember http://127.0.0.1:3005
+  		BalancerMember http://127.0.0.1:3006
+  	</Proxy>
+  	
+  	<Proxy *>
+  	  Order deny,allow
+  	  Deny from all
+  	  Allow from all
+  	</Proxy>
+  	ProxyVia On
+  </IfModule>
+  ## -- ##
+  
+  ## -- Capistrano Convenience Rewrites -- #
+  RewriteEngine On
+  
+  # Check for maintenance file produce by Capistrano if you
+  # cap deploy:web_disable
+  RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
+  RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+  RewriteRule ^.*$ /system/maintenance.html [L]
+  
+  # Check for a static index
+  RewriteRule ^/$ /index.html [QSA]
+  
+  # Check for cached Rails pages
+  RewriteRule ^([^.]+)$ $1.html [QSA]
+  
+  # Redirect anything else to the cluster
+  RewriteCond ${DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+  RewriteRule ^/(.*)$ balancer://mongrel_cluster%{REQUEST_URI} [P,QSA,L]
+  ## -- ##
+</VirtualHost>
