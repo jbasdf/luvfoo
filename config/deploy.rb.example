@@ -1,0 +1,36 @@
+require 'mongrel_cluster/recipes'
+
+set :application, "luvfoo"
+
+set :use_sudo, "false"
+set :user, "root"
+set :chmod755, "app config db lib public vendor script script/* public/disp*"
+ssh_options[:keys] = %w(/path/to/your/.ec2/your.pem)
+set :scm, :git
+set :repository,  "git://github.com/teacherswithoutborders/luvfoo.git"
+
+set :branch, "master"
+
+set :domain, "yourdomain.com"
+set :deploy_to, "/var/www/apps/luvfoo"
+set :deploy_via, :checkout
+
+set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+
+role :app, "#{domain}"
+role :web, "#{domain}"
+role :db,  "#{domain}", :primary => true
+
+task :after_symlink, :roles => [:web, :app] do
+  puts "[ Linking proper pids ]"
+  run "rm -Rf #{current_path}/tmp/pids"
+  run "ln -s #{shared_path}/pids/ #{current_path}/tmp/pids"
+  
+  puts "[ Linking config files ]"
+  run "rm -Rf #{current_path}/config"
+  run "ln -s #{shared_path}/config/ #{current_path}/config"
+  
+  puts "[ Linking proper log files ]"
+  run "rm -Rf #{current_path}/log"
+  run "ln -s #{shared_path}/log/ #{current_path}/log"
+end
