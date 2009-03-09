@@ -6,7 +6,7 @@ require 'file_column'
 require 'file_compat'
 require 'file_column_helper'
 require 'validations'
-#require 'test_case' if RAILS_ENV == 'test'
+require 'test_case'
 
 ActiveRecord::Base.send(:include, FileColumn)
 ActionView::Base.send(:include, FileColumnHelper)
