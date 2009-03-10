@@ -9,6 +9,14 @@ class ThemeGenerator < Rails::Generator::NamedBase
       m.directory "themes/#{file_name}/content/protected-pages"
       m.directory "themes/#{file_name}/locale"
       m.directory "themes/#{file_name}/views"
+      m.directory "themes/#{file_name}/views/layouts"
+
+      # basic theme files
+      m.file "views/_head.html.erb", "themes/#{file_name}/views/layouts/_head.html.erb"
+      m.file "views/_header.html.erb", "themes/#{file_name}/views/layouts/_header.html.erb"
+      m.file "views/_footer.html.erb", "themes/#{file_name}/views/layouts/_footer.html.erb"
+      m.file "views/application.html.erb", "themes/#{file_name}/views/layouts/application.html.erb"
+      m.file "views/home.html.erb", "themes/#{file_name}/views/layouts/home.html.erb"
 
       # description
       m.file "description.txt", "themes/#{file_name}/description.txt"
