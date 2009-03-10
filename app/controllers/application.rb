@@ -1,5 +1,6 @@
 require 'gettext/rails'
 class ApplicationController < ActionController::Base
+  
   layout 'application'
 
   helper :all
