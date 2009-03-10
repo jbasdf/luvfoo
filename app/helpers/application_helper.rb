@@ -11,23 +11,23 @@ module ApplicationHelper
     locale.to_s
   end
   
-  def icon object, size = :small, img_opts = {}
+  def icon object, size = :small, image_options = {}
     return "" if object.nil?
 
     options = {:size => size, :file_column_version => size }
 
     if object.is_a?(User)
-      img_opts = {:title => object.full_name, :alt => object.full_name, :class => size}.merge(img_opts)
-      link_to(avatar_tag(object, {:size => size, :file_column_version => size }, img_opts), profile_path(object), { :title => object.full_name })
+      image_options = {:title => object.full_name, :alt => object.full_name, :class => size}.merge(image_options)
+      link_to(avatar_tag(object, {:size => size, :file_column_version => size }, image_options), profile_path(object), { :title => object.full_name })
     elsif object.is_a?(Group)                     
       url = icon_url(object, options)
       return '' if url.nil? || url.empty?
-      html_options = {:title => object.name, :alt => object.name, :class => size}.merge(img_opts)
+      html_options = {:title => object.name, :alt => object.name, :class => size}.merge(image_options)
       link_to(image_tag(url, html_options), group_path(object), :title => object.name )
     elsif object.is_a?(NewsItem)                     
       url = icon_url(object, options)
       return '' if url.nil? || url.empty?
-      html_options = {:title => object.title, :alt => object.title, :class => size}.merge(img_opts)
+      html_options = {:title => object.title, :alt => object.title, :class => size}.merge(image_options)
       link_to(image_tag(url, html_options), member_story_path(object), { :title => object.title })
     end
 
@@ -52,24 +52,50 @@ module ApplicationHelper
     ''
   end
 
-  def icon object, size = :small, img_opts = {}
+  def icon object, size = :small, image_options = {}
     return "" if object.nil?
 
-    options = {:size => size, :file_column_version => size }
+    options = {:size => size}
 
     if object.is_a?(User)
-      img_opts = {:title => object.full_name, :alt => object.full_name, :class => size}.merge(img_opts)
-      link_to(avatar_tag(object, {:size => size, :file_column_version => size }, img_opts), profile_path(object), { :title => object.full_name })
+      image_options = {
+        :title  => object.full_name,
+        :alt    => object.full_name,
+        :class  => size
+      }.merge(image_options)
+      
+      link_to(
+        avatar_tag(
+          object,
+          { :size => size },
+          image_options
+        ),
+        profile_path(object),
+        { :title => object.full_name }
+      )
+      
     elsif object.is_a?(Group)                     
       url = icon_url(object, options)
       return '' if url.nil? || url.empty?
-      html_options = {:title => object.name, :alt => object.name, :class => size}.merge(img_opts)
+      html_options = {:title => object.name, :alt => object.name, :class => size}.merge(image_options)
       link_to(image_tag(url, html_options), group_path(object), :title => object.name )
+      
     elsif object.is_a?(NewsItem)                     
       url = icon_url(object, options)
+      
       return '' if url.nil? || url.empty?
-      html_options = {:title => object.title, :alt => object.title, :class => size}.merge(img_opts)
-      link_to(image_tag(url, html_options), member_story_path(object), { :title => object.title })
+      
+      html_options = {
+        :title  => object.title,
+        :alt    => object.title,
+        :class  => size
+      }.merge(image_options)
+      
+      link_to(
+        image_tag(url, html_options),
+        member_story_path(object),
+        { :title => object.title }
+      )
     end
 
   end     
@@ -79,10 +105,12 @@ module ApplicationHelper
   end
 
   def icon_url(object, options)
-    field = options.delete(:file_column_field) || 'icon'
-    return default_image(object, options[:size]) if field.nil? || object.send(field).nil?
-    options = options[:file_column_version] || options
-    url_for_image_column(object, 'icon', options)
+    object.icon.url(options)
+    
+    # field = options.delete(:file_column_field) || 'icon'
+    # return default_image(object, options[:size]) if field.nil? || object.send(field).nil?
+    # options = options[:file_column_version] || options
+    # url_for_image_column(object, 'icon', options) # used for file_column
   end
 
   def icon_tag(object, size, css_class = '')

@@ -20,7 +20,7 @@
     <div id="upload_icon">
   		<h2><%= _('Upload Photo:') %></h2>
   		<label><%= _('Upload a photo for your story') %></label>
-  		<%= file_column_field( "news_item", "icon", :size => 15) %>
+  		<%= f.file_field :icon, :size => 15 %>
   		<div class="clear"></div>
   		<% unless @news_item.icon.blank? %>
   		<div id="avatar_edit">
