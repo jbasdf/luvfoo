@@ -65,11 +65,6 @@ module ApplicationHelper
 
   def icon_url(object, options)
     object.icon.url(options)
-    
-    # field = options.delete(:file_column_field) || 'icon'
-    # return default_image(object, options[:size]) if field.nil? || object.send(field).nil?
-    # options = options[:file_column_version] || options
-    # url_for_image_column(object, 'icon', options) # used for file_column
   end
 
   def icon_tag(object, size, css_class = '')
