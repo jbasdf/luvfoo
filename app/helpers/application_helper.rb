@@ -10,47 +10,6 @@ module ApplicationHelper
   def get_locale
     locale.to_s
   end
-  
-  def icon object, size = :small, image_options = {}
-    return "" if object.nil?
-
-    options = {:size => size, :file_column_version => size }
-
-    if object.is_a?(User)
-      image_options = {:title => object.full_name, :alt => object.full_name, :class => size}.merge(image_options)
-      link_to(avatar_tag(object, {:size => size, :file_column_version => size }, image_options), profile_path(object), { :title => object.full_name })
-    elsif object.is_a?(Group)                     
-      url = icon_url(object, options)
-      return '' if url.nil? || url.empty?
-      html_options = {:title => object.name, :alt => object.name, :class => size}.merge(image_options)
-      link_to(image_tag(url, html_options), group_path(object), :title => object.name )
-    elsif object.is_a?(NewsItem)                     
-      url = icon_url(object, options)
-      return '' if url.nil? || url.empty?
-      html_options = {:title => object.title, :alt => object.title, :class => size}.merge(image_options)
-      link_to(image_tag(url, html_options), member_story_path(object), { :title => object.title })
-    end
-
-  end     
-
-  def default_image(object, size)
-    return object.class.to_s.downcase + 's_default_' + size.to_s + '.gif' 
-  end
-
-  def icon_url(object, options)
-    field = options.delete(:file_column_field) || 'icon'
-    return default_image(object, options[:size]) if field.nil? || object.send(field).nil?
-    options = options[:file_column_version] || options
-    url_for_image_column(object, 'icon', options)
-  end
-
-  def icon_tag(object, size, css_class = '')
-    css = 'class="' + css_class + '"' if css_class
-    '<img src="' + icon_url(object, {:size => size, :file_column_version => size }) + '" ' + css + ' />'
-  rescue
-    # icon_url can return nil.  If it does return an empty string
-    ''
-  end
 
   def icon object, size = :small, image_options = {}
     return "" if object.nil?
@@ -115,7 +74,7 @@ module ApplicationHelper
 
   def icon_tag(object, size, css_class = '')
     css = 'class="' + css_class + '"' if css_class
-    '<img src="' + icon_url(object, {:size => size, :file_column_version => size }) + '" ' + css + ' />'
+    '<img src="' + icon_url(object, {:size => size}) + '" ' + css + ' />'
   rescue
     # icon_url can return nil.  If it does return an empty string
     ''
