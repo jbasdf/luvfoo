@@ -148,14 +148,15 @@ class Group < ActiveRecord::Base
   end
 
   # icon
-  file_column :icon, :magick => {
-    :versions => { 
-      :bigger => {:crop => "1:1", :size => "200x200", :name => "bigger"},
-      :big => {:crop => "1:1", :size => "150x150", :name => "big"},
-      :medium => {:crop => "1:1", :size => "100x100", :name => "medium"},
-      :small => {:crop => "1:1", :size => "50x50", :name => "small"}
+  has_attached_file :icon,
+    :url     => "/images/uploads/:class/:id/:style_:basename.:extension",
+    :path    => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
+    :style   => {
+      :bigger => "200x200",
+      :big    => "150x150",
+      :medium => "100x100",
+      :small  => "50x50"
     }
-  }
 
   # validations
   validates_presence_of :name, :description

@@ -255,14 +255,15 @@ class User < ActiveRecord::Base
     feed_item = FeedItem.create(:item => self, :creator_id => self.id, :template => template)
     feed_to.each{ |u| u.feed_items << feed_item }
   end
-     
-  file_column :icon, :magick => {
-    :versions => { 
-      :big => {:crop => "1:1", :size => "150x150", :name => "big"},
-      :medium => {:crop => "1:1", :size => "100x100", :name => "medium"},
-      :small => {:crop => "1:1", :size => "50x50", :name => "small"}
+  
+  has_attached_file :icon,
+    :url     => "/images/uploads/:class/:id/:style_:basename.:extension",
+    :path    => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
+    :style   => {
+      :big     => "150x150",
+      :medium  => "100x100",
+      :small   => "50x50"
     }
-  }
 
   before_save :encrypt_password, :lower_login, :query_services
   before_create :make_activation_code

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090305191113) do
+ActiveRecord::Schema.define(:version => 20090317024558) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(:version => 20090305191113) do
   add_index "bag_property_enums", ["bag_property_id"], :name => "index_bag_property_enums_on_bag_property_id"
 
   create_table "bag_property_values", :force => true do |t|
-    t.integer  "data_type",                                :default => 1
+    t.integer  "data_type",                                  :default => 1
     t.integer  "user_id"
     t.integer  "bag_property_id"
     t.string   "svalue"
-    t.text     "tvalue",               :limit => 16777215
+    t.text     "tvalue",               :limit => 2147483647
     t.integer  "ivalue"
     t.integer  "bag_property_enum_id"
     t.datetime "tsvalue"
@@ -158,10 +158,9 @@ ActiveRecord::Schema.define(:version => 20090305191113) do
     t.boolean  "is_public",        :default => false, :null => false
     t.integer  "item_id"
     t.string   "item_type"
+    t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "html_cache"
-    t.integer  "creator_id"
     t.string   "template"
   end
 
@@ -228,6 +227,10 @@ ActiveRecord::Schema.define(:version => 20090305191113) do
     t.integer  "visibility",                :default => 2
     t.boolean  "requires_approval_to_join", :default => false
     t.integer  "member_count"
+    t.integer  "icon_file_size"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.datetime "icon_updated_at"
   end
 
   add_index "groups", ["url_key"], :name => "index_groups_on_url_key"
@@ -327,6 +330,10 @@ ActiveRecord::Schema.define(:version => 20090305191113) do
     t.string   "url_key"
     t.string   "icon"
     t.integer  "creator_id"
+    t.integer  "icon_file_size"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.datetime "icon_updated_at"
   end
 
   add_index "news_items", ["url_key"], :name => "index_news_items_on_url_key"
@@ -354,13 +361,16 @@ ActiveRecord::Schema.define(:version => 20090305191113) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string   "caption",        :limit => 1000
+    t.string   "caption",            :limit => 1000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "photoable_id"
-    t.string   "image"
     t.string   "photoable_type"
     t.integer  "creator_id"
+    t.integer  "image_file_size"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
   end
 
   add_index "photos", ["photoable_id"], :name => "index_photos_on_user_id"
@@ -596,6 +606,10 @@ ActiveRecord::Schema.define(:version => 20090305191113) do
     t.integer  "posts_count",                             :default => 0
     t.datetime "last_seen_at"
     t.string   "api_key"
+    t.integer  "icon_file_size"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.datetime "icon_updated_at"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login"

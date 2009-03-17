@@ -41,12 +41,13 @@ class Photo < ActiveRecord::Base
 
   validates_presence_of :image
 
-  file_column :image, :magick => {
-    :versions => { 
-      :square => {:crop => "1:1", :size => "50x50", :name => "square"},
-      :small => "175x250"
+  has_attached_file :image,
+    :url    => "/images/uploads/:class/:id/:style_:basename.:extension",
+    :path   => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
+    :styles => {
+      :square => "50x50",
+      :small  => "175x250"
     }
-  }
 
   acts_as_solr :fields => [ :content_p, :content_u, :content_a ]
 

@@ -5,11 +5,11 @@
   	<img src="/images/blurp_photos.png" class="png icon_small" title="<%= _('User Photo Icon') %>"  alt="<%= _('User Photo Icon') %>" /> 
   	<%= _("%{user_name_link} uploaded a %{photo_link_begin_tag}new photo%{photo_link_end_tag} to %{upload_destination}") % 
   		{ :user_name_link => link_to(h(user.full_name), profile_path(user)), 
-  			:photo_link_begin_tag => '<a href="' + image_path(photo, nil) + '" title="' + photo.caption + '" class="thickbox">', 
+  			:photo_link_begin_tag => '<a href="' + photo.image.url(:small) + '" title="' + photo.caption + '" class="thickbox">', 
   			:photo_link_end_tag => '</a>',
 			:upload_destination => (photo.photoable.class == Group ? link_to(photo.photoable.name, group_path(photo.photoable)) : _('their profile'))} -%>
   	<div class="activity-photo">
-  	  <a href="<%= image_path(photo, nil) %>" title="<%= photo.caption %>" alt="<%= photo.caption %>" class="thickbox" rel="user_gallery"><%= image photo, :square %></a>
+  	  <a href="<%= photo.image.url(:small) %>" title="<%= photo.caption %>" alt="<%= photo.caption %>" class="thickbox" rel="user_gallery"><%= image photo, :square %></a>
   	</div>
 	</div> 
 	<div class="right">

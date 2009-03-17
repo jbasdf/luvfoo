@@ -2,8 +2,8 @@ module PhotosHelper
   include ActionView::Helpers::AssetTagHelper
  
   def image photo, size = :square, img_opts = {}
-    return image_tag(image_path( photo, size), :class => size) if photo.image.blank?
-    img_tag = image_tag(photo_path( photo, size), {:title=>photo.caption, :alt=>photo.caption, :class=>size}.merge(img_opts))
+    return image_tag(photo.image.url(size), :class => size) if photo.image.blank?
+    img_tag = image_tag(photo.image.url(size), {:title=>photo.caption, :alt=>photo.caption, :class=>size}.merge(img_opts))
     img_tag
   end
   

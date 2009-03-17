@@ -42,8 +42,7 @@ Rails::Initializer.run do |config|
   # please note that you will need to install RMagick for rake gems:install to work
   # here's some help: http://b.lesseverything.com/2007/9/26/installing-imagemagick-and-rmagick-on-mac-os-x
   config.gem 'luigi-activerecord-activesalesforce-adapter', :lib => 'active_record', :version => '2.1.0', :source => "http://gems.github.com"
-  #config.gem 'avatar', :version => '0.0.5'
-  config.gem 'gcnovus-avatar', :version=>"0.0.7", :lib => 'avatar'
+  config.gem 'gcnovus-avatar', :lib => 'avatar'
   config.gem 'builder', :version => '>=2.1.2'
   config.gem 'colored', :version => '>=1.1'
   config.gem 'feed-normalizer', :version => '>=1.5.1'

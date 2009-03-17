@@ -34,10 +34,12 @@ class NewsItem < ActiveRecord::Base
   has_attached_file :icon,
     :url    => "/images/uploads/:class/:id/:style_:basename.:extension",
     :path   => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
-    :bigger => "250x250",
-    :big    => "150x150",
-    :medium => "100x100",
-    :small  => "50x50"
+    :style  => {
+      :bigger => "250x250",
+      :big    => "150x150",
+      :medium => "100x100",
+      :small  => "50x50"
+    }
 
   # file_column :icon, :magick => {
   #   :versions => { 
