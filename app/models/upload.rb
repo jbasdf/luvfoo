@@ -36,17 +36,21 @@ class Upload < ActiveRecord::Base
 
   #    has_one :user_as_avatar, :class_name => "User", :foreign_key => "avatar_id"
 
-  has_attachment GlobalConfig.prepare_options_for_attachment_fu(GlobalConfig.upload['attachment_fu_options'])
-  validates_as_attachment
-
+  # has_attachment GlobalConfig.prepare_options_for_attachment_fu(GlobalConfig.upload['attachment_fu_options'])
+  # validates_as_attachment
+  
   acts_as_taggable
 
-  validates_presence_of :size
-  validates_presence_of :content_type
-  validates_presence_of :filename
+  # validates_presence_of :size
+  # validates_presence_of :content_type
+  # validates_presence_of :filename
   validates_presence_of :user, :if => Proc.new{|record| record.parent.nil? }
-  validates_inclusion_of :content_type, :in => attachment_options[:content_type], :message => "is not allowed", :allow_nil => true if attachment_options[:content_type]
-  validates_inclusion_of :size, :in => attachment_options[:size], :message => " is too large", :allow_nil => true if attachment_options[:size]
+  # validates_inclusion_of :content_type, :in => attachment_options[:content_type], :message => "is not allowed", :allow_nil => true if attachment_options[:content_type]
+  # validates_inclusion_of :size, :in => attachment_options[:size], :message => " is too large", :allow_nil => true if attachment_options[:size]
+  
+  has_attached_file :data,
+    :url     => "/uploads/:class/:id/:style_:basename.:extension",
+    :path    => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension"
 
   attr_protected :user_id, :uploadable_id, :uploadable_type
   
@@ -58,16 +62,19 @@ class Upload < ActiveRecord::Base
   named_scope :tagged_with, lambda {|tag_name|
     {:conditions => ["is_public = true AND tags.name = ?", tag_name], :include => :tags}
   }
-  named_scope :images, :conditions => "content_type IN (#{MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
+  named_scope :images, :conditions => "data_content_type IN (#{MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
   named_scope :public, :conditions => 'is_public = true'
-  named_scope :documents, :conditions => "content_type IN (#{(MimeTypeGroups::WORD_TYPES + MimeTypeGroups::EXCEL_TYPES + MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})" 
-  named_scope :files, :conditions => "content_type NOT IN (#{MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
+  named_scope :documents, :conditions => "data_content_type IN (#{(MimeTypeGroups::WORD_TYPES + MimeTypeGroups::EXCEL_TYPES + MimeTypeGroups::PDF_TYPES).collect{|type| "'#{type}'"}.join(',')})" 
+  named_scope :files, :conditions => "data_content_type NOT IN (#{MimeTypeGroups::IMAGE_TYPES.collect{|type| "'#{type}'"}.join(',')})"
   
-  def after_create
-    if uploadable.is_a?(Group) && uploadable.respond_to?(:feed_to)
-      feed_item = FeedItem.create(:item => self, :creator_id => self.user_id)
-      (uploadable.feed_to).each{ |u| u.feed_items << feed_item }
-    end
+  # def after_create
+  #   if uploadable.is_a?(Group) && uploadable.respond_to?(:feed_to)
+  #     feed_item = FeedItem.create(:item => self, :creator_id => self.user_id)
+  #     (uploadable.feed_to).each{ |u| u.feed_items << feed_item }
+  #   end
+  # end
+  
+  def uploaded_file=(filedata)
   end
      
   def owner

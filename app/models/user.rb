@@ -257,8 +257,8 @@ class User < ActiveRecord::Base
   end
   
   has_attached_file :icon,
-    :url     => "/images/uploads/:class/:id/:style_:basename.:extension",
-    :path    => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
+    :url     => "/uploads/:class/:id/:style_:basename.:extension",
+    :path    => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension",
     :style   => {
       :big     => "150x150",
       :medium  => "100x100",

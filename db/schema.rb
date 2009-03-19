@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090317024558) do
+ActiveRecord::Schema.define(:version => 20090318002859) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -533,7 +533,7 @@ ActiveRecord::Schema.define(:version => 20090317024558) do
     t.integer  "user_id"
     t.string   "content_type"
     t.string   "name"
-    t.string   "caption",         :limit => 1000
+    t.string   "caption",           :limit => 1000
     t.text     "description"
     t.string   "filename"
     t.string   "thumbnail"
@@ -542,9 +542,13 @@ ActiveRecord::Schema.define(:version => 20090317024558) do
     t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_public",                       :default => true
+    t.boolean  "is_public",                         :default => true
     t.integer  "uploadable_id"
     t.string   "uploadable_type"
+    t.integer  "data_file_size"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.datetime "data_updated_at"
   end
 
   add_index "uploads", ["parent_id"], :name => "index_uploads_on_parent_id"

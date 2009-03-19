@@ -61,10 +61,13 @@ class UploadsController < ApplicationController
 
   def swfupload
     # swfupload action set in routes.rb
-    @upload = @parent.uploads.build(:uploaded_data => params[:Filedata])
+    @upload = Upload.new
     @upload.is_public = true if params[:is_public] == true
     @upload.user = current_user
+    @upload.uploaded_file = params[:Filedata]
     @upload.save!
+    
+    #@parent.uploads << @upload
 
     respond_to do |format|
       format.json do

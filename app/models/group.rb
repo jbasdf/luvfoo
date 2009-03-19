@@ -149,8 +149,8 @@ class Group < ActiveRecord::Base
 
   # icon
   has_attached_file :icon,
-    :url     => "/images/uploads/:class/:id/:style_:basename.:extension",
-    :path    => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
+    :url     => "/uploads/:class/:id/:style_:basename.:extension",
+    :path    => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension",
     :style   => {
       :bigger => "200x200",
       :big    => "150x150",

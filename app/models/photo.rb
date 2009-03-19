@@ -42,8 +42,8 @@ class Photo < ActiveRecord::Base
   validates_presence_of :image
 
   has_attached_file :image,
-    :url    => "/images/uploads/:class/:id/:style_:basename.:extension",
-    :path   => ":rails_root/public/images/uploads/:class/:id/:style_:basename.:extension",
+    :url    => "/uploads/:class/:id/:style_:basename.:extension",
+    :path   => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension",
     :styles => {
       :square => "50x50",
       :small  => "175x250"

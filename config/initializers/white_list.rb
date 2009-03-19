@@ -5,5 +5,7 @@
 # WhiteListHelper.attributes['param']  = %w(name value type)
 # WhiteListHelper.attributes['embed']  = %w(src quality salign scale bgcolor align menu pluginspage type width height wmode flashvars)
 # WhiteListHelper.attributes['iframe'] = %w(src frameborder width height)
-WhiteListHelper.tags.merge %w(table td th)
-WhiteListHelper.attributes.merge %w(id class style)
+
+# Failing because of some plugin path issue on ubuntu
+# WhiteListHelper.tags.merge %w(table td th)
+# WhiteListHelper.attributes.merge %w(id class style)
