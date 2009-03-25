@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090123074335
+# Schema version: 20090213002439
 #
 # Table name: contacts
 #
@@ -69,7 +69,7 @@
 #  country_coordinator__c       :boolean(0)    not null
 #  paid__c                      :boolean(0)    not null
 #  if_so_rate_per_hour__c       :float(0)      not null
-#  remote_id__c                 :text(20)      not null
+#  remote_id__c                 :text(30)      not null
 #  remote_login__c              :text(60)      not null
 #  employer__c                  :text(255)     not null
 #  grade_level_experience__c    :text(4099)    not null
@@ -78,6 +78,7 @@
 #  giraffe_heroes__c            :boolean(0)    not null
 #  my_tec_c__c                  :boolean(0)    not null
 #  twb_tools__c                 :boolean(0)    not null
+#  licensed_teaching_levels__c  :text(4099)    not null
 #  newsletter__c                :boolean(0)    not null
 #  why_joined__c                :text(32000)   not null
 #  occupation__c                :text(255)     not null
@@ -94,6 +95,7 @@
 #  ctm_role__c                  :text(255)     not null
 #  ctm_role_other__c            :text(32000)   not null
 #  license__c                   :text(255)     not null
+#  mentor_gender__c             :text(255)     not null
 #  time_in_role__c              :text(255)     not null
 #  ctm_reason__c                :text(255)     not null
 #  ctm_goal__c                  :text(255)     not null
@@ -101,6 +103,15 @@
 #  years_teaching_experience__c :text(255)     not null
 #  twb_canada__c                :text(255)     not null
 #  how_many_students__c         :text(255)     not null
+#  mentor_license_to_teach__c   :text(255)     not null
+#  mentor_years_teaching__c     :text(255)     not null
+#  mentor_school_level__c       :text(255)     not null
+#  mentor_subject_areas__c      :text(4099)    not null
+#  mentor_resume__c             :text(32000)   not null
+#  mentor_references__c         :text(32000)   not null
+#  mentor_approved__c           :boolean(0)    not null
+#  mentor_group__c              :text(100)     not null
+#  mentor_why_interested__c     :text(4099)    not null
 #
 
 # class for communicating with salesforce

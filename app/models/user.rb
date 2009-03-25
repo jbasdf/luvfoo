@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090123074335
+# Schema version: 20090213002439
 #
 # Table name: users
 #
@@ -57,6 +57,7 @@
 #  public_profile            :text          
 #  posts_count               :integer(4)    default(0)
 #  last_seen_at              :datetime      
+#  api_key                   :string(255)   
 #
 
 require 'digest/sha1'

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090123074335
+# Schema version: 20090213002439
 #
 # Table name: events
 #
@@ -16,7 +16,7 @@
 #  eventable_type  :string(255)   
 #  created_at      :datetime      
 #  updated_at      :datetime      
-#  attendees_count :integer(4)    
+#  attendees_count :integer(4)    default(0), not null
 #
 
 class Event < ActiveRecord::Base

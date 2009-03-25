@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090123074335
+# Schema version: 20090213002439
 #
 # Table name: groups
 #
@@ -15,6 +15,7 @@
 #  default_role              :string(255)   default("member")
 #  visibility                :integer(4)    default(2)
 #  requires_approval_to_join :boolean(1)    
+#  member_count              :integer(4)    
 #
 
 class Group < ActiveRecord::Base
