@@ -148,7 +148,7 @@ table.posts .editing td.body{}
 */
 /* other stuff */
 p.online{margin-bottom:0;}
-img.icon{background:#696;background-image:url(/images/clearbits/bg_rounded.gif);background-repeat:no-repeat;vertical-align:bottom;}
+img.icon{vertical-align:bottom;}
 img.reply{float:right;}
 img.orange{background-color:darkorange;}
 img.grey{background-color:#ccc;}

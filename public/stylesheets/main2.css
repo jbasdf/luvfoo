@@ -85,7 +85,7 @@ ul#nav li .dropdown .bottom{background:url(/images/nav_dropdown_bottom.png) no-r
 #signin #signin_button{background:transparent url(/images/button_signin.gif) no-repeat scroll 0 0;}
 #signin #register_button{background:transparent url(/images/button_register.gif) no-repeat scroll 0 0;margin-left:1px;}
 /*----------------search------------*/
-#log-out{position:relative;padding-left:475px;text-align:right;width:350px;right:inherit;top:24px;}
+#log-out {position:relative;margin-left: 300px;padding-left:175px;text-align:right;width:350px;right:inherit;top:24px;}
 #log-out a{color:#333399;font-weight:bold;font-size:10px;margin-left:6px;}
 #search{background:transparent url(/images/search_bgb.png) no-repeat scroll 0 0;height:32px;left:59px;margin-left:306px;margin-top:56px;padding-right:0;padding-top:0;position:absolute;top:-1px;width:562px;z-index:1;}
 #search fieldset{border:0 none;margin:0 6px 0 280px;padding:1px 2px;}
@@ -129,6 +129,8 @@ padding:0px 0;}
 #iframe{text-align:center;}
 #titlesH8{text-align:center;font-size:22px;line-height:22px;padding-bottom:10px;font-weight:normal;color:#333;}
 #titlesH8 a{text-decoration:none;color:#333;}
+#titlesH10{text-align:center;font-size:22px;line-height:22px;padding-bottom:10px;font-weight:normal;color:#333;}
+#titlesH10 a{text-decoration:none;color:#ff0000;}
 .content titlesH8{line-height:36px;}
 .col300{float:left;width:300px;overflow:hidden;text-align:center;}
 .col300 titlesh9{padding-top:10px;}

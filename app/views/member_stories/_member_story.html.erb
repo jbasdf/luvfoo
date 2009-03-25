@@ -8,5 +8,5 @@ if num_stories > 0
   <p id="home-member-story"><%= icon_tag(story, :small) -%>
      <%= summarize(story.body, 200) %> <a href="<%= member_story_path(story) %>"><%= _('Read More') %></a>
   </p>
-  <p><a style="margin: 0pt auto; float: none;" href="<%= member_story_path(story) %>" class="button">More Stories</a></p>
+  <p><a style="margin: 0pt auto; float: none;" href="<%= member_stories_path %>" class="button">More Stories</a></p>
 <% end -%>

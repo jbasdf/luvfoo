@@ -233,7 +233,6 @@ position:absolute;height:expression(document.body.scrollHeight > document.body.o
 #top-navigation ul li{float:left;padding:0 4px 0 10px;list-style:none;color:#ffc;font-size:11px;line-height:13px;font-weight:bold;}
 #top-navigation ul li a{float:left;color:#E9EFD5;text-decoration:none;font-size:120%;font-weight:bold;}
 #top-navigation ul li a:hover{text-decoration:underline;color:#fff;}
-#log-out{margin:2px 10px 1px 0;}
 #log-out a{color:#E9EFD5;font-weight:bold;margin-left:10px;}
 .checkbox-list{width:300px;height:200px;overflow:auto;border-top:solid 2px #848484;border-left:solid 2px #848484;border-right:solid 2px #fafafa;border-bottom:solid 2px #fafafa;padding:2px;}
 #grade-level-expriences-selector{height:110px;}
