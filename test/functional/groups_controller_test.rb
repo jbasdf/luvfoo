@@ -171,11 +171,16 @@ class GroupsControllerTest < Test::Unit::TestCase
 
     end        
 
-    should "delete a group" do
-      assert_difference "Group.count", -1 do
-        group = Factory(:group, :creator => @admin_user)
-        delete :destroy, { :id => group.to_param }
-        assert_redirected_to groups_url
+    context "DELETE to destroy" do
+      setup do
+        @group = Factory(:group, :creator => @admin_user)
+      end
+      
+      should "delete a group" do
+        assert_difference "Group.count", -1 do
+          delete :destroy, { :id => @group.to_param }
+          assert_redirected_to groups_url
+        end
       end
     end
     

@@ -104,7 +104,9 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-  if ENV["DB_MIGRATION"] != "true"
+  # Have to turn off observers when using Rake.  However, it is important to
+  # make sure the observers are turned on when running rake, rake test, etc
+  if ENV["DB_MIGRATION"] != "true" || Rails.env == 'test'
     config.active_record.observers = :user_observer, :user_plone_observer
   end
 
