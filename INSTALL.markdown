@@ -1,0 +1,82 @@
+#How to install Luvfoo#
+
+1. Start by making sure your RubyGems are version 1.2.0 or greater:
+
+        sudo gem update --system
+
+2. Add the Github repository to your gems:
+
+        sudo gem sources -a http://gems.github.com
+
+3. Luvfoo runs on Ruby on Rails, so first you need to get Rails running. In order to do that, download Rails from the [Ruby on Rails site] or install though gems:
+
+        sudo gem install rails -v=2.1.1
+
+4. Copy config/database.yml.example to config/database.yml and edit it to reflect the database names you would like to use.
+
+5. Copy config/global_config.yml.example to config/global_config.yml and edit it to reflect your application customized configurations.
+
+6. Copy config/environments/production.rb.example to config/environments/production.rb and edit `asset_host` in order to reflects the name of the production asset server.
+
+7. Configure your mail settings inside of production.rb ie:
+
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+      :address => "mail.luvfoo.com",
+      :port => 25,
+      :domain => "luvfoo.com",
+      :authentication => :login,
+      :user_name => "demo@luvfoo.com",
+      :password => "sweet"
+    }
+
+8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other Debian-based Linux distribuitions:
+
+        sudo apt-get install gettext
+        
+              or in OSX 10.5
+              
+        sudo gem install gettext
+
+9. luvfoo currently has a few dependencies that prevent a basic rake from running. We need to install the following:
+
+        sudo gem install mini_magick
+        sudo gem install hpricot
+        sudo gem install gcnovus-avatar
+        
+    Now you should be able to run rails built in rake tasks to include the rest.
+        
+        sudo rake gems:install
+    
+    Install the following additional gems - these are required while testing the application using 'rake test' or 'autotest':
+    
+    	sudo gem install thoughtbot-factory_girl 
+	sudo gem install zentest
+	sudo gem install thoughtbot-shoulda
+	sudo gem install redgreen
+
+10. Run the following commands to create the database, the tables and then populate them with default data:
+
+        rake db:create
+        rake db:schema:load
+        
+11. We need to get solr running before you can populate the database:
+
+        mkdir tmp/pids
+        mkdir tmp/pids/solr
+        rake solr:start
+
+12. Now we can populate the database:
+
+        rake luvfoo:db:populate
+
+13. Start the server with:
+
+        script/server
+
+14. Go to http://localhost:3000/ and login with username `admin` and password `admin`. Change it ASAP.
+
+15. Have fun with *Luvfoo*!
+
+  [Ruby on Rails site]: http://www.rubyonrails.com/  "Ruby on Rails official site"
+
