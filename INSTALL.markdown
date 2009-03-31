@@ -12,11 +12,14 @@
 
         sudo gem install rails -v=2.1.1
 
-4. Copy config/database.yml.example to config/database.yml and edit it to reflect the database names you would like to use.
+4. Copy config/database.yml.example to config/database.yml and edit it to reflect the database names you would like to 
+   use.
 
-5. Copy config/global_config.yml.example to config/global_config.yml and edit it to reflect your application customized configurations.
+5. Copy config/global_config.yml.example to config/global_config.yml and edit it to reflect your application 
+   customized configurations.
 
-6. Copy config/environments/production.rb.example to config/environments/production.rb and edit `asset_host` in order to reflects the name of the production asset server.
+6. Copy config/environments/production.rb.example to config/environments/production.rb and edit `asset_host` in order 
+   to reflects the name of the production asset server.
 
 7. Configure your mail settings inside of production.rb ie:
 
@@ -30,7 +33,8 @@
       :password => "sweet"
     }
 
-8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other Debian-based Linux distribuitions:
+8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other 
+   Debian-based Linux distribuitions:
 
         sudo apt-get install gettext
         
@@ -38,11 +42,34 @@
               
         sudo gem install gettext
 
+   **Note**: on Ubuntu you can use sudo gem install gettext -v=1.93.0. The 2.0 version will not work. It throws No such file "gettext/rails".
+
 9. luvfoo currently has a few dependencies that prevent a basic rake from running. We need to install the following:
 
         sudo gem install mini_magick
         sudo gem install hpricot
         sudo gem install gcnovus-avatar
+        
+   **Note**: To get hpricot working, do: sudo apt-get install ruby1.8-dev
+    
+    make sure you have gcc: 
+    
+    sudo apt-get install gcc
+    sudo apt-get install libmagick9-dev
+    
+   **Note**: You also need to install Imagemagick and RMagick. Get the latest gz file from imagemaick.org and untar to a directory, then run:
+    sudo ./configure --enable-openmp=no --disable-static --with-modules --without-perl --without-threads --without-magick-plus-plus --with-quantum-depth=8  --with-gs-font-dir=$FONTS
+    sudo make
+    sudo make install
+    set LD_LIBRARY_PATH=/usr/local/lib (that is where imagemagick so files are installed)
+    ldconfig
+    
+    Make sure that Imagemagick is installed properly by running:
+    /usr/local/bin/convert logo logo.gif
+    
+    Then you can run: gem install rmagick
+    check if rmagick is installed correctly by:
+    irb -rubygems -r RMagick. If you get a prompt then you are ok.
         
     Now you should be able to run rails built in rake tasks to include the rest.
         
@@ -59,6 +86,7 @@
 
         rake db:create
         rake db:schema:load
+    **Note*: if db create fails, create it using mysql command window. Use utf8 charset.
         
 11. We need to get solr running before you can populate the database:
 
