@@ -86,7 +86,7 @@
 
         rake db:create
         rake db:schema:load
-    **Note*: if db create fails, create it using mysql command window. Use utf8 charset.
+    **Note**: if db create fails, create it using mysql command window. Use utf8 charset.
         
 11. We need to get solr running before you can populate the database:
 
