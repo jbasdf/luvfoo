@@ -24,10 +24,10 @@
   		<dd><a href="/pages/make-a-difference">Participate</a></dd>
   	</dl>
   	<dl>
-      <dt><a href="http://courses.teacherswithoutborders.org/">Courses</a></dt>
-      <dd><a href="http://courses.teacherswithoutborders.org/certificate-teaching-mastery-5-courses">Certificate of Teaching Mastery</a></dd>
-      <dd><a href="http://courses.teacherswithoutborders.org/how-to-use-twb-opencourseware">Make Courses</a></dd>
-      <dd><a href="http://courses.teacherswithoutborders.org/">Take courses</a></dd>
+      <dt><a href="<%=GlobalConfig.plone_site%>">Courses</a></dt>
+      <dd><a href="<%=GlobalConfig.plone_site%>/certificate-teaching-mastery-5-courses">Certificate of Teaching Mastery</a></dd>
+      <dd><a href="<%=GlobalConfig.plone_site%>/how-to-use-twb-opencourseware">Make Courses</a></dd>
+      <dd><a href="<%=GlobalConfig.plone_site%>">Take courses</a></dd>
     </dl>
     <dl class="alt" style="margin-right: 0pt; width: 172px;">
   		<dt><a href="/pages/resources">Resources</a></dt>
@@ -55,6 +55,8 @@
 	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-	var pageTracker = _gat._getTracker("<%= GlobalConfig.google_analytics_key %>");
-	pageTracker._trackPageview();
+	if (typeof(_gat) == 'object') {
+		var pageTracker = _gat._getTracker("<%= GlobalConfig.google_analytics_key %>");
+		pageTracker._trackPageview();
+	}
 </script>
