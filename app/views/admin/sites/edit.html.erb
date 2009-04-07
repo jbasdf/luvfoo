@@ -21,7 +21,7 @@
 		<% if @logo -%>
 			<h3><%= _('Current Logo') %></h3>
 			<p><%= _('(The logo should stretch from one side to the other on the white background)') %></p>
-			<div id="settings-logo-preview"><%= image_tag(@logo.public_filename) %></div>				
+			<div id="settings-logo-preview"><%= image_tag(@logo.data_file_name) %></div>				
 		<% end -%>
 		
 		<fieldset>

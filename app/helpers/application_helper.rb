@@ -76,24 +76,24 @@ module ApplicationHelper
   end
 
   def icon_for(upload, size = :icon)
-    return '' if upload.nil?
+    return '' if upload.blank?
     if upload.is_pdf?
-      link_to image_tag('file_icons/pdf.gif', :height => '25'), upload.public_filename
+      link_to image_tag('file_icons/pdf.gif', :height => '25'), upload.data.url
     elsif upload.is_word?
-      link_to image_tag('file_icons/word.png', :height => '25'), upload.public_filename  
+      link_to image_tag('file_icons/word.png', :height => '25'), upload.data.url  
     elsif upload.is_image?
-      link_to image_tag(upload.public_filename(size)), upload.url
+      link_to image_tag(upload.data.url(size)), upload.data.url
     elsif upload.is_mp3?
-      link_to image_tag('file_icons/mp3.png', :height => '30'), upload.public_filename
+      link_to image_tag('file_icons/mp3.png', :height => '30'), upload.data.url
     elsif upload.is_excel?
-      link_to image_tag('file_icons/excel.png', :height => '25'), upload.public_filename
+      link_to image_tag('file_icons/excel.png', :height => '25'), upload.data.url
     elsif upload.is_text?
-      link_to image_tag('file_icons/text.png', :height => '25'), upload.public_filename
+      link_to image_tag('file_icons/text.png', :height => '25'), upload.data.url
     else
-      link_to image_tag('blurp_file.png', :height => '25'), upload.public_filename
+      link_to image_tag('blurp_file.png', :height => '25'), upload.data.url
     end
   rescue => ex
-    link_to image_tag('blurp_file.png', :height => '25'), upload.public_filename
+    link_to image_tag('blurp_file.png', :height => '25'), upload.data.url
   end
 
   def link_for_shared_uploadable(shared_uploadable)
@@ -254,6 +254,7 @@ module ApplicationHelper
   end
   
   def truncate(text,len = 30)
+    return '' if text.blank?
     return text if text.size <= len
     r_index = text.rindex(' ', len)
     text[0, r_index ? r_index : len] + '...'

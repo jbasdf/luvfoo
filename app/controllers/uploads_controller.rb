@@ -64,10 +64,10 @@ class UploadsController < ApplicationController
     @upload = Upload.new
     @upload.is_public = true if params[:is_public] == true
     @upload.user = current_user
-    @upload.uploaded_file = params[:Filedata]
+    @upload.swfupload_file = params[:Filedata]
     @upload.save!
     
-    #@parent.uploads << @upload
+    @parent.uploads << @upload
 
     respond_to do |format|
       format.json do
@@ -86,6 +86,7 @@ class UploadsController < ApplicationController
       end
     end
   rescue => ex
+    debugger
     render :text => _("An error occured while uploading the file.")
     #render :text => _("Error %{exception}")  % {:exception => ex}
   end

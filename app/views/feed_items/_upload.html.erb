@@ -20,7 +20,7 @@ return if user.nil?
 						:upload_to => upload_to,
 						:uploaded_file => '<div class="activity-upload">
 						                    <div class="file-icon">' + icon_for(upload) + '</div>
-						                    <a href="' + upload.public_filename + '">' + truncate(sanitize(upload.filename), 100) + '</a>
+						                    <a href="' + upload.data.url + '">' + truncate(sanitize(upload.data_file_name), 100) + '</a>
 						                   </div>' } -%>
 	</div>
 	<div class="right">

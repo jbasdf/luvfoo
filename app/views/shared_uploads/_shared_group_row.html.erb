@@ -1,6 +1,6 @@
 <tr id="<%= shared_group_row.dom_id %>" class="<%= cycle('odd', 'even') %>" <%=style-%> >
 	<td><div class="file-icon"><%= icon_for shared_group_row.upload -%></div></td>
-	<td><a href="<%=shared_group_row.upload.public_filename%>"><%= truncate(sanitize(shared_group_row.upload.filename), 100) %></a></td>
+	<td><a href="<%=shared_group_row.upload.data.url%>"><%= truncate(sanitize(shared_group_row.upload.data_file_name), 100) %></a></td>
 	<% if can_edit -%>
 	<td><%= link_to _("%{icon} Delete") % {:icon => image_tag('delete.png', :class => 'png', :width=>'12', :height=>'12')}, user_shared_upload_path(@user, shared_group_row), :method => :delete, :title => _("Delete") -%></td>	
 	<% end -%>

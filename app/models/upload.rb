@@ -44,13 +44,14 @@ class Upload < ActiveRecord::Base
   # validates_presence_of :size
   # validates_presence_of :content_type
   # validates_presence_of :filename
-  validates_presence_of :user, :if => Proc.new{|record| record.parent.nil? }
+  #validates_presence_of :user, :if => Proc.new{|record| record.parent.nil? }
   # validates_inclusion_of :content_type, :in => attachment_options[:content_type], :message => "is not allowed", :allow_nil => true if attachment_options[:content_type]
   # validates_inclusion_of :size, :in => attachment_options[:size], :message => " is too large", :allow_nil => true if attachment_options[:size]
   
   has_attached_file :data,
     :url     => "/uploads/:class/:id/:style_:basename.:extension",
-    :path    => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension"
+    :path    => ":rails_root/public/uploads/:class/:id/:style_:basename.:extension",
+    :styles  => { :icon => "30x30!", :thumb => "100>", :small => "150>", :medium => "290>", :large => "664>"}
 
   attr_protected :user_id, :uploadable_id, :uploadable_type
   
@@ -73,8 +74,9 @@ class Upload < ActiveRecord::Base
   #     (uploadable.feed_to).each{ |u| u.feed_items << feed_item }
   #   end
   # end
-  
-  def uploaded_file=(filedata)
+  def swfupload_file=(filedata)
+    filedata.content_type = MIME::Types.type_for(filedata.original_filename).to_s
+    self.data = filedata
   end
      
   def owner
@@ -90,27 +92,27 @@ class Upload < ActiveRecord::Base
   end
 
   def is_image?
-    MimeTypeGroups::IMAGE_TYPES.include?(self.content_type)
+    MimeTypeGroups::IMAGE_TYPES.include?(self.data_content_type)
   end
 
   def is_mp3?
-    MimeTypeGroups::MP3_TYPES.include?(self.content_type)
+    MimeTypeGroups::MP3_TYPES.include?(self.data_content_type)
   end
 
   def is_excel?
-    MimeTypeGroups::EXCEL_TYPES.include?(self.content_type)
+    MimeTypeGroups::EXCEL_TYPES.include?(self.data_content_type)
   end
 
   def is_pdf?
-    MimeTypeGroups::PDF_TYPES.include?(self.content_type)
+    MimeTypeGroups::PDF_TYPES.include?(self.data_content_type)
   end
 
   def is_word?
-    MimeTypeGroups::WORD_TYPES.include?(self.content_type)
+    MimeTypeGroups::WORD_TYPES.include?(self.data_content_type)
   end
 
   def is_text?
-    MimeTypeGroups::TEXT_TYPES.include?(self.content_type)
+    MimeTypeGroups::TEXT_TYPES.include?(self.data_content_type)
   end
   
   def upload_type
@@ -137,7 +139,7 @@ class Upload < ActiveRecord::Base
     elsif self.is_word?
       '/images/file_icons/word.png'
     elsif self.is_image?
-      self.public_filename(:icon)
+      self.data.url(:icon)
     elsif self.is_mp3?
       '/images/file_icons/mp3.png'
     elsif self.is_excel?

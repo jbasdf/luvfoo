@@ -79,7 +79,7 @@ function add_file(file, location){
 		'<img class="icon" src="' + file.icon + '" alt="" />' +
 		'<a onclick="select_file(this);return false;" href="#">' + file.filename + '</a>' +
 		'<a onclick="delete_file(this, ' + file.id + ');return false;" href="#"><img src="/images/delete.png" /></a>' +
-		'<input type="hidden" value="' + file.public_filename + '" /></li>';	
+		'<input type="hidden" value="' + file.data_file_name + '" /></li>';	
 	if ('prepend' == location){
 		jQuery('#upload-list').prepend(file_html);
 	} else {
