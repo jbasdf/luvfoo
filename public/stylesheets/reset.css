@@ -1,32 +1,19 @@
-/* -------------------------------------------------------------- 
-  
-   reset.css
-   * Resets default browser CSS.
-   
-   Based on work by Eric Meyer:
-   * meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
-   
--------------------------------------------------------------- */
+/*------------------ reset ------------------*/
+body,html { margin:0; padding: 0; width: 100%; }
+body,h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,legend,
+input,button,select,textarea,dl,dd,dt,hr,table,thead,tbody,tfoot,tr,th,td
+{ margin:0; padding:0 }
+img,a img,:link img,:visited img { border:0;padding:0;margin:0; }
+address,cite,caption { font-style: normal }
+caption,th { text-align: left }
+ol,ul { margin-left: 5px; }
+ol { margin-left: 25px }
+ul { list-style: none; }
 
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, code,
-del, dfn, img, q, dl, dd, ol, ul, li, form, label,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	font-family: inherit;
-	vertical-align: baseline;
+* :focus { outline: 0; }
+
+body,html {
+	width: 100%;
+	height: 100%;
 }
-body { line-height: 1.5; background: #fff; margin:1.5em 0; }
-/* Tables still need 'cellspacing="0"' in the markup. */
-table { border-collapse: separate; border-spacing: 0; }
-caption, th, td { text-align: left; font-weight:400; }
-/* Remove possible quote marks (") from <q>, <blockquote>. */
-blockquote:before, blockquote:after, q:before, q:after { content: ""; }
-blockquote, q { quotes: "" ""; }
-a img { border: none; }

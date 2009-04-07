@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090123074335
+# Schema version: 20090213002439
 #
 # Table name: membership_requests
 #

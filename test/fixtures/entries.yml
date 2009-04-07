@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090123074335
+# Schema version: 20090213002439
 #
 # Table name: entries
 #
@@ -19,12 +19,14 @@ quentin_entry:
   permalink: http://www.justinball.com/2008/09/15/764/
   title: Luvfoo - Open Source Ruby on Rails Social Network Platform
   body: For lack of a better place to put this right now I am posting the roadmap for the Ruby on Rails social network we are building here. There has been quite a lot of interest in the project and quite a bit of willingness to contribute for which I am grateful. There are some features on this list that are a bit out there and we might not every get to. The idea is to do a brain dump and collect feedback. If you have interest or ideas feel free to add comments.
-  published_at: 09/15/2008
+  #published_at: 09/15/2008
+  published_at: <%=((DateTime.now).strftime("%Y-%m-%d %H:%M:%S"))%> 
   user: quentin
 
 aaron_entry:
   permalink: http://github.com/jbasdf/luvfoo/tree/master
   title: Luvfoo
   body: Open Source Social Network written in Ruby on Rails
-  published_at: 09/17/2008
+ #published_at: 09/17/2008
+  published_at: <%=((DateTime.now).strftime("%Y-%m-%d %H:%M:%S"))%> 
   user: aaron

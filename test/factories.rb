@@ -11,7 +11,7 @@ Factory.sequence :name do |n|
 end
 
 Factory.sequence :abbr do |n|
-  "abbr#{n}"
+  "#{n}"
 end
 
 Factory.sequence :description do |n|

@@ -24,3 +24,13 @@ config.action_view.cache_template_loading            = true
 # needed for Avatar::Source::RailsAssetSource
 config.action_controller.asset_host = "http://try.luvfoo.com"
 
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => "mail.luvfoo.com",
+  :port => 25,
+  :domain => "luvfoo.com",
+  :authentication => :login,
+  :user_name => "demo@luvfoo.com",
+  :password => "sweet"
+}

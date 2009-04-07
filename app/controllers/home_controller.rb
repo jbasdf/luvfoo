@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-
+  
+  layout 'application'
+  
   include PageMethods
 
   skip_filter :store_location, :only => [:home]
@@ -33,6 +35,7 @@ class HomeController < ApplicationController
       format.rss {render :layout=>false}
     end
   end
+  
   def latest_comments
     respond_to do |format|
       format.html {render :action=>'index'}

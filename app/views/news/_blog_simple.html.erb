@@ -1,4 +1,4 @@
-<div id="blog_<%= blog_simple.id %>" class="blog-simple">
+<div id="blog_<%= blog_simple.id %>" class="blog-simpleB">
 	<a href="<%= profile_blog_path(blog_simple.newsable, blog_simple) %>"><%= truncate(sanitize(blog_simple.title), 40) -%></a><br />
 	<%= summarize(blog_simple.body, 80) -%>
 </div>

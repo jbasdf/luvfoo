@@ -16,9 +16,19 @@
 
 5. Copy config/global_config.yml.example to config/global_config.yml and edit it to reflect your application customized configurations.
 
-6. Copy config/initializers/mail.rb.example to config/initializers/mail.rb and edit it to reflect your mail configurations.
+6. Copy config/environments/production.rb.example to config/environments/production.rb and edit `asset_host` in order to reflects the name of the production asset server.
 
-7. Copy config/environments/production.rb.example to config/environments/production.rb and edit `asset_host` in order to reflects the name of the production asset server.
+7. Configure your mail settings inside of production.rb ie:
+
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+      :address => "mail.luvfoo.com",
+      :port => 25,
+      :domain => "luvfoo.com",
+      :authentication => :login,
+      :user_name => "demo@luvfoo.com",
+      :password => "sweet"
+    }
 
 8. You will need to install some 3th party softwares. Above, there is the command to install them in Ubuntu and other Debian-based Linux distribuitions:
 
@@ -33,7 +43,6 @@
         sudo gem install mini_magick
         sudo gem install hpricot
         sudo gem install gcnovus-avatar
-        sudo gem install ruby-openid
         
     Now you should be able to run rails built in rake tasks to include the rest.
         

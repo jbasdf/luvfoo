@@ -1,31 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	  <meta name="description" content="" />
-	  <title><%= @title || _(GlobalConfig.application_name) -%></title>
-	  <%= stylesheet_link_tag 'reset', 'ie', 'application', 'beast', 'standard', :cache=>true -%>
-		<%= javascript_include_tag 'jquery', 'jquery-ui', 'jrails', 'thickbox', 'jquery-plugins/jquery.jgrowl_minimized.js', 'application' -%>
-		<%= javascript_tag %[const AUTH_TOKEN = #{form_authenticity_token.inspect};] if protect_against_forgery? -%>
-		<link href="/stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css" />
-		<%= yield :head -%>
-	  <link rel="shortcut icon" href="/favicon.ico" >
-	  <!--[if lt IE 7.]>
-	    <script defer type="text/javascript" src="/javascripts/pngfix.js"></script>
-	  <![endif]-->
+	  <%= render :partial => 'layouts/global/head' %>
   </head>
   <body>
-    <div id="twb-wrapper">
-			<%= render :partial => 'layouts/global/header2' %>
-      <div id="twb-content">
-      	<div id="twb-main">
-        	<%= display_standard_flashes %>
-					<%= yield %>
-          <div class="clear"></div>
+    <div style="width:100%;" id="twbfront">
+  	  <div id="site" class="container">
+  	    <div id="header2">
+  	      <div id="site2" class="container">
+			      <%= render :partial => 'layouts/global/header2' %>
+			      <div id="quote" class="container"> At over 59 million, <span>teachers</span> are the largest<br />
+	            group of trained professionals in <br />
+	            the world.  They know who is <br />
+	            sick, who is 
+	            missing, who <br />
+	            is orphaned by AIDS.
+            </div>
+	          <div id="highlight" class="container">
+	            <h4><a href="/pages/what-we-do">Teachers Without Borders supports teacher leaders, worldwide, so that they may play a vital role in their communities<br /><br />Find out more!</a></h4>
+            </div>
+            <div id="buttontext" class="container"><h7>&nbsp;&nbsp; Donate<br /><br />Participate</h7></div>
+	          <div id="donate" class="container"> 
+	            <p>
+	              <a href="/pages/make-a-difference"><img src="/images/button_donate.png" alt="" width="150" height="36" /></a>
+	              <a href="/pages/support-us"><img src="/images/button_participate.png" alt="" width="150" height="36" /></a>
+	            </p>
+            </div>
+	          <div id="lilman" class="container">
+	            <a href="/pages/what-we-do"><img src="/images/button_whatb.png" alt="" width="375" height="190" /></a>
+	          </div>
+          </div>
         </div>
-        <div class="clear"></div>
-      </div>    
+	    </div>
+			<%= yield %>
+      <%= render :partial => 'layouts/global/footer2' %>
     </div>
-    <%= render :partial => 'layouts/global/footer' %>
   </body>
 </html>

@@ -171,13 +171,16 @@ class GroupsControllerTest < Test::Unit::TestCase
 
     end        
 
-    should "not delete group only mark it 'deleted'" do
-      assert_no_difference "Group.count" do
-        group = Factory(:group, :creator => @admin_user)
-        delete :destroy, { :id => group.to_param }
-        assert_redirected_to groups_url
-        group.reload
-        assert group.visibility == Group::DELETED
+    context "DELETE to destroy" do
+      setup do
+        @group = Factory(:group, :creator => @admin_user)
+      end
+      
+      should "delete a group" do
+        assert_difference "Group.count", -1 do
+          delete :destroy, { :id => @group.to_param }
+          assert_redirected_to groups_url
+        end
       end
     end
     

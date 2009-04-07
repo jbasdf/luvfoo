@@ -41,8 +41,8 @@ Rails::Initializer.run do |config|
 
   # please note that you will need to install RMagick for rake gems:install to work
   # here's some help: http://b.lesseverything.com/2007/9/26/installing-imagemagick-and-rmagick-on-mac-os-x
-  config.gem 'luigi-activerecord-activesalesforce-adapter', :lib => 'active_record', :version => '2.1.0', :source => "http://gems.github.com"
-  config.gem 'gcnovus-avatar', :lib => 'avatar'
+  #config.gem 'avatar', :version => '0.0.5'
+  config.gem 'gcnovus-avatar', :version=>"0.0.7", :lib => 'avatar'
   config.gem 'builder', :version => '>=2.1.2'
   config.gem 'colored', :version => '>=1.1'
   config.gem 'feed-normalizer', :version => '>=1.5.1'
@@ -61,7 +61,8 @@ Rails::Initializer.run do |config|
   config.gem 'youtube-g', :lib => 'youtube_g', :version => '>=0.4.1'
   config.gem 'mini_magick', :version => '>=1.2.3'
   config.gem 'mime-types', :lib =>'mime/types', :version => '>=1.15'
-  
+  config.gem 'luigi-activerecord-activesalesforce-adapter', :lib => 'active_record', :version => '2.1.0', :source => "http://gems.github.com"
+    
   # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -103,7 +104,9 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-  if ENV["DB_MIGRATION"] != "true"
+  # Have to turn off observers when using Rake.  However, it is important to
+  # make sure the observers are turned on when running rake, rake test, etc
+  if ENV["DB_MIGRATION"] != "true" || Rails.env == 'test'
     config.active_record.observers = :user_observer, :user_plone_observer
   end
 
