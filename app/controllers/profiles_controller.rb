@@ -55,7 +55,6 @@ class ProfilesController < ApplicationController
 
     if GlobalConfig.integrate_portfolio
       uri = GlobalConfig.portfolio_url_template.sub('{user_login}', @user.login)    
-      uri = "http://courses.teacherswithoutborders.org/junk"        
       @portfolio_rss = RssMethods::get_rss(uri, 5) rescue nil
     end
 
