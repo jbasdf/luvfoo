@@ -1,10 +1,17 @@
+require "yaml"
+
 namespace :luvfoo do
   namespace :i18n do
+
+    DEFAULT_LANGUAGE = 'en'
 
     desc 'Parse specified files defaults to all files, for unlocalized text. Extract text, write to a yml file'
     task :extract_strings do #TODO: default target = nil
 
       target_files = view_files
+
+      results = Hash.new
+      temp = Hash.new
       
       target_files.each do |file|
         scope = get_scope( file )
@@ -12,9 +19,16 @@ namespace :luvfoo do
         strings = parse_file( file )
 
         #unless strings is nil append to results
+        if !strings.nil?
+          for string in strings
+            results[string] = string
+          end
+        end
+
       end    
 
-      #dump results to screen or yaml file
+        yaml_string = YAML::dump( results )
+        puts yaml_string unless yaml_string.nil?
     end
         
     desc 'replace strings with keys'
@@ -23,7 +37,26 @@ namespace :luvfoo do
     end
 
     def parse_file( file )
+      results = []
+      File.open( file, 'r').each do | line |
+        message = contents( line )
+        results << message unless message.nil? 
+      end
+      return results          
+    end
 
+    #FIXME: Clean Up
+    def contents( text )
+      single_quotes = /\_\(\'([^']*)\'.*\)/.match(text)
+      double_quotes = /\_\(\"([^"]*)\".*\)/.match(text)
+      
+      if single_quotes
+        return single_quotes[1]
+      elsif double_quotes
+        return double_quotes[1]
+      else
+        return nil
+      end
     end
     
     def get_scope( file )
