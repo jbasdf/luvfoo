@@ -18,5 +18,5 @@ Kind Regards,
 										 :register_url => signup_url(:host=>GlobalConfig.application_url),
 										 :inviter_name =>h(@inviter.first_name), 
 										 :inviter_profile_url => profile_url(@inviter, :host=>GlobalConfig.application_url), 
-										 :staff_page_url => "http://teacherswithoutborders.org/who-we-are/twb-staff/", 
+										 :staff_page_url => "<%=GlobalConfig.website_home_url%>/who-we-are/twb-staff/", 
 										 :emailer_name => GlobalConfig.emailed_by} -%>
