@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => 'home', :action => 'home'
+#  map.root :controller => 'home', :action => 'home'
+
+  map.root :controller => 'home', :action => 'offline'
 
   # home
   map.with_options(:controller => 'home') do |home|

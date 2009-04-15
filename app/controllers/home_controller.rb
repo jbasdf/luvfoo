@@ -53,6 +53,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def offline
+    render :layout => false
+  end
+  
   private
 
   def allow_to 
