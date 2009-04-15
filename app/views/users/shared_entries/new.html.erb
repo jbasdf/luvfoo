@@ -52,7 +52,9 @@ friend_emails['<%= friend.id %>'] = '<%= friend.email %>';
 	<h1>
 	  <%= _('Share a Web Page') %>
 	  <%= button_to_function(_('Share It!'), "validate()", {:style=>"font-weight:bold;"}) %>
-	  <%= button_to_function(_('Go Back'), "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
+	  <% if @entry.permalink -%>
+      <%= button_to_function(_('Go Back'), "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
+    <% end -%>
 	</h1>
 
     <% if !@entry.permalink %>
@@ -87,10 +89,12 @@ friend_emails['<%= friend.id %>'] = '<%= friend.email %>';
         <input type="checkbox" name="share_to_view" />
         <%= _('Allow the groups and people I selected to <strong>view</strong> the document. (We verified that you published the document.)') %></p>
         <% else %>
-        <span  style="color:blue;font-weight:bold;"><%= _('Because you haven\'t published the document, only people you share it with in Google Docs will be able to access it.') %></span></p>
-        <p>
-        <%= button_to_function(_('Return to the Google doc to publish it'), "document.location='#{@entry.permalink}'") %> <%= _('(Choose <i>Publish as web page...</i> from the <i>Share</i> menu.)') %> 
-        </p>
+        <span style="color:blue;font-weight:bold;"><%= _('Because you haven\'t published the document, only people you share it with in Google Docs will be able to access it.') %></span></p>
+          <% if @entry.permalink -%>
+            <p>
+              <%= button_to_function(_('Return to the Google doc to publish it'), "document.location='#{@entry.permalink}'") %> <%= _('(Choose <i>Publish as web page...</i> from the <i>Share</i> menu.)') %> 
+            </p>
+          <% end -%>
         <% end %>
 	</div>
 	<div class="row">
@@ -116,7 +120,9 @@ friend_emails['<%= friend.id %>'] = '<%= friend.email %>';
 
 	<div class="row">
 	  <%= button_to_function(_('Share It!'), "validate()", {:style=>"font-weight:bold;"}) %>
-	  <%= button_to_function(_('Go Back'), "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
+	  <% if @entry.permalink -%>
+	    <%= button_to_function(_('Go Back'), "document.location='#{@entry.permalink}'", {:style=>"font-weight:bold;"}) %>
+	  <% end -%>
 	</div>
 <% end %>
 
