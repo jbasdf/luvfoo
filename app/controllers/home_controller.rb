@@ -54,7 +54,7 @@ class HomeController < ApplicationController
   end
 
   def offline
-    redirect_to 'phttp://www.teacherswithoutborders.org'
+    redirect_to 'http://pwww.teacherswithoutborders.org'
     #render :layout => false
   end
   
