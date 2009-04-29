@@ -1,7 +1,7 @@
 require "yaml"
 
 namespace :i18n do
-
+  
    LANGUAGE = 'en'
 
    desc 'Parse view files for gettext calls. Extract text, convert to suggested key value'
@@ -18,13 +18,13 @@ namespace :i18n do
     results = Hash.new
     
     files.each do |file|
-      string_hash = Hash.new
-     
       scope = get_scope( file )
 
       strings = parse_file( file )
 
-      if !strings.nil?
+      if !strings.nil? and !strings.empty?
+        string_hash = Hash.new
+     
         for string in strings
           string_hash[string] = string
         end
@@ -34,10 +34,9 @@ namespace :i18n do
           string_hash = Hash.new
           string_hash[ token ] = temp
         end
-
-        results = results.merge( string_hash ) 
-      end
-      
+        
+        results = hash_merge( results, string_hash )
+      end      
     end
 
     lang_hash = Hash.new
@@ -62,6 +61,22 @@ namespace :i18n do
     return results          
   end
 
+  def hash_merge( first, second )
+    return second if second.empty?
+
+    second.keys.each do |key|
+      if second[key].is_a?(Hash) and first[key].is_a?(Hash)
+        first[key] = hash_merge( first[key], second[key] )
+        next
+      end
+
+      first[key] = second[key]
+    end
+
+    first      
+  end
+  
+  
   #FIXME: Clean Up
   #FIXME: escape chars
   #FIXME: check for proper parsing
