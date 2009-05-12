@@ -3,7 +3,6 @@
 	<div class="activity_box">
 		<h2><%= sanitize news_item.title -%> <%= _('Posted by') + link_to(h(news_item.creator.login), profile_path(news_item.creator)) if news_item.creator %></h2>
 		<div class="left">
-			<img class="alignleft" src="<%= icon_url(news_item, {:size => :bigger, :file_column_version => :bigger }) -%>" />
 			<div class="standard-format">
 			  <%= process_body_content(news_item) %>
 			</div>

@@ -29,7 +29,8 @@
 					<li><%= link_to _('Member Stories'), admin_member_stories_path %></li>
 					<li><%= link_to _('Pages'), admin_pages_path %></li>
 					<li><%= link_to _('Permissions'), admin_roles_path %></li>
-					<li><%= link_to _('Settings'), edit_admin_site_path(global_site) %></li>		
+					<li><%= link_to _('Settings'), edit_admin_site_path(global_site) %></li>
+					<li><%= link_to _('Themes'), edit_admin_theme_path %></li>		
 				</ul>
 				<div id="log-out" class="right">
 				<% if logged_in? -%>

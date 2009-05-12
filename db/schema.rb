@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090307163458) do
+ActiveRecord::Schema.define(:version => 20090318002859) do
 
   create_table "bag_properties", :force => true do |t|
     t.integer "bag_id",                :default => 1
@@ -91,8 +91,6 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.integer  "contentable_id"
     t.string   "contentable_type"
     t.integer  "parent_id",        :default => 0
-    t.integer  "lft"
-    t.integer  "rgt"
   end
 
   create_table "content_pages", :force => true do |t|
@@ -106,10 +104,8 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.text     "body_raw"
     t.integer  "contentable_id"
     t.string   "contentable_type"
-    t.integer  "parent_id"
+    t.integer  "parent_id",        :default => 0, :null => false
     t.integer  "version"
-    t.integer  "lft"
-    t.integer  "rgt"
   end
 
   add_index "content_pages", ["parent_id"], :name => "index_content_pages_on_parent_id"
@@ -232,6 +228,10 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.integer  "visibility",                :default => 2
     t.boolean  "requires_approval_to_join", :default => false
     t.integer  "member_count"
+    t.integer  "icon_file_size"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.datetime "icon_updated_at"
   end
 
   add_index "groups", ["url_key"], :name => "index_groups_on_url_key"
@@ -266,22 +266,18 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
 
   create_table "logos", :force => true do |t|
     t.integer  "site_id"
-    t.integer  "parent_id"
     t.integer  "user_id"
-    t.integer  "size"
-    t.integer  "width"
-    t.integer  "height"
-    t.string   "content_type"
-    t.string   "filename"
-    t.string   "thumbnail"
+    t.integer  "image_file_size"
+    t.string   "image_content_type"
+    t.string   "image_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "image_updated_at"
   end
 
   add_index "logos", ["site_id"], :name => "index_logos_on_site_id"
-  add_index "logos", ["parent_id"], :name => "index_logos_on_parent_id"
   add_index "logos", ["user_id"], :name => "index_logos_on_user_id"
-  add_index "logos", ["content_type"], :name => "index_logos_on_content_type"
+  add_index "logos", ["image_content_type"], :name => "index_logos_on_content_type"
 
   create_table "membership_requests", :force => true do |t|
     t.integer  "group_id"
@@ -335,6 +331,10 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.string   "url_key"
     t.string   "icon"
     t.integer  "creator_id"
+    t.integer  "icon_file_size"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.datetime "icon_updated_at"
   end
 
   add_index "news_items", ["url_key"], :name => "index_news_items_on_url_key"
@@ -362,13 +362,16 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string   "caption",        :limit => 1000
+    t.string   "caption",            :limit => 1000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "photoable_id"
-    t.string   "image"
     t.string   "photoable_type"
     t.integer  "creator_id"
+    t.integer  "image_file_size"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.datetime "image_updated_at"
   end
 
   add_index "photos", ["photoable_id"], :name => "index_photos_on_user_id"
@@ -532,7 +535,7 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.integer  "user_id"
     t.string   "content_type"
     t.string   "name"
-    t.string   "caption",         :limit => 1000
+    t.string   "caption",           :limit => 1000
     t.text     "description"
     t.string   "filename"
     t.string   "thumbnail"
@@ -541,9 +544,13 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_public",                       :default => true
+    t.boolean  "is_public",                         :default => true
     t.integer  "uploadable_id"
     t.string   "uploadable_type"
+    t.integer  "data_file_size"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.datetime "data_updated_at"
   end
 
   add_index "uploads", ["parent_id"], :name => "index_uploads_on_parent_id"
@@ -605,6 +612,10 @@ ActiveRecord::Schema.define(:version => 20090307163458) do
     t.integer  "posts_count",                             :default => 0
     t.datetime "last_seen_at"
     t.string   "api_key"
+    t.integer  "icon_file_size"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.datetime "icon_updated_at"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login"
