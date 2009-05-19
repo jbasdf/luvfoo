@@ -1,4 +1,3 @@
-# -*- coding: undecided -*-
 require "yaml"
 
 namespace :i18n do
@@ -12,7 +11,7 @@ namespace :i18n do
 
     yaml_string = parse_files( target_files )
 
-    #puts yaml_string unless yaml_string.nil?
+    puts yaml_string unless yaml_string.nil?
   end
 
   def parse_files( files )
