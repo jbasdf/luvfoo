@@ -109,7 +109,7 @@ namespace :i18n do
   end
 
   def controller_files
-    get_files('app/controllerss', '**/*.{erb,builder}')
+    get_files('app/controllers', '**/*.{erb,builder}')
   end
 
   def model_files
