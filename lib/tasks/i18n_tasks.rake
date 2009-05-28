@@ -26,7 +26,8 @@ namespace :i18n do
         string_hash = Hash.new
      
         for string in strings
-          string_hash[string] = string
+          key = suggested_key( string )
+          string_hash[key] = string        
         end
 
         for token in scope.reverse
@@ -61,10 +62,24 @@ namespace :i18n do
     return results          
   end
 
-  def suggested_key( string )
-    
+  def suggested_key( key )
+    key.gsub!(/[\"\%\{\}\:\(\)]/, '')
+    key.gsub!(/&laquo;/, '')
+    key.gsub!(/&lt;/, '')
+    key.gsub!(/&gt;/, '')
+    key.lstrip!
+    key.downcase!
+    key = truncate_words( key )
+    key.gsub!(/\ /, '_' )
+  end
+
+  def truncate_words(text, length = 4, end_string = '')
+    return if text == nil
+    words = text.split()
+    words[0..(length-1)].join(' ') + (words.length > length ? end_string : '')
   end
   
+
   def hash_merge( first, second )
     return second if second.empty?
 
