@@ -61,6 +61,10 @@ namespace :i18n do
     return results          
   end
 
+  def suggested_key( string )
+    
+  end
+  
   def hash_merge( first, second )
     return second if second.empty?
 
@@ -95,11 +99,27 @@ namespace :i18n do
 
   def get_file_list
     view_files
+    controller_files
+    model_files
+    helper_files
   end
 
   def view_files
     get_files('app/views', '**/*.{erb,builder}')
   end
+
+  def controller_files
+    get_files('app/controllerss', '**/*.{erb,builder}')
+  end
+
+  def model_files
+    get_files('app/models', '**/*.{erb,builder}')
+  end
+
+  def helper_files
+    get_files('app/helpers', '**/*.{erb,builder}')
+  end
+
 
   def get_files(filter = '**', types='*.{erb,rb}')
     Dir.chdir(RAILS_ROOT)
